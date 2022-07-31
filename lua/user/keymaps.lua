@@ -26,7 +26,7 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Lazy git
-keymap("n", "<leader>c", ":LazyGit<cr>", opts)
+keymap("n", "<leader>q", ":LazyGit<cr>", opts)
 
 -- HTOP
 keymap("n", "<C-q>", ":lua _HTOP_TOGGLE()<cr>", opts)
