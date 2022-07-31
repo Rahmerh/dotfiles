@@ -23,6 +23,13 @@ require('nvim-lsp-setup').setup({
     -- Global on_attach
     on_attach = function(client, bufnr)
         require('nvim-lsp-setup.utils').format_on_save(client)
+        if client.name == "jdt.ls" then
+            vim.lsp.codelens.refresh()
+            require("jdtls").setup_dap { hotcodereplace = "auto" }
+            require("jdtls.dap").setup_dap_main_class_configs()
+            client.resolved_capabilities.document_formatting = false
+            client.resolved_capabilities.textDocument.completion.completionItem.snippetSupport = false
+        end
     end,
     -- Global capabilities
     capabilities = vim.lsp.protocol.make_client_capabilities(),
