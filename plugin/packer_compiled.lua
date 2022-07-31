@@ -204,11 +204,6 @@ _G.packer_plugins = {
     path = "/Users/bas/.local/share/nvim/site/pack/packer/start/nvim-jdtls",
     url = "https://github.com/mfussenegger/nvim-jdtls"
   },
-  ["nvim-lsp-setup"] = {
-    loaded = true,
-    path = "/Users/bas/.local/share/nvim/site/pack/packer/start/nvim-lsp-setup",
-    url = "https://github.com/junnplus/nvim-lsp-setup"
-  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/Users/bas/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",

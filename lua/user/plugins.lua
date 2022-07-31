@@ -83,14 +83,9 @@ return packer.startup(function(use)
 	})
 
     -- LSP
-    use {
-        'junnplus/nvim-lsp-setup',
-        requires = {
-            'neovim/nvim-lspconfig',
-            'williamboman/mason.nvim',
-            'williamboman/mason-lspconfig.nvim',
-        }
-    }
+    use 'neovim/nvim-lspconfig'
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
 
 	-- Treesitter
 	use({

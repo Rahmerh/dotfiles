@@ -13,7 +13,7 @@ local workspace_dir = '/Users/bas/.local/share/nvim/lsp_servers/jdtls/data/' .. 
 
 local bundles = {}
 
-vim.list_extend(bundles, vim.split(vim.fn.glob("Users/bas/.config/nvim/vscode-java-test/server/*.jar"), "\n"))
+-- vim.list_extend(bundles, vim.split(vim.fn.glob("Users/bas/.config/nvim/vscode-java-test/server/*.jar"), "\n"))
 vim.list_extend(
     bundles,
     vim.split(
