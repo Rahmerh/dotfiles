@@ -18,7 +18,9 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
--- Normal --
+-- Markdown
+keymap("n", "<C-m>", "<cmd>CocCommand markdown-preview-enhanced.openPreview<cr>", opts)
+
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -30,6 +32,7 @@ keymap("n", "<C-q>", ":lua _HTOP_TOGGLE()<cr>", opts)
 
 -- Nvimtree
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+keymap("n", "R", "<comd>NvimTreeRefresh<cr>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
@@ -42,7 +45,6 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Insert --
--- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
 
 -- Visual --
@@ -63,7 +65,6 @@ keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal --
--- Better terminal navigation
 keymap("n", "<C-/>", ":LazyGit<cr>", opts)
 keymap("n", "<C-\\>", "<cmd>FloatermToggle<cr>", opts)
 keymap("t", "<C-\\>", "<C-\\><C-N><cmd>FloatermToggle<cr>", opts)

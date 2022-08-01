@@ -44,13 +44,13 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim")
 	use("numToStr/Comment.nvim")
 	use("lewis6991/impatient.nvim")
-	use("lukas-reineke/indent-blankline.nvim")
 	use("goolord/alpha-nvim")
 	use("antoinemadec/FixCursorHold.nvim")
-	use("folke/which-key.nvim")
-    use 'voldikss/vim-floaterm'
+	use("voldikss/vim-floaterm")
 	use("nvim-lualine/lualine.nvim")
 	use("ahmedkhalf/project.nvim")
+	use("kkharji/sqlite.lua")
+    use("spinks/vim-leader-guide")
 
 	-- Color scheme(s)
 	use("EdenEast/nightfox.nvim")
@@ -73,16 +73,14 @@ return packer.startup(function(use)
 	use("rafamadriz/friendly-snippets")
 
 	-- Telescope
-	use({
-		"nvim-telescope/telescope.nvim",
-		requires = { { "nvim-lua/plenary.nvim" }, { "kdheepak/lazygit.nvim" } },
-		config = function()
-			require("telescope").load_extension("lazygit")
-		end,
-	})
+	use("nvim-telescope/telescope.nvim")
+	use("nvim-telescope/telescope-smart-history.nvim")
 
-    -- Coc
-    use {'neoclide/coc.nvim', branch = 'release'}
+    -- LSP
+    use 'neovim/nvim-lspconfig'
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
+    use 'lukas-reineke/lsp-format.nvim'
 
 	-- Treesitter
 	use({
@@ -107,8 +105,7 @@ return packer.startup(function(use)
 	})
 
 	-- Bufferline
-	use("akinsho/bufferline.nvim")
-	use("moll/vim-bbye")
+	use("noib3/nvim-cokeline")
 
 	-- Java
 	use({ "mfussenegger/nvim-jdtls", commit = "3a148dac526396678f141a033270961d0d9ccb88" })
