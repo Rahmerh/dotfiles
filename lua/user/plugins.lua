@@ -82,10 +82,8 @@ return packer.startup(function(use)
 		end,
 	})
 
-    -- LSP
-    use 'neovim/nvim-lspconfig'
-    use 'williamboman/mason.nvim'
-    use 'williamboman/mason-lspconfig.nvim'
+    -- Coc
+    use {'neoclide/coc.nvim', branch = 'release'}
 
 	-- Treesitter
 	use({
@@ -115,11 +113,6 @@ return packer.startup(function(use)
 
 	-- Java
 	use({ "mfussenegger/nvim-jdtls", commit = "3a148dac526396678f141a033270961d0d9ccb88" })
-
-    -- DAP
-    use { "mfussenegger/nvim-dap", commit = "014ebd53612cfd42ac8c131e6cec7c194572f21d" }
-    use { "rcarriga/nvim-dap-ui", commit = "d76d6594374fb54abf2d94d6a320f3fd6e9bb2f7" }
-    use { "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" }
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
