@@ -25,9 +25,6 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
--- Lazy git
-keymap("n", "<C-/>", ":LazyGit<cr>", opts)
-
 -- HTOP
 keymap("n", "<C-q>", ":lua _HTOP_TOGGLE()<cr>", opts)
 
@@ -67,7 +64,10 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal --
 -- Better terminal navigation
+keymap("n", "<C-/>", ":LazyGit<cr>", opts)
 keymap("n", "<C-\\>", "<cmd>FloatermToggle<cr>", opts)
+keymap("t", "<C-\\>", "<C-\\><C-N><cmd>FloatermToggle<cr>", opts)
+
 keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
