@@ -270,11 +270,6 @@ _G.packer_plugins = {
     path = "/Users/bas/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["toggleterm.nvim"] = {
-    loaded = true,
-    path = "/Users/bas/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
-    url = "https://github.com/akinsho/toggleterm.nvim"
-  },
   ["tokyonight.nvim"] = {
     loaded = true,
     path = "/Users/bas/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
@@ -284,6 +279,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/bas/.local/share/nvim/site/pack/packer/start/vim-bbye",
     url = "https://github.com/moll/vim-bbye"
+  },
+  ["vim-floaterm"] = {
+    loaded = true,
+    path = "/Users/bas/.local/share/nvim/site/pack/packer/start/vim-floaterm",
+    url = "https://github.com/voldikss/vim-floaterm"
   },
   ["vim-nightfly-guicolors"] = {
     loaded = true,

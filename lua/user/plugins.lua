@@ -49,7 +49,7 @@ return packer.startup(function(use)
 	use("goolord/alpha-nvim")
 	use("antoinemadec/FixCursorHold.nvim")
 	use("folke/which-key.nvim")
-	use("akinsho/toggleterm.nvim")
+    use 'voldikss/vim-floaterm'
 	use("nvim-lualine/lualine.nvim")
 	use("ahmedkhalf/project.nvim")
 

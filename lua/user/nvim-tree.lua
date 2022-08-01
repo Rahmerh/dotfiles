@@ -11,6 +11,7 @@ end
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup({
+    auto_reload_on_write = true,
 	disable_netrw = true,
 	hijack_netrw = true,
 	open_on_setup = false,
@@ -62,11 +63,12 @@ nvim_tree.setup({
 	},
 	git = {
 		enable = true,
-		ignore = true,
+		ignore = false,
 		timeout = 500,
 	},
 	view = {
-		width = 30,
+        adaptive_size = true,
+        width = 30,
 		height = 30,
 		hide_root_folder = false,
 		side = "left",
