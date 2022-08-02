@@ -26,7 +26,7 @@ dapui.setup {
                 "breakpoints",
                 "watches"
             },
-            size = 40, -- 40 columns
+            size = 40,
             position = "right",
         },
         {
@@ -34,25 +34,25 @@ dapui.setup {
                 "repl",
                 "console",
             },
-            size = 0.25, -- 25% of total lines
+            size = 0.25,
             position = "bottom",
         },
     },
     floating = {
-        max_height = nil, -- These can be integers or a float between 0 and 1.
-        max_width = nil, -- Floats will be treated as percentage of your screen.
-        border = "single", -- Border style. Can be "single", "double" or "rounded"
+        max_height = nil,
+        max_width = nil,
+        border = "single",
         mappings = {
             close = { "q", "<Esc>" },
         },
     },
     windows = { indent = 1 },
     render = {
-        max_type_length = nil, -- Can be integer or nil.
+        max_type_length = nil,
     },
 }
 
-vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "#000000", numhl = "" })
+vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
     dapui.open {}
