@@ -7,14 +7,6 @@ vim.cmd([[
     autocmd FileType qf set nobuflisted
   augroup end
 
-
-  " augroup _debugging
-  "   autocmd FileType java nnoremap <silent> <F5> <Cmd>lua require'dap'.continue()<CR> 
-  "   autocmd FileType java nnoremap <silent> <F10> <Cmd>lua require'dap'.step_over()<CR> 
-  "   autocmd FileType java nnoremap <silent> <F11> <Cmd>lua require'dap'.step_into()<CR> 
-  "   autocmd FileType java nnoremap <silent> <F5> <Cmd>lua require'dap'.continue()<CR> 
-  " augroup end
-
   augroup _git
     autocmd!
     autocmd FileType gitcommit setlocal wrap
