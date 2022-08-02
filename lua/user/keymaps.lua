@@ -75,21 +75,23 @@ keymap("n", "<leader>po", "<cmd>Telescope projects<cr>", opts)
 -- Tagbar
 keymap("n", "<leader>t", "<cmd>TagbarToggle<cr>", opts)
 
--- Diagnostics
-keymap("n", "<C-l>", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+-- Code actions
+keymap("n", "gi", "<cmd>Telescope lsp_implementations<cr>", opts)
+keymap("n", "gf", "<cmd>Telescope lsp_references<CR>", opts)
 keymap("n", "<C-.>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+keymap('n', '[d', "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
+keymap('n', ']d', "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
+keymap("n", "RR", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 
 -- Formatting
-keymap("n", "<leader>p", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
 keymap("n", "<leader>o", "<cmd>lua require'jdtls'.organize_imports()<cr>", opts)
-keymap("n", "RR", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 
 -- Debugging
 keymap("n", "<F5>", "<cmd>DapContinue<cr>", opts)
-keymap("n", "<F10>", "<cmd>DapStepOver<cr>", opts)
-keymap("n", "<F11>", "<cmd>DapStepInto<cr>", opts)
-keymap("n", "<S-F11>", "<cmd>DapStepOut<cr>", opts)
-keymap("n", "<S-F5>", "<cmd>DapTerminate<cr>", opts)
+keymap("n", "<F8>", "<cmd>DapStepOver<cr>", opts)
+keymap("n", "<F9>", "<cmd>DapStepInto<cr>", opts)
+keymap("n", "<F10>", "<cmd>DapStepOut<cr>", opts)
+keymap("n", "<F11>", "<cmd>DapTerminate<cr>", opts)
 keymap("n", "<C-b>", "<cmd>DapToggleBreakpoint<cr>", opts)
 keymap("n", "tn", "<cmd>lua require'jdtls'.test_nearest_method()<cr>", opts)
 keymap("n", "tc", "<cmd>lua require'jdtls'.test_class()<cr>", opts)
