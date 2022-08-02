@@ -49,23 +49,8 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Insert --
 keymap("i", "jk", "<ESC>", opts)
-
--- Visual --
--- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
-
--- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-keymap("v", "p", '"_dP', opts)
-
--- Visual Block --
--- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal --
 keymap("n", "<C-/>", ":LazyGit<cr>", opts)
@@ -90,5 +75,20 @@ keymap("n", "<leader>po", "<cmd>Telescope projects<cr>", opts)
 -- Tagbar
 keymap("n", "<leader>t", "<cmd>TagbarToggle<cr>", opts)
 
+-- Diagnostics
+keymap("n", "<C-l>", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+keymap("n", "<C-.>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+
 -- Formatting
 keymap("n", "<leader>p", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
+keymap("n", "<leader>o", "<cmd>lua require'jdtls'.organize_imports()<cr>", opts)
+
+-- Debugging
+keymap("n", "<F5>", "<cmd>:DapContinue<cr>", opts)
+keymap("n", "<F10>", "<cmd>:DapStepOver<cr>", opts)
+keymap("n", "<F11>", "<cmd>:DapStepInto<cr>", opts)
+keymap("n", "<S-F11>", "<cmd>:DapStepOut<cr>", opts)
+keymap("n", "<S-F5>", "<cmd>:DapTerminate<cr>", opts)
+keymap("n", "<leader>b", "<cmd>:DapToggleBreakpoint<cr>", opts)
+keymap("n", "tn", "<cmd>lua require'jdtls'.test_nearest_method()<cr>", opts)
+keymap("n", "tc", "<cmd>lua require'jdtls'.test_class()<cr>", opts)
