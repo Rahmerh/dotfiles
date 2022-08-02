@@ -82,6 +82,7 @@ keymap("n", "<C-.>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 -- Formatting
 keymap("n", "<leader>p", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
 keymap("n", "<leader>o", "<cmd>lua require'jdtls'.organize_imports()<cr>", opts)
+keymap("n", "RR", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 
 -- Debugging
 keymap("n", "<F5>", "<cmd>DapContinue<cr>", opts)
