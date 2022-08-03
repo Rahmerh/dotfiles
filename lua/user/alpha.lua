@@ -61,6 +61,17 @@ local mru_opts = {
     end,
 }
 
+local function split_on_delimiter(inputstr, sep)
+    if sep == nil then
+        sep = "%s"
+    end
+    local t = {}
+    for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
+        table.insert(t, str)
+    end
+    return t
+end
+
 --- @param start number
 --- @param cwd string optional
 --- @param items_number number optional number of items to generate, default = 10
@@ -86,22 +97,22 @@ local function mru(start, cwd, items_number, opts)
     end
 
     local special_shortcuts = { 'a', 's', 'd' }
-    local target_width = 35
+    local target_width = 20
 
     local tbl = {}
     for i, fn in ipairs(oldfiles) do
-        local short_fn
-        if cwd then
-            short_fn = vim.fn.fnamemodify(fn, ":.")
-        else
-            short_fn = vim.fn.fnamemodify(fn, ":~")
-        end
 
-        if (#short_fn > target_width) then
-            short_fn = path.new(short_fn):shorten(1, { -2, -1 })
-            if (#short_fn > target_width) then
-                short_fn = path.new(short_fn):shorten(1, { -1 })
-            end
+        local file_path = split_on_delimiter(fn, "/")
+        local file_name = file_path[#(file_path)]
+
+        if (#file_name > target_width) then
+            local difference = target_width - #file_name
+            local sub_str_offset = ((target_width - difference) / 2) - 3
+
+            local first_part = string.sub(file_name, 0, sub_str_offset)
+            local last_part = string.sub(file_name, file_name:len() - sub_str_offset, file_name:len())
+            local shortened_file_name = first_part .. "..." .. last_part
+            file_name = shortened_file_name
         end
 
         local shortcut = ""
@@ -111,7 +122,7 @@ local function mru(start, cwd, items_number, opts)
             shortcut = tostring(i + start - 1 - #special_shortcuts)
         end
 
-        local file_button_el = file_button(fn, " " .. shortcut, short_fn)
+        local file_button_el = file_button(fn, " " .. shortcut, file_name)
         tbl[i] = file_button_el
     end
     return {
@@ -197,16 +208,18 @@ local section_mru = {
     }
 }
 
+local icons = require "user.icons"
+
 local buttons = {
     type = "group",
     val = {
         { type = "text", val = "Quick links", opts = { hl = "SpecialComment", position = "center" } },
         { type = "padding", val = 1 },
-        dashboard.button("f", "  Find file", ":Telescope find_files <cr>"),
-        dashboard.button("F", "  Find text", ":Telescope live_grep <cr>"),
-        dashboard.button("p", "  Recent projects", ":Telescope projects <cr>"),
-        dashboard.button("c", "  Configuration", ":e ~/.config/nvim/init.lua <cr>"),
-        dashboard.button("q", "  Quit", ":qa<CR>"),
+        dashboard.button("f", icons.documents.SearchFile .. "  Find file", ":Telescope find_files <cr>"),
+        dashboard.button("F", icons.documents.Textbox .. "  Find text", ":Telescope live_grep <cr>"),
+        dashboard.button("p", icons.documents.OpenFolder .. "  Recent projects", ":Telescope projects <cr>"),
+        dashboard.button("c", icons.ui.Gears .. "  Configuration", ":e ~/.config/nvim/init.lua <cr>"),
+        dashboard.button("q", icons.ui.Close .. "  Quit", ":qa<CR>"),
     },
     position = "center",
 }

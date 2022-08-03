@@ -8,9 +8,11 @@ if not dap_ui_status_ok then
     return
 end
 
+local icons = require "user.icons"
+
 -- dapui.setup()
 dapui.setup {
-    icons = { expanded = "▾", collapsed = "▸" },
+    icons = { expanded = icons.ui.FatArrowOpen, collapsed = icons.ui.FatArrowClosed },
     mappings = {
         expand = { "<CR>", "<2-LeftMouse>" },
         open = "o",
@@ -52,7 +54,8 @@ dapui.setup {
     },
 }
 
-vim.fn.sign_define("DapBreakpoint", { text = " ", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpoint",
+    { text = " " .. icons.debugging.Breakpoint, texthl = "DiagnosticSignError", linehl = "", numhl = "" })
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
     dapui.open {}

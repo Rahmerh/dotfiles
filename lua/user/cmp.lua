@@ -15,34 +15,7 @@ local check_backspace = function()
     return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 end
 
---   פּ ﯟ   some other good icons
-local kind_icons = {
-    Text = "",
-    Method = "m",
-    Function = "",
-    Constructor = "",
-    Field = "",
-    Variable = "",
-    Class = "",
-    Interface = "",
-    Module = "",
-    Property = "",
-    Unit = "",
-    Value = "",
-    Enum = "",
-    Keyword = "",
-    Snippet = "",
-    Color = "",
-    File = "",
-    Reference = "",
-    Folder = "",
-    EnumMember = "",
-    Constant = "",
-    Struct = "",
-    Event = "",
-    Operator = "",
-    TypeParameter = "",
-}
+local icons = require "user.icons"
 
 cmp.setup({
     snippet = {
@@ -96,7 +69,7 @@ cmp.setup({
     formatting = {
         fields = { "kind", "abbr", "menu" },
         format = function(entry, vim_item)
-            vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+            vim_item.kind = string.format("%s", icons.kind[vim_item.kind])
             vim_item.menu = ({
                 nvim_lsp = "[LSP]",
                 buffer = "[Buffer]",

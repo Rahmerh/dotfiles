@@ -1,12 +1,10 @@
 local get_hex = require("cokeline/utils").get_hex
 local mappings = require("cokeline/mappings")
 
-local comments_fg = "#004b84"
-local errors_fg = "#ff0000"
-local warnings_fg = "#836d00"
-
+local blue = "#004b84"
 local red = "#ff0000"
-local yellow = "#vimterminal_color"
+local yellow = "#fdd93d"
+local white = "#e1e2e2"
 
 local components = {
     space = {
@@ -48,7 +46,7 @@ local components = {
         text = function(buffer)
             return buffer.unique_prefix
         end,
-        fg = comments_fg,
+        fg = blue,
         style = "italic",
         truncation = {
             priority = 3,
@@ -78,8 +76,8 @@ local components = {
                 or ""
         end,
         fg = function(buffer)
-            return (buffer.diagnostics.errors ~= 0 and errors_fg)
-                or (buffer.diagnostics.warnings ~= 0 and warnings_fg)
+            return (buffer.diagnostics.errors ~= 0 and red)
+                or (buffer.diagnostics.warnings ~= 0 and yellow)
                 or nil
         end,
         truncation = { priority = 1 },
@@ -89,7 +87,7 @@ local components = {
             return buffer.is_modified and "●" or ""
         end,
         fg = function(buffer)
-            return buffer.is_modified and green or nil
+            return buffer.is_modified and white or nil
         end,
         delete_buffer_on_left_click = true,
         truncation = { priority = 1 },
