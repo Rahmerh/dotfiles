@@ -44,8 +44,11 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-l>", "<cmd>bnext<cr>", opts)
+keymap("n", "<S-h>", "<cmd>bprevious<cr>", opts)
+keymap("n", "Q", "<cmd>Bdelete this<cr>", opts)
+keymap("n", "QO", "<cmd>Bdelete other<cr>", opts)
+keymap("n", "QQ", "<cmd>Bdelete all<cr>", opts)
 
 -- Insert --
 keymap("i", "jk", "<ESC>", opts)
@@ -82,6 +85,7 @@ keymap("n", "<C-.>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 keymap('n', '[d', "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
 keymap('n', ']d', "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
 keymap("n", "RR", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+keymap("n", "<C-l>", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 
 -- Formatting
 keymap("n", "<leader>o", "<cmd>lua require'jdtls'.organize_imports()<cr>", opts)
@@ -95,3 +99,4 @@ keymap("n", "<F11>", "<cmd>DapTerminate<cr>", opts)
 keymap("n", "<C-b>", "<cmd>DapToggleBreakpoint<cr>", opts)
 keymap("n", "tn", "<cmd>lua require'jdtls'.test_nearest_method()<cr>", opts)
 keymap("n", "tc", "<cmd>lua require'jdtls'.test_class()<cr>", opts)
+keymap("n", "tl", "<cmd>DapToggleRepl<cr>", opts)

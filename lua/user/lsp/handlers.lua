@@ -94,7 +94,6 @@ local function lsp_keymaps(bufnr)
     local opts = { noremap = true, silent = true }
     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-l>", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format({ async = true })' ]]
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<M-f>", "<cmd>Format<cr>", opts)

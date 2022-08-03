@@ -115,6 +115,10 @@ return packer.startup(function(use)
 
     -- Bufferline
     use("noib3/nvim-cokeline")
+    use("Asheq/close-buffers.vim")
+
+    -- Helm
+    use("towolf/vim-helm")
 
     -- Java
     use({ "mfussenegger/nvim-jdtls", commit = "3a148dac526396678f141a033270961d0d9ccb88" })

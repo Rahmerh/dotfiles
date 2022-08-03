@@ -202,9 +202,10 @@ local buttons = {
     val = {
         { type = "text", val = "Quick links", opts = { hl = "SpecialComment", position = "center" } },
         { type = "padding", val = 1 },
-        dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
-        dashboard.button("F", "  Find text", ":Telescope live_grep <CR>"),
-        dashboard.button("c", "  Configuration", ":e ~/.config/nvim/init.lua <CR>"),
+        dashboard.button("f", "  Find file", ":Telescope find_files <cr>"),
+        dashboard.button("F", "  Find text", ":Telescope live_grep <cr>"),
+        dashboard.button("p", "  Recent projects", ":Telescope projects <cr>"),
+        dashboard.button("c", "  Configuration", ":e ~/.config/nvim/init.lua <cr>"),
         dashboard.button("q", "  Quit", ":qa<CR>"),
     },
     position = "center",
