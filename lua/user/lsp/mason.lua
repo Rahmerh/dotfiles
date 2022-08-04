@@ -13,6 +13,12 @@ local servers = {
     "jsonls",
     "sumneko_lua",
     "lemminx",
+    "cssls",
+    "cssmodules_ls",
+    "yamlls",
+    "eslint",
+    "tsserver",
+    -- "angular-language-server"
 }
 
 local settings = {

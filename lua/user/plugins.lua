@@ -76,6 +76,7 @@ return packer.startup(function(use)
     -- Telescope
     use("nvim-telescope/telescope.nvim")
     use("nvim-telescope/telescope-smart-history.nvim")
+    use("nvim-telescope/telescope-media-files.nvim")
 
     -- LSP
     use 'neovim/nvim-lspconfig'
@@ -99,6 +100,7 @@ return packer.startup(function(use)
     use("p00f/nvim-ts-rainbow")
     use("JoosepAlviste/nvim-ts-context-commentstring")
     use("preservim/tagbar")
+    use("nvim-treesitter/nvim-treesitter-angular")
 
     -- Git
     use("lewis6991/gitsigns.nvim")
@@ -127,6 +129,13 @@ return packer.startup(function(use)
     use "theHamsta/nvim-dap-virtual-text"
     use "Pocco81/DAPInstall.nvim"
 
+    -- Web dev
+    use("peitalin/vim-jsx-typescript")
+    use("MaxMEllon/vim-jsx-pretty")
+    use("pangloss/vim-javascript")
+    use("leafgarland/typescript-vim")
+    use("lvimuser/lsp-inlayhints.nvim")
+    use("MunifTanjim/eslint.nvim")
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

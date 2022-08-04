@@ -22,22 +22,8 @@ M.setup = function()
     end
 
     local config = {
-        -- disable virtual text
         virtual_lines = false,
         virtual_text = false,
-        -- virtual_text = {
-        --   -- spacing = 7,
-        --   -- update_in_insert = false,
-        --   -- severity_sort = true,
-        --   -- prefix = "<-",
-        --   prefix = " ●",
-        --   source = "if_many", -- Or "always"
-        --   -- format = function(diag)
-        --   --   return diag.message .. "blah"
-        --   -- end,
-        -- },
-
-        -- show signs
         signs = {
             active = signs,
         },
@@ -48,11 +34,9 @@ M.setup = function()
             focusable = true,
             style = "minimal",
             border = "rounded",
-            -- border = {"▄","▄","▄","█","▀","▀","▀","█"},
             source = "if_many", -- Or "always"
             header = "",
             prefix = "",
-            -- width = 40,
         },
     }
 
@@ -60,25 +44,19 @@ M.setup = function()
 
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
         border = "rounded",
-        -- width = 60,
-        -- height = 30,
     })
 
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
         border = "rounded",
-        -- width = 60,
-        -- height = 30,
     })
 end
 
 local function lsp_highlight_document(client)
-    -- if client.server_capabilities.document_highlight then
     local status_ok, illuminate = pcall(require, "illuminate")
     if not status_ok then
         return
     end
     illuminate.on_attach(client)
-    -- end
 end
 
 local function attach_navic(client, bufnr)
@@ -92,8 +70,6 @@ end
 
 local function lsp_keymaps(bufnr)
     local opts = { noremap = true, silent = true }
-    -- vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
-    -- vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
     vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format({ async = true })' ]]
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<M-f>", "<cmd>Format<cr>", opts)
