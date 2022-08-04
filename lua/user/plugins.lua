@@ -51,6 +51,7 @@ return packer.startup(function(use)
     use("ahmedkhalf/project.nvim")
     use("kkharji/sqlite.lua")
     use("spinks/vim-leader-guide")
+    use("neovim/pynvim")
 
     -- Color scheme(s)
     use("EdenEast/nightfox.nvim")
@@ -59,15 +60,14 @@ return packer.startup(function(use)
     use("kyazdani42/blue-moon")
     use("sainnhe/sonokai")
 
-    -- Auto completion
-    use("hrsh7th/nvim-cmp")
-    use("hrsh7th/cmp-buffer")
-    use("hrsh7th/cmp-path")
-    use("hrsh7th/cmp-cmdline")
-    use("saadparwaiz1/cmp_luasnip")
-    use("hrsh7th/cmp-nvim-lsp")
-    use("hrsh7th/cmp-nvim-lua")
-    use("windwp/nvim-autopairs")
+    -- Debugger
+    use("puremourning/vimspector")
+    use("ycm-core/YouCompleteMe")
+
+    -- Coc
+    use({
+        "neoclide/coc.nvim",
+        branch = "release"})
 
     -- Snippets
     use("L3MON4D3/LuaSnip")
@@ -77,12 +77,6 @@ return packer.startup(function(use)
     use("nvim-telescope/telescope.nvim")
     use("nvim-telescope/telescope-smart-history.nvim")
     use("nvim-telescope/telescope-media-files.nvim")
-
-    -- LSP
-    use 'neovim/nvim-lspconfig'
-    use 'williamboman/mason.nvim'
-    use 'williamboman/mason-lspconfig.nvim'
-    use 'lukas-reineke/lsp-format.nvim'
 
     -- Hop
     use {
@@ -123,19 +117,6 @@ return packer.startup(function(use)
     use("towolf/vim-helm")
 
     -- Java
-    use({ "mfussenegger/nvim-jdtls", commit = "3a148dac526396678f141a033270961d0d9ccb88" })
-    use "mfussenegger/nvim-dap"
-    use "rcarriga/nvim-dap-ui"
-    use "theHamsta/nvim-dap-virtual-text"
-    use "Pocco81/DAPInstall.nvim"
-
-    -- Web dev
-    use("peitalin/vim-jsx-typescript")
-    use("MaxMEllon/vim-jsx-pretty")
-    use("pangloss/vim-javascript")
-    use("leafgarland/typescript-vim")
-    use("lvimuser/lsp-inlayhints.nvim")
-    use("MunifTanjim/eslint.nvim")
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
