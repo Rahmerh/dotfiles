@@ -62,7 +62,6 @@ return packer.startup(function(use)
 
     -- Debugger
     use("puremourning/vimspector")
-    use("ycm-core/YouCompleteMe")
 
     -- Coc
     use({

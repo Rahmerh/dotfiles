@@ -51,7 +51,6 @@ keymap("n", "QO", "<cmd>Bdelete other<cr>", opts)
 keymap("n", "QQ", "<cmd>Bdelete all<cr>", opts)
 
 -- Insert --
-keymap("i", "jk", "<ESC>", opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
@@ -78,25 +77,14 @@ keymap("n", "<leader>po", "<cmd>Telescope projects<cr>", opts)
 -- Tagbar
 keymap("n", "<leader>t", "<cmd>TagbarToggle<cr>", opts)
 
--- Code actions
-keymap("n", "gi", "<cmd>Telescope lsp_implementations<cr>", opts)
-keymap("n", "gf", "<cmd>Telescope lsp_references<CR>", opts)
-keymap("n", "<C-.>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-keymap('n', '[d', "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
-keymap('n', ']d', "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
-keymap("n", "RR", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-keymap("n", "<C-l>", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-
 -- Formatting
 keymap("n", "<leader>o", "<cmd>lua require'jdtls'.organize_imports()<cr>", opts)
 
--- Debugging
-keymap("n", "<F5>", "<cmd>DapContinue<cr>", opts)
-keymap("n", "<F8>", "<cmd>DapStepOver<cr>", opts)
-keymap("n", "<F9>", "<cmd>DapStepInto<cr>", opts)
-keymap("n", "<F10>", "<cmd>DapStepOut<cr>", opts)
-keymap("n", "<F11>", "<cmd>DapTerminate<cr>", opts)
-keymap("n", "<C-b>", "<cmd>DapToggleBreakpoint<cr>", opts)
-keymap("n", "tn", "<cmd>lua require'jdtls'.test_nearest_method()<cr>", opts)
-keymap("n", "tc", "<cmd>lua require'jdtls'.test_class()<cr>", opts)
-keymap("n", "tl", "<cmd>DapToggleRepl<cr>", opts)
+-- -- Debugging
+keymap("n", "<C-b>", "<cmd>call vimspector#ToggleBreakpoint()<cr>", opts)
+keymap("n", "<F5>", "<cmd>call vimspector#Continue()<cr>", opts)
+keymap("n", "<F10>", "<cmd>call vimspector#StepOver()<cr>", opts)
+keymap("n", "<F11>", "<cmd>call vimspector#StepInto()<cr>", opts)
+keymap("n", "<S-F11>", "<cmd>call vimspector#StepOut()<cr>", opts)
+keymap("n", "dq", "<cmd>VimspectorReset<cr>", opts)
+keymap("n", "<F2>", "<cmd>FloatermNew --autoclose=2 --silent mvn -Dmaven.surefire.debug test<cr>", opts)
