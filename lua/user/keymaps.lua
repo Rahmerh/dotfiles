@@ -49,6 +49,7 @@ keymap("n", "<S-h>", "<cmd>bprevious<cr>", opts)
 keymap("n", "Q", "<cmd>Bdelete this<cr>", opts)
 keymap("n", "QO", "<cmd>Bdelete other<cr>", opts)
 keymap("n", "QQ", "<cmd>Bdelete all<cr>", opts)
+keymap("n", "<C-t>", "<cmd>JABSOpen<cr>", opts)
 
 -- Insert --
 keymap("v", "<", "<gv", opts)
@@ -66,10 +67,10 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Telescope
 keymap(
-    "n",
-    "<leader>f",
-    "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown())<cr>",
-    opts
+	"n",
+	"<leader>f",
+	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown())<cr>",
+	opts
 )
 keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>po", "<cmd>Telescope projects<cr>", opts)
@@ -78,7 +79,7 @@ keymap("n", "<leader>po", "<cmd>Telescope projects<cr>", opts)
 keymap("n", "<leader>t", "<cmd>TagbarToggle<cr>", opts)
 
 -- Formatting
-keymap("n", "<leader>o", "<cmd>lua require'jdtls'.organize_imports()<cr>", opts)
+keymap("n", "<leader>o", "<cmd>CocCommand java.action.organizeImports<cr>", opts)
 
 -- -- Debugging
 keymap("n", "<C-b>", "<cmd>call vimspector#ToggleBreakpoint()<cr>", opts)

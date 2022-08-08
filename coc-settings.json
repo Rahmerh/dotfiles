@@ -1,3 +1,8 @@
 {
-    "coc.preferences.formatOnSaveFiletypes":  ["*"]
+    "coc.preferences.formatOnSaveFiletypes": [
+        "*"
+    ],
+    "stylua.styluaPath": "/opt/homebrew/bin/stylua",
+    "git.changedSign.text": "┃",
+    "git.addedSign.text": "┃"
 }
