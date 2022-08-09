@@ -81,7 +81,10 @@ keymap("n", "<leader>t", "<cmd>TagbarToggle<cr>", opts)
 -- Formatting
 keymap("n", "<leader>o", "<cmd>CocCommand java.action.organizeImports<cr>", opts)
 
--- -- Debugging
+-- Coc
+keymap("n", "<C-space>", "<cmd>CodeActionMenu<cr>", opts)
+
+-- Debugging
 keymap("n", "<C-b>", "<cmd>call vimspector#ToggleBreakpoint()<cr>", opts)
 keymap("n", "<F5>", "<cmd>call vimspector#Continue()<cr>", opts)
 keymap("n", "<F10>", "<cmd>call vimspector#StepOver()<cr>", opts)

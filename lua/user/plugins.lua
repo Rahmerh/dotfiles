@@ -64,6 +64,14 @@ return packer.startup(function(use)
 		"neoclide/coc.nvim",
 		branch = "release",
 	})
+	use({
+		"weilbith/nvim-code-action-menu",
+		after = "coc.nvim",
+		requires = "xiyaowong/coc-code-action-menu.nvim",
+		config = function()
+			require("coc-code-action-menu")
+		end,
+	})
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
