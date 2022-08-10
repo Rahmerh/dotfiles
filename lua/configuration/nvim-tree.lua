@@ -9,7 +9,7 @@ if not config_status_ok then
 end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
-local icons = require("user.icons")
+local icons = require("core.icons")
 
 nvim_tree.setup({
 	auto_reload_on_write = true,

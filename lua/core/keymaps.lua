@@ -1,7 +1,6 @@
 local m = require("mapx").setup({ global = true, whichkey = true })
 
 local opts = { noremap = true, silent = true }
-local term_opts = { silent = true }
 
 --Remap space as leader key
 m.nnoremap("", "<Space>", "<Nop>", "silent")
@@ -17,6 +16,9 @@ m.nnoremap("<C-h>", "<C-w>h", "silent")
 m.nnoremap("<C-j>", "<C-w>j", "silent")
 m.nnoremap("<C-k>", "<C-w>k", "silent")
 m.nnoremap("<C-l>", "<C-w>l", "silent")
+
+-- Cheatsheet
+m.nnoremap("<C-c>", "<cmd>Cheatsheet<cr>", "silent")
 
 -- HTOP
 m.nnoremap("<C-q>", ":lua _HTOP_TOGGLE()<cr>", "silent")
@@ -34,35 +36,23 @@ m.nnoremap("<C-Down>", ":resize -2<CR>", "silent")
 m.nnoremap("<C-Left>", ":vertical resize -2<CR>", "silent")
 m.nnoremap("<C-Right>", ":vertical resize +2<CR>", "silent")
 
--- Navigate buffers
+-- Buffers
 m.nnoremap("<S-l>", "<cmd>CybuNext<cr>", "silent")
 m.nnoremap("<S-h>", "<cmd>CybuPrev<cr>", "silent")
 m.nnoremap("<Tab-l>", "<cmd>CybuLastUsedNext<cr>", "silent")
 m.nnoremap("<Tab-h>", "<cmd>CybuLastUsedPrev<cr>", "silent")
-m.nnoremap("Q", "<cmd>Bdelete this<cr>", "silent")
-m.nnoremap("QO", "<cmd>Bdelete other<cr>", "silent")
-m.nnoremap("QQ", "<cmd>Bdelete all<cr>", "silent")
-m.nnoremap("<C-t>", "<cmd>JABSOpen<cr>", "silent")
-
--- Insert --
-m.vnoremap("<", "<gv", "silent")
-m.vnoremap(">", ">gv", "silent")
+m.nnoremap("Q", "<cmd>Bdelete<cr>", "silent")
 
 -- Terminal --
-m.nnoremap("<C-/>", ":LazyGit<cr>", "silent")
+m.nnoremap("<C-/>", "<cmd>LazyGit<cr>", "silent")
 m.nnoremap("<C-\\>", "<cmd>FloatermToggle<cr>", "silent")
 m.tnoremap("<C-\\>", "<C-\\><C-N><cmd>FloatermToggle<cr>", "silent")
-
-m.tnoremap("<C-h>", "<C-\\><C-N><C-w>h", "silent")
-m.tnoremap("<C-j>", "<C-\\><C-N><C-w>j", "silent")
-m.tnoremap("<C-k>", "<C-\\><C-N><C-w>k", "silent")
-m.tnoremap("<C-l>", "<C-\\><C-N><C-w>l", "silent")
 
 -- Telescope
 m.nnoremap(
 	"<leader>f",
 	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown())<cr>",
-	opts
+	"silent"
 )
 m.nnoremap("<leader>g", "<cmd>Telescope live_grep<cr>", "silent")
 m.nnoremap("<leader>po", "<cmd>Telescope projects<cr>", "silent")
@@ -83,4 +73,4 @@ m.nnoremap("<F10>", "<cmd>call vimspector#StepOver()<cr>", "silent")
 m.nnoremap("<F11>", "<cmd>call vimspector#StepInto()<cr>", "silent")
 m.nnoremap("<S-F11>", "<cmd>call vimspector#StepOut()<cr>", "silent")
 m.nnoremap("dq", "<cmd>VimspectorReset<cr>", "silent")
-m.nnoremap("<F2>", "<cmd>FloatermNew --autoclose=2 --silent mvn -Dmaven.surefire.debug test<cr>", opts)
+m.nnoremap("<F2>", "<cmd>FloatermNew --autoclose=0 --silent mvn -Dmaven.surefire.debug test<cr>", "silent")

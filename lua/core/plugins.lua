@@ -1,5 +1,4 @@
 local fn = vim.fn
--- Automatically install packer local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
 	PACKER_BOOTSTRAP = fn.system({
@@ -14,7 +13,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	vim.cmd([[packadd packer.nvim]])
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.cmd([[
   augroup packer_user_config
     autocmd!
@@ -22,13 +20,11 @@ vim.cmd([[
   augroup end
 ]])
 
--- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
 	return
 end
 
--- Have packer use a popup window
 packer.init({
 	display = {
 		open_fn = function()
@@ -42,7 +38,6 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 	use("nvim-lua/popup.nvim")
 	use("nvim-lua/plenary.nvim")
-	use("numToStr/Comment.nvim")
 	use("lewis6991/impatient.nvim")
 	use("goolord/alpha-nvim")
 	use("antoinemadec/FixCursorHold.nvim")
@@ -52,6 +47,8 @@ return packer.startup(function(use)
 	use("kkharji/sqlite.lua")
 	use("spinks/vim-leader-guide")
 	use("neovim/pynvim")
+	use("sudormrfbin/cheatsheet.nvim")
+	use("xiyaowong/link-visitor.nvim")
 
 	-- Keymappings
 	use("b0o/mapx.nvim")
@@ -110,20 +107,17 @@ return packer.startup(function(use)
 		"kyazdani42/nvim-tree.lua",
 		tag = "nightly",
 	})
+	use("jghauser/mkdir.nvim")
 
 	-- All about buffers
 	use("noib3/nvim-cokeline")
-	use("Asheq/close-buffers.vim")
+	use("famiu/bufdelete.nvim")
 	use({
 		"ghillb/cybu.nvim",
 		branch = "main",
 	})
-	use({
-		"sitiom/nvim-numbertoggle",
-		config = function()
-			require("numbertoggle").setup()
-		end,
-	})
+	use("nkakouros-original/numbers.nvim")
+	use("numToStr/Comment.nvim")
 
 	-- Helm
 	use("towolf/vim-helm")
