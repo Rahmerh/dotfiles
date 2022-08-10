@@ -42,9 +42,7 @@ return packer.startup(function(use)
 	use("goolord/alpha-nvim")
 	use("antoinemadec/FixCursorHold.nvim")
 	use("voldikss/vim-floaterm")
-	use("nvim-lualine/lualine.nvim")
 	use("ahmedkhalf/project.nvim")
-	use("kkharji/sqlite.lua")
 	use("spinks/vim-leader-guide")
 	use("neovim/pynvim")
 	use("sudormrfbin/cheatsheet.nvim")
@@ -56,6 +54,7 @@ return packer.startup(function(use)
 
 	-- Color scheme(s)
 	use("sainnhe/sonokai")
+	use("rebelot/kanagawa.nvim")
 
 	-- Debugger
 	use("puremourning/vimspector")
@@ -78,6 +77,8 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope.nvim")
 	use("nvim-telescope/telescope-smart-history.nvim")
 	use("nvim-telescope/telescope-media-files.nvim")
+	use("AckslD/nvim-neoclip.lua")
+	use("kkharji/sqlite.lua")
 
 	-- Hop
 	use({
@@ -95,19 +96,17 @@ return packer.startup(function(use)
 	})
 	use("p00f/nvim-ts-rainbow")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
-	use("preservim/tagbar")
 	use("nvim-treesitter/nvim-treesitter-angular")
 
 	-- Git
 	use("kdheepak/lazygit.nvim")
 
-	-- Nvimtree
+	-- File explorer
 	use("kyazdani42/nvim-web-devicons")
 	use({
 		"kyazdani42/nvim-tree.lua",
 		tag = "nightly",
 	})
-	use("jghauser/mkdir.nvim")
 
 	-- All about buffers
 	use("noib3/nvim-cokeline")
@@ -118,6 +117,12 @@ return packer.startup(function(use)
 	})
 	use("nkakouros-original/numbers.nvim")
 	use("numToStr/Comment.nvim")
+	use({
+		"tamton-aquib/staline.nvim",
+		config = function()
+			require("staline").setup()
+		end,
+	})
 
 	-- Helm
 	use("towolf/vim-helm")

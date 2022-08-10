@@ -26,7 +26,7 @@ m.nnoremap("<C-q>", ":lua _HTOP_TOGGLE()<cr>", "silent")
 -- Hop
 m.nnoremap("<C-g>", "<cmd>HopWord<cr>", "silent")
 
--- Nvimtree
+-- File explorer
 m.nnoremap("<leader>e", ":NvimTreeToggle<cr>", "silent")
 m.nnoremap("R", "<comd>NvimTreeRefresh<cr>", "silent")
 
@@ -43,12 +43,12 @@ m.nnoremap("<Tab-l>", "<cmd>CybuLastUsedNext<cr>", "silent")
 m.nnoremap("<Tab-h>", "<cmd>CybuLastUsedPrev<cr>", "silent")
 m.nnoremap("Q", "<cmd>Bdelete<cr>", "silent")
 
--- Terminal --
+-- Terminal
 m.nnoremap("<C-/>", "<cmd>LazyGit<cr>", "silent")
 m.nnoremap("<C-\\>", "<cmd>FloatermToggle<cr>", "silent")
 m.tnoremap("<C-\\>", "<C-\\><C-N><cmd>FloatermToggle<cr>", "silent")
 
--- Telescope
+-- Fzf
 m.nnoremap(
 	"<leader>f",
 	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown())<cr>",
@@ -56,9 +56,8 @@ m.nnoremap(
 )
 m.nnoremap("<leader>g", "<cmd>Telescope live_grep<cr>", "silent")
 m.nnoremap("<leader>po", "<cmd>Telescope projects<cr>", "silent")
-
--- Tagbar
-m.nnoremap("<leader>t", "<cmd>TagbarToggle<cr>", "silent")
+m.nnoremap("<C-y>", "<cmd>Telescope neoclip<cr>", "silent")
+m.inoremap("<C-y>", "<cmd>Telescope neoclip<cr>", "silent")
 
 -- Formatting
 m.nnoremap("<leader>o", "<cmd>CocCommand java.action.organizeImports<cr>", "silent")
