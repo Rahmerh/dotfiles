@@ -1,94 +1,86 @@
-local opts = { noremap = true, silent = true }
+local m = require("mapx").setup({ global = true, whichkey = true })
 
+local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 
--- Shorten function name
-local keymap = vim.api.nvim_set_keymap
-
 --Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
+m.nnoremap("", "<Space>", "<Nop>", "silent")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
-
 -- Markdown
-keymap("n", "<C-m>", "<cmd>CocCommand markdown-preview-enhanced.openPreview<cr>", opts)
+m.nnoremap("<C-m>", "<cmd>CocCommand markdown-preview-enhanced.openPreview<cr>", "silent")
 
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+m.nnoremap("<C-h>", "<C-w>h", "silent")
+m.nnoremap("<C-h>", "<C-w>h", "silent")
+m.nnoremap("<C-j>", "<C-w>j", "silent")
+m.nnoremap("<C-k>", "<C-w>k", "silent")
+m.nnoremap("<C-l>", "<C-w>l", "silent")
 
 -- HTOP
-keymap("n", "<C-q>", ":lua _HTOP_TOGGLE()<cr>", opts)
+m.nnoremap("<C-q>", ":lua _HTOP_TOGGLE()<cr>", "silent")
 
 -- Hop
-keymap("n", "<C-g>", "<cmd>HopWord<cr>", opts)
+m.nnoremap("<C-g>", "<cmd>HopWord<cr>", "silent")
 
 -- Nvimtree
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
-keymap("n", "R", "<comd>NvimTreeRefresh<cr>", opts)
+m.nnoremap("<leader>e", ":NvimTreeToggle<cr>", "silent")
+m.nnoremap("R", "<comd>NvimTreeRefresh<cr>", "silent")
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize +2<CR>", opts)
-keymap("n", "<C-Down>", ":resize -2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+m.nnoremap("<C-Up>", ":resize +2<CR>", "silent")
+m.nnoremap("<C-Down>", ":resize -2<CR>", "silent")
+m.nnoremap("<C-Left>", ":vertical resize -2<CR>", "silent")
+m.nnoremap("<C-Right>", ":vertical resize +2<CR>", "silent")
 
 -- Navigate buffers
-keymap("n", "<S-l>", "<cmd>bnext<cr>", opts)
-keymap("n", "<S-h>", "<cmd>bprevious<cr>", opts)
-keymap("n", "Q", "<cmd>Bdelete this<cr>", opts)
-keymap("n", "QO", "<cmd>Bdelete other<cr>", opts)
-keymap("n", "QQ", "<cmd>Bdelete all<cr>", opts)
-keymap("n", "<C-t>", "<cmd>JABSOpen<cr>", opts)
+m.nnoremap("<S-l>", "<cmd>CybuNext<cr>", "silent")
+m.nnoremap("<S-h>", "<cmd>CybuPrev<cr>", "silent")
+m.nnoremap("<Tab-l>", "<cmd>CybuLastUsedNext<cr>", "silent")
+m.nnoremap("<Tab-h>", "<cmd>CybuLastUsedPrev<cr>", "silent")
+m.nnoremap("Q", "<cmd>Bdelete this<cr>", "silent")
+m.nnoremap("QO", "<cmd>Bdelete other<cr>", "silent")
+m.nnoremap("QQ", "<cmd>Bdelete all<cr>", "silent")
+m.nnoremap("<C-t>", "<cmd>JABSOpen<cr>", "silent")
 
 -- Insert --
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+m.vnoremap("<", "<gv", "silent")
+m.vnoremap(">", ">gv", "silent")
 
 -- Terminal --
-keymap("n", "<C-/>", ":LazyGit<cr>", opts)
-keymap("n", "<C-\\>", "<cmd>FloatermToggle<cr>", opts)
-keymap("t", "<C-\\>", "<C-\\><C-N><cmd>FloatermToggle<cr>", opts)
+m.nnoremap("<C-/>", ":LazyGit<cr>", "silent")
+m.nnoremap("<C-\\>", "<cmd>FloatermToggle<cr>", "silent")
+m.tnoremap("<C-\\>", "<C-\\><C-N><cmd>FloatermToggle<cr>", "silent")
 
-keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
-keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
-keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
-keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+m.tnoremap("<C-h>", "<C-\\><C-N><C-w>h", "silent")
+m.tnoremap("<C-j>", "<C-\\><C-N><C-w>j", "silent")
+m.tnoremap("<C-k>", "<C-\\><C-N><C-w>k", "silent")
+m.tnoremap("<C-l>", "<C-\\><C-N><C-w>l", "silent")
 
 -- Telescope
-keymap(
-	"n",
+m.nnoremap(
 	"<leader>f",
 	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown())<cr>",
 	opts
 )
-keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr>", opts)
-keymap("n", "<leader>po", "<cmd>Telescope projects<cr>", opts)
+m.nnoremap("<leader>g", "<cmd>Telescope live_grep<cr>", "silent")
+m.nnoremap("<leader>po", "<cmd>Telescope projects<cr>", "silent")
 
 -- Tagbar
-keymap("n", "<leader>t", "<cmd>TagbarToggle<cr>", opts)
+m.nnoremap("<leader>t", "<cmd>TagbarToggle<cr>", "silent")
 
 -- Formatting
-keymap("n", "<leader>o", "<cmd>CocCommand java.action.organizeImports<cr>", opts)
+m.nnoremap("<leader>o", "<cmd>CocCommand java.action.organizeImports<cr>", "silent")
 
 -- Coc
-keymap("n", "<C-space>", "<cmd>CodeActionMenu<cr>", opts)
+m.nnoremap("<C-space>", "<cmd>CodeActionMenu<cr>", "silent")
 
 -- Debugging
-keymap("n", "<C-b>", "<cmd>call vimspector#ToggleBreakpoint()<cr>", opts)
-keymap("n", "<F5>", "<cmd>call vimspector#Continue()<cr>", opts)
-keymap("n", "<F10>", "<cmd>call vimspector#StepOver()<cr>", opts)
-keymap("n", "<F11>", "<cmd>call vimspector#StepInto()<cr>", opts)
-keymap("n", "<S-F11>", "<cmd>call vimspector#StepOut()<cr>", opts)
-keymap("n", "dq", "<cmd>VimspectorReset<cr>", opts)
-keymap("n", "<F2>", "<cmd>FloatermNew --autoclose=2 --silent mvn -Dmaven.surefire.debug test<cr>", opts)
+m.nnoremap("<C-b>", "<cmd>call vimspector#ToggleBreakpoint()<cr>", "silent")
+m.nnoremap("<F5>", "<cmd>call vimspector#Continue()<cr>", "silent")
+m.nnoremap("<F10>", "<cmd>call vimspector#StepOver()<cr>", "silent")
+m.nnoremap("<F11>", "<cmd>call vimspector#StepInto()<cr>", "silent")
+m.nnoremap("<S-F11>", "<cmd>call vimspector#StepOut()<cr>", "silent")
+m.nnoremap("dq", "<cmd>VimspectorReset<cr>", "silent")
+m.nnoremap("<F2>", "<cmd>FloatermNew --autoclose=2 --silent mvn -Dmaven.surefire.debug test<cr>", opts)

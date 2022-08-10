@@ -53,6 +53,10 @@ return packer.startup(function(use)
 	use("spinks/vim-leader-guide")
 	use("neovim/pynvim")
 
+	-- Keymappings
+	use("b0o/mapx.nvim")
+	use("folke/which-key.nvim")
+
 	-- Color scheme(s)
 	use("sainnhe/sonokai")
 
@@ -107,10 +111,19 @@ return packer.startup(function(use)
 		tag = "nightly",
 	})
 
-	-- Bufferline
+	-- All about buffers
 	use("noib3/nvim-cokeline")
 	use("Asheq/close-buffers.vim")
-	use("matbme/JABS.nvim")
+	use({
+		"ghillb/cybu.nvim",
+		branch = "main",
+	})
+	use({
+		"sitiom/nvim-numbertoggle",
+		config = function()
+			require("numbertoggle").setup()
+		end,
+	})
 
 	-- Helm
 	use("towolf/vim-helm")
