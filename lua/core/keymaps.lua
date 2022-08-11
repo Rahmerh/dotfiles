@@ -42,6 +42,7 @@ m.nnoremap("Q", "<cmd>Bdelete<cr>", "silent")
 m.nnoremap("n", "<cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<cr>", "silent")
 m.nnoremap("N", "<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>", "silent")
 m.nnoremap("<Leader>l", "<cmd>noh<cr>", "silent")
+m.nnoremap("<leader>t", "<cmd>lua require('memento').toggle()<cr>", "silent")
 
 -- Git
 m.nnoremap("<C-d>", "<cmd>DiffviewFileHistory<cr>", "silent")
@@ -70,10 +71,12 @@ m.nnoremap("<leader>o", "<cmd>CocCommand java.action.organizeImports<cr>", "sile
 m.nnoremap("<C-space>", "<cmd>CodeActionMenu<cr>", "silent")
 
 -- Debugging
-m.nnoremap("<C-b>", "<cmd>call vimspector#ToggleBreakpoint()<cr>", "silent")
-m.nnoremap("<F5>", "<cmd>call vimspector#Continue()<cr>", "silent")
-m.nnoremap("<F10>", "<cmd>call vimspector#StepOver()<cr>", "silent")
-m.nnoremap("<F11>", "<cmd>call vimspector#StepInto()<cr>", "silent")
-m.nnoremap("<S-F11>", "<cmd>call vimspector#StepOut()<cr>", "silent")
-m.nnoremap("dq", "<cmd>VimspectorReset<cr>", "silent")
-m.nnoremap("<F2>", "<cmd>FloatermNew --autoclose=0 --silent mvn -Dmaven.surefire.debug test<cr>", "silent")
+m.nnoremap("<F5>", "<cmd>DapContinue<cr>", "silent")
+m.nnoremap("<F10>", "<cmd>DapStepOver<cr>", "silent")
+m.nnoremap("<F11>", "<cmd>DapStepInto<cr>", "silent")
+m.nnoremap("<F23>", "<cmd>DapStepOut<cr>", "silent") -- S-F11
+m.nnoremap("<F17>", "<cmd>DapTerminate<cr>", "silent") -- S-F5
+m.nnoremap("<C-b>", "<cmd>DapToggleBreakpoint<cr>", "silent")
+m.nnoremap("tn", "<cmd>lua require'jdtls'.test_nearest_method()<cr>", "silent")
+m.nnoremap("tc", "<cmd>lua require'jdtls'.test_class()<cr>", "silent")
+m.nnoremap("tl", "<cmd>DapToggleRepl<cr>", "silent")

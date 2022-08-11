@@ -13,5 +13,5 @@ telescope.load_extension("neoclip")
 
 neoclip.setup({
 	enable_persistent_history = true,
-	db_path = "~/.local/share/nvim/databases/telescope_neoclip.sqlite3",
+	db_path = "/Users/bas/.local/share/nvim/databases/telescope_neoclip.sqlite3",
 })

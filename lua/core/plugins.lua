@@ -72,8 +72,9 @@ return packer.startup(function(use)
 	use("sainnhe/edge")
 
 	-- Debugger
-	use("puremourning/vimspector")
 	use("mfussenegger/nvim-dap")
+	use("rcarriga/nvim-dap-ui")
+	use("mfussenegger/nvim-jdtls")
 
 	-- Coc
 	use({
@@ -142,12 +143,11 @@ return packer.startup(function(use)
 	})
 	use("petertriho/nvim-scrollbar")
 	use({ "kevinhwang91/nvim-hlslens" })
+	use("gaborvecsei/memento.nvim")
 
 	-- Helm
 	use("towolf/vim-helm")
 
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end

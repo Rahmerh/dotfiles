@@ -12,7 +12,7 @@ telescope.setup({
 		selection_caret = icons.ui.ArrowRight .. " ",
 		path_display = { "smart" },
 		history = {
-			path = "~/.local/share/nvim/databases/telescope_history.sqlite3",
+			path = "/Users/bas/.local/share/nvim/databases/telescope_history.sqlite3",
 			limit = 100,
 		},
 		mappings = {
