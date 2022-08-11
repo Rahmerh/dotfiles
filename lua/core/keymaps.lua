@@ -76,7 +76,8 @@ m.nnoremap("<F10>", "<cmd>DapStepOver<cr>", "silent")
 m.nnoremap("<F11>", "<cmd>DapStepInto<cr>", "silent")
 m.nnoremap("<F23>", "<cmd>DapStepOut<cr>", "silent") -- S-F11
 m.nnoremap("<F17>", "<cmd>DapTerminate<cr>", "silent") -- S-F5
-m.nnoremap("<C-b>", "<cmd>DapToggleBreakpoint<cr>", "silent")
+m.nnoremap("<C-b>", "<cmd>PBToggleBreakpoint<cr>", "silent")
+m.nnoremap("<F2>", "<cmd>PBClearAllBreakpoints<cr>", "silent")
 m.nnoremap("tn", "<cmd>lua require'jdtls'.test_nearest_method()<cr>", "silent")
 m.nnoremap("tc", "<cmd>lua require'jdtls'.test_class()<cr>", "silent")
 m.nnoremap("tl", "<cmd>DapToggleRepl<cr>", "silent")

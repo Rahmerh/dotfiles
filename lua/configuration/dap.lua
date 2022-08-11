@@ -77,3 +77,10 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
 	dapui.close({})
 end
+
+vim.api.nvim_create_autocmd({ "BufReadPost" }, { callback = require("persistent-breakpoints.api").load_breakpoints })
+
+require("persistent-breakpoints").setup({
+	save_dir = vim.fn.stdpath("data") .. "/nvim_checkpoints",
+	perf_record = false,
+})

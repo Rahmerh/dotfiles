@@ -5,6 +5,7 @@ vim.cmd([[
     autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Search', timeout = 200}) 
     autocmd BufWinEnter * :set formatoptions-=cro
     autocmd FileType qf set nobuflisted
+    " autocmd BufReadPost * lua require('persistent-breakpoints.api').load_breakpoints
   augroup end
 
 

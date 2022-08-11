@@ -54,16 +54,6 @@ return packer.startup(function(use)
 		end,
 	})
 
-	use({
-		"rmagatti/auto-session",
-		config = function()
-			require("auto-session").setup({
-				log_level = "error",
-				auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-			})
-		end,
-	})
-
 	-- Key mappings
 	use("b0o/mapx.nvim")
 	use("folke/which-key.nvim")
@@ -75,6 +65,7 @@ return packer.startup(function(use)
 	use("mfussenegger/nvim-dap")
 	use("rcarriga/nvim-dap-ui")
 	use("mfussenegger/nvim-jdtls")
+	use("Weissle/persistent-breakpoints.nvim")
 
 	-- Coc
 	use({
