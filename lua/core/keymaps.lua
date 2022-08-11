@@ -17,11 +17,8 @@ m.nnoremap("<C-j>", "<C-w>j", "silent")
 m.nnoremap("<C-k>", "<C-w>k", "silent")
 m.nnoremap("<C-l>", "<C-w>l", "silent")
 
--- Cheatsheet
+-- Cheat sheet
 m.nnoremap("<C-c>", "<cmd>Cheatsheet<cr>", "silent")
-
--- HTOP
-m.nnoremap("<C-q>", ":lua _HTOP_TOGGLE()<cr>", "silent")
 
 -- Hop
 m.nnoremap("<C-g>", "<cmd>HopWord<cr>", "silent")
@@ -42,13 +39,20 @@ m.nnoremap("<S-h>", "<cmd>CybuPrev<cr>", "silent")
 m.nnoremap("<Tab-l>", "<cmd>CybuLastUsedNext<cr>", "silent")
 m.nnoremap("<Tab-h>", "<cmd>CybuLastUsedPrev<cr>", "silent")
 m.nnoremap("Q", "<cmd>Bdelete<cr>", "silent")
+m.nnoremap("n", "<cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<cr>", "silent")
+m.nnoremap("N", "<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>", "silent")
+m.nnoremap("<Leader>l", "<cmd>noh<cr>", "silent")
+
+-- Git
+m.nnoremap("<C-d>", "<cmd>DiffviewFileHistory<cr>", "silent")
+m.nnoremap("D", "<cmd>DiffviewClose<cr>", "silent")
 
 -- Terminal
 m.nnoremap("<C-/>", "<cmd>LazyGit<cr>", "silent")
 m.nnoremap("<C-\\>", "<cmd>FloatermToggle<cr>", "silent")
 m.tnoremap("<C-\\>", "<C-\\><C-N><cmd>FloatermToggle<cr>", "silent")
 
--- Fzf
+-- Telescope
 m.nnoremap(
 	"<leader>f",
 	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown())<cr>",

@@ -7,6 +7,7 @@ vim.cmd([[
     autocmd FileType qf set nobuflisted
   augroup end
 
+
   augroup _git
     autocmd!
     autocmd FileType gitcommit setlocal wrap
@@ -28,6 +29,6 @@ vim.cmd([[
     autocmd!
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
-]])
 
-vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
+  set spell
+]])

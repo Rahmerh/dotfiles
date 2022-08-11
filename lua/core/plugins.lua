@@ -47,17 +47,33 @@ return packer.startup(function(use)
 	use("neovim/pynvim")
 	use("sudormrfbin/cheatsheet.nvim")
 	use("xiyaowong/link-visitor.nvim")
+	use({
+		"lewis6991/spellsitter.nvim",
+		config = function()
+			require("spellsitter").setup()
+		end,
+	})
 
-	-- Keymappings
+	use({
+		"rmagatti/auto-session",
+		config = function()
+			require("auto-session").setup({
+				log_level = "error",
+				auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+			})
+		end,
+	})
+
+	-- Key mappings
 	use("b0o/mapx.nvim")
 	use("folke/which-key.nvim")
 
 	-- Color scheme(s)
-	use("sainnhe/sonokai")
-	use("rebelot/kanagawa.nvim")
+	use("sainnhe/edge")
 
 	-- Debugger
 	use("puremourning/vimspector")
+	use("mfussenegger/nvim-dap")
 
 	-- Coc
 	use({
@@ -100,6 +116,7 @@ return packer.startup(function(use)
 
 	-- Git
 	use("kdheepak/lazygit.nvim")
+	use("sindrets/diffview.nvim")
 
 	-- File explorer
 	use("kyazdani42/nvim-web-devicons")
@@ -123,6 +140,8 @@ return packer.startup(function(use)
 			require("staline").setup()
 		end,
 	})
+	use("petertriho/nvim-scrollbar")
+	use({ "kevinhwang91/nvim-hlslens" })
 
 	-- Helm
 	use("towolf/vim-helm")
