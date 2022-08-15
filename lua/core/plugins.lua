@@ -53,6 +53,10 @@ return packer.startup(function(use)
 			require("spellsitter").setup()
 		end,
 	})
+	use("moevis/base64.nvim")
+
+	-- Web development
+	use("ziontee113/color-picker.nvim")
 
 	-- Key mappings
 	use("b0o/mapx.nvim")

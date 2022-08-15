@@ -39,6 +39,7 @@ m.nnoremap("<S-h>", "<cmd>CybuPrev<cr>", "silent")
 m.nnoremap("<Tab-l>", "<cmd>CybuLastUsedNext<cr>", "silent")
 m.nnoremap("<Tab-h>", "<cmd>CybuLastUsedPrev<cr>", "silent")
 m.nnoremap("Q", "<cmd>Bdelete<cr>", "silent")
+m.nnoremap("<C-q>", "<cmd>Bdelete!<cr>", "silent")
 m.nnoremap("n", "<cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<cr>", "silent")
 m.nnoremap("N", "<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>", "silent")
 m.nnoremap("<Leader>l", "<cmd>noh<cr>", "silent")
@@ -69,6 +70,7 @@ m.nnoremap("<leader>o", "<cmd>CocCommand java.action.organizeImports<cr>", "sile
 
 -- Coc
 m.nnoremap("<C-space>", "<cmd>CodeActionMenu<cr>", "silent")
+m.vnoremap("<C-space>", "<cmd>CodeActionMenu<cr>", "silent")
 
 -- Debugging
 m.nnoremap("<F5>", "<cmd>DapContinue<cr>", "silent")
@@ -81,3 +83,12 @@ m.nnoremap("<F2>", "<cmd>PBClearAllBreakpoints<cr>", "silent")
 m.nnoremap("tn", "<cmd>lua require'jdtls'.test_nearest_method()<cr>", "silent")
 m.nnoremap("tc", "<cmd>lua require'jdtls'.test_class()<cr>", "silent")
 m.nnoremap("tl", "<cmd>DapToggleRepl<cr>", "silent")
+
+-- Color picker
+m.nnoremap("<C-p>", "<cmd>PickColor<cr>", "silent")
+
+-- Base 64
+m.nnoremap("<leader>5", "<cmd>Base64Decode<cr>", "silent")
+m.vnoremap("<leader>5", "<cmd>Base64Decode<cr>", "silent")
+m.nnoremap("<leader>6", "<cmd>Base64Encode<cr>", "silent")
+m.vnoremap("<leader>6", "<cmd>Base64Encode<cr>", "silent")
