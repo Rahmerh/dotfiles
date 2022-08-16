@@ -64,6 +64,7 @@ return packer.startup(function(use)
 
 	-- Color scheme(s)
 	use("sainnhe/edge")
+	use("shaunsingh/nord.nvim")
 
 	-- Debugger
 	use("mfussenegger/nvim-dap")

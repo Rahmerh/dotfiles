@@ -1,4 +1,4 @@
-local colorscheme = "edge"
+local colorscheme = "nord"
 
 vim.cmd([[
     set termguicolors

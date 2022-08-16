@@ -21,7 +21,7 @@ m.nnoremap("<C-l>", "<C-w>l", "silent")
 m.nnoremap("<C-c>", "<cmd>Cheatsheet<cr>", "silent")
 
 -- Hop
-m.nnoremap("<C-g>", "<cmd>HopWord<cr>", "silent")
+m.nnoremap("<C-o>", "<cmd>HopWord<cr>", "silent")
 
 -- File explorer
 m.nnoremap("<leader>e", ":NvimTreeToggle<cr>", "silent")
@@ -48,9 +48,9 @@ m.nnoremap("<leader>t", "<cmd>lua require('memento').toggle()<cr>", "silent")
 -- Git
 m.nnoremap("<C-d>", "<cmd>DiffviewFileHistory<cr>", "silent")
 m.nnoremap("D", "<cmd>DiffviewClose<cr>", "silent")
+m.nnoremap("<C-g>", "<cmd>LazyGit<cr>", "silent")
 
 -- Terminal
-m.nnoremap("<C-/>", "<cmd>LazyGit<cr>", "silent")
 m.nnoremap("<C-\\>", "<cmd>FloatermToggle<cr>", "silent")
 m.tnoremap("<C-\\>", "<C-\\><C-N><cmd>FloatermToggle<cr>", "silent")
 
@@ -71,6 +71,8 @@ m.nnoremap("<leader>o", "<cmd>CocCommand java.action.organizeImports<cr>", "sile
 -- Coc
 m.nnoremap("<C-space>", "<cmd>CodeActionMenu<cr>", "silent")
 m.vnoremap("<C-space>", "<cmd>CodeActionMenu<cr>", "silent")
+m.xnoremap("<C-.>", "<Plug>(coc-codeaction-selected)", "silent")
+m.vnoremap("<C-.>", "<Plug>(coc-codeaction-selected)", "silent")
 
 -- Debugging
 m.nnoremap("<F5>", "<cmd>DapContinue<cr>", "silent")
