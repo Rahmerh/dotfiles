@@ -72,6 +72,6 @@ return {
 		Hint = "",
 	},
 	debugging = {
-		Breakpoint = "",
+		Breakpoint = " ",
 	},
 }

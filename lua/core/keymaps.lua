@@ -56,9 +56,9 @@ m.tnoremap("<C-\\>", "<C-\\><C-N><cmd>FloatermToggle<cr>", "silent")
 
 -- Telescope
 m.nnoremap(
-	"<leader>f",
-	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown())<cr>",
-	"silent"
+    "<leader>f",
+    "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown())<cr>",
+    "silent"
 )
 m.nnoremap("<leader>g", "<cmd>Telescope live_grep<cr>", "silent")
 m.nnoremap("<leader>po", "<cmd>Telescope projects<cr>", "silent")
@@ -68,11 +68,12 @@ m.inoremap("<C-y>", "<cmd>Telescope neoclip<cr>", "silent")
 -- Formatting
 m.nnoremap("<leader>o", "<cmd>CocCommand java.action.organizeImports<cr>", "silent")
 
--- Coc
-m.nnoremap("<C-space>", "<cmd>CodeActionMenu<cr>", "silent")
-m.vnoremap("<C-space>", "<cmd>CodeActionMenu<cr>", "silent")
-m.xnoremap("<C-.>", "<Plug>(coc-codeaction-selected)", "silent")
-m.vnoremap("<C-.>", "<Plug>(coc-codeaction-selected)", "silent")
+-- LSP
+m.nnoremap("<C-space>", "<cmd>Lspsaga code_action<CR>", "silent")
+m.xnoremap("<C-space>", "<cmd><c-u>Lspsaga range_code_action<CR>", "silent")
+m.nnoremap("RR", "<cmd>Lspsaga rename<cr>", "silent")
+m.nnoremap("K", "<cmd>Lspsaga hover_doc<cr>", "silent")
+m.nnoremap("<C-n>", "<cmd>Lspsaga show_line_diagnostics<cr>", "silent")
 
 -- Debugging
 m.nnoremap("<F5>", "<cmd>DapContinue<cr>", "silent")

@@ -32,3 +32,6 @@ vim.cmd([[
 
   set spell
 ]])
+
+vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
+
