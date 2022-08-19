@@ -8,5 +8,5 @@ saga.setup({
     infor_sign = icons.diagnostics.Information,
     code_action_prompt = {
         enable = false,
-    }
+    },
 })

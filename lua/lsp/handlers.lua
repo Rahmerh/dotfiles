@@ -102,14 +102,6 @@ function M.enable_format_on_save()
   ]]
 end
 
-function M.enable_organize_imports_on_save()
-    vim.cmd [[
-    augroup organize_imports_on_save
-        autocmd!
-        autocmd BufWritePost * lua require('jdtls').organize_imports()
-    augroup end]]
-end
-
 function M.disable_format_on_save()
     M.remove_augroup "format_on_save"
 end
@@ -122,6 +114,26 @@ function M.toggle_format_on_save()
     end
 end
 
+function M.enable_organize_imports_on_save()
+    vim.cmd [[
+    augroup organize_imports_on_save
+        autocmd!
+        autocmd BufWritePost * lua require('jdtls').organize_imports()
+    augroup end]]
+end
+
+function M.disable_organize_imports_on_save()
+    M.remove_augroup "organize_imports_on_save"
+end
+
+function M.toggle_organize_imports_on_save()
+    if vim.fn.exists "#organize_imports_on_save#BufWritePre" == 0 then
+        M.enable_organize_imports_on_save()
+    else
+        M.disable_organize_imports_on_save()
+    end
+end
+
 function M.remove_augroup(name)
     if vim.fn.exists("#" .. name) == 1 then
         vim.cmd("au! " .. name)
@@ -129,5 +141,6 @@ function M.remove_augroup(name)
 end
 
 vim.cmd [[ command! LspToggleAutoFormat execute 'lua require("lsp.handlers").toggle_format_on_save()' ]]
+vim.cmd [[ command! LspToggleOrganizeImports execute 'lua require("lsp.handlers").toggle_organize_imports_on_save()' ]]
 
 return M

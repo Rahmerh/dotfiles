@@ -38,7 +38,7 @@ dapui.setup({
                 "watches",
                 "scopes"
             },
-            size = 40,
+            size = 60,
             position = "right",
         },
         {

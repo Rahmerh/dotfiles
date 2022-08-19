@@ -35,13 +35,14 @@ packer.init({
 
 return packer.startup(function(use)
     -- Packer & misc
+    use("vipul-sharma20/nvim-jira")
+
     use("wbthomason/packer.nvim")
     use("nvim-lua/popup.nvim")
     use("nvim-lua/plenary.nvim")
     use("lewis6991/impatient.nvim")
     use("goolord/alpha-nvim")
     use("antoinemadec/FixCursorHold.nvim")
-    use("voldikss/vim-floaterm")
     use("ahmedkhalf/project.nvim")
     use("spinks/vim-leader-guide")
     use("neovim/pynvim")
@@ -55,6 +56,24 @@ return packer.startup(function(use)
     })
     use("moevis/base64.nvim")
 
+    -- Music
+    use {
+        'KadoBOT/nvim-spotify',
+        requires = 'nvim-telescope/telescope.nvim',
+        config = function()
+            local spotify = require 'nvim-spotify'
+
+            spotify.setup {
+                -- default opts
+                status = {
+                    update_interval = 10000, -- the interval (ms) to check for what's currently playing
+                    format = '%s %t by %a' -- spotify-tui --format argument
+                }
+            }
+        end,
+        run = 'make'
+    }
+
     -- Web development
     use("ziontee113/color-picker.nvim")
 
@@ -63,8 +82,9 @@ return packer.startup(function(use)
     use("folke/which-key.nvim")
 
     -- Color scheme(s)
-    use("sainnhe/edge")
-    use("shaunsingh/nord.nvim")
+    use { "catppuccin/nvim",
+        as = "catppuccin",
+        run = ":CatppuccinCompile" }
 
     -- Debugger
     use("mfussenegger/nvim-dap")
@@ -93,6 +113,14 @@ return packer.startup(function(use)
     use("AckslD/nvim-neoclip.lua")
     use("kkharji/sqlite.lua")
 
+    -- Statusline
+    use({
+        "tamton-aquib/staline.nvim",
+        config = function()
+            require("staline").setup()
+        end,
+    })
+
     -- Hop
     use({
         "phaazon/hop.nvim",
@@ -117,10 +145,33 @@ return packer.startup(function(use)
 
     -- File explorer
     use("kyazdani42/nvim-web-devicons")
-    use({
-        "kyazdani42/nvim-tree.lua",
-        tag = "nightly",
-    })
+    use { "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x", requires = {
+            "MunifTanjim/nui.nvim",
+            {
+                -- only needed if you want to use the commands with "_with_window_picker" suffix
+                's1n7ax/nvim-window-picker',
+                tag = "v1.*",
+                config = function()
+                    require 'window-picker'.setup({
+                        autoselect_one = true,
+                        include_current = false,
+                        filter_rules = {
+                            -- filter using buffer options
+                            bo = {
+                                -- if the file type is one of following, the window will be ignored
+                                filetype = { 'neo-tree', "neo-tree-popup", "notify", "quickfix" },
+
+                                -- if the buffer type is one of following, the window will be ignored
+                                buftype = { 'terminal' },
+                            },
+                        },
+                        other_win_hl_color = '#e35e4f',
+                    })
+                end,
+            }
+        },
+    }
 
     -- All about buffers
     use("noib3/nvim-cokeline")
@@ -131,15 +182,11 @@ return packer.startup(function(use)
     })
     use("nkakouros-original/numbers.nvim")
     use("numToStr/Comment.nvim")
-    use({
-        "tamton-aquib/staline.nvim",
-        config = function()
-            require("staline").setup()
-        end,
-    })
+
     use("petertriho/nvim-scrollbar")
     use({ "kevinhwang91/nvim-hlslens" })
     use("gaborvecsei/memento.nvim")
+    use { 'fgheng/winbar.nvim' }
 
     -- Helm
     use("towolf/vim-helm")

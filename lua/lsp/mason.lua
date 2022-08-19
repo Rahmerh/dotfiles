@@ -52,6 +52,8 @@ for _, server in pairs(servers) do
     }
 
     if server == "jdtls" then
+        local handlers = require("lsp.handlers")
+        handlers.enable_organize_imports_on_save()
         goto continue
     end
 

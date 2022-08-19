@@ -1,14 +1,9 @@
 local m = require("mapx").setup({ global = true, whichkey = true })
 
-local opts = { noremap = true, silent = true }
-
 --Remap space as leader key
 m.nnoremap("", "<Space>", "<Nop>", "silent")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
--- Markdown
-m.nnoremap("<C-m>", "<cmd>CocCommand markdown-preview-enhanced.openPreview<cr>", "silent")
 
 -- Better window navigation
 m.nnoremap("<C-h>", "<C-w>h", "silent")
@@ -24,8 +19,7 @@ m.nnoremap("<C-c>", "<cmd>Cheatsheet<cr>", "silent")
 m.nnoremap("<C-o>", "<cmd>HopWord<cr>", "silent")
 
 -- File explorer
-m.nnoremap("<leader>e", ":NvimTreeToggle<cr>", "silent")
-m.nnoremap("R", "<comd>NvimTreeRefresh<cr>", "silent")
+m.nnoremap("<leader>e", "<cmd>Neotree toggle<cr>", "silent")
 
 -- Resize with arrows
 m.nnoremap("<C-Up>", ":resize +2<CR>", "silent")
@@ -51,8 +45,8 @@ m.nnoremap("D", "<cmd>DiffviewClose<cr>", "silent")
 m.nnoremap("<C-g>", "<cmd>LazyGit<cr>", "silent")
 
 -- Terminal
-m.nnoremap("<C-\\>", "<cmd>FloatermToggle<cr>", "silent")
-m.tnoremap("<C-\\>", "<C-\\><C-N><cmd>FloatermToggle<cr>", "silent")
+m.nnoremap("<C-\\>", "<cmd>Lspsaga open_floaterm<cr>", "silent")
+m.tnoremap("<C-\\>", "<C-\\><C-N><cmd>Lspsaga close_floaterm<cr>", "silent")
 
 -- Telescope
 m.nnoremap(
@@ -70,10 +64,12 @@ m.nnoremap("<leader>o", "<cmd>CocCommand java.action.organizeImports<cr>", "sile
 
 -- LSP
 m.nnoremap("<C-space>", "<cmd>Lspsaga code_action<CR>", "silent")
-m.xnoremap("<C-space>", "<cmd><c-u>Lspsaga range_code_action<CR>", "silent")
 m.nnoremap("RR", "<cmd>Lspsaga rename<cr>", "silent")
 m.nnoremap("K", "<cmd>Lspsaga hover_doc<cr>", "silent")
 m.nnoremap("<C-n>", "<cmd>Lspsaga show_line_diagnostics<cr>", "silent")
+m.nnoremap("gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", "silent")
+m.nnoremap("gd", "<cmd>Lspsaga preview_definition<cr>", "silent")
+m.nnoremap("gs", "<cmd>Lspsaga signature_help<cr>", "silent")
 
 -- Debugging
 m.nnoremap("<F5>", "<cmd>DapContinue<cr>", "silent")
@@ -95,3 +91,9 @@ m.nnoremap("<leader>5", "<cmd>Base64Decode<cr>", "silent")
 m.vnoremap("<leader>5", "<cmd>Base64Decode<cr>", "silent")
 m.nnoremap("<leader>6", "<cmd>Base64Encode<cr>", "silent")
 m.vnoremap("<leader>6", "<cmd>Base64Encode<cr>", "silent")
+
+-- Music
+m.nnoremap("<leader>s", "<cmd>Spotify<cr>", "silent")
+m.nnoremap("<leader>sd", "<cmd>SpotifyDevices<cr>", "silent")
+m.nnoremap("<leader>sp", "<Plug>(SpotifyPause)", "silent")
+m.nnoremap("<leader>sc", "<cmd>Lspsaga open_floaterm spt<cr>", "silent")
