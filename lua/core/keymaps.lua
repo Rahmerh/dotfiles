@@ -25,6 +25,7 @@ m.nnoremap("<leader>e", "<cmd>Neotree toggle<cr>", "silent")
 m.nnoremap("<C-Up>", ":resize +2<CR>", "silent")
 m.nnoremap("<C-Down>", ":resize -2<CR>", "silent")
 m.nnoremap("<C-Left>", ":vertical resize -2<CR>", "silent")
+
 m.nnoremap("<C-Right>", ":vertical resize +2<CR>", "silent")
 
 -- Buffers
@@ -50,17 +51,14 @@ m.tnoremap("<C-\\>", "<C-\\><C-N><cmd>Lspsaga close_floaterm<cr>", "silent")
 
 -- Telescope
 m.nnoremap(
-    "<leader>f",
-    "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown())<cr>",
-    "silent"
+	"<leader>f",
+	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown())<cr>",
+	"silent"
 )
 m.nnoremap("<leader>g", "<cmd>Telescope live_grep<cr>", "silent")
 m.nnoremap("<leader>po", "<cmd>Telescope projects<cr>", "silent")
 m.nnoremap("<C-y>", "<cmd>Telescope neoclip<cr>", "silent")
 m.inoremap("<C-y>", "<cmd>Telescope neoclip<cr>", "silent")
-
--- Formatting
-m.nnoremap("<leader>o", "<cmd>CocCommand java.action.organizeImports<cr>", "silent")
 
 -- LSP
 m.nnoremap("<C-space>", "<cmd>Lspsaga code_action<CR>", "silent")
@@ -82,12 +80,17 @@ m.nnoremap("<F2>", "<cmd>PBClearAllBreakpoints<cr>", "silent")
 m.nnoremap("tn", "<cmd>lua require'jdtls'.test_nearest_method()<cr>", "silent")
 m.nnoremap("tc", "<cmd>lua require'jdtls'.test_class()<cr>", "silent")
 m.nnoremap("tl", "<cmd>DapToggleRepl<cr>", "silent")
+m.nnoremap(
+	"<C-t>",
+	"<cmd>lua require('dapui').float_element('watches', { width = 200, height = 30, enter = true })<cr>",
+	"silent"
+)
 
 -- Color picker
 m.nnoremap("<C-p>", "<cmd>PickColor<cr>", "silent")
 
 -- Base 64
-m.nnoremap("<leader>5", "<cmd>Base64Decode<cr>", "silent")
+m.nnoremap("<leader>5", "<cmd>Base64Decodesilent")
 m.vnoremap("<leader>5", "<cmd>Base64Decode<cr>", "silent")
 m.nnoremap("<leader>6", "<cmd>Base64Encode<cr>", "silent")
 m.vnoremap("<leader>6", "<cmd>Base64Encode<cr>", "silent")
