@@ -73,3 +73,5 @@ local config = {
 }
 require("jdtls").start_or_attach(config)
 require("jdtls").setup_dap()
+
+require("lsp.handlers").enable_organize_imports_on_save()

@@ -39,3 +39,8 @@ print_in_green() {
 print_in_yellow() {
     print_in_color "$1" 3
 }
+
+change_wallpaper() {
+    sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '$1'";
+    killall Dock;
+}
