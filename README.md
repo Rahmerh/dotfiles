@@ -1,4 +1,4 @@
-```
+```sh
                       :::!~!!!!!:.
                   .xUHWH!! !!?M88WHX:.
                 .X*#M@$!!  !X!M$$$$$$WWx:.
@@ -26,7 +26,11 @@ $R@i.~~ !     :   ~$$$$$B$$en:``
 
 ## ⚙️ Installation
 
-Setting up is fairly easy, simply clone this repo and run the `install` script.
+If you just want to get started, execute the following:
+
+```bash
+git clone https://github.com/Rahmerh/dotfiles.git && cd ./dotfiles/ && ./install
+```
 
 Be warned, these dotfiles have only been tested on MacOS at the time of writing. I am planning to include a linux install script as well.
 
