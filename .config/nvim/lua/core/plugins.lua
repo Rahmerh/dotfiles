@@ -35,8 +35,6 @@ packer.init({
 
 return packer.startup(function(use)
 	-- Packer & misc
-	use("vipul-sharma20/nvim-jira")
-
 	use("wbthomason/packer.nvim")
 	use("nvim-lua/popup.nvim")
 	use("nvim-lua/plenary.nvim")
@@ -55,6 +53,9 @@ return packer.startup(function(use)
 		end,
 	})
 	use("moevis/base64.nvim")
+
+	-- terminal
+	use("numToStr/FTerm.nvim")
 
 	-- Music
 	use({

@@ -8,6 +8,7 @@ local icons = require("core.icons")
 
 telescope.setup({
 	defaults = {
+		file_ignore_patterns = { "node%_modules/.*", ".git" },
 		prompt_prefix = icons.ui.Telescope .. " ",
 		selection_caret = icons.ui.ArrowRight .. " ",
 		path_display = { "smart" },
@@ -80,7 +81,10 @@ telescope.setup({
 			},
 		},
 	},
-	pickers = {},
+	pickers = {
+		find_files = { hidden = true },
+		live_grep = { hidden = true },
+	},
 	extensions = {
 		media_files = {
 			filetypes = { "png", "webp", "jpg", "jpeg" },

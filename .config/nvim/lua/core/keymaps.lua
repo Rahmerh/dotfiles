@@ -43,11 +43,11 @@ m.nnoremap("<leader>t", "<cmd>lua require('memento').toggle()<cr>", "silent")
 -- Git
 m.nnoremap("<C-d>", "<cmd>DiffviewFileHistory<cr>", "silent")
 m.nnoremap("D", "<cmd>DiffviewClose<cr>", "silent")
-m.nnoremap("<C-g>", "<cmd>LazyGit<cr>", "silent")
+m.nnoremap("<C-/>", "<cmd>LazyGit<cr>", "silent")
 
 -- Terminal
-m.nnoremap("<C-\\>", "<cmd>Lspsaga open_floaterm<cr>", "silent")
-m.tnoremap("<C-\\>", "<C-\\><C-N><cmd>Lspsaga close_floaterm<cr>", "silent")
+m.nnoremap("<C-\\>", "<cmd>lua require('FTerm').toggle()<cr>", "silent")
+m.tnoremap("<C-\\>", "<C-\\><C-N><cmd>lua require('FTerm').toggle()<cr>", "silent")
 
 -- Telescope
 m.nnoremap(
