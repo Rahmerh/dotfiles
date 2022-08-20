@@ -1,4 +1,4 @@
-```sh
+```
                       :::!~!!!!!:.
                   .xUHWH!! !!?M88WHX:.
                 .X*#M@$!!  !X!M$$$$$$WWx:.
@@ -32,7 +32,13 @@ If you just want to get started, execute the following:
 git clone https://github.com/Rahmerh/dotfiles.git && cd ./dotfiles/ && ./install
 ```
 
+The install script is designed to be re-run multiple times, so in case you want to make your changes just run `./install` again.
+
 Be warned, these dotfiles have only been tested on MacOS at the time of writing. I am planning to include a linux install script as well.
+
+### ⚠️ Warning in advance
+
+I am constantly pushing to this repository, so **no** guarantees any stability!
 
 ## 📝 Used tools
 
