@@ -8,7 +8,16 @@ Be warned, these dotfiles have only been tested on MacOS at the time of writing.
 
 ## 📝 Used tools
 
-I install all my applications and tools using brew. The following are the most important tools I work with:
+The following are the most important tools I work with:
 
+### Tools
+
+- [Homebrew](https://github.com/Homebrew/brew)
 - [Kitty](https://github.com/kovidgoyal/kitty) terminal (with the [fish](https://github.com/fish-shell/fish-shell) shell)
 - [Spotify tui](https://github.com/Rigellute/spotify-tui)
+- [Neovim](https://github.com/neovim/neovim)
+
+### Theme(s)
+
+- [nord-kitty](https://github.com/connorholyday/nord-kitty)
+- [catppuccin/nvim](https://github.com/catppuccin/nvim)
