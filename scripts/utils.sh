@@ -1,29 +1,16 @@
 #!/bin/bash
 
+# Used to ask for sudo upfront.
 ask_for_sudo() {
-
-    # Ask for the administrator password upfront.
-
     sudo -v &> /dev/null
-
-    # Update existing `sudo` time stamp
-    # until this script has finished.
-    #
-    # https://gist.github.com/cowboy/3118588
-
     while true; do
         sudo -n true
         sleep 60
         kill -0 "$$" || exit
     done &> /dev/null &
-
 }
 
-install_package() {
-    print_in_yellow "Installing $1...\n"
-    brew install $1 -q
-    print_in_green "Done!\n"
-}
+
 
 print_in_color() {
     printf "%b" \
@@ -32,15 +19,66 @@ print_in_color() {
         "$(tput sgr0 2> /dev/null)"
 }
 
-print_in_green() {
+print_error() {
+    print_in_color "$1" 1
+}
+
+print_success() {
     print_in_color "$1" 2
 }
 
-print_in_yellow() {
+print_warning() {
     print_in_color "$1" 3
+}
+
+print_info() {
+    print_in_color "$1" 6
 }
 
 change_wallpaper() {
     sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '$1'";
     killall Dock;
+}
+
+create_symlink() {
+    if [ ! -d $1 ]; then
+        print_in_red "Given folder doesn't exist! Exiting"
+        return 1
+    fi
+
+    if [ -d "$2/$3" ]; then
+        rm -rf $d
+    fi
+
+    sudo ln -s "$1" $2
+
+}
+
+github_clone_latest() {
+    local owner=$1 project=$2
+    local output_directory="./tmp/$2"
+    local release_url=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/$owner/$project/releases/latest)
+    local release_tag=$(basename $release_url)
+    git clone -b $release_tag -- https://github.com/$owner/$project.git $output_directory
+}
+
+prompt_yn (){
+    while true
+    do
+        read -r -p "Are You Sure? [Y/n] " input
+
+        case $input in
+            [yY][eE][sS]|[yY])
+                echo "Yes"
+                break
+                ;;
+            [nN][oO]|[nN])
+                echo "No"
+                break
+                ;;
+            *)
+                echo "Invalid input..."
+                ;;
+        esac
+    done
 }

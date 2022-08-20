@@ -51,12 +51,5 @@ for _, server in pairs(servers) do
         capabilities = require("lsp.handlers").capabilities,
     }
 
-    if server == "jdtls" then
-        local handlers = require("lsp.handlers")
-        handlers.enable_organize_imports_on_save()
-        goto continue
-    end
-
     lspconfig[server].setup(opts)
-    ::continue::
 end
