@@ -22,7 +22,9 @@ $R@i.~~ !     :   ~$$$$$B$$en:``
 
 ```
 
-# Rahmerh's dotfiles
+# 💀 Rahmerh's dotfiles
+
+`What can I say, I like skulls...`
 
 ## ⚙️ Installation
 
