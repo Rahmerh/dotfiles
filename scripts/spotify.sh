@@ -3,7 +3,7 @@
 spotify_setup(){
 
     if [ -f ~/.config/spotify-tui/client.yml ]; then
-        print_warning "Spotify already set up, skipping."
+        print_warning "spotify already set up, skipping."
         return 0
     fi
 
@@ -13,7 +13,18 @@ spotify_setup(){
 
         case $input in
             [yY][eE][sS]|[yY])
-                echo "Yes"
+                read -rep "Enter file location: " file_location
+
+                full_path="${file_location/\~/$HOME}"
+
+                if [ ! -f full_path ]; then
+                    print_error "\nFile not found. Exiting spotify setup."
+                    return 1;
+                fi
+
+                sudo cp -f $full_path ~/.config/spotify-tui/
+
+                print_success "Done!\n"
                 break
                 ;;
             [nN][oO]|[nN])
