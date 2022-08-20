@@ -12,7 +12,7 @@ print_success "Done!\n"
 # (Re)install brew
 print_info "\n(Re)installing brew...\n"
 
-brew_install
+brew_setup
 
 print_success "Done!\n"
 

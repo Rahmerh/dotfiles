@@ -13,7 +13,7 @@ __do_install() {
     exit 1
 }
 
-brew_install(){
+brew_setup(){
     if type "brew" &>/dev/null; then
         print_warning "brew already installed; updating instead.\n"
         __do_update
