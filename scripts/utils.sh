@@ -2,12 +2,14 @@
 
 # Used to ask for sudo upfront.
 ask_for_sudo() {
+    print_info "\nChecking for sudo access...\n"
     sudo -v &> /dev/null
     while true; do
         sudo -n true
         sleep 60
         kill -0 "$$" || exit
     done &> /dev/null &
+    print_success "Done!\n"
 }
 
 
@@ -36,8 +38,10 @@ print_info() {
 }
 
 change_wallpaper() {
+    print_info "\nReplacing the wallpaper...\n"
     sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '$1'";
     killall Dock;
+    print_success "Done!\n"
 }
 
 create_symlink() {
@@ -51,7 +55,7 @@ create_symlink() {
     fi
 
     sudo ln -s "$1" $2
-
+    print_info "\nCreated symlink for $3"
 }
 
 github_clone_latest() {

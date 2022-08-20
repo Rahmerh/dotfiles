@@ -11,11 +11,18 @@ cask "1password"
 cask "firefox"
 cask "kitty"
 cask "rectangle-pro"
+cask "spotify"
+cask "gimp"
+
+# Communication
+cask "discord"
+cask "slack"
 
 # CLI tools
 brew "macvim"
 brew "wget"
 brew "spotify-tui"
+cask "docker"
 brew "docker-compose"
 brew "lazygit"
 brew "node"
@@ -29,7 +36,6 @@ brew "luarocks"
 brew "maven"
 brew "neovim", args: ["HEAD"]
 brew "ripgrep"
-cask "docker"
 
 # Terminal stuff
 brew "fish"
@@ -48,7 +54,6 @@ brew "google-java-format"
 brew "semgrep"
 brew "stylua"
 
-
 # Build tools
 brew "python@3.9"
 brew "cmake"
@@ -58,5 +63,3 @@ brew "openjdk@17"
 brew "openssl@3", link: true
 brew "pkg-config"
 brew "yarn"
-
-

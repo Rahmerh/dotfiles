@@ -14,12 +14,14 @@ __do_install() {
 }
 
 brew_setup(){
+    print_info "\nInstalling brew...\n"
     if type "brew" &>/dev/null; then
-        print_warning "brew already installed; updating instead.\n"
+        print_warning "Brew already installed, updating instead.\n"
         __do_update
     else
         __do_install && do_update
     fi
+    print_success "Done!\n"
 }
 
 install_package() {

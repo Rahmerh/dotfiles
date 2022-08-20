@@ -1,9 +1,9 @@
 #!/bin/bash
 
 spotify_setup(){
-
+    print_info "\nSetting up spotify...\n"
     if [ -f ~/.config/spotify-tui/client.yml ]; then
-        print_warning "spotify already set up, skipping."
+        print_warning "spotify already set up, skipping.\n"
         return 0
     fi
 
@@ -24,7 +24,6 @@ spotify_setup(){
 
                 sudo cp -f $full_path ~/.config/spotify-tui/
 
-                print_success "Done!\n"
                 break
                 ;;
             [nN][oO]|[nN])
@@ -32,7 +31,6 @@ spotify_setup(){
                 sleep 3
                 sudo spt
                 sleep 2
-                print_success "Done!\n"
                 break
                 ;;
             *)
@@ -40,4 +38,5 @@ spotify_setup(){
                 ;;
         esac
     done
+    print_success "Done!\n"
 }

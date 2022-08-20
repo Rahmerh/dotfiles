@@ -31,10 +31,10 @@ $R@i.~~ !     :   ~$$$$$B$$en:``
 If you just want to get started, execute the following:
 
 ```bash
-git clone https://github.com/Rahmerh/dotfiles.git && cd ./dotfiles/ && ./install
+git clone https://github.com/Rahmerh/dotfiles.git && cd ./dotfiles/ && ./install.sh
 ```
 
-The install script is designed to be re-run multiple times, so in case you want to make your changes just run `./install` again.
+The install script is designed to be re-run multiple times, so in case you want to make your changes just run `./install.sh` again.
 
 You can also clone this script to any directory you want. It will only create symlinks for all needed configurations.
 
