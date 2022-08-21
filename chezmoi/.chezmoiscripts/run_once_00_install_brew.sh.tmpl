@@ -1,0 +1,14 @@
+#!/bin/bash
+
+. "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
+
+# Install Homebrew
+print_info "Installing homebrew...\n"
+if command -v brew >/dev/null 2>&1; then
+    print_warning "Homebrew already installed, skipping.\n"
+    exit 0
+fi
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+print_success "Homebrew Installed!\n"
