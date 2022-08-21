@@ -1,7 +1,6 @@
 require("configuration.linkvisitor")
 require("configuration.alpha")
 require("configuration.bufferline")
-require("configuration.comment")
 require("configuration.cybu")
 require("configuration.illuminate")
 require("configuration.impatient")
