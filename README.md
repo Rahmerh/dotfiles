@@ -24,8 +24,6 @@ $R@i.~~ !     :   ~$$$$$B$$en:``
 
 # 💀 Rahmerh's dotfiles
 
-`What can I say, I like skulls...`
-
 ## ⚙️ Installation
 
 If you just want to get started, execute the following:
