@@ -1,0 +1,16 @@
+{ "slack_token": "xoxp-95559983717-3827028266885-3991880074224-64f06d5d7f73f6dfa7f3f7d8a2ac75c1",
+"notify": "mention",
+    "emoji": true,
+    "theme": {
+        "message": {
+            "time_format": "02/01 15:04",
+            "time": "fg-green,fg-bold",
+            "name": "colorize,fg-bold",
+            "text": "fg-blue"
+        },
+        "channel": {
+            "prefix": "fg-red,fg-bold",
+            "icon": "fg-green,fg-bold",
+            "text": "fg-blue,fg-bold"
+        }
+    }}

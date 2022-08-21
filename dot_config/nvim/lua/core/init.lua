@@ -1,0 +1,6 @@
+require("core.plugins")
+require("core.autocommands")
+require("core.colorscheme")
+require("core.keymaps")
+require("core.icons")
+require("core.options")
