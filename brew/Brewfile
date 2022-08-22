@@ -19,6 +19,7 @@ cask "discord"
 cask "slack"
 
 # CLI tools
+brew "aerc"
 brew "macvim"
 brew "wget"
 brew "spotify-tui"
