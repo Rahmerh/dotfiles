@@ -3,3 +3,5 @@ java-debug/
 plugin/
 
 brew/Brewfile.lock.json
+
+chezmoi/dot_config/aerc/private_accounts.conf
