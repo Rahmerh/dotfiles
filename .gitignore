@@ -5,3 +5,4 @@ plugin/
 brew/Brewfile.lock.json
 
 chezmoi/dot_config/aerc/private_accounts.conf
+chezmoi/dot_config/slack-term/config/dot_slackterm
