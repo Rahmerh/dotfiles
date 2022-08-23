@@ -18,24 +18,25 @@ cask "gimp"
 cask "discord"
 cask "slack"
 
+# CLI app
+brew "neomutt"
+brew "spotify-tui"
+brew "lazygit"
+brew "neovim", args: ["HEAD"]
+
 # CLI tools
-brew "aerc"
 brew "macvim"
 brew "wget"
-brew "spotify-tui"
 cask "docker"
 brew "docker-compose"
-brew "lazygit"
 brew "node"
 brew "angular-cli"
 brew "azure-cli"
-brew "k9s"
 brew "jq"
 brew "fd"
 brew "kubeseal"
 brew "luarocks"
 brew "maven"
-brew "neovim", args: ["HEAD"]
 brew "ripgrep"
 
 # Terminal stuff

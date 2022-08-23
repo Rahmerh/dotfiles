@@ -53,7 +53,7 @@ set mail_check = 120
  # ------------- #
 
 set smtp_pass = $my_pass
-set realname  ='Stéphane Tzvetkov'
+set realname  ='Bas Bouwhuis'
 set from      = $my_user
 set use_from  = yes
 
