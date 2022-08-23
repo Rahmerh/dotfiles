@@ -92,3 +92,7 @@ telescope.setup({
 		},
 	},
 })
+
+telescope.load_extension("neoclip")
+telescope.load_extension("lazygit")
+telescope.load_extension("projects")
