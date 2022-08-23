@@ -38,6 +38,8 @@ brew "kubeseal"
 brew "luarocks"
 brew "maven"
 brew "ripgrep"
+brew "speedtest-cli"
+brew "lsd"
 
 # Terminal stuff
 brew "fish"
