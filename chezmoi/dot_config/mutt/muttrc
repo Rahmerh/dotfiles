@@ -1,4 +1,5 @@
 # vim: filetype=neomuttrc
 source /usr/local/share/mutt-wizard/mutt-wizard.muttrc
-source /Users/bas/.config/mutt/accounts/basbouwhuis@protonmail.com.muttrc
-macro index,pager i1 '<sync-mailbox><enter-command>source /Users/bas/.config/mutt/accounts/basbouwhuis@protonmail.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to basbouwhuis@protonmail.com"
+source /Users/bas/.config/mutt/accounts/bas.bouwhuis@medapp.nl.muttrc
+macro index,pager <f1> '<sync-mailbox><enter-command>source /Users/bas/.config/mutt/accounts/basbouwhuis@protonmail.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to basbouwhuis@protonmail.com"
+macro index,pager <f2> '<sync-mailbox><enter-command>source /Users/bas/.config/mutt/accounts/bas.bouwhuis@medapp.nl.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to bas.bouwhuis@medapp.nl"
