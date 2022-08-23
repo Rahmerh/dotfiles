@@ -26,15 +26,7 @@ $R@i.~~ !     :   ~$$$$$B$$en:``
 
 ## ⚙️ Installation
 
-If you just want to get started, execute the following:
-
-```bash
-git clone https://github.com/Rahmerh/dotfiles.git && cd ./dotfiles/ && ./install.sh
-```
-
-The install script is designed to be re-run multiple times, so in case you want to make your changes just run `./install.sh` again.
-
-You can also clone this script to any directory you want. It will only create symlinks for all needed configurations.
+All my dotfiles are managed via chezmoi. There will be a install script coming in the future. For now just take a look at the chezmoi quickstart, that'll help you get started.
 
 Be warned, these dotfiles have only been tested on MacOS at the time of writing. I am planning to include a linux install script as well.
 
@@ -51,6 +43,7 @@ The following are the most important tools I work with:
 - [Homebrew](https://github.com/Homebrew/brew)
 - [Kitty](https://github.com/kovidgoyal/kitty) terminal (with the [fish](https://github.com/fish-shell/fish-shell) shell)
 - [Spotify tui](https://github.com/Rigellute/spotify-tui)
+- [NeoMutt](https://github.com/neomutt/neomutt)
 - [Neovim](https://github.com/neovim/neovim)
 - [Rectangle-pro](https://rectangleapp.com/pro) <sub>I honestly couldn't work without this one, well worth the 10 euros</sub>
 
