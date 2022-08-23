@@ -12,3 +12,4 @@ chezmoi/dot_config/neomutt/keys
 chezmoi/dot_config/k9s/config.yml
 chezmoi/dot_config/chezmoi/private_chezmoistate.boltdb
 chezmoi/dot_config/mutt/accounts/basbouwhuis@protonmail.com.muttrc
+chezmoi/dot_config/mutt/accounts/bas.bouwhuis@medapp.nl.muttrc
