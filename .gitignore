@@ -16,4 +16,6 @@ chezmoi/dot_config/chezmoi/private_chezmoistate.boltdb
 chezmoi/dot_config/mutt/accounts/basbouwhuis@protonmail.com.muttrc
 chezmoi/dot_config/mutt/accounts/bas.bouwhuis@medapp.nl.muttrc
 
+# Weechat
 chezmoi/dot_weechat/private_sec.conf
+chezmoi/dot_weechat/private_logs
