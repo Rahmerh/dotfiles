@@ -4,5 +4,5 @@
 .config/chezmoi/chezmoistate.boltdb
 # Brew
 brew/
-# Nvim
-.config/nvim/plugin
+# Fish
+.config/fish/fish_variables
