@@ -6,10 +6,14 @@ brew/Brewfile.lock.json
 
 chezmoi/dot_config/aerc/accounts.conf
 chezmoi/dot_config/aerc/private_accounts.conf
+
 chezmoi/dot_config/slack-term/config/dot_slackterm
 
-chezmoi/dot_config/neomutt/keys
 chezmoi/dot_config/k9s/config.yml
+
 chezmoi/dot_config/chezmoi/private_chezmoistate.boltdb
+
 chezmoi/dot_config/mutt/accounts/basbouwhuis@protonmail.com.muttrc
 chezmoi/dot_config/mutt/accounts/bas.bouwhuis@medapp.nl.muttrc
+
+chezmoi/dot_weechat/private_sec.conf

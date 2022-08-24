@@ -11,7 +11,6 @@ null_ls.setup({
 	sources = {
 		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
 		formatting.stylua,
-		formatting.google_java_format.with({ extra_args = { "-a" } }),
 		formatting.beautysh,
 		diagnostics.hadolint,
 		diagnostics.markdownlint,

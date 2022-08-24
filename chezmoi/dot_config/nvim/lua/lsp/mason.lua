@@ -9,7 +9,6 @@ if not status_ok_1 then
 end
 
 local servers = {
-	"jdtls",
 	"jsonls",
 	"sumneko_lua",
 	"lemminx",

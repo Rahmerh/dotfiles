@@ -1,0 +1,9 @@
+2022-08-24 20:51:04	--	irc: connecting to server -ssl/6667 (SSL)...
+2022-08-24 20:51:04	=!=	irc: address "-ssl" not found
+2022-08-24 20:51:04	=!=	irc: error: nodename nor servname provided, or not known
+2022-08-24 20:51:04	--	irc: reconnecting to server in 10 seconds
+2022-08-24 20:51:14	--	irc: reconnecting to server...
+2022-08-24 20:51:14	--	irc: connecting to server -ssl/6667 (SSL)...
+2022-08-24 20:51:14	=!=	irc: address "-ssl" not found
+2022-08-24 20:51:14	=!=	irc: error: nodename nor servname provided, or not known
+2022-08-24 20:51:14	--	irc: reconnecting to server in 20 seconds
