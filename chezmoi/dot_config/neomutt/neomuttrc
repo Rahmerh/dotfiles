@@ -79,9 +79,6 @@ set include = yes # https://neomutt.org/guide/reference#include
 # Prevents mutt putting '> ' when replying
 set indent_string = '' # https://neomutt.org/guide/reference#indent_string
 set attribution="\n________________________________________\nFrom: %F <%a>\nSent: %{%d %B %Y %R}\nTo: %r\nCc: %R\nSubject: %s\n"
-# Adds a header that is used to determine whether my send script should convert the markdown to html
-my_hdr Markdown: false
-
 
 ######################
 #  Viewing settings  #
@@ -121,11 +118,11 @@ bind pager k previous-line
 #  Compose settings  #
 ######################
 
-
-macro compose Y "<first-entry>\
-<pipe-entry>convert-multipart<enter>\
-<enter-command>source /tmp/neomutt-commands<enter>
-
+macro compose m \
+"<enter-command>set pipe_decode<enter>\
+<pipe-message>pandoc -s -f gfm -o /tmp/msg.html --resource-path ~/.config/neomutt/templates/ --template email<enter>\
+<enter-command>unset pipe_decode<enter>a^U/tmp/msg.html\n^D^T^Utext/html; charset=utf-8\n=DTT&d^U\n" \
+"Convert markdown gfm to HTML and plain" 
 
 #############
 #  Colours  #
@@ -199,6 +196,6 @@ mono body bold "^gpg: BAD signature from.*"
 color body red default "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
 
 source /usr/local/share/mutt-wizard/mutt-wizard.muttrc
-source /Users/bas/.config/mutt/accounts/basbouwhuis@protonmail.com.muttrc
-macro index,pager <f1> '<sync-mailbox><enter-command>source /Users/bas/.config/mutt/accounts/basbouwhuis@protonmail.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to basbouwhuis@protonmail.com"
-macro index,pager <f2> '<sync-mailbox><enter-command>source /Users/bas/.config/mutt/accounts/bas.bouwhuis@medapp.nl.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to bas.bouwhuis@medapp.nl"
+source ~/.config/neomutt/accounts/personal
+macro index,pager <f1> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/personal<enter><change-folder>!<enter>;<check-stats>' "switch to personal account"
+macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/work<enter><change-folder>!<enter>;<check-stats>' "switch to work account"

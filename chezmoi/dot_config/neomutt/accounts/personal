@@ -1,0 +1,29 @@
+# vim: filetype=neomuttrc
+source ~/.config/neomutt/keys/personal_keys
+
+# IMAP settings
+set realname="Bas Bouwhuis"
+
+set imap_user = $my_user
+set imap_pass = $my_pass
+
+set mbox_type     = Maildir
+set folder        = imap://$my_user:$imap_pass@127.0.0.1:1143
+set record        = +Sent
+set postponed     = +Drafts
+set trash         = +Trash
+set spoolfile     = +INBOX
+mailboxes         = +INBOX +Sent +Drafts +Trash
+set mail_check    = 30 # seconds
+
+set header_cache = ~/.cache/mutt-cache/
+set message_cachedir = ~/.cache/mutt-cache/
+
+# SMTP settings    
+set realname  ='Bas Bouwhuis'
+set from      = $my_user
+set smtp_pass = $my_pass
+set use_from  = yes
+set smtp_url = smtps://$my_user:$smtp_pass@127.0.0.1:1025
+set ssl_force_tls = yes
+set ssl_starttls = yes
