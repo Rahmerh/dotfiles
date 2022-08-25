@@ -90,7 +90,7 @@ m.nnoremap(
 m.nnoremap("<C-p>", "<cmd>PickColor<cr>", "silent")
 
 -- Base 64
-m.nnoremap("<leader>5", "<cmd>Base64Decodesilent")
+m.nnoremap("<leader>5", "<cmd>Base64Decode<cr>", "silent")
 m.vnoremap("<leader>5", "<cmd>Base64Decode<cr>", "silent")
 m.nnoremap("<leader>6", "<cmd>Base64Encode<cr>", "silent")
 m.vnoremap("<leader>6", "<cmd>Base64Encode<cr>", "silent")

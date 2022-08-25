@@ -43,6 +43,7 @@ brew "maven"
 brew "ripgrep"
 brew "speedtest-cli"
 brew "lsd"
+brew "neofetch"
 
 # Terminal stuff
 brew "fish"
@@ -57,7 +58,7 @@ cask "font-hack-nerd-font"
 
 # Formatters
 brew "eslint"
-brew "google-java-format"
+brew "astyle"
 brew "semgrep"
 brew "stylua"
 

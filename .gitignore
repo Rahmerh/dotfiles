@@ -19,3 +19,5 @@ chezmoi/dot_config/mutt/accounts/bas.bouwhuis@medapp.nl.muttrc
 # Weechat
 chezmoi/dot_weechat/private_sec.conf
 chezmoi/dot_weechat/private_logs
+
+chezmoi/dot_weechat/weechat.log
