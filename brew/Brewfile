@@ -15,7 +15,7 @@ cask "kitty"
 cask "rectangle-pro"
 cask "spotify"
 cask "gimp"
-brew "spacebar"
+brew "sketchybar"
 
 # Communication
 cask "discord"

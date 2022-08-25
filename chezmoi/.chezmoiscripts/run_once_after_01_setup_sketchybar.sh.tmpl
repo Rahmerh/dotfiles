@@ -1,0 +1,10 @@
+#!/bin/bash
+
+. "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
+
+sudo chmod +x ~/.config/sketchybar/plugins/battery.sh
+sudo chmod +x ~/.config/sketchybar/plugins/clock.sh
+
+brew services restart sketchybar
+
+print_success "Sketchybar setup!\n"
