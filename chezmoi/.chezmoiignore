@@ -1,0 +1,11 @@
+# Spotify
+.config/spotify-tui/.spotify_token_cache.json
+# Brew
+brew/
+# Fish
+.config/fish/fish_variables
+# Sketchybar
+.config/sketchybar/sketchybarrc
+.config/sketchybar/plugins/clock.sh
+.config/sketchybar/plugins/battery.sh
+.config/sketchybar/plugins/space.sh
