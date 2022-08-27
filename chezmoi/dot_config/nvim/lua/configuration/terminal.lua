@@ -4,5 +4,5 @@ if not status_ok then
 end
 
 terminal.setup({
-	cmd = "/opt/homebrew/bin/fish",
+	cmd = os.getenv("SHELL"),
 })

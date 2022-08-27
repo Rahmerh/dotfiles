@@ -23,7 +23,5 @@ set header_cache = ~/.cache/mutt-cache/
 set message_cachedir = ~/.cache/mutt-cache/
 
 # SMTP settings    
-set smtp_pass = $my_pass
+# set sendmail = "~/.config/neomutt/plugins/plainmail2html/bin/html-sendmail"
 set sendmail = "msmtp -a personal --tls-certcheck=off"
-set ssl_force_tls = yes
-set ssl_starttls = yes

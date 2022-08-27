@@ -11,3 +11,7 @@ brew/
 .config/yabai/yabairc
 # Neomutt
 .config/neomutt/mails
+# Vdirsyncer
+.config/vdirsyncer/status
+.config/vdirsyncer/get-personal-url
+.config/vdirsyncer/get-work-url

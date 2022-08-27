@@ -7,3 +7,10 @@ brew bundle --file={{ .chezmoi.sourceDir }}/../brew/Brewfile
 
 print_info "\nInstall pip packages\n"
 pip3 install urlscan
+
+print_info "\nInstall gem packages\n"
+sudo gem install activesupport -v 6.1.6.1
+sudo gem install terjira
+
+print_info "\nInstall npm packages\n"
+npm i -g movie-cli

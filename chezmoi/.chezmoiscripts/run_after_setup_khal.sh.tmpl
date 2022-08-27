@@ -1,0 +1,19 @@
+#!/bin/bash
+
+. "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
+
+sudo cp {{ .chezmoi.sourceDir }}/dot_config/vdirsyncer/get-personal-url ~/.config/vdirsyncer 
+sudo cp {{ .chezmoi.sourceDir }}/dot_config/vdirsyncer/get-work-url ~/.config/vdirsyncer 
+
+sudo chmod 500 ~/.config/vdirsyncer/get-personal-url
+sudo chmod 500 ~/.config/vdirsyncer/get-work-url
+
+mkdir -p ~/.config/vdirsyncer/calendars/personal
+mkdir -p ~/.config/vdirsyncer/calendars/work
+
+vdirsyncer discover personal
+vdirsyncer discover work
+
+brew services restart vdirsyncer
+
+print_success "Khal setup!\n"

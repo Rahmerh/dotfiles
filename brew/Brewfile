@@ -25,6 +25,8 @@ cask "whatsapp"
 brew "weechat"
 brew "msmtp"
 brew "neomutt"
+brew "khal"
+brew "vdirsyncer"
 
 # CLI app
 brew "spotify-tui"
@@ -55,10 +57,12 @@ brew "skhd"
 brew "k9s"
 brew "pass"
 brew "w3m"
+brew "bpytop"
+brew "ddgr"
+brew "ranger"
 
 # Terminal stuff
 brew "fish"
-brew "tmux"
 brew "tree"
 brew "watch"
 
