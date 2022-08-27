@@ -7,3 +7,5 @@ brew/
 # Sketchybar
 .config/sketchybar/sketchybarrc
 .config/sketchybar/plugins
+# Yabai
+.config/yabai/yabairc

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+. "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
+
+# Because the sketchybar brew service changes permissions of the files, I couldn't get a solid way of applying this correctly.
+# That's why I have to do it manually.
+cp {{ .chezmoi.sourceDir }}/dot_config/yabai/yabairc ~/.config/yabai
+
+brew services restart yabai
+
+print_success "Yabai setup!\n"

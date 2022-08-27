@@ -1,0 +1,7 @@
+#!/bin/bash
+
+. "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
+
+brew services restart skhd
+
+print_success "Yabai setup!\n"

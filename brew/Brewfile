@@ -12,10 +12,10 @@ tap "koekeishiya/formulae"
 cask "1password"
 cask "firefox"
 cask "kitty"
-cask "rectangle-pro"
 cask "spotify"
 cask "gimp"
 brew "sketchybar"
+brew "yabai"
 cask "protonmail-bridge"
 
 # Communication
@@ -49,6 +49,7 @@ brew "neofetch"
 brew "bat"
 brew "notmuch"
 brew "pandoc"
+brew "skhd"
 
 # Terminal stuff
 brew "fish"
