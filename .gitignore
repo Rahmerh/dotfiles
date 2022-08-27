@@ -23,3 +23,4 @@ chezmoi/dot_weechat/private_logs
 chezmoi/dot_weechat/weechat.log
 chezmoi/dot_config/neomutt/keys
 .DS_Store
+chezmoi/dot_config/msmtp/executable_get-personal-key

@@ -1,5 +1,6 @@
 # vim: filetype=neomuttrc
 
+source ~/.config/neomutt/styles.neomuttrc
 
 #########################
 #  Index View Settings  #
@@ -84,30 +85,18 @@ set attribution="\n________________________________________\nFrom: %F <%a>\nSent
 #  Viewing settings  #
 ######################
 
-# Don't show + on wrapped lines
-set markers=no # https://neomutt.org/guide/reference#markers
-# Wrap lines at 78 chars
-set wrap=78 # https://neomutt.org/guide/reference#wrap
-# When at the end, don't go to next email when trying to scroll
-set pager_stop=yes # https://neomutt.org/guide/reference#pager_stop
-# Mailcap file is used to tell mutt how to open different types of file
-set mailcap_path = "~/.config/mutt/mailcap" # https://neomutt.org/guide/mimesupport#3-%C2%A0mime-viewer-configuration-with-mailcap
-# Tells Mutt to automatically view files with these mime types
-auto_view text/html # https://neomutt.org/guide/reference#auto_view
+set markers=no set wrap=78
+set pager_stop=yes 
+set mailcap_path = "~/.config/neomutt/mailcap" auto_view text/html # https://neomutt.org/guide/reference#auto_view
 auto_view application/pgp-encrypted # https://neomutt.org/guide/reference#auto_view
 auto_view text/calendar # https://neomutt.org/guide/reference#auto_view
-# Order to try and show multipart emails
 alternative_order text/plain text/calendar text/enriched text/html
-# Macro to toggle alternates (plain <-> html), based on:
-# https://groups.google.com/d/msg/comp.mail.mutt/9I702oMwQQE/JqdLnp3j9WAJ
 macro pager ,@aoh= "<enter-command>unalternative_order *; alternative_order text/calendar text/html text/plain text/enriched; macro pager A ,@aot= 'toggle alternative order'<enter><exit><display-message>"
 macro pager ,@aot= "<enter-command>unalternative_order *; alternative_order text/plain text/calendar text/enriched text/html; macro pager A ,@aoh= 'toggle alternative order'<enter><exit><display-message>"
 macro pager A ,@aoh= "toggle alternative order"
-# Use urlscan to handle links in messages
 macro pager U "<enter-command>set pipe_decode = yes<enter><pipe-message>urlscan  -dc -r 'linkhandler {}'<enter><enter-command>set pipe_decode = no<enter>" "view URLs"
 bind pager r reply
 bind pager R group-reply
-# Vim like keybindings
 bind pager g noop
 bind pager G bottom
 bind pager gg top

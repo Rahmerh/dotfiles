@@ -22,9 +22,10 @@ cask "protonmail-bridge"
 cask "discord"
 cask "slack"
 brew "weechat"
+brew "msmtp"
+brew "neomutt"
 
 # CLI app
-brew "neomutt"
 brew "spotify-tui"
 brew "lazygit"
 brew "neovim", args: ["HEAD"]
@@ -50,6 +51,9 @@ brew "bat"
 brew "notmuch"
 brew "pandoc"
 brew "skhd"
+brew "k9s"
+brew "pass"
+brew "w3m"
 
 # Terminal stuff
 brew "fish"

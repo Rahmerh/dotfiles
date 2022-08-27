@@ -1,0 +1,16 @@
+account personal
+
+host 127.0.0.1
+port 1025
+
+from basbouwhuis@protonmail.com
+user basbouwhuis@protonmail.com
+
+passwordeval "~/.config/msmtp/get-personal-key"
+
+auth on
+tls on
+tls_trust_file	/etc/ssl/cert.pem
+logfile /Users/bas/.cache/msmtp/msmtp.log
+tls_starttls on
+

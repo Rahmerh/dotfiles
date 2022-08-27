@@ -6,6 +6,24 @@
 # That's why I have to do it manually.
 cp {{ .chezmoi.sourceDir }}/dot_config/yabai/yabairc ~/.config/yabai
 
-brew services restart yabai
+while true
+do
+      read -r -p "Do you want to restart the yabai service? [Y/n] " input
+
+      case $input in
+            [yY][eE][sS]|[yY])
+                  brew services restart yabai
+                  break
+                  ;;
+            [nN][oO]|[nN])
+                  print_warning "Not restarting yabai.\n"
+                  break
+                  ;;
+            *)
+                  echo "Invalid input..."
+                  ;;
+      esac      
+done
+
 
 print_success "Yabai setup!\n"
