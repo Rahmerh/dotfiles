@@ -1,17 +1,20 @@
 # vim: filetype=neomuttrc
 
-# Status bar
+#########################
+#  Status bar Settings  #
+#########################
 set status_chars = " *%A"
 set status_on_top = yes
 set status_format  = "Folder: %f : %r%n new (%m messages)%?d? (%d to delete)?%?t? (%t tagged)? %>-%?p?( %p postponed )? : "
 
-
-source ~/.config/neomutt/nord.mutt
+#########################
+#  Theme Settings       #
+#########################
+source ~/.config/neomutt/nord.theme
 
 #########################
 #  Index View Settings  #
 #########################
-
 # Sort by threads
 set sort = threads # https://neomutt.org/guide/reference#sort
 # Sort threads by last date recieved - newest first
@@ -65,22 +68,13 @@ bind index,pager \Cb sidebar-toggle-visible
 #  Composing Settings  #
 ########################
 
-# Use nvim but don't force text width (looks terible if read on a phone)
 set editor = "nvim +':set textwidth=0'" # https://neomutt.org/guide/reference#editor
-# Puts email headers in Vim
 set edit_headers=yes # https://neomutt.org/guide/reference#edit_headers
-# Go straight to vim when writing an email
-# Means that we will not be prompted for to / subject before opening email
 set autoedit=yes # https://neomutt.org/guide/reference#autoedit
-# Use From header
 set use_from = yes # https://neomutt.org/guide/reference#use_from
-# When forwading, put Fwd: before original subject
 set forward_format = "Fwd: %s" # https://neomutt.org/guide/reference#forward_format
-# Include the forwarded message in the body
 set forward_quote = yes # https://neomutt.org/guide/reference#forward_quote
-# Include the replied mesaage in the body
 set include = yes # https://neomutt.org/guide/reference#include
-# Prevents mutt putting '> ' when replying
 set indent_string = '' # https://neomutt.org/guide/reference#indent_string
 set attribution="\n________________________________________\nFrom: %F <%a>\nSent: %{%d %B %Y %R}\nTo: %r\nCc: %R\nSubject: %s\n"
 
@@ -118,82 +112,9 @@ macro compose m \
 <enter-command>unset pipe_decode<enter>a^U/tmp/msg.html\n^D^T^Utext/html; charset=utf-8\n=DTT&d^U\n" \
 "Convert markdown gfm to HTML and plain" 
 
-#############
-#  Colours  #
-#############
-
-# Default index colors:
-color index yellow default '.*'
-color index_author red default '.*'
-color index_number blue default
-color index_subject cyan default '.*'
-
-# New mail is boldened:
-color index brightyellow black "~N"
-color index_author brightred black "~N"
-color index_subject brightcyan black "~N"
-
-# Other colors and aesthetic settings:
-mono bold bold
-mono underline underline
-mono indicator reverse
-mono error bold
-color normal default default
-color indicator brightblack white
-color sidebar_highlight red default
-color sidebar_divider brightblack black
-color sidebar_flagged red black
-color sidebar_new green black
-color normal brightyellow default
-color error red default
-color tilde black default
-color message cyan default
-color markers red white
-color attachment white default
-color search brightmagenta default
-color status brightyellow black
-color hdrdefault brightgreen default
-color quoted green default
-color quoted1 blue default
-color quoted2 cyan default
-color quoted3 yellow default
-color quoted4 red default
-color quoted5 brightred default
-color signature brightgreen default
-color bold black default
-color underline black default
-color normal default default
-
-# Regex highlighting:
-color header blue default ".*"
-color header brightmagenta default "^(From)"
-color header brightcyan default "^(Subject)"
-color header brightwhite default "^(CC|BCC)"
-color body brightred default "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+" # Email addresses
-color body brightblue default "(https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+" # URL
-color body green default "\`[^\`]*\`" # Green text between ` and `
-color body brightblue default "^# \.*" # Headings as bold blue
-color body brightcyan default "^## \.*" # Subheadings as bold cyan
-color body brightgreen default "^### \.*" # Subsubheadings as bold green
-color body yellow default "^(\t| )*(-|\\*) \.*" # List items as yellow
-color body brightcyan default "[;:][-o][)/(|]" # emoticons
-color body brightcyan default "[;:][)(|]" # emoticons
-color body brightcyan default "[ ][*][^*]*[*][ ]?" # more emoticon?
-color body brightcyan default "[ ]?[*][^*]*[*][ ]" # more emoticon?
-color body red default "(BAD signature)"
-color body cyan default "(Good signature)"
-color body brightblack default "^gpg: Good signature .*"
-color body brightyellow default "^gpg: "
-color body brightyellow red "^gpg: BAD signature from.*"
-mono body bold "^gpg: Good signature"
-mono body bold "^gpg: BAD signature from.*"
-color body red default "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
-
-set folder = ~/.config/neomutt/mails
-set spoolfile = "+Personal/INBOX"
-folder-hook Personal/*		source ~/.config/neomutt/accounts/personal
-folder-hook Work/*		source ~/.config/neomutt/accounts/work 
-
-# source ~/.config/neomutt/accounts/personal
-#macro index,pager <f1> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/personal<enter><change-folder>!<enter>;<check-stats>' "switch to personal account"
-#macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/work<enter><change-folder>!<enter>;<check-stats>' "switch to work account"
+######################
+#  Default settings  #
+######################
+source ~/.config/neomutt/accounts/personal
+macro index,pager <F1> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/personal<enter><change-folder>!<enter>;<check-stats>' "Switch to personal"
+macro index,pager <F2> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/work<enter><change-folder>!<enter>;<check-stats>' "switch to work"

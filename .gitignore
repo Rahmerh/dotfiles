@@ -1,26 +1,26 @@
-vscode-java-test/
-java-debug/
-plugin/
-
-brew/Brewfile.lock.json
-
-chezmoi/dot_config/aerc/accounts.conf
-chezmoi/dot_config/aerc/private_accounts.conf
-
-chezmoi/dot_config/slack-term/config/dot_slackterm
-
+# K9s
 chezmoi/dot_config/k9s/config.yml
 
+# Chezmoi
 chezmoi/dot_config/chezmoi/private_chezmoistate.boltdb
-
-chezmoi/dot_config/mutt/accounts/basbouwhuis@protonmail.com.muttrc
-chezmoi/dot_config/mutt/accounts/bas.bouwhuis@medapp.nl.muttrc
 
 # Weechat
 chezmoi/dot_weechat/private_sec.conf
 chezmoi/dot_weechat/private_logs
-
 chezmoi/dot_weechat/weechat.log
+
+# Neomutt
 chezmoi/dot_config/neomutt/keys
-.DS_Store
 chezmoi/dot_config/msmtp/executable_get-personal-key
+chezmoi/dot_config/neomutt/private_mails/Personal
+
+# Misc
+.DS_Store
+plugin/
+brew/Brewfile.lock.json
+
+
+
+chezmoi/dot_config/msmtp/config
+chezmoi/dot_config/msmtp/executable_get-work-key
+chezmoi/dot_mbsyncrc

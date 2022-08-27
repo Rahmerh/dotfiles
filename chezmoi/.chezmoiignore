@@ -9,3 +9,5 @@ brew/
 .config/sketchybar/plugins
 # Yabai
 .config/yabai/yabairc
+# Neomutt
+.config/neomutt/mails

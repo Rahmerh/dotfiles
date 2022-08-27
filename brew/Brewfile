@@ -21,6 +21,7 @@ cask "protonmail-bridge"
 # Communication
 cask "discord"
 cask "slack"
+cask "whatsapp"
 brew "weechat"
 brew "msmtp"
 brew "neomutt"
