@@ -16,10 +16,12 @@ cask "rectangle-pro"
 cask "spotify"
 cask "gimp"
 brew "sketchybar"
+cask "protonmail-bridge"
 
 # Communication
 cask "discord"
 cask "slack"
+brew "weechat"
 
 # CLI app
 brew "neomutt"
@@ -45,6 +47,8 @@ brew "speedtest-cli"
 brew "lsd"
 brew "neofetch"
 brew "bat"
+brew "notmuch"
+brew "pandoc"
 
 # Terminal stuff
 brew "fish"

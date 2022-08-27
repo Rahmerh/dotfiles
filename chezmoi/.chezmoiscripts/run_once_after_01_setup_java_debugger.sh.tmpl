@@ -1,0 +1,21 @@
+#!/bin/bash
+
+. "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
+
+print_info "Cloning repositories.\n"
+
+git clone https://github.com/microsoft/java-debug ~/.config/nvim/java-debug/
+git clone https://github.com/microsoft/vscode-java-test ~/.config/nvim/vscode-java-test/
+
+print_info "\n\nInstalling plugins.\n"
+
+cd ~/.config/nvim/java-debug/
+
+./mvnw clean install -DskipTests
+
+cd ~/.config/nvim/vscode-java-test/
+
+npm install
+npm run build-plugin
+
+print_success "\n\nJava debugger setup!\n"
