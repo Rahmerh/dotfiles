@@ -7,7 +7,6 @@ vim.cmd([[
     autocmd FileType qf set nobuflisted
   augroup end
 
-
   augroup _git
     autocmd!
     autocmd FileType gitcommit setlocal wrap
