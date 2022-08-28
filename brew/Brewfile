@@ -60,6 +60,7 @@ brew "w3m"
 brew "bpytop"
 brew "ddgr"
 brew "ranger"
+brew "fisher"
 
 # Terminal stuff
 brew "fish"

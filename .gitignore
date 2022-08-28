@@ -10,20 +10,19 @@ chezmoi/dot_weechat/private_logs
 chezmoi/dot_weechat/weechat.log
 
 # Neomutt
-chezmoi/dot_config/neomutt/keys
 chezmoi/dot_config/msmtp/executable_get-personal-key
-chezmoi/dot_config/neomutt/private_mails/Personal
+chezmoi/dot_config/msmtp/executable_get-work-key
+chezmoi/dot_config/msmtp/config
+chezmoi/dot_config/neomutt/secrets
+
+# Khal
+chezmoi/dot_config/vdirsyncer/private_status
+chezmoi/dot_config/vdirsyncer/get-personal-url
+chezmoi/dot_config/vdirsyncer/get-work-url
 
 # Misc
 .DS_Store
 plugin/
 brew/Brewfile.lock.json
-
-
-
-chezmoi/dot_config/msmtp/config
-chezmoi/dot_config/msmtp/executable_get-work-key
-chezmoi/dot_mbsyncrc
-chezmoi/dot_config/vdirsyncer/private_status
-chezmoi/dot_config/vdirsyncer/get-personal-url
-chezmoi/dot_config/vdirsyncer/get-work-url
+package-lock.json
+package.json

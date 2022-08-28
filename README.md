@@ -41,11 +41,16 @@ The following are the most important tools I work with:
 ### Tools
 
 - [Homebrew](https://github.com/Homebrew/brew)
-- [Kitty](https://github.com/kovidgoyal/kitty) terminal (with the [fish](https://github.com/fish-shell/fish-shell) shell)
-- [Spotify tui](https://github.com/Rigellute/spotify-tui)
-- [NeoMutt](https://github.com/neomutt/neomutt)
+- [Kitty](https://github.com/kovidgoyal/kitty) 
+  - I use the [fish](https://github.com/fish-shell/fish-shell) shell.
 - [Neovim](https://github.com/neovim/neovim)
-- [Rectangle-pro](https://rectangleapp.com/pro) <sub>I honestly couldn't work without this one, well worth the 10 euros</sub>
+  - TODO plugin list
+- [NeoMutt](https://github.com/neomutt/neomutt)
+  - For offline IMAP I use [vdirsyncer](https://github.com/pimutils/vdirsyncer)
+  - For smtp I use [msmtp](https://marlam.de/msmtp/) 
+- [Yabai](https://github.com/koekeishiya/yabai)
+- [SketchyBar](https://github.com/FelixKratz/SketchyBar)
+- [Spotify tui](https://github.com/Rigellute/spotify-tui)
 
 ### Theme(s)
 

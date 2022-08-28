@@ -1,0 +1,48 @@
+IMAPStore personal-remote
+Host 127.0.0.1
+Port 1143
+UserCmd "~/.config/neomutt/secrets/get-personal-user"
+PassCmd "~/.config/neomutt/secrets/get-personal-pass"
+AuthMechs LOGIN
+SSLType NONE
+CertificateFile /etc/ssl/cert.pem
+
+MaildirStore personal-local
+Subfolders Verbatim
+Path ~/.config/neomutt/mails/Personal/
+Inbox ~/.config/neomutt/mails/Personal/Inbox
+
+Channel personal 
+Expunge Both
+Far :personal-remote:
+Near :personal-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
+
+IMAPStore work-remote 
+Host imap.gmail.com
+Port 993
+UserCmd "~/.config/neomutt/secrets/get-work-user"
+PassCmd "~/.config/neomutt/secrets/get-work-key"
+AuthMechs LOGIN
+SSLType IMAPS
+
+MaildirStore work-local
+Subfolders Verbatim
+Path ~/.config/neomutt/mails/Work/
+Inbox ~/.config/neomutt/mails/Work/Inbox
+
+Channel work
+Expunge both
+Far :work-remote:
+Near :work-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
