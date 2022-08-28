@@ -4,5 +4,5 @@ if not status_ok then
 end
 
 terminal.setup({
-	cmd = os.getenv("SHELL"),
+	cmd = [ "fish" ],
 })
