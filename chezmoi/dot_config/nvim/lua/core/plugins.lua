@@ -108,6 +108,9 @@ return packer.startup(function(use)
     use("AckslD/nvim-neoclip.lua")
     use("kkharji/sqlite.lua")
 
+    use({ "junegunn/fzf", run = ":call fzf#install()" })
+    use("junegunn/fzf.vim")
+
     -- Statusline
     use({
         "tamton-aquib/staline.nvim",

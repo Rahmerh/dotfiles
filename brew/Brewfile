@@ -77,9 +77,11 @@ brew "eslint"
 brew "astyle"
 brew "semgrep"
 brew "stylua"
+brew "uncrustify"
 
 # Build tools
 brew "python@3.9"
+brew "python@3.10"
 brew "cmake"
 brew "ctags"
 brew "go"

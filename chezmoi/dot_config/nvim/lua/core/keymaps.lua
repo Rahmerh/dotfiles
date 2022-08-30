@@ -51,9 +51,9 @@ m.tnoremap("<C-\\>", "<C-\\><C-N><cmd>lua require('FTerm').toggle()<cr>", "silen
 
 -- Telescope
 m.nnoremap(
-	"<leader>f",
-	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown())<cr>",
-	"silent"
+    "<leader>f",
+    "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown())<cr>",
+    "silent"
 )
 m.nnoremap("<leader>g", "<cmd>Telescope live_grep<cr>", "silent")
 m.nnoremap("<leader>po", "<cmd>Telescope projects<cr>", "silent")
@@ -61,7 +61,7 @@ m.nnoremap("<C-y>", "<cmd>Telescope neoclip<cr>", "silent")
 m.inoremap("<C-y>", "<cmd>Telescope neoclip<cr>", "silent")
 
 -- LSP
-m.nnoremap("<C-space>", "<cmd>Lspsaga code_action<CR>", "silent")
+m.nnoremap("<C-.>", "<cmd>Lspsaga code_action<CR>", "silent")
 m.nnoremap("RR", "<cmd>Lspsaga rename<cr>", "silent")
 m.nnoremap("K", "<cmd>Lspsaga hover_doc<cr>", "silent")
 m.nnoremap("<C-n>", "<cmd>Lspsaga show_line_diagnostics<cr>", "silent")
@@ -81,9 +81,9 @@ m.nnoremap("tn", "<cmd>lua require'jdtls'.test_nearest_method()<cr>", "silent")
 m.nnoremap("tc", "<cmd>lua require'jdtls'.test_class()<cr>", "silent")
 m.nnoremap("tl", "<cmd>DapToggleRepl<cr>", "silent")
 m.nnoremap(
-	"<C-t>",
-	"<cmd>lua require('dapui').float_element('watches', { width = 200, height = 30, enter = true })<cr>",
-	"silent"
+    "<C-t>",
+    "<cmd>lua require('dapui').float_element('watches', { width = 200, height = 30, enter = true })<cr>",
+    "silent"
 )
 
 -- Color picker

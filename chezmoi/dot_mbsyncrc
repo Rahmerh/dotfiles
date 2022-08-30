@@ -2,7 +2,7 @@ IMAPStore personal-remote
 Host 127.0.0.1
 Port 1143
 UserCmd "~/.config/neomutt/secrets/get-personal-user"
-PassCmd "~/.config/neomutt/secrets/get-personal-pass"
+PassCmd "~/.config/neomutt/secrets/get-personal-key"
 AuthMechs LOGIN
 SSLType NONE
 CertificateFile /etc/ssl/cert.pem
