@@ -2,6 +2,8 @@
 
 . "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
 
+print_info "\nSetting up skhd\n"
+
 brew services restart skhd
 
-print_success "Skhd setup!\n"
+print_success "Done!\n"

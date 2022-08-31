@@ -32,7 +32,6 @@ require("catppuccin").setup({
 		},
 		lsp_saga = true,
 		gitsigns = true,
-		telescope = true,
 		neotree = {
 			enabled = true,
 			show_root = true,

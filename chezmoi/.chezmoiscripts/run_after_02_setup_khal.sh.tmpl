@@ -2,6 +2,8 @@
 
 . "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
 
+print_info "\nSetting up khal\n"
+
 sudo cp {{ .chezmoi.sourceDir }}/dot_config/vdirsyncer/get-personal-url ~/.config/vdirsyncer 
 sudo cp {{ .chezmoi.sourceDir }}/dot_config/vdirsyncer/get-work-url ~/.config/vdirsyncer 
 
@@ -16,4 +18,4 @@ vdirsyncer discover work
 
 brew services restart vdirsyncer
 
-print_success "Khal setup!\n"
+print_success "Done!\n"

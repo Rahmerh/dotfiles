@@ -2,11 +2,12 @@
 
 . "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
 
-print_info "Brew bundle\n"
+print_info "\nBrew bundle\n"
 brew bundle --file={{ .chezmoi.sourceDir }}/../brew/Brewfile
 
 print_info "\nInstall pip packages\n"
 pip3 install urlscan
+pip3 install beautysh
 
 print_info "\nInstall gem packages\n"
 sudo gem install activesupport -v 6.1.6.1
@@ -14,3 +15,5 @@ sudo gem install terjira
 
 print_info "\nInstall npm packages\n"
 npm i -g movie-cli
+
+print_success "Done!\n"

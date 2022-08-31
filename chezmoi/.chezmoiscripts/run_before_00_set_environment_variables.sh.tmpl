@@ -2,7 +2,10 @@
 
 . "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
 
+print_info "\nSetting environment variables\n"
+
 export XDG_CONFIG_HOME=~/.config
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+export SHELL=/opt/homebrew/bin/fish
 
-print_success "Set all environment variables!\n"
+print_success "Done!\n"
