@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# TODO: Only show battery icon, show percentage on hover. 
-
-# Colors
 source $HOME/.config/sketchybar/settings/colors
 
 BATTERY='
@@ -11,15 +8,15 @@ source $HOME/.config/sketchybar/settings/colors
 BATT_PERCENT=$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1)
 CHARGING=$(pmset -g batt | grep "AC Power")
 if [[ $CHARGING != "" ]]; then
-  sketchybar -m --set battery \
-    icon.color=0xFF${COLOR2:1} \
-    icon= \
-    label=$(printf "${BATT_PERCENT}%%") 
-  exit 0
+    sketchybar -m --set battery \
+        icon.color=0xFF${COLOR2:1} \
+        icon= \
+        label=$(printf "${BATT_PERCENT}%%")
+    exit 0
 fi
 [[ "${BATT_PERCENT}" -gt 10 ]] && COLOR="0xFF${COLOR5:1}" || COLOR="0xFF${COLOR1:1}"
 case ${BATT_PERCENT} in
-   100) ICON="" ;;
+    100) ICON="" ;;
     9[0-9]) ICON="" ;;
     8[0-9]) ICON="" ;;
     7[0-9]) ICON="" ;;
@@ -32,9 +29,9 @@ case ${BATT_PERCENT} in
     *) ICON=""
 esac
 sketchybar -m --set battery \
-  icon.color="$COLOR" \
-  icon="$ICON" \
-  label=$(printf "${BATT_PERCENT}%%")
+    icon.color="$COLOR" \
+    icon="$ICON" \
+    label=$(printf "${BATT_PERCENT}%%")
 '
 
 sketchybar -m --add item battery right \
@@ -47,4 +44,3 @@ sketchybar -m --add item battery right \
               background.color="0x966f6f6f" \
               background.border_color=0x96ffffff \
               background.border_width=1
-

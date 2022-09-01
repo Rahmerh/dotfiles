@@ -9,10 +9,12 @@ print_info "\nConfiguring sketchybar\n"
 cp {{ .chezmoi.sourceDir }}/dot_config/sketchybar/sketchybarrc ~/.config/sketchybar/
 cp {{ .chezmoi.sourceDir }}/dot_config/sketchybar/items/* ~/.config/sketchybar/items/
 cp {{ .chezmoi.sourceDir }}/dot_config/sketchybar/settings/* ~/.config/sketchybar/settings/
+cp {{ .chezmoi.sourceDir }}/dot_config/sketchybar/plugins/* ~/.config/sketchybar/plugins/
 
 # Set exec permissions for all plugins
-find ~/.config/sketchybar/settings/ -type f -name "*.*" -exec chmod 775 {} \;
-find ~/.config/sketchybar/items/ -type f -name "*.*" -exec chmod 775 {} \;
+find ~/.config/sketchybar/settings/ -type f -name "*.*" -exec chmod +x {} \;
+find ~/.config/sketchybar/items/ -type f -name "*.*" -exec chmod +x {} \;
+find ~/.config/sketchybar/plugins/ -type f -name "*.*" -exec chmod +x {} \;
 
 brew services restart sketchybar
 

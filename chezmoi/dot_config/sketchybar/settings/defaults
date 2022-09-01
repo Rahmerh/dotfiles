@@ -5,6 +5,5 @@ sketchybar --bar position=top \
     shadow=off \
     display=all \
     color="0x00000000" \
-    y_offset=10 \
     --default \
-    icon.font="Hack Nerd Font:Bold:18.0"
+    icon.font="Hack Nerd Font:Regular:18.0"

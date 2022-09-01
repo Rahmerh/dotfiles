@@ -26,3 +26,5 @@ plugin/
 brew/Brewfile.lock.json
 package-lock.json
 package.json
+
+chezmoi/dot_config/private_weechat/private_sec.conf

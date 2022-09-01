@@ -1,12 +1,14 @@
 #!/usr/bin/env sh
 
-FONT="Hack Nerd Font"
+PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
+# https://github.com/shahmilav/carbonfiber-dots/tree/main/sketchybar
 
 # General settings
 sh ~/.config/sketchybar/settings/defaults
 
 # Right items
 sh ~/.config/sketchybar/items/battery
+sh ~/.config/sketchybar/items/wifi
 
 # Finalizing setup
 sketchybar --update
