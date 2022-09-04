@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
+source $HOME/.config/sketchybar/settings/colors
+
 sketchybar --bar position=top \
     height=20 \
     shadow=off \
     display=all \
-    color="0x00000000" \
+    color=$INVISIBLE \
     --default \
-    icon.font="Hack Nerd Font:Regular:18.0"
+    icon.font="Hack Nerd Font:Bold:18.0"

@@ -5,9 +5,7 @@ chezmoi/dot_config/k9s/config.yml
 chezmoi/dot_config/chezmoi/private_chezmoistate.boltdb
 
 # Weechat
-chezmoi/dot_weechat/private_sec.conf
-chezmoi/dot_weechat/private_logs
-chezmoi/dot_weechat/weechat.log
+chezmoi/dot_config/private_weechat/private_sec.conf
 
 # Neomutt
 chezmoi/dot_config/msmtp/executable_get-personal-key
@@ -16,9 +14,8 @@ chezmoi/dot_config/msmtp/config
 chezmoi/dot_config/neomutt/secrets
 
 # Khal
-chezmoi/dot_config/vdirsyncer/private_status
-chezmoi/dot_config/vdirsyncer/get-personal-url
-chezmoi/dot_config/vdirsyncer/get-work-url
+chezmoi/dot_config/vdirsyncer/private_readonly_executable_get-personal-url
+chezmoi/dot_config/vdirsyncer/private_readonly_executable_get-work-url
 
 # Misc
 .DS_Store
@@ -27,4 +24,3 @@ brew/Brewfile.lock.json
 package-lock.json
 package.json
 
-chezmoi/dot_config/private_weechat/private_sec.conf

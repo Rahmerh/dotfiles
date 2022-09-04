@@ -2,8 +2,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 alias ls='lsd'
 alias la='ls -la'
 alias cat="bat"
-alias c="khal interactive"
-alias s="ddgr"
+alias cal="khal interactive"
+alias search="ddgr"
+alias ping="gping"
 
 # Keybindings
 # Cmd + e

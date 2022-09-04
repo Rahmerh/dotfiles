@@ -1,0 +1,22 @@
+#!/bin/bash
+
+. "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
+
+print_info "Asking for root persmissions\n"
+
+if [[ "$EUID" = 0 ]]; then
+    print_info "Already root\n"
+else
+    while true
+    do
+        sudo -k
+
+        if sudo true; then
+            print_success "Thank you!\n"
+            break
+        else
+            print_error "We need root permissions to run chezmoi apply\n"
+
+        fi
+    done
+fi

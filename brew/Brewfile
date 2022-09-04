@@ -28,24 +28,14 @@ brew "neomutt"
 brew "khal"
 brew "vdirsyncer"
 
-# CLI app
-brew "spotify-tui"
-brew "lazygit"
-brew "neovim", args: ["HEAD"]
-
 # CLI tools
 brew "macvim"
+brew "spotify-tui"
 brew "wget"
-cask "docker"
-brew "docker-compose"
-brew "node"
-brew "angular-cli"
-brew "azure-cli"
 brew "jq"
 brew "fd"
 brew "kubeseal"
 brew "luarocks"
-brew "maven"
 brew "ripgrep"
 brew "speedtest-cli"
 brew "lsd"
@@ -54,23 +44,34 @@ brew "bat"
 brew "notmuch"
 brew "pandoc"
 brew "skhd"
-brew "k9s"
 brew "pass"
 brew "w3m"
-brew "bpytop"
+brew "btop"
 brew "ddgr"
 brew "ranger"
-brew "fisher"
+brew "gping"
+
+# Productivity
+brew "k9s"
+brew "azure-cli"
+brew "lazygit"
+brew "lazydocker"
+
+# Code development
+brew "neovim", args: ["HEAD"]
+brew "maven"
+cask "docker"
+brew "docker-compose"
+brew "node"
 
 # Terminal stuff
 brew "fish"
+brew "fisher"
 brew "tree"
 brew "watch"
 
-# Fonts
-cask "font-fira-code"
-cask "font-fira-code-nerd-font"
-cask "font-hack-nerd-font"
+# eonts
+cask "font-arimo-nerd-font"
 
 # Formatters
 brew "eslint"

@@ -1,17 +1,6 @@
 # Spotify
 .config/spotify-tui/.spotify_token_cache.json
-# Brew
-brew/
 # Fish
 .config/fish/fish_variables
-# Sketchybar
-.config/sketchybar/sketchybarrc
-.config/sketchybar/plugins
-# Yabai
-.config/yabai/yabairc
 # Neomutt
 .config/neomutt/mails
-# Vdirsyncer
-.config/vdirsyncer/status
-.config/vdirsyncer/get-personal-url
-.config/vdirsyncer/get-work-url

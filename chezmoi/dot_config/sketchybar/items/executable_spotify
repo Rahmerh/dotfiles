@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+source $HOME/.config/sketchybar/settings/colors
+source $HOME/.config/sketchybar/settings/fonts
+
+sketchybar --add item spot left \
+    --set spot update_freq=5 \
+    icon.drawing=off \
+    updates=on \
+    script="~/.config/sketchybar/plugins/spotify" \
+    background.color=$BACKGROUND_GRAY \
+    background.padding_left=0 \
+    background.border_color=$WHITE \
+    background.border_width=1

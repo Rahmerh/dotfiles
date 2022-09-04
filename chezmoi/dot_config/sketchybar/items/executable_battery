@@ -1,20 +1,22 @@
 #!/usr/bin/env bash
 
 source $HOME/.config/sketchybar/settings/colors
+source $HOME/.config/sketchybar/settings/fonts
 
 BATTERY='
 # Colors
 source $HOME/.config/sketchybar/settings/colors
+source $HOME/.config/sketchybar/settings/fonts
 BATT_PERCENT=$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1)
 CHARGING=$(pmset -g batt | grep "AC Power")
 if [[ $CHARGING != "" ]]; then
     sketchybar -m --set battery \
-        icon.color=0xFF${COLOR2:1} \
+        icon.color=${GREEN} \
         icon= \
         label=$(printf "${BATT_PERCENT}%%")
     exit 0
 fi
-[[ "${BATT_PERCENT}" -gt 10 ]] && COLOR="0xFF${COLOR5:1}" || COLOR="0xFF${COLOR1:1}"
+[[ "${BATT_PERCENT}" -gt 10 ]] && COLOR="${WHITE}" || COLOR="${RED}"
 case ${BATT_PERCENT} in
     100) ICON="" ;;
     9[0-9]) ICON="" ;;
@@ -30,17 +32,20 @@ case ${BATT_PERCENT} in
 esac
 sketchybar -m --set battery \
     icon.color="$COLOR" \
+    icon.font="$DEFAULT_FONT" \
     icon="$ICON" \
-    label=$(printf "${BATT_PERCENT}%%")
+    label=$(printf "${BATT_PERCENT}%%") \
+    label.font="$DEFAULT_FONT"
 '
 
 sketchybar -m --add item battery right \
               --set battery update_freq=3 \
               script="$BATTERY" \
               icon="" \
-              icon.padding_left=15 \
-              label.padding_right=15 \
+              icon.padding_left=10 \
+              icon.font="$DEFAULT_FONT" \
               label.padding_left=10 \
-              background.color="0x966f6f6f" \
-              background.border_color=0x96ffffff \
+              label.padding_right=10 \
+              background.color=$BACKGROUND_GRAY \
+              background.border_color=$WHITE \
               background.border_width=1
