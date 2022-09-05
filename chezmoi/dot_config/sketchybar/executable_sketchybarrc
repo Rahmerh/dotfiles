@@ -1,10 +1,10 @@
 #!/usr/bin/env sh
 
-PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
-# https://github.com/shahmilav/carbonfiber-dots/tree/main/sketchybar
-
 # General settings
 sh ~/.config/sketchybar/settings/defaults
+
+# Left items
+sh ~/.config/sketchybar/items/spotify
 
 # Right items
 sh ~/.config/sketchybar/items/battery

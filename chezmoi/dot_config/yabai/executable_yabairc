@@ -1,9 +1,13 @@
 #!/usr/bin/env sh
 
 sudo yabai --load-sa
+
+# Signals
+yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
+yabai -m signal --add event=window_title_changed action="sketchybar --trigger title_change"
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
-# global settings
+# Global settings
 yabai -m config mouse_follows_focus          off
 yabai -m config focus_follows_mouse          off
 yabai -m config window_origin_display        default
@@ -26,7 +30,7 @@ yabai -m config mouse_action1                move
 yabai -m config mouse_action2                resize
 yabai -m config mouse_drop_action            swap
 
-# general space settings
+# General space settings
 yabai -m config layout                       bsp
 yabai -m config top_padding                  15
 yabai -m config bottom_padding               15
@@ -34,7 +38,7 @@ yabai -m config left_padding                 15
 yabai -m config right_padding                15
 yabai -m config window_gap                   15
 
-# apps to not manage (ignore)
+# Apps to not manage (ignore)
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^Archive Utility$" manage=off
 yabai -m rule --add app="^balenaEtcher$" manage=off

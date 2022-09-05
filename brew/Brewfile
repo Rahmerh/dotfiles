@@ -46,10 +46,11 @@ brew "pandoc"
 brew "skhd"
 brew "pass"
 brew "w3m"
-brew "btop"
+brew "gotop"
 brew "ddgr"
 brew "ranger"
 brew "gping"
+brew "wego"
 
 # Productivity
 brew "k9s"
