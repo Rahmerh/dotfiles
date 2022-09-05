@@ -17,6 +17,7 @@ cask "gimp"
 brew "sketchybar"
 brew "yabai"
 cask "protonmail-bridge"
+cask "balenaetcher"
 
 # Communication
 cask "discord"
