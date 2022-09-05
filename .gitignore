@@ -17,12 +17,12 @@ chezmoi/dot_config/neomutt/secrets
 chezmoi/dot_config/vdirsyncer/private_readonly_executable_get-personal-url
 chezmoi/dot_config/vdirsyncer/private_readonly_executable_get-work-url
 
+# Wego
+chezmoi/dot_config/wego/wegorc
+
 # Misc
 .DS_Store
 plugin/
 brew/Brewfile.lock.json
 package-lock.json
 package.json
-
-
-chezmoi/dot_config/wego/wegorc
