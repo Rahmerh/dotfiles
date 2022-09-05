@@ -1,0 +1,30 @@
+#!/bin/bash
+
+source $HOME/.config/sketchybar/settings/colors
+source $HOME/.config/sketchybar/settings/fonts
+
+WINDOW_TITLE=$(/opt/homebrew/bin/yabai -m query --windows --window | jq -r '.title')
+
+if [[ $WINDOW_TITLE = "" ]]; then
+    WINDOW_TITLE=$(/opt/homebrew/bin/yabai -m query --windows --window | jq -r '.app')
+fi
+
+if [[ ${#WINDOW_TITLE} -gt 50 ]]; then
+    WINDOW_TITLE=$(echo "$WINDOW_TITLE" | cut -c 1-50)
+    sketchybar -m --set title label="$WINDOW_TITLE"… \
+        background.color=$BACKGROUND_GRAY \
+        background.border_color=$WHITE \
+        background.border_width=1 \
+        label.padding_left=10 \
+        label.padding_right=10 \
+        label.font="$DEFAULT_FONT"
+    exit 0
+fi
+
+sketchybar -m --set title label="$WINDOW_TITLE" \
+    background.color=$BACKGROUND_GRAY \
+    background.border_color=$WHITE \
+    background.border_width=1 \
+    label.padding_left=10 \
+    label.padding_right=10 \
+    label.font="$DEFAULT_FONT"

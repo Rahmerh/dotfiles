@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+source $HOME/.config/sketchybar/settings/fonts
+source $HOME/.config/sketchybar/settings/colors
+
+TIME='sketchybar -m --set time label="$(date "+%H:%M")"'
+
+sketchybar -m --add item time left \
+    --set time update_freq=2 \
+    label.padding_right=10 \
+    label.padding_left=10 \
+    label.color=$WHITE \
+    label.font="$DEFAULT_FONT" \
+    background.color=$BACKGROUND_GRAY \
+    background.border_color=$WHITE \
+    background.border_width=1 \
+    background.padding_left=20 \
+    script="$TIME"

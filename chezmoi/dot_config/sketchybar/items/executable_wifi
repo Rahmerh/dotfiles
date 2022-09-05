@@ -23,7 +23,6 @@ sketchybar -m --add item wifi.control right \
     popup.blur_radius=50 \
     popup.background.border_color=$WHITE \
     popup.background.border_width=1 \
-    popup.background.padding_left=100 \
     popup.height=20 \
     popup.y_offset=10 \
     --add item wifi.ssid popup.wifi.control \

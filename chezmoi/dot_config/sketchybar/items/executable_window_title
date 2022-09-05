@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+source $HOME/.config/sketchybar/settings/colors
+source $HOME/.config/sketchybar/settings/fonts
+
+sketchybar -m --add item title left \
+    --set title script="$HOME/.config/sketchybar/plugins/window_title" \
+    background.color=$BACKGROUND_GRAY \
+    background.border_color=$WHITE \
+    background.border_width=1 \
+    background.padding_left=20 \
+    label.padding_left=10 \
+    label.padding_right=10 \
+    label.font="$DEFAULT_FONT" \
+    --subscribe title window_focus front_app_switched space_change title_change

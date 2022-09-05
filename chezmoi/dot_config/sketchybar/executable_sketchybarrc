@@ -1,14 +1,24 @@
 #!/usr/bin/env sh
 
+# Add events
+sketchybar -m --add event window_focus
+sketchybar -m --add event title_change
+
 # General settings
 sh ~/.config/sketchybar/settings/defaults
+sh ~/.config/sketchybar/items/wake
 
 # Left items
+sh ~/.config/sketchybar/items/date
+sh ~/.config/sketchybar/items/clock
+sh ~/.config/sketchybar/items/window_title
 sh ~/.config/sketchybar/items/spotify
 
 # Right items
 sh ~/.config/sketchybar/items/battery
 sh ~/.config/sketchybar/items/wifi
+sh ~/.config/sketchybar/items/mic
+sh ~/.config/sketchybar/items/sound
 
 # Finalizing setup
 sketchybar --update

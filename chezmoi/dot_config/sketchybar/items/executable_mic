@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+source $HOME/.config/sketchybar/settings/colors
+source $HOME/.config/sketchybar/settings/fonts
+
+sketchybar -m --add item mic right
+
+sketchybar -m --set mic update_freq=3 \
+    --set mic script="~/.config/sketchybar/plugins/mic" \
+    --set mic click_script="~/.config/sketchybar/plugins/mic_click" \
+    background.padding_right=20 \
+    icon.font="$DEFAULT_FONT" \
+    icon.padding_right=10 \
+    icon.padding_left=10 \
+    background.color=$BACKGROUND_GRAY \
+    background.border_color=$WHITE \
+    background.border_width=1

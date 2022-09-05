@@ -3,9 +3,9 @@
 sudo yabai --load-sa
 
 # Signals
-yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
-yabai -m signal --add event=window_title_changed action="sketchybar --trigger title_change"
-yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+yabai -m signal --add event=window_focused action="sketchybar -m --trigger window_focus &> /dev/null"
+yabai -m signal --add event=window_title_changed action="sketchybar -m --trigger title_change &> /dev/null"
+
 
 # Global settings
 yabai -m config mouse_follows_focus          off

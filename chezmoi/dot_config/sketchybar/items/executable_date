@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+source $HOME/.config/sketchybar/settings/fonts
+source $HOME/.config/sketchybar/settings/colors
+
+DATE='sketchybar -m --set date label="$(date "+%a %d. %b")"'
+
+sketchybar -m --add item date left \
+    --set date update_freq=60 \
+    label.padding_right=10 \
+    label.padding_left=10 \
+    label.color=$WHITE \
+    label.font="$DEFAULT_FONT" \
+    background.color=$BACKGROUND_GRAY \
+    background.border_width=1 \
+    background.border_color=$WHITE \
+    script="$DATE" \
