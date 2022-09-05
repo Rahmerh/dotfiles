@@ -24,3 +24,5 @@ brew/Brewfile.lock.json
 package-lock.json
 package.json
 
+
+chezmoi/dot_config/wego/wegorc
