@@ -9,8 +9,8 @@ sh ~/.config/sketchybar/settings/defaults
 sh ~/.config/sketchybar/items/wake
 
 # Left items
-sh ~/.config/sketchybar/items/date
 sh ~/.config/sketchybar/items/clock
+sh ~/.config/sketchybar/items/date
 sh ~/.config/sketchybar/items/window_title
 sh ~/.config/sketchybar/items/spotify
 

@@ -2,6 +2,9 @@
 
 . "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
 
+print_info "\nUpdating brew\n"
+brew update && brew upgrade
+
 print_info "\nBrew bundle\n"
 brew bundle --file={{ .chezmoi.sourceDir }}/../brew/Brewfile
 
@@ -13,6 +16,7 @@ pip3 install websocket-client
 print_info "\nInstall gem packages\n"
 sudo gem install activesupport -v 6.1.6.1
 sudo gem install terjira
+sudo gem install cocoapods
 
 print_info "\nInstall npm packages\n"
 npm i -g movie-cli

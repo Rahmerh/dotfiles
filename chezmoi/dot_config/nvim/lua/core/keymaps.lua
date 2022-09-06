@@ -50,11 +50,9 @@ m.nnoremap("<C-\\>", "<cmd>lua require('FTerm').toggle()<cr>", "silent")
 m.tnoremap("<C-\\>", "<C-\\><C-N><cmd>lua require('FTerm').toggle()<cr>", "silent")
 
 -- Fuzzy search
-m.nnoremap("<leader>f", "<cmd>Files<cr>", "silent")
-m.nnoremap("<leader>g", "<cmd>Rg<cr>", "silent")
+m.nnoremap("<leader>f", "<cmd>Telescope find_files<cr>", "silent")
+m.nnoremap("<leader>g", "<cmd>Telescope live_grep<cr>", "silent")
 m.nnoremap("<leader>po", "<cmd>Telescope projects<cr>", "silent")
-m.nnoremap("<C-y>", "<cmd>Telescope neoclip<cr>", "silent")
-m.inoremap("<C-y>", "<cmd>Telescope neoclip<cr>", "silent")
 
 -- LSP
 m.nnoremap("<C-.>", "<cmd>Lspsaga code_action<CR>", "silent")
@@ -78,9 +76,9 @@ m.nnoremap("tn", "<cmd>lua require'jdtls'.test_nearest_method()<cr>", "silent")
 m.nnoremap("tc", "<cmd>lua require'jdtls'.test_class()<cr>", "silent")
 m.nnoremap("tl", "<cmd>DapToggleRepl<cr>", "silent")
 m.nnoremap(
-	"<C-t>",
-	"<cmd>lua require('dapui').float_element('watches', { width = 200, height = 30, enter = true })<cr>",
-	"silent"
+    "<C-t>",
+    "<cmd>lua require('dapui').float_element('watches', { width = 200, height = 30, enter = true })<cr>",
+    "silent"
 )
 
 -- Color picker
