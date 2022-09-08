@@ -73,8 +73,15 @@ return packer.startup(function(use)
     use("ziontee113/color-picker.nvim")
     use({
         "akinsho/flutter-tools.nvim",
+        -- Temporary until they fix
+        commit = "78551498310e25055ec26d0f8dec2b5297043676",
         config = function()
-            require("flutter-tools").setup()
+            require("flutter-tools").setup({
+                flutter_path = "/Users/bas/bin/flutter/bin/flutter",
+                widget_guides = {
+                    enabled = true,
+                },
+            })
         end,
     })
 
