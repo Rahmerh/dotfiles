@@ -3,7 +3,7 @@
 . "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
 
 print_info "\nUpdating brew\n"
-brew update && brew upgrade
+brew update
 
 print_info "\nBrew bundle\n"
 brew bundle --file={{ .chezmoi.sourceDir }}/../brew/Brewfile

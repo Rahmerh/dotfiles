@@ -10,7 +10,7 @@ tap "koekeishiya/formulae"
 
 # Desktop tools
 cask "1password"
-cask "firefox"
+cask "waterfox"
 cask "kitty"
 cask "spotify"
 cask "gimp"
@@ -98,4 +98,5 @@ brew "yarn"
 
 # Mas
 mas "Bitwarden", id: 1352778147
-mas "Xcode", id: 497799835 
+mas "Xcode", id: 497799835
+mas "System Color Picker", id: 1545870783
