@@ -14,5 +14,5 @@ sketchybar -m --add item time left \
     background.color=$BACKGROUND_GRAY \
     background.border_color=$WHITE \
     background.border_width=1 \
-    background.padding_left=20 \
+    background.padding_right=20 \
     script="$TIME"

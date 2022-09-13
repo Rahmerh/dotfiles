@@ -12,12 +12,12 @@ set hostname = $my_host
 set mbox_type     = Maildir
 set folder        = /Users/bas/.config/neomutt/mails/Work
 
-set record = +[Gmail]/Verzonden berichten
+set record = +[Gmail]/Verzonden
 set postponed = +[Gmail]/Concepten
 set spoolfile = +Inbox
 set trash = +[Gmail]/Prullenbak
 
-mailboxes "=Inbox" "=[Gmail]/Alle e-mail" "=[Gmail]/Belangrijk" "=[Gmail]/Concepten" "=[Gmail]/Met ster" "=[Gmail]/Prullenbak" "=[Gmail]/Spam" "=[Gmail]/Verzonden berichten"
+mailboxes "=Inbox" "=[Gmail]/Alle e-mail" "=[Gmail]/Belangrijk" "=[Gmail]/Concepten" "=[Gmail]/Met ster" "=[Gmail]/Prullenbak" "=[Gmail]/Spam" "=[Gmail]/Verzonden" "=Too much" "=Too much/Bitbucket"
 
 set header_cache = ~/.cache/mutt-cache/
 set message_cachedir = ~/.cache/mutt-cache/

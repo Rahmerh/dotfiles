@@ -17,6 +17,7 @@ local servers = {
 	"yamlls",
 	"eslint",
 	"tsserver",
+	"angular-language-server",
 }
 
 local settings = {

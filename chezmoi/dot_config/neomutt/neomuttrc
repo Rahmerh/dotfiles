@@ -115,6 +115,6 @@ macro compose m \
 ######################
 #  Default settings  #
 ######################
-source ~/.config/neomutt/accounts/personal
-macro index,pager <F1> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/personal<enter><change-folder>!<enter>;<check-stats>' "Switch to personal"
-macro index,pager <F2> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/work<enter><change-folder>!<enter>;<check-stats>' "switch to work"
+source ~/.config/neomutt/accounts/work
+macro index,pager <F1> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/work<enter><change-folder>!<enter>;<check-stats>' "switch to work"
+macro index,pager <F2> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/personal<enter><change-folder>!<enter>;<check-stats>' "Switch to personal"
