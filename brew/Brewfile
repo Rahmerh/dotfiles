@@ -10,7 +10,7 @@ tap "koekeishiya/formulae"
 
 # Desktop tools
 cask "1password"
-cask "waterfox"
+cask "firefox"
 cask "kitty"
 cask "spotify"
 cask "gimp"
@@ -53,12 +53,19 @@ brew "ranger"
 brew "gping"
 brew "wego"
 brew "mas"
+brew "thefuck"
+brew "autojump"
+brew "fish"
+brew "tree"
+brew "watch"
+brew "llvm"
 
 # Productivity
 brew "k9s"
 brew "azure-cli"
 brew "lazygit"
 brew "lazydocker"
+brew "git"
 
 # Code development
 brew "neovim", args: ["HEAD"]
@@ -69,14 +76,8 @@ brew "node"
 cask "android-studio"
 cask "android-commandlinetools"
 
-# Terminal stuff
-brew "fish"
-brew "fisher"
-brew "tree"
-brew "watch"
-
 # eonts
-cask "font-arimo-nerd-font"
+cask "font-hack-nerd-font"
 
 # Formatters
 brew "eslint"
