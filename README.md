@@ -41,18 +41,26 @@ The following are the most important tools I work with:
 ### Tools
 
 - [Homebrew](https://github.com/Homebrew/brew)
-- [Kitty](https://github.com/kovidgoyal/kitty) 
+- [Kitty](https://github.com/kovidgoyal/kitty)
   - I use the [fish](https://github.com/fish-shell/fish-shell) shell.
 - [Neovim](https://github.com/neovim/neovim)
   - TODO plugin list
 - [NeoMutt](https://github.com/neomutt/neomutt)
-  - For offline IMAP I use [vdirsyncer](https://github.com/pimutils/vdirsyncer)
-  - For smtp I use [msmtp](https://marlam.de/msmtp/) 
+  - IMAP: [vdirsyncer](https://github.com/pimutils/vdirsyncer)
+  - SMTP: [msmtp](https://marlam.de/msmtp/)
 - [Yabai](https://github.com/koekeishiya/yabai)
 - [SketchyBar](https://github.com/FelixKratz/SketchyBar)
 - [Spotify tui](https://github.com/Rigellute/spotify-tui)
 
 ### Theme(s)
 
-- [nord-kitty](https://github.com/connorholyday/nord-kitty)
-- [catppuccin/nvim](https://github.com/catppuccin/nvim)
+I use [catppuccin](https://github.com/catppuccin/catppuccin) for basically everything that I can. The following is all the places I use it:
+
+- [Neovim](https://github.com/catppuccin/nvim)
+- [Bat](https://github.com/catppuccin/bat)
+- [Fish](https://github.com/catppuccin/fish)
+- [Neomutt](https://github.com/catppuccin/neomutt)
+- [Spotify tui](https://github.com/catppuccin/spotify-tui)
+- [Firefox](https://github.com/catppuccin/firefox)
+- [Kitty](https://github.com/catppuccin/kitty)
+- [Youtube](https://github.com/catppuccin/youtube)

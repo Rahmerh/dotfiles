@@ -10,7 +10,7 @@ set status_format  = "Folder: %f : %r%n new (%m messages)%?d? (%d to delete)?%?t
 #########################
 #  Theme Settings       #
 #########################
-source ~/.config/neomutt/nord.theme
+source ~/.config/neomutt/frappe.theme
 
 #########################
 #  Index View Settings  #

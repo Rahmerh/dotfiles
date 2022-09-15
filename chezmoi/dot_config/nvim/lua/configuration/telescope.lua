@@ -93,5 +93,6 @@ telescope.setup({
     },
 })
 
+telescope.load_extension("dap")
 telescope.load_extension("lazygit")
 telescope.load_extension("flutter")
