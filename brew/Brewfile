@@ -14,8 +14,8 @@ cask "firefox"
 cask "kitty"
 cask "spotify"
 cask "gimp"
-brew "sketchybar"
-brew "yabai"
+brew "sketchybar", restart_service: true
+brew "yabai", restart_service: true
 cask "protonmail-bridge"
 cask "balenaetcher"
 
@@ -27,7 +27,6 @@ brew "weechat"
 brew "msmtp"
 brew "neomutt"
 brew "khal"
-brew "vdirsyncer"
 
 # CLI tools
 brew "macvim"
@@ -42,9 +41,10 @@ brew "speedtest-cli"
 brew "lsd"
 brew "neofetch"
 brew "bat"
+brew "eth-p/software/bat-extras"
 brew "notmuch"
 brew "pandoc"
-brew "skhd"
+brew "skhd", restart_service: true
 brew "pass"
 brew "w3m"
 brew "gotop"
@@ -65,6 +65,8 @@ brew "azure-cli"
 brew "lazygit"
 brew "lazydocker"
 brew "git"
+brew "isync", restart_service: true
+brew "vdirsyncer", restart_service: true
 
 # Code development
 brew "neovim", args: ["HEAD"]
@@ -74,6 +76,7 @@ brew "docker-compose"
 brew "node"
 cask "android-studio"
 cask "android-commandlinetools"
+brew "perl"
 
 # eonts
 cask "font-hack-nerd-font"
