@@ -16,6 +16,8 @@ local servers = {
     "cssmodules_ls",
     "eslint",
     "tsserver",
+    "jdtls",
+    "omnisharp",
     "angular-language-server",
 }
 

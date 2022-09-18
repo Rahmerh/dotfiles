@@ -77,6 +77,7 @@ brew "node"
 cask "android-studio"
 cask "android-commandlinetools"
 brew "perl"
+cask "dotnet-sdk"
 
 # eonts
 cask "font-hack-nerd-font"

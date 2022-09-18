@@ -2,10 +2,13 @@
 .config/nvim/java-debug
 .config/nvim/vscode-java-test
 .config/nvim/plugin
-
 # Spotify
 .config/spotify-tui/.spotify_token_cache.json
 # Fish
 .config/fish/fish_variables
 # Neomutt
 .config/neomutt/mails
+# Weechat
+.config/weechat/logs
+.config/weechat/script
+.config/weechat/weechat.log
