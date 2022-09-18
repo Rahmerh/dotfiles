@@ -94,25 +94,23 @@ return packer.startup(function(use)
 
     -- Debugger
     use("mfussenegger/nvim-dap")
-    use("rcarriga/nvim-dap-ui")
-    use("mfussenegger/nvim-jdtls")
-    use("Weissle/persistent-breakpoints.nvim")
+	use("rcarriga/nvim-dap-ui")
+	use("mfussenegger/nvim-jdtls")
+	use("Weissle/persistent-breakpoints.nvim")
 
     -- LSP
-    use("kkharji/lspsaga.nvim")
-    use("neovim/nvim-lspconfig")
-    use("williamboman/mason.nvim")
-    use("williamboman/mason-lspconfig.nvim")
-    use("lukas-reineke/lsp-format.nvim")
-    use("hrsh7th/cmp-nvim-lsp")
-    use("hrsh7th/cmp-buffer")
-    use("hrsh7th/cmp-path")
-    use("hrsh7th/cmp-cmdline")
-    use("hrsh7th/nvim-cmp")
-    use("L3MON4D3/LuaSnip")
-    use("windwp/nvim-autopairs")
-    use({ "jose-elias-alvarez/null-ls.nvim", commit = "bb19d790e139713eaddbcd8fd8ee58a23d290bda" })
-    use("folke/trouble.nvim")
+    use({
+		"neoclide/coc.nvim",
+		branch = "release",
+	})
+	use({
+		"weilbith/nvim-code-action-menu",
+		after = "coc.nvim",
+		requires = "xiyaowong/coc-code-action-menu.nvim",
+		config = function()
+			require("coc-code-action-menu")
+		end,
+	})
 
     -- Fuzzy search
     use("nvim-telescope/telescope.nvim")

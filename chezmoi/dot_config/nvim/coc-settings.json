@@ -1,0 +1,12 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": ["*"],
+  "stylua.styluaPath": "/opt/homebrew/bin/stylua",
+  "git.changedSign.text": "┃",
+  "git.addedSign.text": "┃",
+  "java.referencesCodeLens.enabled": true,
+  "java.saveActions.organizeImports": true,
+  "java.sources.organizeImports.starThreshold": 9999,
+  "java.sources.organizeImports.staticStarThreshold": 9999,
+  "css.lint.propertyIgnoredDueToDisplay": "error",
+  "css.lint.important": "warning"
+}

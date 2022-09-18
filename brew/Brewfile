@@ -15,7 +15,7 @@ cask "kitty"
 cask "spotify"
 cask "gimp"
 brew "sketchybar", restart_service: true
-brew "yabai", restart_service: true
+brew "yabai"
 cask "protonmail-bridge"
 cask "balenaetcher"
 
@@ -77,6 +77,7 @@ brew "node"
 cask "android-studio"
 cask "android-commandlinetools"
 brew "perl"
+brew "angular-cli"
 cask "dotnet-sdk"
 
 # eonts

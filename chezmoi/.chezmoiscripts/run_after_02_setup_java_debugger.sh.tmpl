@@ -1,0 +1,34 @@
+#!/bin/bash
+
+. "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
+
+print_info "\nSetting up java debugger\n"
+print_info "Pulling/cloning repositories.\n"
+
+if [ -d ~/.config/nvim/java-debug ]; then
+    git -C ~/.config/nvim/java-debug/ pull
+else 
+    git clone https://github.com/microsoft/java-debug ~/.config/nvim/java-debug/
+fi
+
+if [ -d ~/.config/nvim/vscode-java-test ]; then
+    git -C ~/.config/nvim/vscode-java-test/ checkout -f
+    git -C ~/.config/nvim/vscode-java-test/ checkout 8e25a6151e2b04e509fa336de50bae0509e5204e
+    git -C ~/.config/nvim/vscode-java-test/ pull
+
+else 
+    git clone https://github.com/microsoft/vscode-java-test ~/.config/nvim/vscode-java-test/
+fi
+
+print_info "\nInstalling plugins.\n"
+
+cd ~/.config/nvim/java-debug/
+
+./mvnw clean install -DskipTests
+
+cd ~/.config/nvim/vscode-java-test/
+
+npm install
+npm run build-plugin
+
+print_success "Done!\n"
