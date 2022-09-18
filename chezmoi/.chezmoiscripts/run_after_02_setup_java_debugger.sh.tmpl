@@ -18,6 +18,7 @@ if [ -d ~/.config/nvim/vscode-java-test ]; then
 
 else 
     git clone https://github.com/microsoft/vscode-java-test ~/.config/nvim/vscode-java-test/
+    git -C ~/.config/nvim/vscode-java-test/ checkout 8e25a6151e2b04e509fa336de50bae0509e5204e
 fi
 
 print_info "\nInstalling plugins.\n"

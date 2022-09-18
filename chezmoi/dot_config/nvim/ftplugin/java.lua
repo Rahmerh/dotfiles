@@ -29,9 +29,9 @@ local config = {
         "--add-opens",
         "java.base/java.lang=ALL-UNNAMED",
         "-jar",
-        "/Users/bas/.config/coc/extensions/coc-java-data/server/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar",
+        "/Users/bas/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar",
         "-configuration",
-        "/Users/bas/.config/coc/extensions/coc-java-data/server/config_mac",
+        "/Users/bas/.local/share/nvim/mason/packages/jdtls/config_mac",
         "-data",
         workspace_dir,
     },
@@ -73,4 +73,3 @@ local config = {
 }
 require("jdtls").start_or_attach(config)
 require("jdtls").setup_dap()
-require("jdtls.dap").setup_dap_main_class_configs()
