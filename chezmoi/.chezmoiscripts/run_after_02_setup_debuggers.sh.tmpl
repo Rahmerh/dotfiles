@@ -33,3 +33,23 @@ npm install
 npm run build-plugin
 
 print_success "Done!\n"
+
+print_info "\nSetting up dotnet debugger\n"
+print_info "\nPulling latest binary\n"
+
+rm -rf ~/.config/nvim/netcoredbg
+
+mkdir ~/.config/nvim/tmp
+cd ~/.config/nvim/tmp
+
+curl -s https://api.github.com/repos/Samsung/netcoredbg/releases/latest \
+| grep "netcoredbg-osx-amd64.tar.gz" \
+| cut -d : -f 2,3 \
+| tr -d \" \
+| wget -qi -
+
+tar -xzvf ./netcoredbg-osx-amd64.tar.gz -C ~/.config/nvim
+
+rm -rf ~/.config/nvim/tmp
+
+print_success "Done!\n"

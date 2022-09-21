@@ -94,9 +94,12 @@ return packer.startup(function(use)
 
     -- Debugger
     use("mfussenegger/nvim-dap")
-	use("rcarriga/nvim-dap-ui")
-	use("mfussenegger/nvim-jdtls")
-	use("Weissle/persistent-breakpoints.nvim")
+    use("rcarriga/nvim-dap-ui")
+    use("mfussenegger/nvim-jdtls")
+    use("Weissle/persistent-breakpoints.nvim")
+    use 'vim-test/vim-test'
+    use "nvim-neotest/neotest"
+    use 'nvim-neotest/neotest-vim-test'
 
     -- LSP
     use("kkharji/lspsaga.nvim")
@@ -185,7 +188,18 @@ return packer.startup(function(use)
     use("petertriho/nvim-scrollbar")
     use({ "kevinhwang91/nvim-hlslens" })
     use("gaborvecsei/memento.nvim")
-    use({ "fgheng/winbar.nvim" })
+    use { "anuvyklack/windows.nvim",
+        requires = {
+            "anuvyklack/middleclass",
+            "anuvyklack/animation.nvim"
+        },
+        config = function()
+            vim.o.winwidth = 10
+            vim.o.winminwidth = 10
+            vim.o.equalalways = false
+            require('windows').setup()
+        end
+    }
 
     -- Helm
     use("towolf/vim-helm")

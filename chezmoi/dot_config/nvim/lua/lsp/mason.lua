@@ -17,6 +17,7 @@ local servers = {
     "eslint",
     "tsserver",
     "jdtls",
+    "omnisharp"
 }
 
 local settings = {

@@ -72,9 +72,10 @@ m.nnoremap("<F23>", "<cmd>DapStepOut<cr>", "silent") -- S-F11
 m.nnoremap("<F17>", "<cmd>DapTerminate<cr>", "silent") -- S-F5
 m.nnoremap("<C-b>", "<cmd>PBToggleBreakpoint<cr>", "silent")
 m.nnoremap("<F2>", "<cmd>PBClearAllBreakpoints<cr>", "silent")
-m.nnoremap("tn", "<cmd>lua require'jdtls'.test_nearest_method()<cr>", "silent")
-m.nnoremap("tc", "<cmd>lua require'jdtls'.test_class()<cr>", "silent")
-m.nnoremap("tl", "<cmd>DapToggleRepl<cr>", "silent")
+m.nnoremap("tn", "<cmd>lua require'neotest'.run.run()<cr>", "silent")
+m.nnoremap("tc", "<cmd>lua require'neotest'.run.run(vim.fn.expand('%'))<cr>", "silent")
+m.nnoremap("tl", "<cmd>lua require'neotest'.output.open({ enter = true })<cr>", "silent")
+m.nnoremap("td", "<cmd>lua require'jdtls'.test_nearest_method()<cr>", "silent")
 m.nnoremap(
     "<C-t>",
     "<cmd>lua require('dapui').float_element('watches', { width = 200, height = 30, enter = true })<cr>",
