@@ -9,8 +9,10 @@ function M.setup()
     dap.adapters.dart = {
         type = "executable",
         command = "node",
-        args = { "~/.config/nvim/dart-code/out/dist/debug.js", "flutter" },
+        args = { os.getenv("HOME") .. "/.config/nvim/dart-code/out/dist/debug.js", "flutter" },
     }
+
+    vim.notify(os.getenv("HOME"))
 
     dap.configurations.dart = {
         {
@@ -18,7 +20,7 @@ function M.setup()
             request = "launch",
             name = "Launch flutter",
             dartSdkPath = os.getenv("HOME") .. "/flutter/bin/cache/dart-sdk/",
-            flutterSdkPath = os.getenv("HOME") .. "/flutter",
+            flutterSdkPath = os.getenv("HOME") .. "/bin/flutter/",
             program = "${workspaceFolder}/lib/main.dart",
             cwd = "${workspaceFolder}",
         },
