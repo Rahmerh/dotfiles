@@ -7,6 +7,7 @@ alias cat="bat"
 alias cal="khal interactive"
 alias search="ddgr"
 alias ping="gping"
+alias kafka="kaskade $KASKADE_CONFIG"
 
 # Keybindings
 # Cmd + e

@@ -64,3 +64,14 @@ I use [catppuccin](https://github.com/catppuccin/catppuccin) for basically every
 - [Firefox](https://github.com/catppuccin/firefox)
 - [Kitty](https://github.com/catppuccin/kitty)
 - [Youtube](https://github.com/catppuccin/youtube)
+
+## 🐞 Debuggers
+
+I've had a bit of trouble setting up debuggers in neovim so I wanted to automate the process so I never have to do it manually again.
+
+I've set up the following debuggers using [nvim-dap](https://github.com/mfussenegger/nvim-dap):
+
+- [Java](https://github.com/mfussenegger/nvim-dap/wiki/Java)
+- [Dotnet](https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#Dotnet)
+  - Side note: the netcoredbg binary currently doesn't work on darwin.
+- [Dart](https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#Dart)

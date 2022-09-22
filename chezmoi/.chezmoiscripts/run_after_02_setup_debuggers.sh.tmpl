@@ -50,6 +50,19 @@ curl -s https://api.github.com/repos/Samsung/netcoredbg/releases/latest \
 
 tar -xzvf ./netcoredbg-osx-amd64.tar.gz -C ~/.config/nvim
 
+cd ~/.config
 rm -rf ~/.config/nvim/tmp
+
+print_info "\nSetting up dart debugger\n"
+print_info "Pulling/cloning repositories.\n"
+
+if [ -d ~/.config/nvim/dart-code ]; then
+    git -C ~/.config/nvim/dart-code/ pull
+else
+    git clone https://github.com/Dart-Code/Dart-Code ~/.config/nvim/dart-code/
+fi
+
+cd ~/.config/nvim/dart-code
+npx webpack --mode production
 
 print_success "Done!\n"

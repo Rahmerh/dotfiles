@@ -94,12 +94,13 @@ require("persistent-breakpoints").setup({
 })
 
 -- Setup all DAP adapters.
-require("lsp.dap.dotnet").setup();
-require("lsp.dap.java").setup();
+require("lsp.dap.dotnet").setup()
+require("lsp.dap.java").setup()
+require("lsp.dap.dart").setup()
 
 -- Setup test explorer
 neotest.setup({
     adapters = {
-        require("neotest-vim-test")({})
-    }
+        require("neotest-vim-test")({}),
+    },
 })

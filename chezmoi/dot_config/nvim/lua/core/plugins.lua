@@ -50,7 +50,7 @@ return packer.startup(function(use)
     use("numToStr/Comment.nvim")
     use("JoosepAlviste/nvim-ts-context-commentstring")
 
-    -- terminal
+    -- Terminal
     use("numToStr/FTerm.nvim")
 
     -- Music
@@ -77,7 +77,6 @@ return packer.startup(function(use)
         "akinsho/flutter-tools.nvim",
         config = function()
             require("flutter-tools").setup({
-                flutter_path = "/Users/bas/bin/flutter/bin/flutter",
                 widget_guides = {
                     enabled = true,
                 },
@@ -92,14 +91,17 @@ return packer.startup(function(use)
     -- Color scheme(s)
     use({ "catppuccin/nvim", as = "catppuccin", run = ":CatppuccinCompile" })
 
+    -- Dotnet
+    use("OmniSharp/omnisharp-vim")
+
     -- Debugger
     use("mfussenegger/nvim-dap")
     use("rcarriga/nvim-dap-ui")
     use("mfussenegger/nvim-jdtls")
     use("Weissle/persistent-breakpoints.nvim")
-    use 'vim-test/vim-test'
-    use "nvim-neotest/neotest"
-    use 'nvim-neotest/neotest-vim-test'
+    use("vim-test/vim-test")
+    use("nvim-neotest/neotest")
+    use("nvim-neotest/neotest-vim-test")
 
     -- LSP
     use("kkharji/lspsaga.nvim")
@@ -114,7 +116,7 @@ return packer.startup(function(use)
     use("hrsh7th/nvim-cmp")
     use("L3MON4D3/LuaSnip")
     use("windwp/nvim-autopairs")
-    use("folke/trouble.nvim")
+    use({ "jose-elias-alvarez/null-ls.nvim", commit = "bb19d790e139713eaddbcd8fd8ee58a23d290bda" })
 
     -- Fuzzy search
     use("nvim-telescope/telescope.nvim")
@@ -188,18 +190,19 @@ return packer.startup(function(use)
     use("petertriho/nvim-scrollbar")
     use({ "kevinhwang91/nvim-hlslens" })
     use("gaborvecsei/memento.nvim")
-    use { "anuvyklack/windows.nvim",
+    use({
+        "anuvyklack/windows.nvim",
         requires = {
             "anuvyklack/middleclass",
-            "anuvyklack/animation.nvim"
+            "anuvyklack/animation.nvim",
         },
         config = function()
             vim.o.winwidth = 10
             vim.o.winminwidth = 10
             vim.o.equalalways = false
-            require('windows').setup()
-        end
-    }
+            require("windows").setup()
+        end,
+    })
 
     -- Helm
     use("towolf/vim-helm")
