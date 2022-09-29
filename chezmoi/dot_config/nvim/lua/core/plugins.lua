@@ -49,9 +49,12 @@ return packer.startup(function(use)
 	use("moevis/base64.nvim")
 	use("numToStr/Comment.nvim")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
-	use({"norcalli/nvim-colorizer.lua", config=function ()
-	   require('colorizer').setup();
-	end})
+	use({
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup()
+		end,
+	})
 
 	-- Terminal
 	use("numToStr/FTerm.nvim")
@@ -92,7 +95,7 @@ return packer.startup(function(use)
 	use("folke/which-key.nvim")
 
 	-- Color scheme(s)
-	use({ "catppuccin/nvim", as = "catppuccin", run = ":CatppuccinCompile" })
+    use {"ntk148v/komau.vim"}
 
 	-- Debugger
 	use("mfussenegger/nvim-dap")

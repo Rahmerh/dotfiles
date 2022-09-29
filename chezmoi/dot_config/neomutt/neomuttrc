@@ -8,11 +8,6 @@ set status_on_top = yes
 set status_format  = "Folder: %f : %r%n new (%m messages)%?d? (%d to delete)?%?t? (%t tagged)? %>-%?p?( %p postponed )? : "
 
 #########################
-#  Theme Settings       #
-#########################
-source ~/.config/neomutt/frappe.theme
-
-#########################
 #  Index View Settings  #
 #########################
 # Sort by threads
