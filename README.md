@@ -26,7 +26,11 @@ $R@i.~~ !     :   ~$$$$$B$$en:``
 
 ## ⚙️ Installation
 
-All my dotfiles are managed via chezmoi. There will be a install script coming in the future. For now just take a look at the chezmoi quickstart, that'll help you get started.
+All my dotfiles are managed via chezmoi. I've included an install script to easily get set up.
+
+Simply execute the following command to get started:
+
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/Rahmerh/dotfiles/main/install.sh)"`
 
 Be warned, these dotfiles have only been tested on MacOS at the time of writing. I am planning to include a linux install script as well.
 
