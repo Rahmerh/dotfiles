@@ -1,5 +1,14 @@
-vim.cmd([[
-colorscheme komau
-set background=dark
-hi Normal guibg=NONE ctermbg=NONE
-]])
+vim.o.background = 'dark'
+
+local c = require('vscode.colors')
+require('vscode').setup({
+    transparent = true,
+    italic_comments = true,
+    disable_nvimtree_bg = true,
+    color_overrides = {
+        vscLineNumber = '#FFFFFF',
+    },
+    group_overrides = {
+        Cursor = { fg=c.vscDarkBlue, bg=c.vscLightGreen, bold=true },
+    }
+})

@@ -95,7 +95,7 @@ return packer.startup(function(use)
 	use("folke/which-key.nvim")
 
 	-- Color scheme(s)
-    use {"ntk148v/komau.vim"}
+    use 'Mofiqul/vscode.nvim'
 
 	-- Debugger
 	use("mfussenegger/nvim-dap")
