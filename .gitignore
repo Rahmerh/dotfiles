@@ -26,3 +26,6 @@ plugin/
 brew/Brewfile.lock.json
 package-lock.json
 package.json
+
+chezmoi/dot_config/spotifyd/cache
+chezmoi/dot_config/spotifyd/executable_get-password

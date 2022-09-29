@@ -68,6 +68,7 @@ brew "helm"
 brew "git"
 brew "isync", restart_service: true
 brew "vdirsyncer", restart_service: true
+brew "spotifyd", restart_service: true
 
 # Code development
 brew "neovim", args: ["HEAD"]

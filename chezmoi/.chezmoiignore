@@ -12,3 +12,5 @@
 .config/weechat/logs
 .config/weechat/script
 .config/weechat/weechat.log
+# Spotifyd
+.config/spotifyd/get-password
