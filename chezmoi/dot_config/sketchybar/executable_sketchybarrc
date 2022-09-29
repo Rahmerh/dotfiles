@@ -17,7 +17,6 @@ sh ~/.config/sketchybar/items/spotify
 # Right items
 sh ~/.config/sketchybar/items/battery
 sh ~/.config/sketchybar/items/wifi
-sh ~/.config/sketchybar/items/mic
 sh ~/.config/sketchybar/items/sound
 
 # Finalizing setup

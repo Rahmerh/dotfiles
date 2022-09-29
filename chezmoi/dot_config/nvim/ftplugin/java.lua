@@ -3,12 +3,15 @@ local bundles = {}
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local workspace_dir = "/Users/bas/.local/share/nvim/jdtls/data/" .. project_name
 
-vim.list_extend(bundles, vim.split(vim.fn.glob("/Users/bas/.config/nvim/vscode-java-test/server/*.jar"), "\n"))
+vim.list_extend(
+    bundles,
+    vim.split(vim.fn.glob("/Users/bas/.config/nvim/debuggers/vscode-java-test/server/*.jar"), "\n")
+)
 vim.list_extend(
     bundles,
     vim.split(
         vim.fn.glob(
-            "/Users/bas/.config/nvim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
+            "/Users/bas/.config/nvim/debuggers/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
         ),
         "\n"
     )

@@ -91,9 +91,6 @@ return packer.startup(function(use)
     -- Color scheme(s)
     use({ "catppuccin/nvim", as = "catppuccin", run = ":CatppuccinCompile" })
 
-    -- Dotnet
-    use("OmniSharp/omnisharp-vim")
-
     -- Debugger
     use("mfussenegger/nvim-dap")
     use("rcarriga/nvim-dap-ui")

@@ -17,7 +17,7 @@ local servers = {
     "eslint",
     "tsserver",
     "jdtls",
-    "omnisharp"
+    "csharp-ls",
 }
 
 local settings = {
@@ -53,6 +53,11 @@ for _, server in pairs(servers) do
     if server == "jdtls" then
         goto continue
     end
+
+	if server == "csharp-ls" then
+		lspconfig["csharp_ls"].setup(opts)
+		goto continue
+	end
 
     lspconfig[server].setup(opts)
     ::continue::

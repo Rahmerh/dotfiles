@@ -9,10 +9,8 @@ function M.setup()
     dap.adapters.dart = {
         type = "executable",
         command = "node",
-        args = { os.getenv("HOME") .. "/.config/nvim/dart-code/out/dist/debug.js", "flutter" },
+        args = { os.getenv("HOME") .. "/.config/nvim/debuggers/dart-code/out/dist/debug.js", "flutter" },
     }
-
-    vim.notify(os.getenv("HOME"))
 
     dap.configurations.dart = {
         {
