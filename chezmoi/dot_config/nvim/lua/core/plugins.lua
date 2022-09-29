@@ -114,6 +114,7 @@ return packer.startup(function(use)
     use("L3MON4D3/LuaSnip")
     use("windwp/nvim-autopairs")
     use({ "jose-elias-alvarez/null-ls.nvim", commit = "bb19d790e139713eaddbcd8fd8ee58a23d290bda" })
+    use 'MunifTanjim/prettier.nvim'
 
     -- Fuzzy search
     use("nvim-telescope/telescope.nvim")
