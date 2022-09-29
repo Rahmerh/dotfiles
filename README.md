@@ -30,7 +30,9 @@ All my dotfiles are managed via chezmoi. I've included an install script to easi
 
 Simply execute the following command to get started:
 
-`sh -c "$(curl -fsSL https://raw.githubusercontent.com/Rahmerh/dotfiles/main/install.sh)"`
+```shell
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Rahmerh/dotfiles/main/install.sh)"
+```
 
 Be warned, these dotfiles have only been tested on MacOS at the time of writing. I am planning to include a linux install script as well.
 
