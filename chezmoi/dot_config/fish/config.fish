@@ -21,3 +21,8 @@ thefuck --alias | source
 
 # Source autojump
 [ -f /opt/homebrew/share/autojump/autojump.fish ]; and source /opt/homebrew/share/autojump/autojump.fish
+
+# Configure hydro prompt
+set --global fish_prompt_pwd_dir_length 4
+set --global hydro_fetch true
+

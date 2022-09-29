@@ -2,7 +2,7 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 	pattern = "*",
 	callback = function()
 		if vim.bo.filetype == "neo-tree" then
-			require("bufferline.state").set_offset(42, "")
+			require("bufferline.api").set_offset(42, "")
 		end
 	end,
 })
@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd("BufWinLeave", {
 	pattern = "*",
 	callback = function()
 		if vim.fn.expand("<afile>"):match("neo-tree") then
-			require("bufferline.state").set_offset(0)
+			require("bufferline.api").set_offset(0)
 		end
 	end,
 })

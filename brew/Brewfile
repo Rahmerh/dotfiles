@@ -12,7 +12,6 @@ tap "koekeishiya/formulae"
 cask "1password"
 cask "firefox"
 cask "kitty"
-cask "spotify"
 cask "gimp"
 brew "sketchybar", restart_service: true
 brew "yabai"
