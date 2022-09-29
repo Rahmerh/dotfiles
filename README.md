@@ -52,19 +52,6 @@ The following are the most important tools I work with:
 - [SketchyBar](https://github.com/FelixKratz/SketchyBar)
 - [Spotify tui](https://github.com/Rigellute/spotify-tui)
 
-### Theme(s)
-
-I use [catppuccin](https://github.com/catppuccin/catppuccin) for basically everything that I can. The following is all the places I use it:
-
-- [Neovim](https://github.com/catppuccin/nvim)
-- [Bat](https://github.com/catppuccin/bat)
-- [Fish](https://github.com/catppuccin/fish)
-- [Neomutt](https://github.com/catppuccin/neomutt)
-- [Spotify tui](https://github.com/catppuccin/spotify-tui)
-- [Firefox](https://github.com/catppuccin/firefox)
-- [Kitty](https://github.com/catppuccin/kitty)
-- [Youtube](https://github.com/catppuccin/youtube)
-
 ## 🐞 Debuggers
 
 I've had a bit of trouble setting up debuggers in neovim so I wanted to automate the process so I never have to do it manually again.
