@@ -95,7 +95,7 @@ return packer.startup(function(use)
 	use("folke/which-key.nvim")
 
 	-- Color scheme(s)
-    use 'Mofiqul/vscode.nvim'
+	use("Mofiqul/vscode.nvim")
 
 	-- Debugger
 	use("mfussenegger/nvim-dap")
@@ -107,7 +107,6 @@ return packer.startup(function(use)
 	use("nvim-neotest/neotest-vim-test")
 
 	-- LSP
-	use("kkharji/lspsaga.nvim")
 	use("neovim/nvim-lspconfig")
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
@@ -125,6 +124,7 @@ return packer.startup(function(use)
 	-- Fuzzy search
 	use("nvim-telescope/telescope.nvim")
 	use("nvim-telescope/telescope-dap.nvim")
+	use("nvim-telescope/telescope-ui-select.nvim")
 
 	-- Statusline
 	use({

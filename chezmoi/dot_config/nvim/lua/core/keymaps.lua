@@ -52,17 +52,14 @@ m.tnoremap("<C-\\>", "<C-\\><C-N><cmd>lua require('FTerm').toggle()<cr>", "silen
 -- Fuzzy search
 m.nnoremap("<leader>f", "<cmd>Telescope find_files<cr>", "silent")
 m.nnoremap("<leader>g", "<cmd>Telescope live_grep<cr>", "silent")
-m.nnoremap("<leader>po", "<cmd>Telescope projects<cr>", "silent")
 
 -- LSP
-m.nnoremap("<C-.>", "<cmd>Lspsaga code_action<CR>", "silent")
+m.nnoremap("<C-.>", "<cmd>lua vim.lsp.buf.code_action()<CR>", "silent")
 m.nnoremap("<leader>o", "<cmd>lua require('jdtls').organize_imports()<CR>", "silent")
-m.nnoremap("RR", "<cmd>Lspsaga rename<cr>", "silent")
-m.nnoremap("K", "<cmd>Lspsaga hover_doc<cr>", "silent")
-m.nnoremap("<C-n>", "<cmd>Lspsaga show_line_diagnostics<cr>", "silent")
+m.nnoremap("RR", "<cmd>lua vim.lsp.buf.type_definition()<cr>", "silent")
+m.nnoremap("K", "<cmd>lua vim.lsp.buf.signature_help()<cr>", "silent")
 m.nnoremap("gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", "silent")
-m.nnoremap("gd", "<cmd>Lspsaga preview_definition<cr>", "silent")
-m.nnoremap("gs", "<cmd>Lspsaga signature_help<cr>", "silent")
+m.nnoremap("gf", "<cmd>lua vim.lsp.buf.references()<cr>", "silent")
 
 -- Debugging
 m.nnoremap("<F5>", "<cmd>DapContinue<cr>", "silent")
@@ -77,9 +74,9 @@ m.nnoremap("tc", "<cmd>lua require'neotest'.run.run(vim.fn.expand('%'))<cr>", "s
 m.nnoremap("tl", "<cmd>lua require'neotest'.output.open({ enter = true })<cr>", "silent")
 m.nnoremap("td", "<cmd>lua require'jdtls'.test_nearest_method()<cr>", "silent")
 m.nnoremap(
-    "<C-t>",
-    "<cmd>lua require('dapui').float_element('watches', { width = 200, height = 30, enter = true })<cr>",
-    "silent"
+	"<C-t>",
+	"<cmd>lua require('dapui').float_element('watches', { width = 200, height = 30, enter = true })<cr>",
+	"silent"
 )
 
 -- Color picker

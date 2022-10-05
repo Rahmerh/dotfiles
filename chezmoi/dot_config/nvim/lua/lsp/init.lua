@@ -1,6 +1,5 @@
 require("lsp.autopairs")
 require("lsp.mason")
 require("lsp.cmp")
-require("lsp.lspsaga")
 require("lsp.dap")
 require("lsp.null-ls")
