@@ -29,4 +29,7 @@ npm-install-latest -g npm-check-updates
 print_info "\nInstall perl packages\n"
 cpan install Pod::Parser
 
+print_info "\nInstall misc packages\n"
+curl -fsSL https://git.io/resto | bash
+
 print_success "Done!\n"

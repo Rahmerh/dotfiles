@@ -7,6 +7,7 @@ tap "homebrew/core"
 tap "neovim/neovim"
 tap "FelixKratz/formulae"
 tap "koekeishiya/formulae"
+tap "noahgorstein/tap"
 
 # Desktop tools
 cask "1password"
@@ -18,7 +19,7 @@ brew "yabai"
 cask "protonmail-bridge"
 cask "balenaetcher"
 
-# Communication
+# Communication & entertainment
 cask "discord"
 cask "slack"
 cask "whatsapp"
@@ -26,6 +27,7 @@ brew "weechat"
 brew "msmtp"
 brew "neomutt"
 brew "khal"
+brew "spotifyd", restart_service: true
 
 # CLI tools
 brew "macvim"
@@ -57,6 +59,7 @@ brew "fish"
 brew "tree"
 brew "watch"
 brew "llvm"
+brew "jqp"
 
 # Productivity
 brew "k9s"
@@ -67,7 +70,6 @@ brew "helm"
 brew "git"
 brew "isync", restart_service: true
 brew "vdirsyncer", restart_service: true
-brew "spotifyd", restart_service: true
 
 # Code development
 brew "neovim", args: ["HEAD"]
