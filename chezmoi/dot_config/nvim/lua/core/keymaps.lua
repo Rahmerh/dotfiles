@@ -19,7 +19,7 @@ m.nnoremap("<C-c>", "<cmd>Cheatsheet<cr>", "silent")
 m.nnoremap("<C-o>", "<cmd>HopWord<cr>", "silent")
 
 -- File explorer
-m.nnoremap("<leader>e", "<cmd>Neotree toggle<cr>", "silent")
+m.nnoremap("<leader>e", "<cmd>Telescope file_browser path=%:p:h<cr>", "silent")
 
 -- Resize with arrows
 m.nnoremap("<C-Up>", ":resize +2<CR>", "silent")

@@ -48,6 +48,7 @@ return packer.startup(function(use)
 	use("xiyaowong/link-visitor.nvim")
 	use("moevis/base64.nvim")
 	use("numToStr/Comment.nvim")
+	use("kyazdani42/nvim-web-devicons")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use({
 		"norcalli/nvim-colorizer.lua",
@@ -55,6 +56,7 @@ return packer.startup(function(use)
 			require("colorizer").setup()
 		end,
 	})
+    use 'edluffy/hologram.nvim'
 
 	-- Terminal
 	use("numToStr/FTerm.nvim")
@@ -121,10 +123,11 @@ return packer.startup(function(use)
 	use({ "jose-elias-alvarez/null-ls.nvim", commit = "bb19d790e139713eaddbcd8fd8ee58a23d290bda" })
 	use("MunifTanjim/prettier.nvim")
 
-	-- Fuzzy search
+	-- Telescope
 	use("nvim-telescope/telescope.nvim")
 	use("nvim-telescope/telescope-dap.nvim")
 	use("nvim-telescope/telescope-ui-select.nvim")
+	use("nvim-telescope/telescope-file-browser.nvim")
 
 	-- Statusline
 	use({
@@ -151,38 +154,6 @@ return packer.startup(function(use)
 	-- Git
 	use("kdheepak/lazygit.nvim")
 	use("sindrets/diffview.nvim")
-
-	-- File explorer
-	use("kyazdani42/nvim-web-devicons")
-	use({
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v2.x",
-		requires = {
-			"MunifTanjim/nui.nvim",
-			{
-				-- only needed if you want to use the commands with "_with_window_picker" suffix
-				"s1n7ax/nvim-window-picker",
-				tag = "v1.*",
-				config = function()
-					require("window-picker").setup({
-						autoselect_one = true,
-						include_current = false,
-						filter_rules = {
-							-- filter using buffer options
-							bo = {
-								-- if the file type is one of following, the window will be ignored
-								filetype = { "neo-tree", "neo-tree-popup", "notify", "quickfix" },
-
-								-- if the buffer type is one of following, the window will be ignored
-								buftype = { "terminal" },
-							},
-						},
-						other_win_hl_color = "#e35e4f",
-					})
-				end,
-			},
-		},
-	})
 
 	-- All about buffers
 	use("romgrk/barbar.nvim")

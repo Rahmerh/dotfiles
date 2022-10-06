@@ -86,12 +86,20 @@ telescope.setup({
 		live_grep = { hidden = true },
 	},
 	extensions = {
-		media_files = {
-			filetypes = { "png", "webp", "jpg", "jpeg" },
-			find_cmd = "rg",
-		},
 		["ui-select"] = {
 			require("telescope.themes").get_cursor(),
+		},
+		file_browser = {
+			theme = "dropdown",
+			hijack_netrw = true,
+			mappings = {
+				["i"] = {
+					-- your custom insert mode mappings
+				},
+				["n"] = {
+					-- your custom normal mode mappings
+				},
+			},
 		},
 	},
 })
@@ -100,3 +108,4 @@ telescope.load_extension("dap")
 telescope.load_extension("lazygit")
 telescope.load_extension("flutter")
 telescope.load_extension("ui-select")
+telescope.load_extension("file_browser")
