@@ -18,6 +18,7 @@ brew "sketchybar", restart_service: true
 brew "yabai"
 cask "protonmail-bridge"
 cask "balenaetcher"
+cask "steam"
 
 # Communication & entertainment
 cask "discord"

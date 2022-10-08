@@ -48,6 +48,7 @@ return packer.startup(function(use)
 	use("xiyaowong/link-visitor.nvim")
 	use("moevis/base64.nvim")
 	use("numToStr/Comment.nvim")
+	use("ryanoasis/vim-devicons")
 	use("kyazdani42/nvim-web-devicons")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use({
@@ -56,7 +57,7 @@ return packer.startup(function(use)
 			require("colorizer").setup()
 		end,
 	})
-    use 'edluffy/hologram.nvim'
+	use("stevearc/dressing.nvim")
 
 	-- Terminal
 	use("numToStr/FTerm.nvim")
@@ -104,9 +105,6 @@ return packer.startup(function(use)
 	use("rcarriga/nvim-dap-ui")
 	use("mfussenegger/nvim-jdtls")
 	use("Weissle/persistent-breakpoints.nvim")
-	use("vim-test/vim-test")
-	use("nvim-neotest/neotest")
-	use("nvim-neotest/neotest-vim-test")
 
 	-- LSP
 	use("neovim/nvim-lspconfig")
@@ -122,12 +120,26 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs")
 	use({ "jose-elias-alvarez/null-ls.nvim", commit = "bb19d790e139713eaddbcd8fd8ee58a23d290bda" })
 	use("MunifTanjim/prettier.nvim")
+	use("tamago324/lsp-preview-hover-doc.nvim")
+	use({
+		"smjonas/inc-rename.nvim",
+		config = function()
+			require("inc_rename").setup({
+				input_buffer_type = "dressing",
+			})
+		end,
+	})
+
+	-- Tree
+	use({
+		"kyazdani42/nvim-tree.lua",
+		tag = "nightly",
+	})
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
 	use("nvim-telescope/telescope-dap.nvim")
 	use("nvim-telescope/telescope-ui-select.nvim")
-	use("nvim-telescope/telescope-file-browser.nvim")
 
 	-- Statusline
 	use({
@@ -165,19 +177,6 @@ return packer.startup(function(use)
 	use("petertriho/nvim-scrollbar")
 	use({ "kevinhwang91/nvim-hlslens" })
 	use("gaborvecsei/memento.nvim")
-	use({
-		"anuvyklack/windows.nvim",
-		requires = {
-			"anuvyklack/middleclass",
-			"anuvyklack/animation.nvim",
-		},
-		config = function()
-			vim.o.winwidth = 10
-			vim.o.winminwidth = 10
-			vim.o.equalalways = false
-			require("windows").setup()
-		end,
-	})
 
 	-- Helm
 	use("towolf/vim-helm")
