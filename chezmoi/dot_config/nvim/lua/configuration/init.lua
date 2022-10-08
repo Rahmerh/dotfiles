@@ -1,4 +1,3 @@
-require("configuration.linkvisitor")
 require("configuration.alpha")
 require("configuration.bufferline")
 require("configuration.cybu")

@@ -41,12 +41,8 @@ return packer.startup(function(use)
 	use("lewis6991/impatient.nvim")
 	use("goolord/alpha-nvim")
 	use("antoinemadec/FixCursorHold.nvim")
-	use("ahmedkhalf/project.nvim")
 	use("spinks/vim-leader-guide")
 	use("neovim/pynvim")
-	use("sudormrfbin/cheatsheet.nvim")
-	use("xiyaowong/link-visitor.nvim")
-	use("moevis/base64.nvim")
 	use("numToStr/Comment.nvim")
 	use("ryanoasis/vim-devicons")
 	use("kyazdani42/nvim-web-devicons")
@@ -57,7 +53,6 @@ return packer.startup(function(use)
 			require("colorizer").setup()
 		end,
 	})
-	use("stevearc/dressing.nvim")
 
 	-- Terminal
 	use("numToStr/FTerm.nvim")
@@ -118,17 +113,20 @@ return packer.startup(function(use)
 	use("hrsh7th/nvim-cmp")
 	use("L3MON4D3/LuaSnip")
 	use("windwp/nvim-autopairs")
-	use({ "jose-elias-alvarez/null-ls.nvim", commit = "bb19d790e139713eaddbcd8fd8ee58a23d290bda" })
 	use("MunifTanjim/prettier.nvim")
-	use("tamago324/lsp-preview-hover-doc.nvim")
 	use({
-		"smjonas/inc-rename.nvim",
+		"amrbashir/nvim-docs-view",
+		opt = true,
+		cmd = { "DocsViewToggle" },
 		config = function()
-			require("inc_rename").setup({
-				input_buffer_type = "dressing",
+			require("docs-view").setup({
+				position = "bottom",
+				height = 20,
 			})
 		end,
 	})
+	use("jose-elias-alvarez/null-ls.nvim")
+	use("RRethy/vim-illuminate")
 
 	-- Tree
 	use({
@@ -149,23 +147,10 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- Hop
-	use({
-		"phaazon/hop.nvim",
-		branch = "v2",
-		config = function()
-			require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
-		end,
-	})
-
 	-- Treesitter
 	use("nvim-treesitter/nvim-treesitter")
 	use("p00f/nvim-ts-rainbow")
 	use("nvim-treesitter/nvim-treesitter-angular")
-
-	-- Git
-	use("kdheepak/lazygit.nvim")
-	use("sindrets/diffview.nvim")
 
 	-- All about buffers
 	use("romgrk/barbar.nvim")

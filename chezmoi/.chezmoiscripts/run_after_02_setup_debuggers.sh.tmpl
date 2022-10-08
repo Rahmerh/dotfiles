@@ -5,21 +5,12 @@
 print_info "\nSetting up java debugger\n"
 print_info "Pulling/cloning repositories.\n"
 
-if [ -d ~/.config/nvim/debuggers/java-debug ]; then
-    git -C ~/.config/nvim/debuggers/java-debug/ pull
-else 
-    git clone https://github.com/microsoft/java-debug ~/.config/nvim/debuggers/java-debug/
-fi
+rm -rf ~/.config/nvim/debuggers/java-debug/ 
+git clone https://github.com/microsoft/java-debug ~/.config/nvim/debuggers/java-debug/
 
-if [ -d ~/.config/nvim/debuggers/vscode-java-test ]; then
-    git -C ~/.config/nvim/debuggers/vscode-java-test/ checkout -f
-    git -C ~/.config/nvim/debuggers/vscode-java-test/ checkout 8e25a6151e2b04e509fa336de50bae0509e5204e
-    git -C ~/.config/nvim/debuggers/vscode-java-test/ pull
-
-else 
-    git clone https://github.com/microsoft/vscode-java-test ~/.config/nvim/debuggers/vscode-java-test/
-    git -C ~/.config/nvim/debuggers/vscode-java-test/ checkout 8e25a6151e2b04e509fa336de50bae0509e5204e
-fi
+rm -rf ~/.config/nvim/debuggers/vscode-java-test/ 
+git clone https://github.com/microsoft/vscode-java-test ~/.config/nvim/debuggers/vscode-java-test/
+git -C ~/.config/nvim/debuggers/vscode-java-test/ checkout 8e25a6151e2b04e509fa336de50bae0509e5204e
 
 print_info "\nInstalling plugins.\n"
 
@@ -35,7 +26,7 @@ npm run build-plugin
 print_success "Done!\n"
 
 print_info "\nSetting up dotnet debugger\n"
-print_info "\nPulling latest binary\n"
+print_info "Pulling latest binary\n"
 
 rm -rf ~/.config/nvim/debuggers/netcoredbg
 
@@ -56,13 +47,12 @@ rm -rf ~/.config/nvim/tmp
 print_info "\nSetting up dart debugger\n"
 print_info "Pulling/cloning repositories.\n"
 
-if [ -d ~/.config/nvim/debuggers/dart-code ]; then
-    git -C ~/.config/nvim/debuggers/dart-code/ pull
-else
-    git clone https://github.com/Dart-Code/Dart-Code ~/.config/nvim/debuggers/dart-code/
-fi
+rm -rf ~/.config/nvim/debuggers/dart-code/
+git clone https://github.com/Dart-Code/Dart-Code ~/.config/nvim/debuggers/dart-code/
 
 cd ~/.config/nvim/debuggers/dart-code
+
+npm install -y webpack-cli
 npx webpack --mode production
 
 print_success "Done!\n"

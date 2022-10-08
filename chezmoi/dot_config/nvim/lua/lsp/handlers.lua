@@ -60,26 +60,8 @@ local function lsp_highlight_document(client)
     illuminate.on_attach(client)
 end
 
-local function attach_navic(client, bufnr)
-    vim.g.navic_silence = true
-    local status_ok, navic = pcall(require, "nvim-navic")
-    if not status_ok then
-        return
-    end
-    navic.attach(client, bufnr)
-end
-
-local function lsp_keymaps(bufnr)
-    local opts = { noremap = true, silent = true }
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<M-f>", "<cmd>Format<cr>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<M-a>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-end
-
-M.on_attach = function(client, bufnr)
-	lsp_keymaps(bufnr)
+M.on_attach = function(client)
 	lsp_highlight_document(client)
-	attach_navic(client, bufnr)
 
 	client.server_capabilities.document_formatting = false
 

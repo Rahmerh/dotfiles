@@ -89,10 +89,9 @@ telescope.setup({
 		["ui-select"] = {
 			require("telescope.themes").get_cursor(),
 		},
-			},
+	},
 })
 
 telescope.load_extension("dap")
-telescope.load_extension("lazygit")
 telescope.load_extension("flutter")
 telescope.load_extension("ui-select")

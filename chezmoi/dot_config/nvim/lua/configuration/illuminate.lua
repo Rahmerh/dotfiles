@@ -1,8 +1,22 @@
-vim.g.Illuminate_ftblacklist = { "alpha", "NvimTree" }
-vim.api.nvim_set_keymap("n", "<M-n>", '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', { noremap = true })
-vim.api.nvim_set_keymap(
-	"n",
-	"<M-p>",
-	'<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>',
-	{ noremap = true }
-)
+-- default configuration
+require("illuminate").configure({
+    providers = {
+        "lsp",
+        "treesitter",
+        "regex",
+    },
+    delay = 0,
+    filetype_overrides = {},
+    filetypes_denylist = {
+        "dirvish",
+        "fugitive",
+    },
+    filetypes_allowlist = {},
+    modes_denylist = {},
+    modes_allowlist = {},
+    providers_regex_syntax_denylist = {},
+    providers_regex_syntax_allowlist = {},
+    under_cursor = true,
+    large_file_cutoff = nil,
+    large_file_overrides = nil,
+})

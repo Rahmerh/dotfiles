@@ -12,12 +12,6 @@ m.nnoremap("<C-j>", "<C-w>j", "silent")
 m.nnoremap("<C-k>", "<C-w>k", "silent")
 m.nnoremap("<C-l>", "<C-w>l", "silent")
 
--- Cheat sheet
-m.nnoremap("<C-c>", "<cmd>Cheatsheet<cr>", "silent")
-
--- Hop
-m.nnoremap("<C-o>", "<cmd>HopWord<cr>", "silent")
-
 -- File explorer
 m.nnoremap("<leader>e", "<cmd>NvimTreeToggle<cr>", "silent")
 
@@ -43,7 +37,6 @@ m.nnoremap("<leader>t", "<cmd>lua require('memento').toggle()<cr>", "silent")
 -- Git
 m.nnoremap("<C-d>", "<cmd>DiffviewFileHistory<cr>", "silent")
 m.nnoremap("D", "<cmd>DiffviewClose<cr>", "silent")
-m.nnoremap("<C-/>", "<cmd>LazyGit<cr>", "silent")
 
 -- Terminal
 m.nnoremap("<C-\\>", "<cmd>lua require('FTerm').toggle()<cr>", "silent")
@@ -57,10 +50,10 @@ m.nnoremap("<leader>g", "<cmd>Telescope live_grep<cr>", "silent")
 m.nnoremap("<C-.>", "<cmd>lua vim.lsp.buf.code_action()<CR>", "silent")
 m.nnoremap("<leader>o", "<cmd>lua require('jdtls').organize_imports()<CR>", "silent")
 m.nnoremap("RR", "<cmd>lua vim.lsp.buf.type_definition()<cr>", "silent")
-m.nnoremap("K", "<cmd>lua require'lsp_preview_hover_doc'.request_hover_open_or_focus()<cr>", "silent")
+m.nnoremap("K", "<cmd>DocsViewToggle<cr>", "silent")
 m.nnoremap("gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", "silent")
 m.nnoremap("gf", "<cmd>lua vim.lsp.buf.references()<cr>", "silent")
-m.nnoremap("<leader>r", ":IncRename ", "silent")
+m.nnoremap("R", "<cmd>lua vim.lsp.buf.rename()<cr>", "silent")
 
 -- Debugging
 m.nnoremap("<F5>", "<cmd>DapContinue<cr>", "silent")
@@ -73,9 +66,9 @@ m.nnoremap("<F2>", "<cmd>PBClearAllBreakpoints<cr>", "silent")
 m.nnoremap("td", "<cmd>lua require'jdtls'.test_nearest_method()<cr>", "silent")
 m.nnoremap("tc", "<cmd>lua require'jdtls'.test_class()<cr>", "silent")
 m.nnoremap(
-	"<C-t>",
-	"<cmd>lua require('dapui').float_element('watches', { width = 200, height = 30, enter = true })<cr>",
-	"silent"
+    "<C-t>",
+    "<cmd>lua require('dapui').float_element('watches', { width = 200, height = 30, enter = true })<cr>",
+    "silent"
 )
 
 -- Color picker

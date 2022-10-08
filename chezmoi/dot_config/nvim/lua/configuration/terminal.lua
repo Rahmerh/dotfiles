@@ -1,8 +1,13 @@
 local status_ok, terminal = pcall(require, "FTerm")
 if not status_ok then
-	return
+    vim.notify("FTerm not found.")
+    return
 end
 
 terminal.setup({
-	cmd = [ "fish" ],
+    cmd = os.getenv("SHELL"),
+    dimensions = {
+        height = 0.9,
+        width = 0.9,
+    },
 })
