@@ -35,7 +35,7 @@ M.setup = function()
             focusable = true,
             style = "minimal",
             border = "rounded",
-            source = "if_many", -- Or "always"
+            source = "if_many",
             header = "",
             prefix = "",
         },
@@ -61,16 +61,14 @@ local function lsp_highlight_document(client)
 end
 
 M.on_attach = function(client)
-	lsp_highlight_document(client)
+    lsp_highlight_document(client)
 
-	client.server_capabilities.document_formatting = false
-
-	if client.name == "jdt.ls" then
-		vim.lsp.codelens.refresh()
-		require("jdtls.setup").add_commands()
-		require("jdtls").setup_dap({ hotcodereplace = "auto" })
-		require("jdtls.dap").setup_dap_main_class_configs()
-	end
+    if client.name == "jdt.ls" then
+        vim.lsp.codelens.refresh()
+        require("jdtls.setup").add_commands()
+        require("jdtls").setup_dap({ hotcodereplace = "auto" })
+        require("jdtls.dap").setup_dap_main_class_configs()
+    end
 end
 
 return M

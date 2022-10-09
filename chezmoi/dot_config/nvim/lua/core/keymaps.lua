@@ -19,7 +19,6 @@ m.nnoremap("<leader>e", "<cmd>NvimTreeToggle<cr>", "silent")
 m.nnoremap("<C-Up>", ":resize +2<CR>", "silent")
 m.nnoremap("<C-Down>", ":resize -2<CR>", "silent")
 m.nnoremap("<C-Left>", ":vertical resize -2<CR>", "silent")
-
 m.nnoremap("<C-Right>", ":vertical resize +2<CR>", "silent")
 
 -- Buffers
@@ -39,6 +38,26 @@ m.nnoremap("<C-d>", "<cmd>DiffviewFileHistory<cr>", "silent")
 m.nnoremap("D", "<cmd>DiffviewClose<cr>", "silent")
 
 -- Terminal
+local fterm = require("FTerm")
+
+local lazygit = fterm:new({
+    ft = "fterm_lazygit",
+    cmd = "lazygit",
+})
+
+local lazydocker = fterm:new({
+    ft = "fterm_lazydocker",
+    cmd = "lazydocker",
+})
+
+m.nnoremap("<C-/>", function()
+    lazygit:toggle()
+end)
+
+m.nnoremap("<C-d>", function()
+    lazydocker:toggle()
+end)
+
 m.nnoremap("<C-\\>", "<cmd>lua require('FTerm').toggle()<cr>", "silent")
 m.tnoremap("<C-\\>", "<C-\\><C-N><cmd>lua require('FTerm').toggle()<cr>", "silent")
 
@@ -47,13 +66,14 @@ m.nnoremap("<leader>f", "<cmd>Telescope find_files<cr>", "silent")
 m.nnoremap("<leader>g", "<cmd>Telescope live_grep<cr>", "silent")
 
 -- LSP
-m.nnoremap("<C-.>", "<cmd>lua vim.lsp.buf.code_action()<CR>", "silent")
+m.nnoremap("<C-.>", "<cmd>CodeActionMenu<CR>", "silent")
 m.nnoremap("<leader>o", "<cmd>lua require('jdtls').organize_imports()<CR>", "silent")
 m.nnoremap("RR", "<cmd>lua vim.lsp.buf.type_definition()<cr>", "silent")
 m.nnoremap("K", "<cmd>DocsViewToggle<cr>", "silent")
-m.nnoremap("gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", "silent")
-m.nnoremap("gf", "<cmd>lua vim.lsp.buf.references()<cr>", "silent")
-m.nnoremap("R", "<cmd>lua vim.lsp.buf.rename()<cr>", "silent")
+m.nnoremap("ll", "<cmd>lua require('goto-preview').close_all_win()<cr>", "silent")
+m.nnoremap("li", "<cmd>lua require('goto-preview').goto_preview_implementation()<cr>", "silent")
+m.nnoremap("lr", "<cmd>lua require('goto-preview').goto_preview_references()<cr>", "silent")
+m.nnoremap("R", ":IncRename ", "silent")
 
 -- Debugging
 m.nnoremap("<F5>", "<cmd>DapContinue<cr>", "silent")

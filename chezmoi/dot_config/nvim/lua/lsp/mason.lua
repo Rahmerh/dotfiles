@@ -1,64 +1,78 @@
 local status_ok, mason = pcall(require, "mason")
 if not status_ok then
-	return
+    return
 end
 
 local status_ok_1, mason_lspconfig = pcall(require, "mason-lspconfig")
 if not status_ok_1 then
-	return
+    return
 end
 
+
+require('mason-tool-installer').setup {
+    ensure_installed = {
+        -- DAP
+        "java-test",
+        "java-debug-adapter",
+        "netcoredbg",
+        -- Formatters
+        "stylua"
+    },
+    auto_update = true,
+    run_on_start = true,
+}
+
 local servers = {
-	"jsonls",
-	"sumneko_lua",
-	"lemminx",
-	"cssls",
-	"cssmodules_ls",
-	"eslint",
-	"tsserver",
-	"jdtls",
-	"csharp-ls",
+    "jsonls",
+    "sumneko_lua",
+    "lemminx",
+    "cssls",
+    "cssmodules_ls",
+    "eslint",
+    "tsserver",
+    "jdtls",
+    "csharp-ls",
 }
 
 local settings = {
-	ui = {
-		border = "rounded",
-		icons = {
-			package_installed = "◍",
-			package_pending = "◍",
-			package_uninstalled = "◍",
-		},
-	},
-	log_level = vim.log.levels.INFO,
-	max_concurrent_installers = 4,
+    ui = {
+        border = "rounded",
+        icons = {
+            package_installed = "◍",
+            package_pending = "◍",
+            package_uninstalled = "◍",
+        },
+    },
+    log_level = vim.log.levels.INFO,
+    max_concurrent_installers = 4,
 }
 
 mason.setup(settings)
 mason_lspconfig.setup({
-	ensure_installed = servers,
-	automatic_installation = true,
+    ensure_installed = servers,
+    automatic_installation = true,
 })
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status_ok then
-	return
+    return
 end
 
 for _, server in pairs(servers) do
-	local opts = {
-		on_attach = require("lsp.handlers").on_attach,
-		capabilities = require("lsp.handlers").capabilities,
-	}
+    local opts = {
+        on_attach = require("lsp.handlers").on_attach,
+        capabilities = require("lsp.handlers").capabilities,
+    }
 
-	if server == "jdtls" then
-		goto continue
-	end
+    if server == "jdtls" then
+        goto continue
+    end
 
-	if server == "csharp-ls" then
-		lspconfig["csharp_ls"].setup(opts)
-		goto continue
-	end
+    if server == "csharp-ls" then
+        lspconfig["csharp_ls"].setup(opts)
+        goto continue
+    end
 
-	lspconfig[server].setup(opts)
-	::continue::
+    lspconfig[server].setup(opts)
+    ::continue::
 end

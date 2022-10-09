@@ -92,7 +92,6 @@ brew "eslint"
 brew "astyle"
 brew "semgrep"
 brew "stylua"
-brew "uncrustify"
 brew "hadolint"
 
 # Build tools

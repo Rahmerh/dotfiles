@@ -6,8 +6,5 @@ end
 
 terminal.setup({
     cmd = os.getenv("SHELL"),
-    dimensions = {
-        height = 0.9,
-        width = 0.9,
-    },
+    border = "solid",
 })

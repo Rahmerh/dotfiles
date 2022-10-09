@@ -1,16 +1,16 @@
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = fn.system({
-		"git",
-		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
-	})
-	print("Installing packer close and reopen Neovim...")
-	vim.cmd([[packadd packer.nvim]])
+    PACKER_BOOTSTRAP = fn.system({
+        "git",
+        "clone",
+        "--depth",
+        "1",
+        "https://github.com/wbthomason/packer.nvim",
+        install_path,
+    })
+    print("Installing packer close and reopen Neovim...")
+    vim.cmd([[packadd packer.nvim]])
 end
 
 vim.cmd([[
@@ -22,151 +22,190 @@ vim.cmd([[
 
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
-	return
+    return
 end
 
 packer.init({
-	display = {
-		open_fn = function()
-			return require("packer.util").float({ border = "rounded" })
-		end,
-	},
+    display = {
+        open_fn = function()
+            return require("packer.util").float({ border = "rounded" })
+        end,
+    },
 })
 
 return packer.startup(function(use)
-	-- Packer & misc
-	use("wbthomason/packer.nvim")
-	use("nvim-lua/popup.nvim")
-	use("nvim-lua/plenary.nvim")
-	use("lewis6991/impatient.nvim")
-	use("goolord/alpha-nvim")
-	use("antoinemadec/FixCursorHold.nvim")
-	use("spinks/vim-leader-guide")
-	use("neovim/pynvim")
-	use("numToStr/Comment.nvim")
-	use("ryanoasis/vim-devicons")
-	use("kyazdani42/nvim-web-devicons")
-	use("JoosepAlviste/nvim-ts-context-commentstring")
-	use({
-		"norcalli/nvim-colorizer.lua",
-		config = function()
-			require("colorizer").setup()
-		end,
-	})
+    -- Packer & misc
+    use("wbthomason/packer.nvim")
+    use("nvim-lua/popup.nvim")
+    use("nvim-lua/plenary.nvim")
+    use("neovim/pynvim")
+    use("ryanoasis/vim-devicons")
+    use("kyazdani42/nvim-web-devicons")
 
-	-- Terminal
-	use("numToStr/FTerm.nvim")
+    -- Startup
+    use("lewis6991/impatient.nvim")
+    use("goolord/alpha-nvim")
 
-	-- Music
-	use({
-		"KadoBOT/nvim-spotify",
-		requires = "nvim-telescope/telescope.nvim",
-		config = function()
-			local spotify = require("nvim-spotify")
+    -- Terminal
+    use("numToStr/FTerm.nvim")
 
-			spotify.setup({
-				-- default opts
-				status = {
-					update_interval = 10000, -- the interval (ms) to check for what's currently playing
-					format = "%s %t by %a", -- spotify-tui --format argument
-				},
-			})
-		end,
-		run = "make",
-	})
+    -- Music
+    use({
+        "KadoBOT/nvim-spotify",
+        requires = "nvim-telescope/telescope.nvim",
+        config = function()
+            local spotify = require("nvim-spotify")
 
-	-- Web development
-	use("ziontee113/color-picker.nvim")
-	use({
-		"akinsho/flutter-tools.nvim",
-		config = function()
-			require("flutter-tools").setup({
-				widget_guides = {
-					enabled = true,
-				},
-			})
-		end,
-	})
+            spotify.setup({
+                status = {
+                    update_interval = 10000,
+                    format = "%s %t by %a",
+                },
+            })
+        end,
+        run = "make",
+    })
 
-	-- Key mappings
-	use("b0o/mapx.nvim")
-	use("folke/which-key.nvim")
+    -- Web development
+    use("ziontee113/color-picker.nvim")
+    use({
+        "akinsho/flutter-tools.nvim",
+        config = function()
+            require("flutter-tools").setup({
+                widget_guides = {
+                    enabled = true,
+                },
+            })
+        end,
+    })
+    use({
+        "norcalli/nvim-colorizer.lua",
+        config = function()
+            require("colorizer").setup()
+        end,
+    })
 
-	-- Color scheme(s)
-	use("Mofiqul/vscode.nvim")
+    -- Key mappings
+    use("b0o/mapx.nvim")
+    use("folke/which-key.nvim")
 
-	-- Debugger
-	use("mfussenegger/nvim-dap")
-	use("rcarriga/nvim-dap-ui")
-	use("mfussenegger/nvim-jdtls")
-	use("Weissle/persistent-breakpoints.nvim")
+    -- Color scheme(s)
+    use("Mofiqul/vscode.nvim")
 
-	-- LSP
-	use("neovim/nvim-lspconfig")
-	use("williamboman/mason.nvim")
-	use("williamboman/mason-lspconfig.nvim")
-	use("lukas-reineke/lsp-format.nvim")
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-cmdline")
-	use("hrsh7th/nvim-cmp")
-	use("L3MON4D3/LuaSnip")
-	use("windwp/nvim-autopairs")
-	use("MunifTanjim/prettier.nvim")
-	use({
-		"amrbashir/nvim-docs-view",
-		opt = true,
-		cmd = { "DocsViewToggle" },
-		config = function()
-			require("docs-view").setup({
-				position = "bottom",
-				height = 20,
-			})
-		end,
-	})
-	use("jose-elias-alvarez/null-ls.nvim")
-	use("RRethy/vim-illuminate")
+    -- Debugger
+    use("mfussenegger/nvim-dap")
+    use("rcarriga/nvim-dap-ui")
+    use("mfussenegger/nvim-jdtls")
+    use("Weissle/persistent-breakpoints.nvim")
 
-	-- Tree
-	use({
-		"kyazdani42/nvim-tree.lua",
-		tag = "nightly",
-	})
+    -- LSP/syntax
+    use({
+        "j-hui/fidget.nvim",
+        config = function()
+            require("fidget").setup({
+                text = {
+                    spinner = "dots",
+                },
+                window = {
+                    blend = 0,
+                },
+            })
+        end,
+    })
+    use("neovim/nvim-lspconfig")
+    use("williamboman/mason.nvim")
+    use("williamboman/mason-lspconfig.nvim")
+    use 'WhoIsSethDaniel/mason-tool-installer.nvim'
+    use("lukas-reineke/lsp-format.nvim")
+    use("hrsh7th/cmp-nvim-lsp")
+    use("hrsh7th/cmp-buffer")
+    use("hrsh7th/cmp-path")
+    use("hrsh7th/cmp-cmdline")
+    use("hrsh7th/nvim-cmp")
+    use("L3MON4D3/LuaSnip")
+    use("windwp/nvim-autopairs")
+    use("MunifTanjim/prettier.nvim")
+    use({
+        "amrbashir/nvim-docs-view",
+        opt = true,
+        cmd = { "DocsViewToggle" },
+        config = function()
+            require("docs-view").setup({
+                position = "bottom",
+                height = 20,
+            })
+        end,
+    })
+    use("RRethy/vim-illuminate")
+    use("numToStr/Comment.nvim")
+    use("JoosepAlviste/nvim-ts-context-commentstring")
+    use("RishabhRD/popfix")
+    use("RishabhRD/nvim-lsputils")
+    use({
+        "weilbith/nvim-code-action-menu",
+        cmd = "CodeActionMenu",
+    })
+    use({
+        "smjonas/inc-rename.nvim",
+        config = function()
+            require("inc_rename").setup()
+        end,
+    })
+    use({
+        "rmagatti/goto-preview",
+        config = function()
+            require("goto-preview").setup({})
+        end,
+    })
 
-	-- Telescope
-	use("nvim-telescope/telescope.nvim")
-	use("nvim-telescope/telescope-dap.nvim")
-	use("nvim-telescope/telescope-ui-select.nvim")
+    -- File explorer
+    use({
+        "kyazdani42/nvim-tree.lua",
+        tag = "nightly",
+    })
 
-	-- Statusline
-	use({
-		"tamton-aquib/staline.nvim",
-		config = function()
-			require("staline").setup()
-		end,
-	})
+    -- Telescope
+    use("nvim-telescope/telescope.nvim")
+    use("nvim-telescope/telescope-dap.nvim")
+    use("nvim-telescope/telescope-ui-select.nvim")
 
-	-- Treesitter
-	use("nvim-treesitter/nvim-treesitter")
-	use("p00f/nvim-ts-rainbow")
-	use("nvim-treesitter/nvim-treesitter-angular")
+    -- Statusline
+    use({
+        "tamton-aquib/staline.nvim",
+        config = function()
+            require("staline").setup()
+        end,
+    })
 
-	-- All about buffers
-	use("romgrk/barbar.nvim")
-	use("famiu/bufdelete.nvim")
-	use({
-		"ghillb/cybu.nvim",
-		branch = "main",
-	})
-	use("petertriho/nvim-scrollbar")
-	use({ "kevinhwang91/nvim-hlslens" })
-	use("gaborvecsei/memento.nvim")
+    -- Treesitter
+    use("nvim-treesitter/nvim-treesitter")
+    use("p00f/nvim-ts-rainbow")
+    use("nvim-treesitter/nvim-treesitter-angular")
 
-	-- Helm
-	use("towolf/vim-helm")
+    -- All about buffers
+    use("romgrk/barbar.nvim")
+    use("famiu/bufdelete.nvim")
+    use({
+        "ghillb/cybu.nvim",
+        branch = "main",
+    })
+    use({
+        "petertriho/nvim-scrollbar",
+        config = function()
+            require("scrollbar").setup({
+                handle = {
+                    color = "#7e7e7e",
+                },
+            })
+        end,
+    })
+    use({ "kevinhwang91/nvim-hlslens" })
+    use("gaborvecsei/memento.nvim")
 
-	if PACKER_BOOTSTRAP then
-		require("packer").sync()
-	end
+    -- Helm
+    use("towolf/vim-helm")
+
+    if PACKER_BOOTSTRAP then
+        require("packer").sync()
+    end
 end)
