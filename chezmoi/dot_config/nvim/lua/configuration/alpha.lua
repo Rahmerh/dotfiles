@@ -72,9 +72,6 @@ local function split_on_delimiter(inputstr, sep)
     return t
 end
 
---- @param start number
---- @param cwd string optional
---- @param items_number number optional number of items to generate, default = 10
 local function mru(start, cwd, items_number, opts)
     opts = opts or mru_opts
     items_number = items_number or 9

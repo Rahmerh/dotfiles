@@ -45,6 +45,5 @@ yabai -m rule --add app="^balenaEtcher$" manage=off
 yabai -m rule --add app="^WhatsApp$" manage=off
 yabai -m rule --add app="^App Store$" manage=off
 yabai -m rule --add app="^Color Picker$" manage=off
-yabai -m rule --add app="^Steam$" manage=off
 
 echo "yabai configuration loaded.."

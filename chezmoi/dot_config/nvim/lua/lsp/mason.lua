@@ -8,31 +8,28 @@ if not status_ok_1 then
     return
 end
 
+local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_status_ok then
+    return
+end
 
-require('mason-tool-installer').setup {
+require("mason-tool-installer").setup({
     ensure_installed = {
+        -- LSP
+        "jdtls",
+        "lua-language-server",
+        "omnisharp",
+        "typescript-language-server",
+        "lua-language-server",
+        "lemminx",
         -- DAP
         "java-test",
         "java-debug-adapter",
-        "netcoredbg",
-        -- Formatters
-        "stylua"
+        "netcoredbg"
     },
     auto_update = true,
     run_on_start = true,
-}
-
-local servers = {
-    "jsonls",
-    "sumneko_lua",
-    "lemminx",
-    "cssls",
-    "cssmodules_ls",
-    "eslint",
-    "tsserver",
-    "jdtls",
-    "csharp-ls",
-}
+})
 
 local settings = {
     ui = {
@@ -53,23 +50,16 @@ mason_lspconfig.setup({
     automatic_installation = true,
 })
 
-local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status_ok then
-    return
-end
+local servers = mason_lspconfig.get_installed_servers()
 
-for _, server in pairs(servers) do
+for _, server in ipairs(servers) do
     local opts = {
         on_attach = require("lsp.handlers").on_attach,
         capabilities = require("lsp.handlers").capabilities,
     }
 
+    -- We don't set up jdtls, leave that to the jdtls plugin
     if server == "jdtls" then
-        goto continue
-    end
-
-    if server == "csharp-ls" then
-        lspconfig["csharp_ls"].setup(opts)
         goto continue
     end
 

@@ -41,6 +41,13 @@ return packer.startup(function(use)
     use("neovim/pynvim")
     use("ryanoasis/vim-devicons")
     use("kyazdani42/nvim-web-devicons")
+    use("ziontee113/color-picker.nvim")
+    use({
+        "norcalli/nvim-colorizer.lua",
+        config = function()
+            require("colorizer").setup()
+        end,
+    })
 
     -- Startup
     use("lewis6991/impatient.nvim")
@@ -66,25 +73,6 @@ return packer.startup(function(use)
         run = "make",
     })
 
-    -- Web development
-    use("ziontee113/color-picker.nvim")
-    use({
-        "akinsho/flutter-tools.nvim",
-        config = function()
-            require("flutter-tools").setup({
-                widget_guides = {
-                    enabled = true,
-                },
-            })
-        end,
-    })
-    use({
-        "norcalli/nvim-colorizer.lua",
-        config = function()
-            require("colorizer").setup()
-        end,
-    })
-
     -- Key mappings
     use("b0o/mapx.nvim")
     use("folke/which-key.nvim")
@@ -98,7 +86,48 @@ return packer.startup(function(use)
     use("mfussenegger/nvim-jdtls")
     use("Weissle/persistent-breakpoints.nvim")
 
-    -- LSP/syntax
+    -- Coding stuff
+    use("towolf/vim-helm")
+    use({
+        "akinsho/flutter-tools.nvim",
+        config = function()
+            require("flutter-tools").setup({
+                widget_guides = {
+                    enabled = true,
+                },
+            })
+        end,
+    })
+    use("numToStr/Comment.nvim")
+    use("MunifTanjim/prettier.nvim")
+    use("RRethy/vim-illuminate")
+    use({
+        "smjonas/inc-rename.nvim",
+        config = function()
+            require("inc_rename").setup()
+        end,
+    })
+    use({
+        "rmagatti/goto-preview",
+        config = function()
+            require("goto-preview").setup({})
+        end,
+    })
+
+    -- Autocomplete
+    use("hrsh7th/cmp-nvim-lsp")
+    use("hrsh7th/cmp-buffer")
+    use("hrsh7th/cmp-path")
+    use("hrsh7th/cmp-cmdline")
+    use("hrsh7th/nvim-cmp")
+    use("windwp/nvim-autopairs")
+
+    -- LSP
+    use("neovim/nvim-lspconfig")
+    use("williamboman/mason.nvim")
+    use("williamboman/mason-lspconfig.nvim")
+    use("WhoIsSethDaniel/mason-tool-installer.nvim")
+    use("L3MON4D3/LuaSnip")
     use({
         "j-hui/fidget.nvim",
         config = function()
@@ -112,19 +141,6 @@ return packer.startup(function(use)
             })
         end,
     })
-    use("neovim/nvim-lspconfig")
-    use("williamboman/mason.nvim")
-    use("williamboman/mason-lspconfig.nvim")
-    use 'WhoIsSethDaniel/mason-tool-installer.nvim'
-    use("lukas-reineke/lsp-format.nvim")
-    use("hrsh7th/cmp-nvim-lsp")
-    use("hrsh7th/cmp-buffer")
-    use("hrsh7th/cmp-path")
-    use("hrsh7th/cmp-cmdline")
-    use("hrsh7th/nvim-cmp")
-    use("L3MON4D3/LuaSnip")
-    use("windwp/nvim-autopairs")
-    use("MunifTanjim/prettier.nvim")
     use({
         "amrbashir/nvim-docs-view",
         opt = true,
@@ -136,26 +152,11 @@ return packer.startup(function(use)
             })
         end,
     })
-    use("RRethy/vim-illuminate")
-    use("numToStr/Comment.nvim")
-    use("JoosepAlviste/nvim-ts-context-commentstring")
     use("RishabhRD/popfix")
     use("RishabhRD/nvim-lsputils")
     use({
         "weilbith/nvim-code-action-menu",
         cmd = "CodeActionMenu",
-    })
-    use({
-        "smjonas/inc-rename.nvim",
-        config = function()
-            require("inc_rename").setup()
-        end,
-    })
-    use({
-        "rmagatti/goto-preview",
-        config = function()
-            require("goto-preview").setup({})
-        end,
     })
 
     -- File explorer
@@ -189,21 +190,9 @@ return packer.startup(function(use)
         "ghillb/cybu.nvim",
         branch = "main",
     })
-    use({
-        "petertriho/nvim-scrollbar",
-        config = function()
-            require("scrollbar").setup({
-                handle = {
-                    color = "#7e7e7e",
-                },
-            })
-        end,
-    })
-    use({ "kevinhwang91/nvim-hlslens" })
+    use("petertriho/nvim-scrollbar")
+    use("kevinhwang91/nvim-hlslens")
     use("gaborvecsei/memento.nvim")
-
-    -- Helm
-    use("towolf/vim-helm")
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()

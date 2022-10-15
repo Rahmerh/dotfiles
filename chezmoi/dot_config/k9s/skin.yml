@@ -1,118 +1,101 @@
-# Nord theme skin for k9s
-#
-# Install by putting this file in ~/.k9s/skin.yml
-#
-# Palette reference:
-# https://www.nordtheme.com/docs/colors-and-palettes
-
-# Polar Night
-nord0: &nord0 '#2E3440' #black
-nord1: &nord1 '#3B4252' #lighter black
-
-# Snow Storm
-nord4: &nord4 '#D8DEE9' #white
-
-# Frost
-nord8: &nord8 '#88C0D0' #blue
-nord10: &nord10 '#5E81AC' #dark blue
-
-# Aurora
-nord11: &nord11 '#BF616A' #red
-nord13: &nord13 '#EBCB8B' #yellow
-nord14: &nord14 '#A3BE8C' #green
+# OneDark presets
+foreground: &foreground "#abb2bf"
+background: &background "#282c34"
+black: &black "#080808"
+blue: &blue "#61afef"
+green: &green "#98c379"
+grey: &grey "#abb2bf"
+orange: &orange "#ffb86c"
+purple: &purple "#c678dd"
+red: &red "#e06370"
+yellow: &yellow "#e5c07b"
+yellow_bright: &yellow_bright "#d19a66"
 
 k9s:
-  # General K9s styles
   body:
-    fgColor: *nord4
-    bgColor: *nord0
-    logoColor: *nord10
-  # ClusterInfoView styles.
+    fgColor: *foreground
+    bgColor: *background
+    logoColor: *green
+  prompt:
+    fgColor: *foreground
+    bgColor: *background
+    suggestColor: *orange
   info:
-    fgColor: *nord8
-    sectionColor: *nord4
-  # Dialog styles.
+    fgColor: *grey
+    sectionColor: *green
   dialog:
-    fgColor: *nord4
-    bgColor: *nord0
-    buttonFgColor: *nord4
-    buttonBgColor: *nord1
-    buttonFocusFgColor: *nord4
-    buttonFocusBgColor: *nord1
-    labelFgColor: *nord8
-    fieldFgColor: *nord11
+    fgColor: *black
+    bgColor: *background
+    buttonFgColor: *foreground
+    buttonBgColor: *green
+    buttonFocusFgColor: *black
+    buttonFocusBgColor: *blue
+    labelFgColor: *orange
+    fieldFgColor: *blue
   frame:
-    # Borders styles.
     border:
-      fgColor: *nord10
-      focusColor: *nord10
+      fgColor: *green
+      focusColor: *green
     menu:
-      fgColor: *nord4
-      keyColor: *nord14
-      # Used for favorite namespaces
-      numKeyColor: *nord14
-    # CrumbView attributes for history navigation.
+      fgColor: *grey
+      keyColor: *yellow
+      numKeyColor: *yellow
     crumbs:
-      fgColor: *nord4
-      bgColor: *nord0
-      activeColor: *nord1
-    # Resource status and update styles
+      fgColor: *black
+      bgColor: *green
+      activeColor: *yellow
     status:
-      newColor: *nord8
-      modifyColor: *nord13
-      addColor: *nord14
-      pendingColor: *nord13
-      errorColor: *nord11
-      highlightcolor: *nord8
-      killColor: *nord14
-      completedColor: *nord10
-    # Border title styles.
+      newColor: *blue
+      modifyColor: *green
+      addColor: *grey
+      pendingColor: *orange
+      errorColor: *red
+      highlightColor: *yellow
+      killColor: *purple
+      completedColor: *grey
     title:
-      fgColor: *nord4
-      bgColor: *nord0
-      highlightColor: *nord8
-      counterColor: *nord8
-      filterColor: *nord13
+      fgColor: *blue
+      bgColor: *background
+      highlightColor: *purple
+      counterColor: *foreground
+      filterColor: *blue
   views:
-    # Charts skins...
     charts:
-      bgColor: *nord0
-      dialBgColor: *nord0
-      chartBgColor: *nord0
+      bgColor: *background
       defaultDialColors:
-        - *nord8
-        - *nord11
+        - *green
+        - *red
       defaultChartColors:
-        - *nord8
-        - *nord11
-    # TableView attributes.
+        - *green
+        - *red
     table:
-      fgColor: *nord4
-      bgColor: *nord0
-      cursorFgColor: *nord0
-      cursorBgColor: *nord0
-      markColor: *nord4
-      # Header row styles.
+      fgColor: *yellow
+      bgColor: *background
+      cursorFgColor: *black
+      cursorBgColor: *blue
+      markColor: *yellow_bright
       header:
-        fgColor: *nord4
-        bgColor: *nord0
-        sorterColor: *nord8
-    # Xray view attributes.
+        fgColor: *grey
+        bgColor: *background
+        sorterColor: *orange
     xray:
-      fgColor: *nord4
-      bgColor: *nord0
-      cursorColor: *nord8
-      cursorTextColor: *nord4
-      graphicColor: *nord8
-    # YAML info styles.
+      fgColor: *blue
+      bgColor: *background
+      cursorColor: *foreground
+      graphicColor: *yellow_bright
+      showIcons: false
     yaml:
-      keyColor: *nord8
-      colonColor: *nord8
-      valueColor: *nord4
-    # Logs styles.
+      keyColor: *red
+      colonColor: *grey
+      valueColor: *grey
     logs:
-      fgColor: *nord4
-      bgColor: *nord0
+      fgColor: *grey
+      bgColor: *background
       indicator:
-        fgColor: *nord4
-        bgColor: *nord10
+        fgColor: *blue
+        bgColor: *background
+    help:
+      fgColor: *grey
+      bgColor: *background
+      indicator:
+        fgColor: *blue

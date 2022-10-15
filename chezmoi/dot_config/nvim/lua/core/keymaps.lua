@@ -12,6 +12,10 @@ m.nnoremap("<C-j>", "<C-w>j", "silent")
 m.nnoremap("<C-k>", "<C-w>k", "silent")
 m.nnoremap("<C-l>", "<C-w>l", "silent")
 
+-- Merging
+m.nnoremap("p2", "<cmd>diffput 2<cr>", "silent")
+m.nnoremap("p3", "<cmd>diffput 3<cr>", "silent")
+
 -- File explorer
 m.nnoremap("<leader>e", "<cmd>NvimTreeToggle<cr>", "silent")
 
@@ -73,6 +77,7 @@ m.nnoremap("K", "<cmd>DocsViewToggle<cr>", "silent")
 m.nnoremap("ll", "<cmd>lua require('goto-preview').close_all_win()<cr>", "silent")
 m.nnoremap("li", "<cmd>lua require('goto-preview').goto_preview_implementation()<cr>", "silent")
 m.nnoremap("lr", "<cmd>lua require('goto-preview').goto_preview_references()<cr>", "silent")
+m.nnoremap("ld", "<cmd>lua require('goto-preview').goto_preview_type_definition()<cr>", "silent")
 m.nnoremap("R", ":IncRename ", "silent")
 
 -- Debugging

@@ -8,11 +8,6 @@ if not dap_ui_status_ok then
     return
 end
 
-local neotest_status_ok, neotest = pcall(require, "neotest")
-if not neotest_status_ok then
-    return
-end
-
 local icons = require("core.icons")
 
 dapui.setup({
@@ -97,10 +92,3 @@ require("persistent-breakpoints").setup({
 require("lsp.dap.dotnet").setup()
 require("lsp.dap.java").setup()
 require("lsp.dap.dart").setup()
-
--- Setup test explorer
-neotest.setup({
-    adapters = {
-        require("neotest-vim-test")({}),
-    },
-})

@@ -18,7 +18,6 @@ brew "sketchybar", restart_service: true
 brew "yabai"
 cask "protonmail-bridge"
 cask "balenaetcher"
-cask "steam"
 
 # Communication & entertainment
 cask "discord"
@@ -71,6 +70,7 @@ brew "helm"
 brew "git"
 brew "isync", restart_service: true
 brew "vdirsyncer", restart_service: true
+cask "obsidian"
 
 # Code development
 brew "neovim", args: ["HEAD"]
@@ -84,15 +84,8 @@ brew "perl"
 brew "angular-cli"
 cask "dotnet-sdk"
 
-# eonts
+# Fonts
 cask "font-hack-nerd-font"
-
-# Formatters
-brew "eslint"
-brew "astyle"
-brew "semgrep"
-brew "stylua"
-brew "hadolint"
 
 # Build tools
 brew "python@3.9"

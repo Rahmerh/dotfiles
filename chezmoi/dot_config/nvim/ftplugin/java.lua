@@ -5,8 +5,10 @@ local workspace_dir = "/Users/bas/.local/share/nvim/jdtls/data/" .. project_name
 
 vim.list_extend(
     bundles,
-    vim.split(vim.fn.glob(os.getenv("HOME") .. "/.local/share/nvim/mason/packages/java-test/extension/server/*.jar"),
-        "\n")
+    vim.split(
+        vim.fn.glob(os.getenv("HOME") .. "/.local/share/nvim/mason/packages/java-test/extension/server/*.jar"),
+        "\n"
+    )
 )
 vim.list_extend(
     bundles,
@@ -14,7 +16,7 @@ vim.list_extend(
         vim.fn.glob(
             os.getenv("HOME")
             ..
-            "/.local/share/nvim/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-0.40.0.jar"
+            "/.local/share/nvim/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar"
         ),
         "\n"
     )
@@ -81,4 +83,7 @@ local config = {
 require("jdtls").start_or_attach(config)
 require("jdtls").setup_dap()
 
-vim.cmd [[ autocmd BufWritePre * lua require('jdtls').organize_imports() ]]
+vim.cmd("command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)")
+vim.cmd("command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)")
+vim.cmd("command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()")
+vim.cmd("command! -buffer JdtBytecode lua require('jdtls').javap()")
