@@ -15,8 +15,6 @@ local check_backspace = function()
     return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 end
 
-local icons = require "core.icons"
-
 cmp.setup({
     snippet = {
         expand = function(args)

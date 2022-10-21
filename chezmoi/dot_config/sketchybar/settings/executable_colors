@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-RED="0x96fc0f0f"
-WHITE="0x96ffffff"
-GREEN="0x9630f400"
-INVISIBLE="0x00000000"
-
-BACKGROUND_GRAY="0x966f6f6f"

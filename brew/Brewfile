@@ -2,8 +2,10 @@
 tap "homebrew/autoupdate"
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-versions"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
+tap "homebrew/services"
 tap "neovim/neovim"
 tap "FelixKratz/formulae"
 tap "koekeishiya/formulae"
@@ -14,7 +16,6 @@ cask "1password"
 cask "firefox"
 cask "kitty"
 cask "gimp"
-brew "sketchybar", restart_service: true
 brew "yabai"
 cask "protonmail-bridge"
 cask "balenaetcher"
@@ -23,15 +24,10 @@ cask "balenaetcher"
 cask "discord"
 cask "slack"
 cask "whatsapp"
-brew "weechat"
-brew "msmtp"
-brew "neomutt"
-brew "khal"
-brew "spotifyd", restart_service: true
+cask "spotify"
 
 # CLI tools
 brew "macvim"
-brew "spotify-tui"
 brew "wget"
 brew "jq"
 brew "fd"
@@ -53,13 +49,15 @@ brew "ranger"
 brew "gping"
 brew "wego"
 brew "mas"
-brew "thefuck"
 brew "autojump"
 brew "fish"
 brew "tree"
 brew "watch"
 brew "llvm"
 brew "jqp"
+brew "fisher"
+brew "chezmoi"
+brew "luajit"
 
 # Productivity
 brew "k9s"
@@ -69,19 +67,21 @@ brew "lazydocker"
 brew "helm"
 brew "git"
 brew "isync", restart_service: true
-brew "vdirsyncer", restart_service: true
 cask "obsidian"
+cask "alt-tab"
+cask "monitorcontrol"
+cask "numi"
+cask "appcleaner"
+cask "alfred"
+cask "bartender"
 
 # Code development
+cask "visual-studio-code-insiders"
 brew "neovim", args: ["HEAD"]
 brew "maven"
 cask "docker"
 brew "docker-compose"
-brew "node"
-cask "android-studio"
-cask "android-commandlinetools"
 brew "perl"
-brew "angular-cli"
 cask "dotnet-sdk"
 
 # Fonts
@@ -93,7 +93,6 @@ brew "python@3.10"
 brew "cmake"
 brew "ctags"
 brew "go"
-brew "openjdk@17"
 brew "openssl@3", link: true
 brew "pkg-config"
 brew "yarn"
@@ -102,3 +101,4 @@ brew "yarn"
 mas "Bitwarden", id: 1352778147
 mas "Xcode", id: 497799835
 mas "System Color Picker", id: 1545870783
+mas "Meeter", id: 1510445899

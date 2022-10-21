@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-DEFAULT_FONT="Hack Nerd Font:Bold:13.0"
-DEFAULT_FONT_SMALL="Hack Nerd Font:Bold:10.0"

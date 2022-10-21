@@ -13,8 +13,8 @@ m.nnoremap("<C-k>", "<C-w>k", "silent")
 m.nnoremap("<C-l>", "<C-w>l", "silent")
 
 -- Merging
-m.nnoremap("p2", "<cmd>diffput 2<cr>", "silent")
-m.nnoremap("p3", "<cmd>diffput 3<cr>", "silent")
+m.nnoremap("mp2", "<cmd>diffput 2<cr>", "silent")
+m.nnoremap("mp3", "<cmd>diffput 3<cr>", "silent")
 
 -- File explorer
 m.nnoremap("<leader>e", "<cmd>NvimTreeToggle<cr>", "silent")

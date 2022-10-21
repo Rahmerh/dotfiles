@@ -16,9 +16,6 @@ bind \[101\;9u ranger
 # Disable greeting message
 set fish_greeting
 
-# Alias & source thefuck
-thefuck --alias | source
-
 # Source autojump
 [ -f /opt/homebrew/share/autojump/autojump.fish ]; and source /opt/homebrew/share/autojump/autojump.fish
 

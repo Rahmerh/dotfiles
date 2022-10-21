@@ -8,6 +8,9 @@ brew update
 print_info "\nBrew bundle\n"
 brew bundle --file={{ .chezmoi.sourceDir }}/../brew/Brewfile
 
+print_info "\nUpgrading last brew packages\n"
+brew upgrade
+
 print_info "\nInstall pip packages\n"
 pip3 install urlscan
 pip3 install beautysh

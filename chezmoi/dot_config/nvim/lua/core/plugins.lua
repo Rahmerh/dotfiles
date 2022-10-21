@@ -83,7 +83,7 @@ return packer.startup(function(use)
     -- Debugger
     use("mfussenegger/nvim-dap")
     use("rcarriga/nvim-dap-ui")
-    use("mfussenegger/nvim-jdtls")
+    use({ "mfussenegger/nvim-jdtls", commit = "2cceff656f2bfac38da784f2cd4b202a64a2faf3" })
     use("Weissle/persistent-breakpoints.nvim")
 
     -- Coding stuff

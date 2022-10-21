@@ -44,7 +44,7 @@ local config = {
         "-data",
         workspace_dir,
     },
-    root_dir = require("jdtls.setup").find_root({ ".git", "pom.xml" }),
+    root_dir = vim.fn.getcwd(),
     settings = {
         java = {
             eclipse = {
@@ -55,6 +55,7 @@ local config = {
             },
             maven = {
                 downloadSources = true,
+                updateSnapshots = true
             },
             implementationsCodeLens = {
                 enabled = true,
@@ -68,6 +69,31 @@ local config = {
             format = {
                 enabled = true,
             },
+            saveActions = {
+                organizeImports = true
+            },
+            autobuild = {
+                enabled = true
+            },
+            sources = {
+                organizeImports = {
+                    starThreshold = 9999,
+                    staticStarThreshold = 9999,
+                },
+            },
+            contentProvider = { preferred = "fernflower" },
+            signatureHelp = { enabled = true },
+            completion = {
+                favoriteStaticMembers = {
+                    "org.hamcrest.MatcherAssert.assertThat",
+                    "org.hamcrest.Matchers.*",
+                    "org.hamcrest.CoreMatchers.*",
+                    "org.junit.jupiter.api.Assertions.*",
+                    "java.util.Objects.requireNonNull",
+                    "java.util.Objects.requireNonNullElse",
+                    "org.mockito.Mockito.*",
+                },
+            },
         },
     },
     sources = {
@@ -80,6 +106,14 @@ local config = {
         bundles = bundles,
     },
 }
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+    pattern = { "*.java" },
+    callback = function()
+        vim.lsp.codelens.refresh()
+    end,
+})
+
 require("jdtls").start_or_attach(config)
 require("jdtls").setup_dap()
 
