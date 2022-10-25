@@ -23,3 +23,6 @@ set fish_greeting
 set --global fish_prompt_pwd_dir_length 4
 set --global hydro_fetch true
 
+# Source mcfly
+mcfly init fish | source
+set -gx MCFLY_KEY_SCHEME vim

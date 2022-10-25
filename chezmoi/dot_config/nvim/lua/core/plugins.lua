@@ -83,7 +83,7 @@ return packer.startup(function(use)
     -- Debugger
     use("mfussenegger/nvim-dap")
     use("rcarriga/nvim-dap-ui")
-    use({ "mfussenegger/nvim-jdtls", commit = "2cceff656f2bfac38da784f2cd4b202a64a2faf3" })
+    use("mfussenegger/nvim-jdtls")
     use("Weissle/persistent-breakpoints.nvim")
 
     -- Coding stuff
@@ -102,17 +102,12 @@ return packer.startup(function(use)
     use("MunifTanjim/prettier.nvim")
     use("RRethy/vim-illuminate")
     use({
-        "smjonas/inc-rename.nvim",
-        config = function()
-            require("inc_rename").setup()
-        end,
-    })
-    use({
         "rmagatti/goto-preview",
         config = function()
             require("goto-preview").setup({})
         end,
     })
+    use 'mhartington/formatter.nvim'
 
     -- Autocomplete
     use("hrsh7th/cmp-nvim-lsp")
@@ -142,22 +137,15 @@ return packer.startup(function(use)
         end,
     })
     use({
-        "amrbashir/nvim-docs-view",
-        opt = true,
-        cmd = { "DocsViewToggle" },
-        config = function()
-            require("docs-view").setup({
-                position = "bottom",
-                height = 20,
-            })
-        end,
-    })
-    use("RishabhRD/popfix")
-    use("RishabhRD/nvim-lsputils")
-    use({
         "weilbith/nvim-code-action-menu",
         cmd = "CodeActionMenu",
     })
+    use 'wiliamks/nice-reference.nvim'
+    use {
+        'filipdutescu/renamer.nvim',
+        branch = 'master',
+        requires = { { 'nvim-lua/plenary.nvim' } }
+    }
 
     -- File explorer
     use({
@@ -179,7 +167,7 @@ return packer.startup(function(use)
     })
 
     -- Treesitter
-    use("nvim-treesitter/nvim-treesitter")
+    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
     use("p00f/nvim-ts-rainbow")
     use("nvim-treesitter/nvim-treesitter-angular")
 

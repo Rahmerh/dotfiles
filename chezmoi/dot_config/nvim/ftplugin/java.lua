@@ -44,7 +44,7 @@ local config = {
         "-data",
         workspace_dir,
     },
-    root_dir = vim.fn.getcwd(),
+    root_dir = require('jdtls.setup').find_root({ '.git' }),
     settings = {
         java = {
             eclipse = {
@@ -67,10 +67,10 @@ local config = {
                 includeDecompiledSources = true,
             },
             format = {
-                enabled = true,
+                enabled = false
             },
             saveActions = {
-                organizeImports = true
+                organizeImports = false
             },
             autobuild = {
                 enabled = true
@@ -115,9 +115,47 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 })
 
 require("jdtls").start_or_attach(config)
-require("jdtls").setup_dap()
+
+config['on_attach'] = function(client, bufnr)
+    require('jdtls').setup_dap({ hotcodereplace = 'auto' })
+end
+
+require('jdtls.ui').pick_one_async = function(items, prompt, label_fn, cb)
+    local opts = {}
+    pickers.new(opts, {
+        prompt_title    = prompt,
+        finder          = finders.new_table {
+            results = items,
+            entry_maker = function(entry)
+                return {
+                    value = entry,
+                    display = label_fn(entry),
+                    ordinal = label_fn(entry),
+                }
+            end,
+        },
+        sorter          = sorters.get_generic_fuzzy_sorter(),
+        attach_mappings = function(prompt_bufnr)
+            actions.goto_file_selection_edit:replace(function()
+                local selection = actions.get_selected_entry(prompt_bufnr)
+                actions.close(prompt_bufnr)
+
+                cb(selection.value)
+            end)
+
+            return true
+        end,
+    }):find()
+end
 
 vim.cmd("command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)")
 vim.cmd("command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)")
 vim.cmd("command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()")
 vim.cmd("command! -buffer JdtBytecode lua require('jdtls').javap()")
+
+vim.cmd [[
+  augroup FormatAutogroup
+    autocmd!
+    autocmd BufWritePost * FormatWrite
+  augroup END
+]]

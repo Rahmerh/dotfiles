@@ -1,0 +1,21 @@
+#!/bin/bash
+
+. "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
+
+print_info "\nTweaking macos settings\n"
+
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
+defaults write NSGlobalDomain ApplePresAndHoldEnabled -bool false
+defaults write AppleShowScrollBars -string Always
+defaults write AppleShowAllExtensions -bool true
+defaults write AppleActionOnDoubleClick -string "Maximize"
+defaults write AppleInterfaceStyle -string "Dark"
+defaults write com.apple.swipescrolldirection -bool false
+defaults write NSWindowResizeTime -float 0.001
+defaults write com.apple.springing.delay -float 0
+defaults write NSQuitAlwaysKeepsWindows -bool true
+
+killall Finder
+
+print_success "Done!\n"

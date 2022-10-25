@@ -20,6 +20,8 @@ require("mason-tool-installer").setup({
         "lua-language-server",
         "omnisharp",
         "typescript-language-server",
+        "dockerfile-language-server",
+        "bash-language-server",
         "lua-language-server",
         "lemminx",
         -- DAP

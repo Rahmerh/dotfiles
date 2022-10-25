@@ -10,6 +10,7 @@ tap "neovim/neovim"
 tap "FelixKratz/formulae"
 tap "koekeishiya/formulae"
 tap "noahgorstein/tap"
+tap "cantino/mcfly"
 
 # Desktop tools
 cask "1password"
@@ -21,7 +22,6 @@ cask "protonmail-bridge"
 cask "balenaetcher"
 
 # Communication & entertainment
-cask "discord"
 cask "slack"
 cask "whatsapp"
 cask "spotify"
@@ -45,7 +45,6 @@ brew "skhd", restart_service: true
 brew "pass"
 brew "w3m"
 brew "gotop"
-brew "ranger"
 brew "gping"
 brew "wego"
 brew "mas"
@@ -58,6 +57,9 @@ brew "jqp"
 brew "fisher"
 brew "chezmoi"
 brew "luajit"
+brew "mcfly"
+brew "midnight-commander"
+brew "wallpaper"
 
 # Productivity
 brew "k9s"
@@ -83,9 +85,11 @@ cask "docker"
 brew "docker-compose"
 brew "perl"
 cask "dotnet-sdk"
+brew "uncrustify"
 
 # Fonts
 cask "font-hack-nerd-font"
+cask "font-jetbrains-mono"
 
 # Build tools
 brew "python@3.9"

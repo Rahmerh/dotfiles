@@ -28,8 +28,12 @@ vim.cmd([[
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
 
-  " Format on save
-  autocmd BufWritePre * lua vim.lsp.buf.format({ async = false })
+  augroup FormatAutogroup
+    autocmd!
+    autocmd BufWritePre * lua vim.lsp.buf.format({ async = false })
+  augroup END
+
+  set mouse=n
 ]])
 
 vim.opt.laststatus = 3

@@ -7,15 +7,17 @@ if not status_cmp_ok then
     return
 end
 
+local icons = require("core.icons")
+
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
 M.setup = function()
     local signs = {
-        { name = "DiagnosticSignError", text = "" },
-        { name = "DiagnosticSignWarn", text = "" },
-        { name = "DiagnosticSignHint", text = "" },
-        { name = "DiagnosticSignInfo", text = "" },
+        { name = "DiagnosticSignError", text = icons.diagnostics.Error },
+        { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
+        { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
+        { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
     }
 
     for _, sign in ipairs(signs) do
@@ -23,8 +25,8 @@ M.setup = function()
     end
 
     local config = {
-        virtual_lines = false,
-        virtual_text = false,
+        virtual_lines = true,
+        virtual_text = true,
         signs = {
             active = signs,
         },
@@ -43,13 +45,7 @@ M.setup = function()
 
     vim.diagnostic.config(config)
 
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-        border = "rounded",
-    })
-
-    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-        border = "rounded",
-    })
+    vim.lsp.handlers["textDocument/references"] = require 'nice-reference'.reference_handler
 end
 
 local function lsp_highlight_document(client)
@@ -64,6 +60,7 @@ M.on_attach = function(client)
     lsp_highlight_document(client)
 
     if client.name == "jdt.ls" then
+        client.resolved_capabilities.document_formatting = false
         vim.lsp.codelens.refresh()
         require("jdtls.setup").add_commands()
         require("jdtls").setup_dap({ hotcodereplace = "auto" })

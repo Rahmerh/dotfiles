@@ -72,13 +72,11 @@ m.nnoremap("<leader>g", "<cmd>Telescope live_grep<cr>", "silent")
 -- LSP
 m.nnoremap("<C-.>", "<cmd>CodeActionMenu<CR>", "silent")
 m.nnoremap("<leader>o", "<cmd>lua require('jdtls').organize_imports()<CR>", "silent")
-m.nnoremap("RR", "<cmd>lua vim.lsp.buf.type_definition()<cr>", "silent")
-m.nnoremap("K", "<cmd>DocsViewToggle<cr>", "silent")
-m.nnoremap("ll", "<cmd>lua require('goto-preview').close_all_win()<cr>", "silent")
-m.nnoremap("li", "<cmd>lua require('goto-preview').goto_preview_implementation()<cr>", "silent")
-m.nnoremap("lr", "<cmd>lua require('goto-preview').goto_preview_references()<cr>", "silent")
-m.nnoremap("ld", "<cmd>lua require('goto-preview').goto_preview_type_definition()<cr>", "silent")
-m.nnoremap("R", ":IncRename ", "silent")
+m.nnoremap("K", "<cmd>lua vim.lsp.buf.hover()<cr>", "silent")
+m.nnoremap("li", "<cmd>lua vim.lsp.buf.implementation()<cr>", "silent")
+m.nnoremap("lr", "<cmd>lua vim.lsp.buf.references()<cr>", "silent")
+m.nnoremap("ld", "<cmd>lua vim.lsp.buf.definition()<cr>", "silent")
+m.nnoremap("R", "<cmd>lua require('renamer').rename()<cr>", "silent")
 
 -- Debugging
 m.nnoremap("<F5>", "<cmd>DapContinue<cr>", "silent")
