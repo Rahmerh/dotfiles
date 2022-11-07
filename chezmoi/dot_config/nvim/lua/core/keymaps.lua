@@ -28,14 +28,20 @@ m.nnoremap("<C-Right>", ":vertical resize +2<CR>", "silent")
 -- Buffers
 m.nnoremap("<S-l>", "<cmd>CybuNext<cr>", "silent")
 m.nnoremap("<S-h>", "<cmd>CybuPrev<cr>", "silent")
-m.nnoremap("<Tab-l>", "<cmd>CybuLastUsedNext<cr>", "silent")
-m.nnoremap("<Tab-h>", "<cmd>CybuLastUsedPrev<cr>", "silent")
 m.nnoremap("Q", "<cmd>Bdelete<cr>", "silent")
 m.nnoremap("<C-q>", "<cmd>Bdelete!<cr>", "silent")
-m.nnoremap("n", "<cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<cr>", "silent")
-m.nnoremap("N", "<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>", "silent")
-m.nnoremap("<Leader>l", "<cmd>noh<cr>", "silent")
-m.nnoremap("<leader>t", "<cmd>lua require('memento').toggle()<cr>", "silent")
+
+m.nnoremap("<leader>l", "<cmd>noh<cr>", "silent")
+
+m.nnoremap("<C-j>", "<cmd>m .+1<cr>==", "silent")
+m.nnoremap("<C-k>", "<cmd>m .-2<cr>==", "silent")
+
+m.inoremap("<C-j>", "<esc><cmd>m .+1<cr>==gi", "silent")
+m.inoremap("<C-k>", "<esc><cmd>m .-2<cr>==gi", "silent")
+
+-- This doesn't work yet
+m.vnoremap("<C-j>", "<cmd>m '>+1<cr>gv=gv", "silent")
+m.vnoremap("<C-k>", "<cmd>m '<-2<cr>gv=gv", "silent")
 
 -- Git
 m.nnoremap("<C-d>", "<cmd>DiffviewFileHistory<cr>", "silent")
@@ -77,6 +83,9 @@ m.nnoremap("li", "<cmd>lua vim.lsp.buf.implementation()<cr>", "silent")
 m.nnoremap("lr", "<cmd>lua vim.lsp.buf.references()<cr>", "silent")
 m.nnoremap("ld", "<cmd>lua vim.lsp.buf.definition()<cr>", "silent")
 m.nnoremap("R", "<cmd>lua require('renamer').rename()<cr>", "silent")
+
+m.nnoremap("dl", "<cmd>lua vim.diagnostic.goto_next()<cr>", "silent")
+m.nnoremap("dh", "<cmd>lua vim.diagnostic.goto_prev()<cr>", "silent")
 
 -- Debugging
 m.nnoremap("<F5>", "<cmd>DapContinue<cr>", "silent")

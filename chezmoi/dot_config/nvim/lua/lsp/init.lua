@@ -2,7 +2,6 @@ require("lsp.autopairs")
 require("lsp.mason")
 require("lsp.cmp")
 require("lsp.dap")
-require("lsp.formatter")
 
 require("lsp.handlers").setup();
 

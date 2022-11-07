@@ -48,6 +48,7 @@ return packer.startup(function(use)
             require("colorizer").setup()
         end,
     })
+    use 'ThePrimeagen/vim-be-good'
 
     -- Startup
     use("lewis6991/impatient.nvim")
@@ -107,7 +108,6 @@ return packer.startup(function(use)
             require("goto-preview").setup({})
         end,
     })
-    use 'mhartington/formatter.nvim'
 
     -- Autocomplete
     use("hrsh7th/cmp-nvim-lsp")
@@ -181,6 +181,12 @@ return packer.startup(function(use)
     use("petertriho/nvim-scrollbar")
     use("kevinhwang91/nvim-hlslens")
     use("gaborvecsei/memento.nvim")
+    use {
+        "sitiom/nvim-numbertoggle",
+        config = function()
+            require("numbertoggle").setup()
+        end
+    }
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()

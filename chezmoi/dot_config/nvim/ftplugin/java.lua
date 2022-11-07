@@ -46,6 +46,7 @@ local config = {
     },
     root_dir = require('jdtls.setup').find_root({ '.git' }),
     settings = {
+        ['java.format.settings.url'] = vim.fn.getcwd() .. "/formatter-settings.xml",
         java = {
             eclipse = {
                 downloadSources = true,
@@ -67,10 +68,10 @@ local config = {
                 includeDecompiledSources = true,
             },
             format = {
-                enabled = false
+                enabled = true
             },
             saveActions = {
-                organizeImports = false
+                organizeImports = true
             },
             autobuild = {
                 enabled = true
@@ -152,10 +153,3 @@ vim.cmd("command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._comple
 vim.cmd("command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)")
 vim.cmd("command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()")
 vim.cmd("command! -buffer JdtBytecode lua require('jdtls').javap()")
-
-vim.cmd [[
-  augroup FormatAutogroup
-    autocmd!
-    autocmd BufWritePost * FormatWrite
-  augroup END
-]]

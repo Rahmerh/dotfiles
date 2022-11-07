@@ -60,7 +60,6 @@ M.on_attach = function(client)
     lsp_highlight_document(client)
 
     if client.name == "jdt.ls" then
-        client.resolved_capabilities.document_formatting = false
         vim.lsp.codelens.refresh()
         require("jdtls.setup").add_commands()
         require("jdtls").setup_dap({ hotcodereplace = "auto" })

@@ -39,8 +39,6 @@ brew "lsd"
 brew "neofetch"
 brew "bat"
 brew "eth-p/software/bat-extras"
-brew "notmuch"
-brew "pandoc"
 brew "skhd", restart_service: true
 brew "pass"
 brew "w3m"
@@ -68,27 +66,22 @@ brew "lazygit"
 brew "lazydocker"
 brew "helm"
 brew "git"
-brew "isync", restart_service: true
 cask "obsidian"
 cask "alt-tab"
 cask "monitorcontrol"
 cask "numi"
 cask "appcleaner"
 cask "alfred"
-cask "bartender"
 
 # Code development
-cask "visual-studio-code-insiders"
 brew "neovim", args: ["HEAD"]
 brew "maven"
 cask "docker"
 brew "docker-compose"
 brew "perl"
 cask "dotnet-sdk"
-brew "uncrustify"
 
 # Fonts
-cask "font-hack-nerd-font"
 cask "font-jetbrains-mono"
 
 # Build tools
