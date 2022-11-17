@@ -46,25 +46,8 @@ The following are the most important tools I work with:
 
 ### Tools
 
-- [Homebrew](https://github.com/Homebrew/brew)
-- [Kitty](https://github.com/kovidgoyal/kitty)
-  - I use the [fish](https://github.com/fish-shell/fish-shell) shell.
+- [Homebrew](https://github.com/Homebrew/brew) (Only for darwin)
+- [Yabai](https://github.com/koekeishiya/yabai) (Only for darwin)
+- [Kitty](https://github.com/kovidgoyal/kitty) and [fish](https://github.com/fish-shell/fish-shell)
 - [Neovim](https://github.com/neovim/neovim)
-  - TODO plugin list
-- [NeoMutt](https://github.com/neomutt/neomutt)
-  - IMAP: [vdirsyncer](https://github.com/pimutils/vdirsyncer)
-  - SMTP: [msmtp](https://marlam.de/msmtp/)
-- [Yabai](https://github.com/koekeishiya/yabai)
-- [SketchyBar](https://github.com/FelixKratz/SketchyBar)
-- [Spotify tui](https://github.com/Rigellute/spotify-tui)
-
-## 🐞 Debuggers
-
-I've had a bit of trouble setting up debuggers in neovim so I wanted to automate the process so I never have to do it manually again.
-
-I've set up the following debuggers using [nvim-dap](https://github.com/mfussenegger/nvim-dap):
-
-- [Java](https://github.com/mfussenegger/nvim-dap/wiki/Java)
-- [Dotnet](https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#Dotnet)
-  - Side note: the netcoredbg binary currently doesn't work on darwin.
-- [Dart](https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#Dart)
+- [Autojump](https://github.com/wting/autojump)
