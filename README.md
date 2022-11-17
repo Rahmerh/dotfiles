@@ -50,3 +50,5 @@ The following are the most important tools I work with:
 - [Kitty](https://github.com/kovidgoyal/kitty) and [fish](https://github.com/fish-shell/fish-shell)
 - [Neovim](https://github.com/neovim/neovim)
 - [Autojump](https://github.com/wting/autojump)
+- [LSDeluxe](https://github.com/Peltoche/lsd)
+- [Bat](https://github.com/sharkdp/bat)
