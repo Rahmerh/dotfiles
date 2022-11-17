@@ -41,14 +41,13 @@ print_success "Done!\n"
 . "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
 
 sudo dnf copr enable atim/lazygit -y
+sudo dnf install -y lazygit
 sudo dnf install -y neovim \
    autojump-fish \
    kitty \
    fish \
    lsd \
-   bat \
-   lazygit \
-   lazydocker
+   bat 
 
 sudo curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sudo sh -s -- --git cantino/mcfly --force
 
