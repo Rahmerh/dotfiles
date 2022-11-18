@@ -36,7 +36,6 @@ print_info "\nInstall misc packages\n"
 curl -fsSL https://git.io/resto | bash
 
 print_success "Done!\n"
-
 {{- else if eq .chezmoi.osRelease.id "nobara" }}
 . "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
 
@@ -47,10 +46,10 @@ sudo dnf install -y neovim \
    kitty \
    fish \
    lsd \
-   bat 
+   bat \
+   mc
 
 sudo curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sudo sh -s -- --git cantino/mcfly --force
 
 print_success "Done!\n"
-
 {{- end }}
