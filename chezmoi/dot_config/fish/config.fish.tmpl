@@ -1,19 +1,11 @@
-{{ if eq .chezmoi.os "darwin" }}
+{{- if eq .chezmoi.os "darwin" }}
 eval "$(/opt/homebrew/bin/brew shellenv)"
-{{ end }}
+{{- end }}
 
 # Aliases
 alias ls='lsd -l'
-alias la='ls -la'
 alias cat="bat"
-alias cal="khal interactive"
-alias search="ddgr"
-alias ping="gping"
 alias kafka="kaskade $KASKADE_CONFIG"
-
-# Keybindings
-# Cmd + e
-bind \[101\;9u ranger
 
 # Disable greeting message
 set fish_greeting
