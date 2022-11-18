@@ -14,12 +14,13 @@ tap "cantino/mcfly"
 
 # Desktop tools
 cask "1password"
-cask "firefox"
+cask "orion"
 cask "kitty"
 cask "gimp"
 brew "yabai"
 cask "protonmail-bridge"
 cask "balenaetcher"
+cask "iina"
 
 # Communication & entertainment
 cask "slack"
@@ -71,7 +72,10 @@ cask "alt-tab"
 cask "monitorcontrol"
 cask "numi"
 cask "appcleaner"
-cask "alfred"
+cask "raycast"
+cask "shottr"
+cask "hiddenbar"
+cask "latest"
 
 # Code development
 brew "neovim", args: ["HEAD"]
@@ -80,6 +84,7 @@ cask "docker"
 brew "docker-compose"
 brew "perl"
 cask "dotnet-sdk"
+cask "ngrok"
 
 # Fonts
 cask "font-jetbrains-mono"

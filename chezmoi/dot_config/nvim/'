@@ -19,13 +19,17 @@ m.nnoremap("mp3", "<cmd>diffput 3<cr>", "silent")
 -- File explorer
 m.nnoremap("<leader>e", "<cmd>NvimTreeToggle<cr>", "silent")
 
+-- Resize with arrows
+m.nnoremap("<C-Up>", ":resize +2<CR>", "silent")
+m.nnoremap("<C-Down>", ":resize -2<CR>", "silent")
+m.nnoremap("<C-Left>", ":vertical resize -2<CR>", "silent")
+m.nnoremap("<C-Right>", ":vertical resize +2<CR>", "silent")
+
 -- Buffers
 m.nnoremap("<S-l>", "<cmd>CybuNext<cr>", "silent")
 m.nnoremap("<S-h>", "<cmd>CybuPrev<cr>", "silent")
 m.nnoremap("Q", "<cmd>Bdelete<cr>", "silent")
 m.nnoremap("<C-q>", "<cmd>Bdelete!<cr>", "silent")
-
-m.nnoremap("<leader>l", "<cmd>noh<cr>", "silent")
 
 m.nnoremap("<C-j>", "<cmd>m .+1<cr>==", "silent")
 m.nnoremap("<C-k>", "<cmd>m .-2<cr>==", "silent")
@@ -33,8 +37,8 @@ m.nnoremap("<C-k>", "<cmd>m .-2<cr>==", "silent")
 m.inoremap("<C-j>", "<esc><cmd>m .+1<cr>==gi", "silent")
 m.inoremap("<C-k>", "<esc><cmd>m .-2<cr>==gi", "silent")
 
-m.nnoremap("<leader>o", "o<Esc>", "silent")
-m.nnoremap("<leader>O", "O<Esc>", "silent")
+m.vnoremap("<C-j>", "<cmd>m '>+1<cr>gv=gv", "silent")
+m.vnoremap("<C-k>", "<cmd>m '<-2<cr>gv=gv", "silent")
 
 -- Git
 m.nnoremap("<C-d>", "<cmd>DiffviewFileHistory<cr>", "silent")
@@ -70,15 +74,12 @@ m.nnoremap("<leader>g", "<cmd>Telescope live_grep<cr>", "silent")
 
 -- LSP
 m.nnoremap("<C-.>", "<cmd>CodeActionMenu<CR>", "silent")
-m.nnoremap("<leader>i", "<cmd>lua require('jdtls').organize_imports()<CR>", "silent")
+m.nnoremap("<leader>o", "<cmd>lua require('jdtls').organize_imports()<CR>", "silent")
 m.nnoremap("K", "<cmd>lua vim.lsp.buf.hover()<cr>", "silent")
 m.nnoremap("li", "<cmd>lua vim.lsp.buf.implementation()<cr>", "silent")
 m.nnoremap("lr", "<cmd>lua vim.lsp.buf.references()<cr>", "silent")
 m.nnoremap("ld", "<cmd>lua vim.lsp.buf.definition()<cr>", "silent")
 m.nnoremap("R", "<cmd>lua require('renamer').rename()<cr>", "silent")
-
-m.nnoremap("dl", "<cmd>lua vim.diagnostic.goto_next()<cr>", "silent")
-m.nnoremap("dh", "<cmd>lua vim.diagnostic.goto_prev()<cr>", "silent")
 
 -- Debugging
 m.nnoremap("<F5>", "<cmd>DapContinue<cr>", "silent")

@@ -108,6 +108,8 @@ return packer.startup(function(use)
             require("goto-preview").setup({})
         end,
     })
+    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
+        setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
     -- Autocomplete
     use("hrsh7th/cmp-nvim-lsp")

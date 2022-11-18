@@ -75,7 +75,7 @@ function M.setup()
 
     dap.adapters.coreclr = {
         type = "executable",
-        command = os.getenv("HOME") .. "/.local/share/nvim/mason/packages/netcoredbg/netcoredbg",
+        command = "/tmp/netcoredbg/netcoredbg",
         args = { "--interpreter=vscode", "--hot-reload", "--log=file" },
     }
 
