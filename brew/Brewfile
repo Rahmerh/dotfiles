@@ -14,13 +14,13 @@ tap "cantino/mcfly"
 
 # Desktop tools
 cask "1password"
-cask "orion"
 cask "kitty"
 cask "gimp"
 brew "yabai"
 cask "protonmail-bridge"
 cask "balenaetcher"
 cask "iina"
+cask "steam"
 
 # Communication & entertainment
 cask "slack"
@@ -85,6 +85,7 @@ brew "docker-compose"
 brew "perl"
 cask "dotnet-sdk"
 cask "ngrok"
+cask "minikube"
 
 # Fonts
 cask "font-jetbrains-mono"

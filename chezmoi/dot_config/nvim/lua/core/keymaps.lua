@@ -36,6 +36,32 @@ m.inoremap("<C-k>", "<esc><cmd>m .-2<cr>==gi", "silent")
 m.nnoremap("<leader>o", "o<Esc>", "silent")
 m.nnoremap("<leader>O", "O<Esc>", "silent")
 
+m.vnoremap(">", ">gv", "silent")
+m.vnoremap("<", "<gv", "silent")
+
+-- Indent blocks when moving them
+m.vnoremap("J", ":m '>+1<CR>gv=gv", "silent")
+m.vnoremap("K", ":m '<-2<CR>gv=gv", "silent")
+
+-- Keep cursor in place when appending line to line above
+m.nnoremap("J", "mzJ`z", "silent")
+
+-- Keep view in the middle of the page when doing half page jumpsu
+m.nnoremap("<C-d>", "<C-d>zz", "silent")
+m.nnoremap("<C-u>", "<C-u>zz", "silent")
+
+-- Keep view in the middle of the page when jumping to next item
+m.nnoremap("n", "nzzzv", "silent")
+m.nnoremap("N", "Nzzzv", "silent")
+
+-- Keep copy buffer while pasting over items
+m.xnoremap("<leader>p", [["_dP]])
+
+-- Yank to system clipboard
+m.vnoremap("<leader>y", [["+y]], "silent")
+m.nnoremap("<leader>y", [["+y]], "silent")
+m.nnoremap("<leader>Y", [["+Y]], "silent")
+
 -- Git
 m.nnoremap("<C-d>", "<cmd>DiffviewFileHistory<cr>", "silent")
 m.nnoremap("D", "<cmd>DiffviewClose<cr>", "silent")

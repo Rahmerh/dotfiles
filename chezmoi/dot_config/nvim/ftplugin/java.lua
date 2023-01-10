@@ -114,7 +114,6 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
         vim.lsp.codelens.refresh()
     end,
 })
-
 require("jdtls").start_or_attach(config)
 
 config['on_attach'] = function(client, bufnr)

@@ -183,12 +183,6 @@ return packer.startup(function(use)
     use("petertriho/nvim-scrollbar")
     use("kevinhwang91/nvim-hlslens")
     use("gaborvecsei/memento.nvim")
-    use {
-        "sitiom/nvim-numbertoggle",
-        config = function()
-            require("numbertoggle").setup()
-        end
-    }
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()
