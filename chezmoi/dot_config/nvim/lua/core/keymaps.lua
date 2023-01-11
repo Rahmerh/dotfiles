@@ -1,7 +1,7 @@
-local m = require("mapx").setup({ global = true, whichkey = true })
+local m = require("mapx").setup({ global = true })
 
 --Remap space as leader key
-m.nnoremap("", "<Space>", "<Nop>", "silent")
+m.nnoremap("<Space>", "<Nop>", "silent")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -20,8 +20,8 @@ m.nnoremap("mp3", "<cmd>diffput 3<cr>", "silent")
 m.nnoremap("<leader>e", "<cmd>NvimTreeToggle<cr>", "silent")
 
 -- Buffers
-m.nnoremap("<S-l>", "<cmd>CybuNext<cr>", "silent")
-m.nnoremap("<S-h>", "<cmd>CybuPrev<cr>", "silent")
+m.nnoremap("<S-l>", "<cmd>bnext<cr>", "silent")
+m.nnoremap("<S-h>", "<cmd>bprevious<cr>", "silent")
 m.nnoremap("Q", "<cmd>Bdelete<cr>", "silent")
 m.nnoremap("<C-q>", "<cmd>Bdelete!<cr>", "silent")
 

@@ -4,9 +4,12 @@ local cyan = "#a6e7ff"
 local green = "#32cd32"
 
 require("scrollbar").setup({
+    show_in_active_only = true,
+    hide_if_all_visible = true,
     handlers = {
         diagnostic = true,
         search = true,
+        gitsigns = true
     },
     handle = {
         color = "#7e7e7e",
@@ -74,4 +77,3 @@ require("scrollbar").setup({
         },
     },
 })
-require("scrollbar.handlers.search").setup()

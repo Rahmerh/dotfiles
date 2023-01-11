@@ -49,7 +49,16 @@ return packer.startup(function(use)
         end,
     })
     use 'ThePrimeagen/vim-be-good'
-
+    use { 'kevinhwang91/nvim-hlslens', config = function()
+        require("scrollbar.handlers.search").setup()
+    end, }
+    use {
+        'lewis6991/gitsigns.nvim',
+        config = function()
+            require('gitsigns').setup()
+            require("scrollbar.handlers.gitsigns").setup()
+        end
+    }
     -- Startup
     use("lewis6991/impatient.nvim")
     use("goolord/alpha-nvim")
@@ -57,26 +66,8 @@ return packer.startup(function(use)
     -- Terminal
     use("numToStr/FTerm.nvim")
 
-    -- Music
-    use({
-        "KadoBOT/nvim-spotify",
-        requires = "nvim-telescope/telescope.nvim",
-        config = function()
-            local spotify = require("nvim-spotify")
-
-            spotify.setup({
-                status = {
-                    update_interval = 10000,
-                    format = "%s %t by %a",
-                },
-            })
-        end,
-        run = "make",
-    })
-
     -- Key mappings
     use("b0o/mapx.nvim")
-    use("folke/which-key.nvim")
 
     -- Color scheme(s)
     use("Mofiqul/vscode.nvim")
@@ -171,18 +162,11 @@ return packer.startup(function(use)
     -- Treesitter
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
     use("p00f/nvim-ts-rainbow")
-    use("nvim-treesitter/nvim-treesitter-angular")
 
     -- All about buffers
     use("romgrk/barbar.nvim")
     use("famiu/bufdelete.nvim")
-    use({
-        "ghillb/cybu.nvim",
-        branch = "main",
-    })
     use("petertriho/nvim-scrollbar")
-    use("kevinhwang91/nvim-hlslens")
-    use("gaborvecsei/memento.nvim")
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()

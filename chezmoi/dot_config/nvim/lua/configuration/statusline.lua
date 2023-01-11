@@ -4,11 +4,6 @@ if not staline_ok then
     return
 end
 
-
-local status = require 'nvim-spotify'.status
-
-status:start()
-
 local icons = require("core.icons")
 staline.setup({
 
@@ -18,7 +13,6 @@ staline.setup({
             'file_name', ' ',
             'branch', ' ',
         },
-        mid   = { status.listen },
         right = {
             'lsp_name',
             'line_column', ' ',
