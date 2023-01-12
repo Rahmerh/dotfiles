@@ -49,25 +49,14 @@ return packer.startup(function(use)
         end,
     })
     use 'ThePrimeagen/vim-be-good'
-    use { 'kevinhwang91/nvim-hlslens', config = function()
-        require("scrollbar.handlers.search").setup()
-    end, }
-    use {
-        'lewis6991/gitsigns.nvim',
-        config = function()
-            require('gitsigns').setup()
-            require("scrollbar.handlers.gitsigns").setup()
-        end
-    }
+    use { 'kevinhwang91/nvim-hlslens' }
+
     -- Startup
     use("lewis6991/impatient.nvim")
     use("goolord/alpha-nvim")
 
     -- Terminal
     use("numToStr/FTerm.nvim")
-
-    -- Key mappings
-    use("b0o/mapx.nvim")
 
     -- Color scheme(s)
     use("Mofiqul/vscode.nvim")
@@ -77,6 +66,9 @@ return packer.startup(function(use)
     use("rcarriga/nvim-dap-ui")
     use("mfussenegger/nvim-jdtls")
     use("Weissle/persistent-breakpoints.nvim")
+
+    -- Git
+    use { 'lewis6991/gitsigns.nvim' }
 
     -- Coding stuff
     use("towolf/vim-helm")

@@ -57,6 +57,33 @@ require("scrollbar").setup({
             cterm = nil,
             highlight = "Normal",
         },
+        GitAdd = {
+            text = "┆",
+            priority = 7,
+            gui = nil,
+            color = green,
+            cterm = nil,
+            color_nr = nil, -- cterm
+            highlight = "GitSignsAdd",
+        },
+        GitChange = {
+            text = "┆",
+            priority = 7,
+            gui = nil,
+            color = yellow,
+            cterm = nil,
+            color_nr = nil, -- cterm
+            highlight = "GitSignsChange",
+        },
+        GitDelete = {
+            text = "▁",
+            priority = 7,
+            gui = nil,
+            color = red,
+            cterm = nil,
+            color_nr = nil, -- cterm
+            highlight = "GitSignsDelete",
+        },
     },
     autocmd = {
         render = {
