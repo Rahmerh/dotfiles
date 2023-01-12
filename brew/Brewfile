@@ -78,7 +78,7 @@ cask "hiddenbar"
 cask "latest"
 
 # Code development
-brew "neovim", args: ["HEAD"]
+brew "neovim"
 brew "maven"
 cask "docker"
 brew "docker-compose"

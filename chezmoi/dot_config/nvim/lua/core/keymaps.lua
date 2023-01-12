@@ -23,12 +23,8 @@ m.nnoremap("<leader>e", "<cmd>NvimTreeToggle<cr>", "silent")
 m.nnoremap("<S-l>", "<cmd>bnext<cr>", "silent")
 m.nnoremap("<S-h>", "<cmd>bprevious<cr>", "silent")
 m.nnoremap("Q", "<cmd>Bdelete<cr>", "silent")
-m.nnoremap("<C-q>", "<cmd>Bdelete!<cr>", "silent")
 
 m.nnoremap("<leader>l", "<cmd>noh<cr>", "silent")
-
-m.nnoremap("<C-j>", "<cmd>m .+1<cr>==", "silent")
-m.nnoremap("<C-k>", "<cmd>m .-2<cr>==", "silent")
 
 m.inoremap("<C-j>", "<esc><cmd>m .+1<cr>==gi", "silent")
 m.inoremap("<C-k>", "<esc><cmd>m .-2<cr>==gi", "silent")
@@ -62,10 +58,6 @@ m.vnoremap("<leader>y", [["+y]], "silent")
 m.nnoremap("<leader>y", [["+y]], "silent")
 m.nnoremap("<leader>Y", [["+Y]], "silent")
 
--- Git
-m.nnoremap("<C-d>", "<cmd>DiffviewFileHistory<cr>", "silent")
-m.nnoremap("D", "<cmd>DiffviewClose<cr>", "silent")
-
 -- Terminal
 local fterm = require("FTerm")
 
@@ -74,17 +66,8 @@ local lazygit = fterm:new({
     cmd = "lazygit",
 })
 
-local lazydocker = fterm:new({
-    ft = "fterm_lazydocker",
-    cmd = "lazydocker",
-})
-
 m.nnoremap("<C-/>", function()
     lazygit:toggle()
-end)
-
-m.nnoremap("<C-d>", function()
-    lazydocker:toggle()
 end)
 
 m.nnoremap("<C-\\>", "<cmd>lua require('FTerm').toggle()<cr>", "silent")
@@ -103,9 +86,6 @@ m.nnoremap("lr", "<cmd>lua vim.lsp.buf.references()<cr>", "silent")
 m.nnoremap("ld", "<cmd>lua vim.lsp.buf.definition()<cr>", "silent")
 m.nnoremap("R", "<cmd>lua require('renamer').rename()<cr>", "silent")
 
-m.nnoremap("dl", "<cmd>lua vim.diagnostic.goto_next()<cr>", "silent")
-m.nnoremap("dh", "<cmd>lua vim.diagnostic.goto_prev()<cr>", "silent")
-
 -- Debugging
 m.nnoremap("<F5>", "<cmd>DapContinue<cr>", "silent")
 m.nnoremap("<F10>", "<cmd>DapStepOver<cr>", "silent")
@@ -113,7 +93,6 @@ m.nnoremap("<F11>", "<cmd>DapStepInto<cr>", "silent")
 m.nnoremap("<F23>", "<cmd>DapStepOut<cr>", "silent") -- S-F11
 m.nnoremap("<F17>", "<cmd>DapTerminate<cr>", "silent") -- S-F5
 m.nnoremap("<C-b>", "<cmd>PBToggleBreakpoint<cr>", "silent")
-m.nnoremap("<F2>", "<cmd>PBClearAllBreakpoints<cr>", "silent")
 m.nnoremap("td", "<cmd>lua require'jdtls'.test_nearest_method()<cr>", "silent")
 m.nnoremap("tc", "<cmd>lua require'jdtls'.test_class()<cr>", "silent")
 m.nnoremap(
@@ -121,17 +100,3 @@ m.nnoremap(
     "<cmd>lua require('dapui').float_element('watches', { width = 200, height = 30, enter = true })<cr>",
     "silent"
 )
-
--- Color picker
-m.nnoremap("<C-p>", "<cmd>PickColor<cr>", "silent")
-
--- Base 64
-m.nnoremap("<leader>5", "<cmd>Base64Decode<cr>", "silent")
-m.vnoremap("<leader>5", "<cmd>Base64Decode<cr>", "silent")
-m.nnoremap("<leader>6", "<cmd>Base64Encode<cr>", "silent")
-m.vnoremap("<leader>6", "<cmd>Base64Encode<cr>", "silent")
-
--- Music
-m.nnoremap("<leader>s", "<cmd>Spotify<cr>", "silent")
-m.nnoremap("<leader>sd", "<cmd>SpotifyDevices<cr>", "silent")
-m.nnoremap("<leader>sp", "<Plug>(SpotifyPause)", "silent")
