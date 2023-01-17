@@ -70,6 +70,13 @@ vim.keymap.set("v", "<leader>y", [["+y]], options)
 vim.keymap.set("n", "<leader>y", [["+y]], options)
 vim.keymap.set("n", "<leader>Y", [["+Y]], options)
 
+-- Paste from system clipboard
+vim.keymap.set("v", "<leader>p", [["+p]], options)
+vim.keymap.set("n", "<leader>p", [["+p]], options)
+vim.keymap.set("n", "<leader>P", [["+P]], options)
+
+vim.keymap.set("x", "<C-p>", [["_dP]])
+
 -- Terminal
 local fterm = require("FTerm")
 
