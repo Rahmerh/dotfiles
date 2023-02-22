@@ -86,6 +86,7 @@ brew "perl"
 cask "dotnet-sdk"
 cask "ngrok"
 cask "minikube"
+cask "mysqlworkbench"
 
 # Fonts
 cask "font-jetbrains-mono"
