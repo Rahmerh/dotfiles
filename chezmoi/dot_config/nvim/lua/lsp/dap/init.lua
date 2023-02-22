@@ -10,6 +10,10 @@ end
 
 local icons = require("core.icons")
 
+require("neodev").setup({
+    library = { plugins = { "nvim-dap-ui" }, types = true },
+})
+
 dapui.setup({
     icons = { expanded = icons.ui.FatArrowOpen, collapsed = icons.ui.FatArrowClosed },
     mappings = {

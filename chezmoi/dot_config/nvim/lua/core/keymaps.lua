@@ -81,9 +81,9 @@ vim.keymap.set("x", "<C-p>", [["_dP]])
 local fterm = require("FTerm")
 
 local lazygit = fterm:new({
-    ft = "fterm_lazygit",
-    cmd = "lazygit",
-})
+        ft = "fterm_lazygit",
+        cmd = "lazygit",
+    })
 
 vim.keymap.set("n", "<C-/>", function()
     lazygit:toggle()
@@ -119,3 +119,4 @@ vim.keymap.set("n",
     "<cmd>lua require('dapui').float_element('watches', { width = 200, height = 30, enter = true })<cr>",
     options
 )
+vim.keymap.set("n", "dt", "<cmd>DapToggleRepl<cr>", options)
