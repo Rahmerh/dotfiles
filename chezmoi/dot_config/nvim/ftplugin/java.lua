@@ -31,6 +31,7 @@ local config = {
         "-Dlog.protocol=true",
         "-Dlog.level=ALL",
         "-Xms1g",
+        "-javaagent:" .. os.getenv("HOME") .. "/.config/nvim/lombok/lombok.jar",
         "--add-modules=ALL-SYSTEM",
         "--add-opens",
         "java.base/java.util=ALL-UNNAMED",
@@ -38,7 +39,7 @@ local config = {
         "java.base/java.lang=ALL-UNNAMED",
         "-jar",
         os.getenv("HOME")
-            .. "/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar",
+        .. "/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar",
         "-configuration",
         os.getenv("HOME") .. "/.local/share/nvim/mason/packages/jdtls/config_mac",
         "-data",
@@ -148,7 +149,9 @@ require('jdtls.ui').pick_one_async = function(items, prompt, label_fn, cb)
     }):find()
 end
 
-vim.cmd("command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)")
-vim.cmd("command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)")
+vim.cmd(
+    "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)")
+vim.cmd(
+    "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)")
 vim.cmd("command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()")
 vim.cmd("command! -buffer JdtBytecode lua require('jdtls').javap()")
