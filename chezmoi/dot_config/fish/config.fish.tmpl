@@ -1,7 +1,6 @@
 {{- if eq .chezmoi.os "darwin" }}
 eval "$(/opt/homebrew/bin/brew shellenv)"
 {{- end }}
-
 # Aliases
 alias ls='lsd -l'
 alias cat="bat"
@@ -15,6 +14,8 @@ set fish_greeting
 [ -f /opt/homebrew/share/autojump/autojump.fish ]; and source /opt/homebrew/share/autojump/autojump.fish
 {{- else if eq .chezmoi.osRelease.id "nobara" }}
 [ -f $HOME/.autojump/share/autojump/autojump.fish ]; and source $HOME/.autojump/share/autojump/autojump.fish
+{{- else if eq .chezmoi.osRelease.id "arch" }}
+if test -f /home/bas/.autojump/share/autojump/autojump.fish; . /home/bas/.autojump/share/autojump/autojump.fish; end
 {{- end }}
 
 # Configure hydro prompt

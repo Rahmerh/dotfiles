@@ -50,4 +50,18 @@ sudo dnf install -y neovim \
 sudo curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sudo sh -s -- --git cantino/mcfly --force
 
 print_success "Done!\n"
+{{- else if eq .chezmoi.osRelease.id "arch" }}
+. "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
+
+sudo pacman -S neovim \
+    fish \
+    kitty \
+    lsd \
+    bat \
+    xclip \
+    mc \
+    firewalld \
+    solaar \
+    --noconfirm
+
 {{- end }}
