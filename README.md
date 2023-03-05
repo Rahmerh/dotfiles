@@ -33,7 +33,7 @@ Simply execute the following command to get started:
 ```shell
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/Rahmerh/dotfiles/main/install.sh)"
 ```
-I'm currently working on scripts to make this usable on [nobara](https://nobaraproject.org/). This is still in progress, so expect some scripts not working.
+I'm currently working on scripts to make this usable on arch. This is still in progress, so expect some scripts not working.
 
 ### ⚠️ Warning in advance
 
