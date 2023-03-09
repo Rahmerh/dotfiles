@@ -81,9 +81,9 @@ vim.keymap.set("x", "<C-p>", [["_dP]])
 local fterm = require("FTerm")
 
 local lazygit = fterm:new({
-        ft = "fterm_lazygit",
-        cmd = "lazygit",
-    })
+    ft = "fterm_lazygit",
+    cmd = "lazygit",
+})
 
 vim.keymap.set("n", "<C-/>", function()
     lazygit:toggle()
@@ -106,10 +106,11 @@ vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", options)
 vim.keymap.set("n", "R", "<cmd>lua require('renamer').rename()<cr>", options)
 
 -- Debugging
+vim.keymap.set("n", "<F1>", "<cmd>lua require('jdtls.dap').setup_dap_main_class_configs()<cr>", options)
 vim.keymap.set("n", "<F5>", "<cmd>DapContinue<cr>", options)
 vim.keymap.set("n", "<F10>", "<cmd>DapStepOver<cr>", options)
 vim.keymap.set("n", "<F11>", "<cmd>DapStepInto<cr>", options)
-vim.keymap.set("n", "<F23>", "<cmd>DapStepOut<cr>", options) -- S-F11
+vim.keymap.set("n", "<F23>", "<cmd>DapStepOut<cr>", options)   -- S-F11
 vim.keymap.set("n", "<F17>", "<cmd>DapTerminate<cr>", options) -- S-F5
 vim.keymap.set("n", "<C-b>", "<cmd>PBToggleBreakpoint<cr>", options)
 vim.keymap.set("n", "td", "<cmd>lua require'jdtls'.test_nearest_method()<cr>", options)
