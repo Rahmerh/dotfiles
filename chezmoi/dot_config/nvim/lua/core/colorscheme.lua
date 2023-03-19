@@ -1,6 +1,6 @@
 vim.o.background = 'dark'
 
-local c = require('vscode.colors')
+local c = require('vscode.colors').get_colors()
 require('vscode').setup({
     transparent = true,
     italic_comments = true,
@@ -9,6 +9,7 @@ require('vscode').setup({
         vscLineNumber = '#FFFFFF',
     },
     group_overrides = {
-        Cursor = { fg=c.vscDarkBlue, bg=c.vscLightGreen, bold=true },
+        Cursor = { fg = c.vscDarkBlue, bg = c.vscLightGreen, bold = true },
     }
 })
+require('vscode').load()

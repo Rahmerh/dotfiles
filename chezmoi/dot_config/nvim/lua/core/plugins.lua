@@ -50,6 +50,7 @@ return packer.startup(function(use)
     })
     use 'ThePrimeagen/vim-be-good'
     use { 'kevinhwang91/nvim-hlslens' }
+    use "lambdalisue/suda.vim"
 
     -- Startup
     use("lewis6991/impatient.nvim")

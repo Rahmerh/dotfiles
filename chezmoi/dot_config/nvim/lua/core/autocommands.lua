@@ -1,8 +1,8 @@
 vim.cmd([[
-  
+
   augroup _general_settings
     autocmd!
-    autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR> 
+    autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR>
     autocmd BufWinEnter * :set formatoptions-=cro
     autocmd FileType qf set nobuflisted
   augroup end
@@ -21,7 +21,7 @@ vim.cmd([[
 
   augroup _auto_resize
     autocmd!
-    autocmd VimResized * tabdo wincmd = 
+    autocmd VimResized * tabdo wincmd =
   augroup end
 
   augroup _alpha
@@ -35,6 +35,9 @@ vim.cmd([[
   augroup END
 
   set mouse=n
+
+  command W execute "SudaWrite"
+  command E execute "SudaRead"
 ]])
 
 vim.opt.laststatus = 3
