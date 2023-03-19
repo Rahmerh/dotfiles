@@ -53,7 +53,12 @@ print_success "Done!\n"
 {{- else if eq .chezmoi.osRelease.id "arch" }}
 . "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
 
-sudo pacman -S neovim \
+sudo pacman -Syu --noconfirm
+
+sudo pacman -Qdtq | sudo pacman -Rs --noconfirm -
+
+sudo pacman --needed -S \
+    neovim \
     fish \
     kitty \
     lsd \
@@ -69,6 +74,22 @@ sudo pacman -S neovim \
     cronie \
     steam \
     speedtest-cli \
+    pacman-contrib \
     --noconfirm
+
+if ! command -v cargo &> /dev/null
+then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
+
+if ! command -v et &> /dev/null
+then
+    cargo install erdtree
+fi
+
+if ! command -v zfxtop &> /dev/null
+then
+    curl -sSL raw.githubusercontent.com/ssleert/zfxtop/master/install.sh | sh
+fi
 
 {{- end }}
