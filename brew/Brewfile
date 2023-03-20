@@ -15,11 +15,9 @@ tap "cantino/mcfly"
 # Desktop tools
 cask "1password"
 cask "kitty"
-cask "gimp"
 brew "yabai"
 cask "protonmail-bridge"
 cask "balenaetcher"
-cask "iina"
 cask "steam"
 
 # Communication & entertainment
@@ -44,8 +42,6 @@ brew "skhd", restart_service: true
 brew "pass"
 brew "w3m"
 brew "gotop"
-brew "gping"
-brew "wego"
 brew "mas"
 brew "autojump"
 brew "fish"
@@ -58,7 +54,6 @@ brew "chezmoi"
 brew "luajit"
 brew "mcfly"
 brew "midnight-commander"
-brew "wallpaper"
 brew "erdtree"
 
 # Productivity
@@ -68,15 +63,12 @@ brew "lazygit"
 brew "lazydocker"
 brew "helm"
 brew "git"
-cask "obsidian"
 cask "alt-tab"
 cask "monitorcontrol"
-cask "numi"
 cask "appcleaner"
 cask "raycast"
 cask "shottr"
 cask "hiddenbar"
-cask "latest"
 
 # Code development
 brew "neovim"
@@ -86,8 +78,7 @@ brew "docker-compose"
 brew "perl"
 cask "dotnet-sdk"
 cask "ngrok"
-cask "minikube"
-cask "mysqlworkbench"
+brew "minikube"
 brew "rust"
 
 # Fonts
@@ -107,4 +98,3 @@ brew "yarn"
 mas "Bitwarden", id: 1352778147
 mas "Xcode", id: 497799835
 mas "System Color Picker", id: 1545870783
-mas "Meeter", id: 1510445899
