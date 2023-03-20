@@ -7,10 +7,6 @@ alias cat="bat"
 alias kafka="kaskade $KASKADE_CONFIG"
 alias et="et -I -S"
 
-{{- if eq .chezmoi.osRelease.id "arch" }}
-alias cleanup-packages="sudo pacman -R $(pacman -Qtdq) && sudo paccache -ruk0"
-{{- end }}
-
 # Disable greeting message
 set fish_greeting
 
@@ -33,3 +29,9 @@ set -gx MCFLY_KEY_SCHEME vim
 
 # Source rust
 set -gx PATH "$HOME/.cargo/bin" $PATH;
+
+{{- if ne .chezmoi.os "darwin" }}
+{{- if eq .chezmoi.osRelease.id "arch" }}
+alias cleanup-packages="sudo pacman -R $(pacman -Qtdq) && sudo paccache -ruk0"
+{{- end }}
+{{- end }}
