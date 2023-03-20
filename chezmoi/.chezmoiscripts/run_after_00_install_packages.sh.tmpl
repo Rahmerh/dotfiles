@@ -58,6 +58,7 @@ sudo pacman --needed -S \
     steam \
     speedtest-cli \
     pacman-contrib \
+    python-pip \
     --noconfirm
 
 if ! command -v cargo &> /dev/null
@@ -73,6 +74,11 @@ fi
 if ! command -v zfxtop &> /dev/null
 then
     curl -sSL raw.githubusercontent.com/ssleert/zfxtop/master/install.sh | sh
+fi
+
+if ! command -v calcure &> /dev/null
+then
+    pip install calcure
 fi
 
 {{- end }}
