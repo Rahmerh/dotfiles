@@ -11,11 +11,6 @@ brew bundle --file={{ .chezmoi.sourceDir }}/../brew/Brewfile
 print_info "\nUpgrading last brew packages\n"
 brew upgrade
 
-print_info "\nInstall gem packages\n"
-sudo gem install activesupport -v 6.1.6.1
-sudo gem install terjira
-sudo gem install cocoapods
-
 print_success "Done!\n"
 {{- else if eq .chezmoi.osRelease.id "nobara" }}
 . "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
