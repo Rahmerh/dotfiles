@@ -52,8 +52,8 @@ brew "fisher"
 brew "chezmoi"
 brew "luajit"
 brew "mcfly"
-brew "midnight-commander"
 brew "erdtree"
+brew "ranger"
 
 # Productivity
 brew "k9s"
