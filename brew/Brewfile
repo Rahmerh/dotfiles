@@ -53,7 +53,7 @@ brew "chezmoi"
 brew "luajit"
 brew "mcfly"
 brew "erdtree"
-brew "ranger"
+brew "highlight"
 
 # Productivity
 brew "k9s"

@@ -11,6 +11,8 @@ brew bundle --file={{ .chezmoi.sourceDir }}/../brew/Brewfile
 print_info "\nUpgrading last brew packages\n"
 brew upgrade
 
+pip3 install ranger-fm pynvim
+
 print_success "Done!\n"
 {{- else if eq .chezmoi.osRelease.id "nobara" }}
 . "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
