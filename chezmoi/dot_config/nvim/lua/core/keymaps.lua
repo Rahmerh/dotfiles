@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local options = { noremap = true, silent = true }
 
 vim.g.mapleader = " "
@@ -97,13 +98,15 @@ vim.keymap.set("n", "<leader>f", "<cmd>Telescope find_files<cr>", options)
 vim.keymap.set("n", "<leader>g", "<cmd>Telescope live_grep<cr>", options)
 
 -- LSP
-vim.keymap.set("n", "<C-.>", "<cmd>CodeActionMenu<CR>", options)
+vim.keymap.set("n", "<C-.>", "<cmd>lua vim.lsp.buf.code_action()<CR>", options)
 vim.keymap.set("n", "<leader>i", "<cmd>lua require('jdtls').organize_imports()<CR>", options)
 vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", options)
 vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", options)
 vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", options)
 vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", options)
-vim.keymap.set("n", "R", "<cmd>lua require('renamer').rename()<cr>", options)
+vim.keymap.set("n", "R", "<cmd>lua vim.lsp.buf.rename()<cr>", options)
+
+vim.keymap.set("n", "gpd", "<cmd>lua require('goto-preview').goto_preview_definition()<cr>", options)
 
 -- Debugging
 vim.keymap.set("n", "<F1>", "<cmd>lua require('jdtls.dap').setup_dap_main_class_configs()<cr>", options)

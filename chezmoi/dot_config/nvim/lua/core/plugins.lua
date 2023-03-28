@@ -132,17 +132,11 @@ return packer.startup(function(use)
             })
         end,
     })
-    use({
-        "weilbith/nvim-code-action-menu",
-        cmd = "CodeActionMenu",
-    })
     use 'wiliamks/nice-reference.nvim'
-    use {
-        'filipdutescu/renamer.nvim',
-        branch = 'master',
-        requires = { { 'nvim-lua/plenary.nvim' } }
-    }
     use "folke/neodev.nvim"
+    use {
+        'rmagatti/goto-preview'
+    }
 
     -- File explorer
     use({
