@@ -48,13 +48,10 @@ return packer.startup(function(use)
             require("colorizer").setup()
         end,
     })
-    use 'ThePrimeagen/vim-be-good'
-    use { 'kevinhwang91/nvim-hlslens' }
     use "lambdalisue/suda.vim"
 
     -- Startup
     use("lewis6991/impatient.nvim")
-    use("goolord/alpha-nvim")
 
     -- Terminal
     use("numToStr/FTerm.nvim")
@@ -84,20 +81,6 @@ return packer.startup(function(use)
         end,
     })
     use("numToStr/Comment.nvim")
-    use("MunifTanjim/prettier.nvim")
-    use("RRethy/vim-illuminate")
-    use({
-        "rmagatti/goto-preview",
-        config = function()
-            require("goto-preview").setup({})
-        end,
-    })
-    use({
-        "iamcco/markdown-preview.nvim",
-        run = "cd app && npm install",
-        setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
-        ft = { "markdown" },
-    })
     use "lukas-reineke/indent-blankline.nvim"
 
     -- Autocomplete
@@ -119,52 +102,25 @@ return packer.startup(function(use)
         run = "make install_jsregexp"
     })
     use "rafamadriz/friendly-snippets"
-    use({
-        "j-hui/fidget.nvim",
-        config = function()
-            require("fidget").setup({
-                text = {
-                    spinner = "dots",
-                },
-                window = {
-                    blend = 0,
-                },
-            })
-        end,
-    })
-    use 'wiliamks/nice-reference.nvim'
     use "folke/neodev.nvim"
-    use {
-        'rmagatti/goto-preview'
-    }
+    use 'rmagatti/goto-preview'
 
     -- File explorer
-    use({
-        "kyazdani42/nvim-tree.lua",
-        tag = "nightly",
-    })
+    use 'kevinhwang91/rnvimr'
 
     -- Telescope
     use("nvim-telescope/telescope.nvim")
     use("nvim-telescope/telescope-dap.nvim")
     use("nvim-telescope/telescope-ui-select.nvim")
 
-    -- Statusline
-    use({
-        "tamton-aquib/staline.nvim",
-        config = function()
-            require("staline").setup()
-        end,
-    })
-
     -- Treesitter
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
     use("p00f/nvim-ts-rainbow")
 
     -- All about buffers
-    use("romgrk/barbar.nvim")
-    use("famiu/bufdelete.nvim")
     use("petertriho/nvim-scrollbar")
+    use 'johann2357/nvim-smartbufs'
+    use 'j-morano/buffer_manager.nvim'
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()

@@ -8,7 +8,7 @@ require("scrollbar").setup({
     hide_if_all_visible = true,
     handlers = {
         diagnostic = true,
-        search = true,
+        search = false,
         gitsigns = true
     },
     handle = {

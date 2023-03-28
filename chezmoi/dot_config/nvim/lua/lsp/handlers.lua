@@ -15,9 +15,9 @@ M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 M.setup = function()
     local signs = {
         { name = "DiagnosticSignError", text = icons.diagnostics.Error },
-        { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
-        { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
-        { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
+        { name = "DiagnosticSignWarn",  text = icons.diagnostics.Warning },
+        { name = "DiagnosticSignHint",  text = icons.diagnostics.Hint },
+        { name = "DiagnosticSignInfo",  text = icons.diagnostics.Information },
     }
 
     for _, sign in ipairs(signs) do
@@ -44,21 +44,9 @@ M.setup = function()
     }
 
     vim.diagnostic.config(config)
-
-    vim.lsp.handlers["textDocument/references"] = require 'nice-reference'.reference_handler
-end
-
-local function lsp_highlight_document(client)
-    local status_ok, illuminate = pcall(require, "illuminate")
-    if not status_ok then
-        return
-    end
-    illuminate.on_attach(client)
 end
 
 M.on_attach = function(client)
-    lsp_highlight_document(client)
-
     if client.name == "jdt.ls" then
         vim.lsp.codelens.refresh()
         require("jdtls.setup").add_commands()
