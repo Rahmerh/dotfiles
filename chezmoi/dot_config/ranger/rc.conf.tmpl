@@ -1,0 +1,9 @@
+set preview_images true
+{{- if eq .chezmoi.os "darwin" }}
+set preview_images_method kitty
+{{- else if eq .chezmoi.osRelease.id "arch" }}
+set preview_images_method ueberzug
+{{- end }}
+
+set show_hidden true
+
