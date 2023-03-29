@@ -11,6 +11,8 @@ brew bundle --file={{ .chezmoi.sourceDir }}/../brew/Brewfile
 print_info "\nUpgrading last brew packages\n"
 brew upgrade
 
+fisher install jorgebucaran/hydro
+
 pip3 install ranger-fm pynvim
 
 print_success "Done!\n"

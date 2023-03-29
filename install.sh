@@ -1,9 +1,6 @@
 #!/bin/sh
 
-# Use with Github CodeSpaces
-# https://github.com/twpayne/dotfiles/blob/master/install.sh
-
-set -e # -e: exit on error
+set -e
 
 if [ ! "$(command -v chezmoi)" ]; then
     bin_dir="$HOME/.local/bin"

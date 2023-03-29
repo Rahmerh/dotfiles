@@ -25,6 +25,7 @@ vim.keymap.set("n", "<leader>b", "<cmd>lua require('buffer_manager.ui').toggle_q
 vim.keymap.set("v", "<leader>b", "<cmd>lua require('buffer_manager.ui').toggle_quick_menu()<cr>", options)
 
 vim.keymap.set("n", "<S-l>", "<cmd>lua require('nvim-smartbufs').goto_next_buffer()<cr>", options)
+vim.keymap.set("n", "<S-h>", "<cmd>lua require('nvim-smartbufs').goto_prev_buffer()<cr>", options)
 
 vim.keymap.set("n", "<leader>l", "<cmd>noh<cr>", options)
 
@@ -61,7 +62,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", options)
 vim.keymap.set("n", "gs", "<cmd>Gitsigns toggle_current_line_blame<cr>", options)
 
 -- Keep copy buffer while pasting over items
-vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set("x", "<C-p>", [["_dP]])
 
 -- Yank to system clipboard
 vim.keymap.set("v", "<leader>y", [["+y]], options)
