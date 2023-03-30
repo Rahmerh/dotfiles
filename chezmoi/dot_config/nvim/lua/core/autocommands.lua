@@ -23,11 +23,6 @@ vim.cmd([[
     autocmd VimResized * tabdo wincmd =
   augroup end
 
-  augroup _alpha
-    autocmd!
-    autocmd BufUnload <buffer> set showtabline=2
-  augroup end
-
   augroup FormatAutogroup
     autocmd!
     autocmd BufWritePre * lua vim.lsp.buf.format({ async = false })
