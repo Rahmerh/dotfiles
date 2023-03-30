@@ -49,7 +49,6 @@ return packer.startup(function(use)
         end,
     })
     use 'ThePrimeagen/vim-be-good'
-    use { 'kevinhwang91/nvim-hlslens' }
     use "lambdalisue/suda.vim"
 
     -- Startup
@@ -120,9 +119,12 @@ return packer.startup(function(use)
     use("p00f/nvim-ts-rainbow")
 
     -- All about buffers
-    use("romgrk/barbar.nvim")
     use("petertriho/nvim-scrollbar")
     use 'johann2357/nvim-smartbufs'
+    use {
+        'kdheepak/tabline.nvim',
+        requires = { { 'hoob3rt/lualine.nvim', opt = true }, { 'kyazdani42/nvim-web-devicons', opt = true } }
+    }
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()

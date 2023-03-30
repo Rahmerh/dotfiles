@@ -21,8 +21,10 @@ vim.keymap.set("n", "mp3", "<cmd>diffput 3<cr>", options)
 vim.keymap.set("n", "<leader>e", "<cmd>RnvimrToggle<cr>")
 
 -- Buffers
-vim.keymap.set("n", "<S-l>", "<cmd>lua require('nvim-smartbufs').goto_next_buffer()<cr>", options)
-vim.keymap.set("n", "<S-h>", "<cmd>lua require('nvim-smartbufs').goto_prev_buffer()<cr>", options)
+vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<cr>", options)
+
+vim.keymap.set("n", "<S-l>", "<cmd>TablineBufferNext<cr>", options)
+vim.keymap.set("n", "<S-h>", "<cmd>TablineBufferPrevious<cr>", options)
 
 vim.keymap.set("n", "<leader>l", "<cmd>noh<cr>", options)
 
