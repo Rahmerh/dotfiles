@@ -48,6 +48,8 @@ return packer.startup(function(use)
             require("colorizer").setup()
         end,
     })
+    use 'ThePrimeagen/vim-be-good'
+    use { 'kevinhwang91/nvim-hlslens' }
     use "lambdalisue/suda.vim"
 
     -- Startup
@@ -118,9 +120,9 @@ return packer.startup(function(use)
     use("p00f/nvim-ts-rainbow")
 
     -- All about buffers
+    use("romgrk/barbar.nvim")
     use("petertriho/nvim-scrollbar")
     use 'johann2357/nvim-smartbufs'
-    use 'j-morano/buffer_manager.nvim'
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()
