@@ -21,7 +21,7 @@ vim.keymap.set("n", "mp3", "<cmd>diffput 3<cr>", options)
 vim.keymap.set("n", "<leader>e", "<cmd>RnvimrToggle<cr>")
 
 -- Buffers
-vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<cr>", options)
+vim.keymap.set("n", "<leader>b", "<cmd>BSOpen<cr>", options)
 
 vim.keymap.set("n", "<S-l>", "<cmd>TablineBufferNext<cr>", options)
 vim.keymap.set("n", "<S-h>", "<cmd>TablineBufferPrevious<cr>", options)
@@ -61,7 +61,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", options)
 vim.keymap.set("n", "gs", "<cmd>Gitsigns toggle_current_line_blame<cr>", options)
 
 -- Keep copy buffer while pasting over items
-vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set("x", "<C-p>", [["_dP]])
 
 -- Yank to system clipboard
 vim.keymap.set("v", "<leader>y", [["+y]], options)
