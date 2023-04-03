@@ -28,7 +28,7 @@ luasnip.add_snippets("java", {
 })
 
 luasnip.add_snippets("java", {
-    s("test_method", {
+    s("testm", {
         t({ "@Test", "public void " }),
         i(1, "test_name"),
         t({ "() {", "\t// Arrange", "\t", "\t// Act", "\t", "\t// Assert", "}" })
