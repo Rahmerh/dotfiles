@@ -8,7 +8,7 @@ require 'tabline'.setup {
         show_devicons = false,
         show_bufnr = false,
         show_filename_only = true,
-        modified_icon = "+ ",
+        modified_icon = "[+] ",
         modified_italic = true,
         show_tabs_only = false
     }

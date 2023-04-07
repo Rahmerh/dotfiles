@@ -32,25 +32,12 @@ vim.cmd([[
 
   command W execute "SudaWrite"
   command E execute "SudaRead"
-
-  augroup highlight_current_word
-    au!
-    au CursorHold * :exec 'match Search /\V\<' . expand('<cword>') . '\>/'
-  augroup END
 ]])
 
 vim.cmd([[
 let g:rnvimr_hide_gitignore = 0
 let g:rnvimr_enable_picker = 1
 let g:rnvimr_enable_bw = 1
-let g:rnvimr_layout = {
-           \ 'relative': 'editor',
-           \ 'width': &columns,
-           \ 'height': &lines - 2,
-           \ 'col': 0,
-           \ 'row': 0,
-           \ 'style': 'minimal'
-           \ }
 ]])
 
 vim.opt.laststatus = 3

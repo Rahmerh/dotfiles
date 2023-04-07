@@ -33,6 +33,7 @@ local options = {
     guifont = "monospace:h17",
     nu = true,
     relativenumber = true,
+    guicursor = "n-v-c-i:block",
 }
 
 for k, v in pairs(options) do

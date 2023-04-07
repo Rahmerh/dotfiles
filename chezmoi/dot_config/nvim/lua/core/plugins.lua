@@ -129,7 +129,9 @@ return packer.startup(function(use)
         "Djancyp/outline",
         config = function()
             require('outline').setup()
-        end }
+        end
+    }
+    use 'ThePrimeagen/harpoon'
 
 
     if PACKER_BOOTSTRAP then

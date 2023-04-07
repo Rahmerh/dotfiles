@@ -49,29 +49,31 @@ vim.keymap.set("n", "<leader>9", "<cmd>lua require('nvim-smartbufs').goto_buffer
 
 vim.keymap.set("n", "<S-q>", "<cmd>lua require('nvim-smartbufs').close_current_buffer()<cr>", options)
 
--- Indent blocks when moving them
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", options)
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", options)
 
--- Keep view in the middle of the page when doing half page jumps
 vim.keymap.set("n", "<C-d>", "<C-d>zz", options)
 vim.keymap.set("n", "<C-u>", "<C-u>zz", options)
 
--- Gitsigns
-vim.keymap.set("n", "gs", "<cmd>Gitsigns toggle_current_line_blame<cr>", options)
+-- Copy & pasting
 
--- Keep copy buffer while pasting over items
 vim.keymap.set("x", "<C-p>", [["_dP]])
 
--- Yank to system clipboard
 vim.keymap.set("v", "<leader>y", [["+y]], options)
 vim.keymap.set("n", "<leader>y", [["+y]], options)
 vim.keymap.set("n", "<leader>Y", [["+Y]], options)
 
--- Paste from system clipboard
 vim.keymap.set("v", "<leader>p", [["+p]], options)
 vim.keymap.set("n", "<leader>p", [["+p]], options)
 vim.keymap.set("n", "<leader>P", [["+P]], options)
+
+-- Harpoon
+vim.keymap.set("n", "<leader>ha", "<cmd>lua require('harpoon.mark').add_file()<cr>", options)
+vim.keymap.set("n", "<leader>hp", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", options)
+
+-- Gitsigns
+vim.keymap.set("n", "gs", "<cmd>Gitsigns toggle_current_line_blame<cr>", options)
+
 
 -- Terminal
 local fterm = require("FTerm")
