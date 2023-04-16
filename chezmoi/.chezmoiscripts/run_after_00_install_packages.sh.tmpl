@@ -55,6 +55,7 @@ sudo pacman --needed -S \
     npm \
     cronie \
     steam \
+    epiphany \
     speedtest-cli \
     pacman-contrib \
     python-pip \
@@ -85,5 +86,7 @@ then
 fi
 
 flatpak install flathub com.synology.SynologyAssistant -y
+
+gsettings set org.gnome.Epiphany.web:/org/gnome/epiphany/web/ enable-webextensions true
 
 {{- end }}
