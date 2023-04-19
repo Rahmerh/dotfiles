@@ -30,6 +30,10 @@ vim.cmd([[
 
   set mouse=n
 
+  augroup TransparentBackground
+    autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+  augroup END
+
   command W execute "SudaWrite"
   command E execute "SudaRead"
 ]])

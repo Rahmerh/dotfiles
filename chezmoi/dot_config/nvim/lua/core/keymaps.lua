@@ -17,9 +17,6 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", options)
 vim.keymap.set("n", "mp2", "<cmd>diffput 2<cr>", options)
 vim.keymap.set("n", "mp3", "<cmd>diffput 3<cr>", options)
 
--- File explorer
-vim.keymap.set("n", "<leader>e", "<cmd>RnvimrToggle<cr>")
-
 -- Buffers
 vim.keymap.set("n", "<leader>b", "<cmd>BSOpen<cr>", options)
 
@@ -68,27 +65,18 @@ vim.keymap.set("n", "<leader>p", [["+p]], options)
 vim.keymap.set("n", "<leader>P", [["+P]], options)
 
 -- Harpoon
-vim.keymap.set("n", "<leader>ha", "<cmd>lua require('harpoon.mark').add_file()<cr>", options)
-vim.keymap.set("n", "<leader>hp", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", options)
+vim.keymap.set("n", "<leader>h", "<cmd>lua require('harpoon.mark').add_file()<cr>", options)
+vim.keymap.set("n", "<C-n>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", options)
 
 -- Gitsigns
 vim.keymap.set("n", "gs", "<cmd>Gitsigns toggle_current_line_blame<cr>", options)
 
-
 -- Terminal
-local fterm = require("FTerm")
+vim.keymap.set("n", "<C-\\>", "<cmd>FloatermToggle<cr>", options)
+vim.keymap.set("t", "<C-\\>", "<C-\\><C-n><cmd>FloatermToggle<cr>", options)
 
-local lazygit = fterm:new({
-    ft = "fterm_lazygit",
-    cmd = "lazygit",
-})
-
-vim.keymap.set("n", "<C-/>", function()
-    lazygit:toggle()
-end)
-
-vim.keymap.set("n", "<C-\\>", "<cmd>lua require('FTerm').toggle()<cr>", options)
-vim.keymap.set("t", "<C-\\>", "<C-\\><C-N><cmd>lua require('FTerm').toggle()<cr>", options)
+vim.keymap.set("n", "<C-/>", "<cmd>FloatermNew lazygit<cr>", options)
+vim.keymap.set("n", "<leader>e", "<cmd>FloatermNew ranger<cr>", options)
 
 -- Fuzzy search
 vim.keymap.set("n", "<leader>f", "<cmd>Telescope find_files<cr>", options)
@@ -97,7 +85,7 @@ vim.keymap.set("n", "<leader>g", "<cmd>Telescope live_grep<cr>", options)
 -- LSP
 vim.keymap.set("n", "<C-.>", "<cmd>lua vim.lsp.buf.code_action()<CR>", options)
 vim.keymap.set("n", "<leader>i", "<cmd>lua require('jdtls').organize_imports()<CR>", options)
-vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", options)
+vim.keymap.set("n", "K", "<cmd>DocsViewToggle<cr>", options)
 vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", options)
 vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", options)
 vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", options)

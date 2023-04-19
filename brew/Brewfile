@@ -68,6 +68,7 @@ cask "appcleaner"
 cask "raycast"
 cask "shottr"
 cask "hiddenbar"
+brew "syncthing"
 
 # Code development
 brew "neovim"

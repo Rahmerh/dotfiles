@@ -55,10 +55,10 @@ return packer.startup(function(use)
     use("lewis6991/impatient.nvim")
 
     -- Terminal
-    use("numToStr/FTerm.nvim")
+    use 'voldikss/vim-floaterm'
 
     -- Color scheme(s)
-    use("Mofiqul/vscode.nvim")
+    use('Mofiqul/vscode.nvim')
 
     -- Debugger
     use("mfussenegger/nvim-dap")
@@ -83,6 +83,7 @@ return packer.startup(function(use)
     })
     use("numToStr/Comment.nvim")
     use "lukas-reineke/indent-blankline.nvim"
+    use "RRethy/vim-illuminate"
 
     -- Autocomplete
     use("hrsh7th/cmp-nvim-lsp")
@@ -105,9 +106,17 @@ return packer.startup(function(use)
     use "rafamadriz/friendly-snippets"
     use "folke/neodev.nvim"
     use 'rmagatti/goto-preview'
-
-    -- File explorer
-    use 'kevinhwang91/rnvimr'
+    use {
+        "amrbashir/nvim-docs-view",
+        opt = true,
+        cmd = { "DocsViewToggle" },
+        config = function()
+            require("docs-view").setup {
+                position = "bottom",
+                width = 30,
+            }
+        end
+    }
 
     -- Telescope
     use("nvim-telescope/telescope.nvim")
@@ -116,7 +125,6 @@ return packer.startup(function(use)
 
     -- Treesitter
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-    use("p00f/nvim-ts-rainbow")
 
     -- All about buffers
     use("petertriho/nvim-scrollbar")
