@@ -82,7 +82,10 @@ return packer.startup(function(use)
         end,
     })
     use("numToStr/Comment.nvim")
-    use "lukas-reineke/indent-blankline.nvim"
+    use {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl"
+    }
     use "RRethy/vim-illuminate"
 
     -- Autocomplete
@@ -141,6 +144,13 @@ return packer.startup(function(use)
     }
     use 'ThePrimeagen/harpoon'
 
+    use {
+        'chipsenkbeil/distant.nvim',
+        branch = 'v0.3',
+        config = function()
+            require('distant'):setup()
+        end
+    }
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()
