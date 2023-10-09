@@ -8,6 +8,10 @@ alias kafka="kaskade $KASKADE_CONFIG"
 alias tree="et -I -S"
 alias s="kitty +kitten ssh"
 
+{{- if eq .chezmoi.osRelease.id "nobara" }}
+alias "clip=xclip -selection clipboard"
+{{- end }}
+
 fish_add_path /home/bas/.local/bin
 
 # Disable greeting message
