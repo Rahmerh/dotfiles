@@ -104,3 +104,7 @@ vim.keymap.set("n", "<C-b>", "<cmd>PBToggleBreakpoint<cr>", options)
 vim.keymap.set("n", "td", "<cmd>lua require'jdtls'.test_nearest_method()<cr>", options)
 vim.keymap.set("n", "tc", "<cmd>lua require'jdtls'.test_class()<cr>", options)
 vim.keymap.set("n", "dt", "<cmd>DapToggleRepl<cr>", options)
+
+-- Distant keymaps
+vim.keymap.set("n", "dcn", "<cmd>DistantConnect ssh://NAS<cr>", options)
+vim.keymap.set("n", "don", "<cmd>DistantOpen /docker<cr>", options)

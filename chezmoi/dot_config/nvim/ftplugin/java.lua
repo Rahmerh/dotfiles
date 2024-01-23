@@ -1,7 +1,7 @@
 local bundles = {}
 
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-local workspace_dir = "/Users/bas/.local/share/nvim/jdtls/data/" .. project_name
+local workspace_dir = os.getenv("HOME") .. "/.local/share/nvim/jdtls/data/" .. project_name
 
 vim.list_extend(
     bundles,
@@ -39,9 +39,9 @@ local config = {
         "java.base/java.lang=ALL-UNNAMED",
         "-jar",
         os.getenv("HOME")
-        .. "/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar",
+        .. "/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.600.v20231106-1826.jar",
         "-configuration",
-        os.getenv("HOME") .. "/.local/share/nvim/mason/packages/jdtls/config_mac",
+        os.getenv("HOME") .. "/.local/share/nvim/mason/packages/jdtls/config_linux",
         "-data",
         workspace_dir,
     },
