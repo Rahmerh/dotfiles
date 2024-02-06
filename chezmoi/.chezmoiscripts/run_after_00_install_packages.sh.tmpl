@@ -1,4 +1,5 @@
 #!/bin/bash
+
 {{- if eq .chezmoi.os "darwin" }}
 . "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
 
@@ -17,6 +18,7 @@ pip3 install ranger-fm pynvim
 
 print_success "Done!\n"
 {{- else if eq .chezmoi.osRelease.id "nobara" }}
+
 . "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
 
 sudo dnf copr enable atim/lazygit -y
@@ -53,8 +55,11 @@ chmod +x ~/.local/bin/ytdl-sub
 pip install timer-cli
 
 print_success "Done!\n"
+
 {{- else if eq .chezmoi.osRelease.id "arch" }}
 . "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
+
+print_info "\nUpdating all packages and installing defaults...\n"
 
 sudo pacman -Syu --noconfirm
 
@@ -123,3 +128,5 @@ if ! command -v mcfly &> /dev/null
 then
     sudo bash -c 'curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sh -s -- --git cantino/mcfly'
 fi
+
+print_success "Done!\n"
