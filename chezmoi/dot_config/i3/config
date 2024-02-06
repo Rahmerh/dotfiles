@@ -7,14 +7,11 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:JetBrainsMono Nerd Font Mono
 
-# Wallpaper
-exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/default.jpg
-
-# Resolution
-exec --no-startup-id xrandr -s 5120x1440
-
-# Transparency
+# Auto start 
+exec_always feh --bg-scale ~/Pictures/wallpapers/default.jpg
+exec_always xrandr -s 5120x1440
 exec_always picom -c
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 exec --no-startup-id dex-autostart --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
@@ -93,13 +90,29 @@ bindsym $mod+Shift+r restart
 # Exit i3 
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-# Appearance
-bar {
-    status_command i3status
-    position top
-}
+bindsym $mod+x exec "sh ~/.config/scripts/rofi-power-menu.sh"
 
 gaps inner 10px
 gaps outer 10px
 
 smart_borders on
+
+# Custom modes
+
+set $Locker i3lock && sleep 1
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Alt+q mode "$mode_system"
