@@ -1,11 +1,9 @@
-{{- if eq .chezmoi.os "darwin" }}
-eval "$(/opt/homebrew/bin/brew shellenv)"
-{{- end }}
 # Aliases
 alias ls='lsd -l'
 alias cat="bat"
-alias tree="et -I -S"
+alias tree="erd"
 alias clip="xclip -selection clipboard"
+alias reload="source ~/.config/fish/config.fish"
 
 fish_add_path /home/bas/.local/bin
 
