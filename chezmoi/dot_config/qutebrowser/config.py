@@ -35,4 +35,7 @@ config.set ("window.hide_decoration", True)
 
 c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
 c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.preferred_color_scheme = 'dark'
 c.colors.webpage.darkmode.policy.images = 'never'
+
+config.source('themes/custom.py')

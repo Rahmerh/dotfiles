@@ -7,14 +7,21 @@ set $mod Mod4
 font pango:JetBrainsMono Nerd Font Mono
 
 # Auto start 
-exec_always feh --bg-scale ~/Pictures/wallpapers/default.jpg
-exec_always xrandr -s 5120x1440
-exec_always picom -c
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/default.jpg
+exec_always --no-startup-id xrandr -s 5120x1440
+exec_always --no-startup-id picom -c
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 exec --no-startup-id dex-autostart --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
+exec --no-startup-id whatsapp-for-linux
+
+exec kitty
+exec qutebrowser
+
+assign [class="kitty"] number 1
+assign [class="qutebrowser"] number 1
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id qdbus org.kde.kglobalaccel /component/kmix invokeShortcut "increase_volume"
 bindsym XF86AudioLowerVolume exec --no-startup-id qdbus org.kde.kglobalaccel /component/kmix invokeShortcut "decrease_volume"
@@ -42,8 +49,8 @@ bindsym $mod+Shift+l move right
 
 bindsym $mod+f fullscreen toggle
 
-set $ws1 "1"
-set $ws2 "2"
+set $ws1 "1: Default" 
+set $ws2 "2: 󰊖 Gaming"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
@@ -88,11 +95,11 @@ gaps outer 10px
 for_window [class=".*"] border pixel 1
 
 ## class                 border  backgr. text    indicator child_border
-client.focused          #3f3c3f #3f3c3f #3f3c3f #3f3c3f   #3f3c3f 
-client.focused_inactive #300138 #300138 #300138 #300138   #300138
-client.unfocused        #300138 #300138 #300138 #300138   #300138
-client.urgent           #1c031c #1c031c #1c031c #1c031c   #1c031c
-client.placeholder      #1c031c #1c031c #1c031c #1c031c   #1c031c
+client.focused          #adadad #adadad #adadad #adadad   #adadad 
+client.focused_inactive #590069 #590069 #590069 #590069   #590069
+client.unfocused        #590069 #590069 #590069 #590069   #590069
+client.urgent           #590069 #590069 #590069 #590069   #590069
+client.placeholder      #590069 #590069 #590069 #590069   #590069
 
 client.background       #ffffff
 
@@ -105,3 +112,6 @@ for_window [class="Plasma"] floating enable; border none
 for_window [title="plasma-desktop"] floating enable; border none
 
 for_window [title="Desktop — Plasma"] kill, floating enable, border none
+
+for_window [title="Minecraft Launcher"] move container to workspace number $ws2
+for_window [title="Minecraft"] move container to workspace number $ws2
