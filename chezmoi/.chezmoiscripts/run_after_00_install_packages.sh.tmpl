@@ -60,7 +60,12 @@ sudo pacman -Syu --noconfirm
 
 sudo pacman -Qdtq | sudo pacman -Rs --noconfirm -
 
-sudo pacman --needed -S \
+if ! command -v yay &> /dev/null
+then
+    bash -c 'rm -rf /tmp/yay ; mkdir -p /tmp/yay ; cd /tmp/yay ; wget https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz ; tar zxvf yay.tar.gz ; cd yay ; makepkg --syncdeps --rmdeps --install --noconfirm'
+fi
+
+yay --needed -S \
     neovim \
     fish \
     kitty \
@@ -85,11 +90,11 @@ sudo pacman --needed -S \
     ueberzug \
     qutebrowser \
     i3 \
-    i3status \
     i3lock \
     dmenu \
     rofi \
     picom \
+    ripgrep \
     --noconfirm
 
 if ! command -v cargo &> /dev/null
@@ -102,16 +107,15 @@ then
     cargo install erdtree
 fi
 
-if ! command -v zfxtop &> /dev/null
+if ! command -v zoxide &> /dev/null
 then
-    curl -sSL raw.githubusercontent.com/ssleert/zfxtop/master/install.sh | sh
+    curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 fi
-
-if ! command -v calcure &> /dev/null
-then
-    pip install calcure
-fi
-
-flatpak install flathub com.synology.SynologyAssistant -y
 
 {{- end }}
+
+
+if ! command -v mcfly &> /dev/null
+then
+    sudo bash -c 'curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sh -s -- --git cantino/mcfly'
+fi

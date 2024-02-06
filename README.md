@@ -33,7 +33,6 @@ Simply execute the following command to get started:
 ```shell
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/Rahmerh/dotfiles/main/install.sh)"
 ```
-I'm currently working on scripts to make this usable on arch. This is still in progress, so expect some scripts not working.
 
 ### ⚠️ Warning in advance
 
@@ -45,10 +44,10 @@ The following are the most important tools I work with:
 
 ### Tools
 
-- [Homebrew](https://github.com/Homebrew/brew) (Only for darwin)
-- [Yabai](https://github.com/koekeishiya/yabai) (Only for darwin)
+- [Homebrew](https://github.com/Homebrew/brew) (Darwin)
+- [Yabai](https://github.com/koekeishiya/yabai) (Darwin)
 - [Kitty](https://github.com/kovidgoyal/kitty) and [fish](https://github.com/fish-shell/fish-shell)
 - [Neovim](https://github.com/neovim/neovim)
-- [Autojump](https://github.com/wting/autojump)
+- [Zoxide](https://github.com/ajeetdsouza/zoxide)
 - [LSDeluxe](https://github.com/Peltoche/lsd)
 - [Bat](https://github.com/sharkdp/bat)

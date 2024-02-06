@@ -4,27 +4,13 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Aliases
 alias ls='lsd -l'
 alias cat="bat"
-alias kafka="kaskade $KASKADE_CONFIG"
 alias tree="et -I -S"
-alias s="kitty +kitten ssh"
-
-{{- if eq .chezmoi.osRelease.id "nobara" }}
-alias "clip=xclip -selection clipboard"
-{{- end }}
+alias clip="xclip -selection clipboard"
 
 fish_add_path /home/bas/.local/bin
 
 # Disable greeting message
 set fish_greeting
-
-# Source autojump
-{{- if eq .chezmoi.os "darwin" }}
-[ -f /opt/homebrew/share/autojump/autojump.fish ]; and source /opt/homebrew/share/autojump/autojump.fish
-{{- else if eq .chezmoi.osRelease.id "nobara" }}
-[ -f /usr/share/autojump/autojump.fish ]; and source /usr/share/autojump/autojump.fish
-{{- else if eq .chezmoi.osRelease.id "arch" }}
-if test -f /home/bas/.autojump/share/autojump/autojump.fish; . /home/bas/.autojump/share/autojump/autojump.fish; end
-{{- end }}
 
 # Configure hydro prompt
 set --global fish_prompt_pwd_dir_length 4
@@ -37,8 +23,5 @@ set -gx MCFLY_KEY_SCHEME vim
 # Source rust
 set -gx PATH "$HOME/.cargo/bin" $PATH;
 
-{{- if ne .chezmoi.os "darwin" }}
-{{- if eq .chezmoi.osRelease.id "arch" }}
-alias cleanup-packages="sudo pacman -R $(pacman -Qtdq) && sudo paccache -ruk0"
-{{- end }}
-{{- end }}
+# Source zoxide
+zoxide init fish | source
