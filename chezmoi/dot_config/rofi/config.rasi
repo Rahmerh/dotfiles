@@ -1,0 +1,59 @@
+configuration {
+    display-drun: "Applications:";
+    drun-display-format: "{icon} {name}";
+    font: "JetbrainsMono Nerd Font Medium 15";
+    show-icons: true;
+}
+
+@theme "/dev/null"
+
+* {
+  bg: #140014;
+
+  fg-selected: #adadad;
+
+  fg: #8c8c8c;
+
+  background-color: @bg;
+
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+
+window {
+    width: 20%;
+    border: 1px;
+    border-color: @fg;
+}
+
+element {
+    text-color: @fg;
+}
+
+element selected {
+    text-color: @fg-selected;
+    border: 1px;
+    border-color: white;
+}
+
+element-text {
+    text-color: inherit;
+}
+
+element-icon {
+    size: 20;
+}
+
+prompt {
+  enabled: true;
+  padding: 12 0 0 12;
+  background-color: @bg;
+  text-color: @fg;
+}
+
+entry {
+  text-color: @fg;
+  padding: 12;
+}

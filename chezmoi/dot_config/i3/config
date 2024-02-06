@@ -29,7 +29,6 @@ tiling_drag modifier titlebar
 # Hotkeys
 bindsym $mod+t exec kitty
 bindsym $mod+q kill
-bindsym $mod+space exec --no-startup-id rofi -show drun
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -79,6 +78,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+space exec --no-startup-id rofi -show drun
 bindsym $mod+x exec "sh ~/.config/scripts/rofi-power-menu.sh"
 
 # Appearance
@@ -89,8 +89,8 @@ for_window [class=".*"] border pixel 1
 
 ## class                 border  backgr. text    indicator child_border
 client.focused          #3f3c3f #3f3c3f #3f3c3f #3f3c3f   #3f3c3f 
-client.focused_inactive #1c031c #1c031c #1c031c #1c031c   #1c031c
-client.unfocused        #1c031c #1c031c #1c031c #1c031c   #1c031c
+client.focused_inactive #300138 #300138 #300138 #300138   #300138
+client.unfocused        #300138 #300138 #300138 #300138   #300138
 client.urgent           #1c031c #1c031c #1c031c #1c031c   #1c031c
 client.placeholder      #1c031c #1c031c #1c031c #1c031c   #1c031c
 
@@ -100,18 +100,8 @@ client.background       #ffffff
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
-for_window [class="yakuake"] floating enable
 for_window [class="systemsettings"] floating enable
-for_window [class="plasmashell"] floating enable;
 for_window [class="Plasma"] floating enable; border none
 for_window [title="plasma-desktop"] floating enable; border none
-for_window [title="win7"] floating enable; border none
-for_window [class="krunner"] floating enable; border none
-for_window [class="Kmix"] floating enable; border none
-for_window [class="Klipper"] floating enable; border none
-for_window [class="Plasmoidviewer"] floating enable; border none
-for_window [class="(?i)*nextcloud*"] floating disable
-for_window [class="plasmashell" window_type="notification"] border none, move position 70 ppt 81 ppt
-no_focus [class="plasmashell" window_type="notification"]
 
 for_window [title="Desktop — Plasma"] kill, floating enable, border none
