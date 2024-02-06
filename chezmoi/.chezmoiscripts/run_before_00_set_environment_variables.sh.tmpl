@@ -8,4 +8,12 @@ set -Ux SHELL $(which fish)
 set -Ux VISUAL nvim
 set -Ux EDITOR nvim
 
+{{- if eq .chezmoi.osRelease.id "arch" }}
+
+set -gx QT_QPA_PLATFORMTHEME kde
+set -gx XDG_CURRENT_DESKTOP KDE
+
+{{- end }}
+
 echo "Done!"
+
