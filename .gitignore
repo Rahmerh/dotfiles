@@ -29,3 +29,4 @@ package.json
 
 chezmoi/dot_config/spotifyd/cache
 chezmoi/dot_config/spotifyd/executable_get-password
+chezmoi/dot_config/private_qutebrowser/defaults.py
