@@ -7,7 +7,7 @@ set $mod Mod4
 font pango:JetBrainsMono Nerd Font Mono
 
 # Auto start 
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/purple-city.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/desktop-wallpaper.jpg
 exec_always --no-startup-id xrandr -s 5120x1440
 exec_always --no-startup-id picom -c
 exec_always --no-startup-id ~/.config/polybar/launch.sh

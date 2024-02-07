@@ -18,11 +18,10 @@ c.url.start_pages = ['http://192.168.178.81:2021/']
 config.bind('<Ctrl-Shift-p>', 'hint links spawn --detach mpv --force-window yes {hint-url}')
 
 # Appearance
-config.set ("window.hide_decoration", True)
-
-c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
-c.colors.webpage.darkmode.enabled = True
-c.colors.webpage.preferred_color_scheme = 'dark'
-c.colors.webpage.darkmode.policy.images = 'never'
+config.set("window.hide_decoration", True)
+config.set("colors.webpage.darkmode.algorithm", 'lightness-cielab')
+config.set("colors.webpage.darkmode.enabled", True)
+config.set("colors.webpage.preferred_color_scheme", 'dark')
+config.set("colors.webpage.darkmode.policy.images", 'never')
 
 config.source('themes/custom.py')
