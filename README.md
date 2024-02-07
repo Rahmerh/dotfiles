@@ -42,7 +42,7 @@ I am constantly pushing to this repository, so **no** guarantees any stability!
 
 **Desktop**
 ![desktop](assets/desktop.png?raw=true)
-*Note that only focussed windows turn opaque*
+<sub>Note that only focussed windows turn opaque</sub>
 
 ## Used applications
 
@@ -55,7 +55,7 @@ I am constantly pushing to this repository, so **no** guarantees any stability!
 - qutebrowser (Browser)
 - neovim (Text editor)
 
-> ALl of these tools are configured with files from this repo.
+> All of these tools are configured with files from this repo.
 
 **For macOS/darwin**
 - Yabai (Window manager)

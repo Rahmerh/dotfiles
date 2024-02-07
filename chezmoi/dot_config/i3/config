@@ -16,6 +16,8 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec --no-startup-id whatsapp-for-linux
+exec --no-startup-id steam -silent %U
+exec --no-startup-id flameshot
 exec --no-startup-id xrdb ~/.xresources
 
 exec kitty
