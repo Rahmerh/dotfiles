@@ -24,4 +24,4 @@ mkdir $HOME/Pictures/wallpapers
 
 sudo cp {{ .chezmoi.sourceDir }}/../wallpapers/desktop-wallpaper.jpg $HOME/Pictures/wallpapers
 
-sudo convert {{ .chezmoi.sourceDir }}/../wallpapers/login-wallpaper.jpg -filter Gaussian -blur 0x8 /usr/share/sddm/themes/catppuccin-frappe/backgrounds/wall.jpg
+sudo convert {{ .chezmoi.sourceDir }}/../wallpapers/desktop-wallpaper.jpg -filter Gaussian -blur 0x8 /usr/share/sddm/themes/catppuccin-frappe/backgrounds/wall.jpg

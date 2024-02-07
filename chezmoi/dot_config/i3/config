@@ -117,4 +117,3 @@ for_window [title="plasma-desktop"] floating enable; border none
 for_window [title="Desktop — Plasma"] kill, floating enable, border none
 
 for_window [title="Minecraft Launcher"] move container to workspace number $ws2
-for_window [title="Minecraft"] move container to workspace number $ws2
