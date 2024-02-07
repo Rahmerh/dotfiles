@@ -22,9 +22,9 @@ $R@i.~~ !     :   ~$$$$$B$$en:``
 
 ```
 
-# 󰚌 Rahmerh's dotfiles
+# Rahmerh's dotfiles
 
-## ⚙️ Installation
+## Installation
 
 All my dotfiles are managed with chezmoi. I've included an install script to easily get set up.
 
@@ -34,6 +34,6 @@ Simply execute the following command to get started:
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/Rahmerh/dotfiles/main/install.sh)"
 ```
 
-###  Warning in advance
+### Warning in advance
 
 I am constantly pushing to this repository, so **no** guarantees any stability!
