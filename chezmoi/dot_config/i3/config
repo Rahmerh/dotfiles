@@ -7,7 +7,7 @@ set $mod Mod4
 font pango:JetBrainsMono Nerd Font Mono
 
 # Auto start 
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/default.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/purple-city.jpg
 exec_always --no-startup-id xrandr -s 5120x1440
 exec_always --no-startup-id picom -c
 exec_always --no-startup-id ~/.config/polybar/launch.sh
@@ -16,6 +16,7 @@ exec --no-startup-id dex-autostart --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec --no-startup-id whatsapp-for-linux
+exec --no-startup-id xrdb ~/.xresources
 
 exec kitty
 exec qutebrowser
@@ -49,7 +50,7 @@ bindsym $mod+Shift+l move right
 
 bindsym $mod+f fullscreen toggle
 
-set $ws1 "1: Default" 
+set $ws1 "1:  Default" 
 set $ws2 "2: 󰊖 Gaming"
 set $ws3 "3"
 set $ws4 "4"
@@ -86,7 +87,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+space exec --no-startup-id rofi -show drun
-bindsym $mod+x exec "sh ~/.config/scripts/rofi-power-menu.sh"
+bindsym $mod+r exec "sh ~/.config/scripts/rofi-power-menu.sh"
 
 # Appearance
 gaps inner 10px

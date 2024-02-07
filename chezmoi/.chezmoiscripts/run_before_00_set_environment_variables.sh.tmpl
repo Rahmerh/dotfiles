@@ -10,8 +10,10 @@ set -Ux EDITOR nvim
 
 {{- if eq .chezmoi.osRelease.id "arch" }}
 
-set -gx QT_QPA_PLATFORMTHEME kde
+set -gx QT_QPA_PLATFORMTHEME qt5ct
+set -gx QT_STYLE_OVERRIDE qt5ct
 set -gx XDG_CURRENT_DESKTOP KDE
+set -Ux XCURSOR_THEME phinger-cursors
 
 {{- end }}
 

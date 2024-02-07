@@ -1,0 +1,29 @@
+#!/bin/bash
+
+. "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
+
+print_info "\nCloning themes into /tmp...\n"
+
+rm -rf /tmp/sddmthemes && git clone git@github.com:catppuccin/sddm.git /tmp/sddmthemes
+
+print_info "\nCopy everything into their respective folders"
+
+if [ -d /tmp/sddmthemes/src/catppuccin-frappe ]; then
+    sudo rm -rf /usr/share/sddm/themes/catppuccin-frappe
+
+    sudo mv /tmp/sddmthemes/src/catppuccin-frappe /usr/share/sddm/themes
+
+    sudo cp "{{ .chezmoi.sourceDir }}/../sddm-config/sddm.conf" /etc/sddm.conf
+
+    print_success "\nSDDM theme copied.\n"
+fi
+
+print_info "\nCopying wallpapers"
+
+if [ -d $HOME/Pictures/wallpapers ]; then
+    rm -rf $HOME/Pictures/wallpapers
+fi
+
+mkdir $HOME/Pictures/wallpapers
+
+cp {{ .chezmoi.sourceDir }}/../wallpapers/*.* $HOME/Pictures/wallpapers

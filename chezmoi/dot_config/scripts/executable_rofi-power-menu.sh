@@ -31,15 +31,7 @@ case $selected in
         ;;
 
     "$lang_pc_logout")
-        case "$XDG_CURRENT_DESKTOP" in
-            "dwm")
-                killall dwm
-                ;;
-
-            "i3")
-                i3-msg exit
-                ;;
-        esac
+        i3-msg exit
         ;;
 
     "$lang_pc_lock")
