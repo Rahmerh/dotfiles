@@ -40,4 +40,24 @@ I am constantly pushing to this repository, so **no** guarantees any stability!
 
 ## Screenshots
 
+**Desktop**
 ![desktop](assets/desktop.png?raw=true)
+*Note that only focussed windows turn opaque*
+
+## Used applications
+
+**For arch:**
+- i3 (Window manager)
+- polybar (Status bar)
+- rofi (Application launcher)
+- sddm (Display manager)
+- kitty & fish (Terminal)
+- qutebrowser (Browser)
+- neovim (Text editor)
+
+> ALl of these tools are configured with files from this repo.
+
+**For macOS/darwin**
+- Yabai (Window manager)
+- kitty & fish (Terminal)
+- neovim (Text editor)
