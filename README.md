@@ -37,3 +37,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/Rahmerh/dotfiles/main/inst
 ### Warning in advance
 
 I am constantly pushing to this repository, so **no** guarantees any stability!
+
+## Screenshots
+
+![desktop](assets/desktop.png?raw=true)
