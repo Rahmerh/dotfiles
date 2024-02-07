@@ -55,9 +55,9 @@ I am constantly pushing to this repository, so **no** guarantees any stability!
 - qutebrowser (Browser)
 - neovim (Text editor)
 
-> All of these tools are configured with files from this repo.
-
 **For macOS/darwin**
 - Yabai (Window manager)
 - kitty & fish (Terminal)
 - neovim (Text editor)
+
+> All of these tools are configured with files from this repo.
