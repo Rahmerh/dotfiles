@@ -1,5 +1,7 @@
 #!/bin/bash
 
+{{- if eq .chezmoi.osRelease.id "arch" }}
+
 . "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
 
 print_info "\nCopy everything into their respective folders"
@@ -7,9 +9,9 @@ print_info "\nCopy everything into their respective folders"
 if [ -d /usr/share/sddm/themes ]; then
     sudo rm -rf /usr/share/sddm/themes/catppuccin-frappe
 
-    sudo cp -r "{{ .chezmoi.sourceDir }}/../sddm/themes/catppuccin-frappe" /usr/share/sddm/themes
+    sudo cp -r "{{ .chezmoi.sourceDir }}/../arch-files/sddm/themes/catppuccin-frappe" /usr/share/sddm/themes
 
-    sudo cp "{{ .chezmoi.sourceDir }}/../sddm/sddm.conf" /etc/sddm.conf
+    sudo cp "{{ .chezmoi.sourceDir }}/../arch-files/sddm/sddm.conf" /etc/sddm.conf
 
     print_success "\nSDDM theme copied.\n"
 fi
@@ -25,3 +27,5 @@ mkdir $HOME/Pictures/wallpapers
 sudo cp {{ .chezmoi.sourceDir }}/../wallpapers/desktop-wallpaper.jpg $HOME/Pictures/wallpapers
 
 sudo convert {{ .chezmoi.sourceDir }}/../wallpapers/desktop-wallpaper.jpg -filter Gaussian -blur 0x8 /usr/share/sddm/themes/catppuccin-frappe/backgrounds/wall.jpg
+
+{{- end }}
