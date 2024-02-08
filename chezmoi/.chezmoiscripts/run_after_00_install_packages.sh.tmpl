@@ -111,6 +111,8 @@ yay --needed -S \
     qt5-graphicaleffects \
     qt5-svg \
     qt5-quickcontrols2 \
+    steam \
+    gamemode \
     --noconfirm
 
 if ! command -v cargo &> /dev/null
@@ -134,5 +136,8 @@ if ! command -v mcfly &> /dev/null
 then
     sudo bash -c 'curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sh -s -- --git cantino/mcfly'
 fi
+
+# Install proton GE
+sh ~/.config/scripts/install-proton-ge.sh
 
 print_success "Done!\n"

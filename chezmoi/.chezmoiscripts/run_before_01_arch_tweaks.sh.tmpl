@@ -10,6 +10,12 @@ print_info "Tweaking arch settings...\n"
 xset s off
 xset -dpms
 
-print_success "Done!\n"
+print_success "Done\n"
+
+print_info "Copying misc files apart from dotfiles...\n"
+
+sudo cp -rf {{ .chezmoi.sourceDir }}/../arch-files/etc/pacman.conf /etc/pacman.conf
+
+print_success "Done\n"
 
 {{- end }}
