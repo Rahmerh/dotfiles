@@ -113,6 +113,7 @@ yay --needed -S \
     qt5-quickcontrols2 \
     steam \
     gamemode \
+    mcaselector \
     --noconfirm
 
 if ! command -v cargo &> /dev/null
@@ -137,7 +138,6 @@ then
     sudo bash -c 'curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sh -s -- --git cantino/mcfly'
 fi
 
-# Install proton GE
-sh ~/.config/scripts/install-proton-ge.sh
+install-proton-ge
 
 print_success "Done!\n"

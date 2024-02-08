@@ -1,0 +1,35 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+then
+    echo "Username is required"
+    exit 1
+fi
+
+if [ -z "$2" ]
+then
+    echo "Project is required"
+    exit 1
+fi
+
+if [ -z "$3" ]
+then
+    echo "Output dir is required"
+    exit 1
+fi
+
+if ! [ -d "$3" ]
+then
+    echo "Could not find '$3', are you sure the path is correct?"
+    exit 1
+fi
+
+echo "Downloading..."
+
+curl -s "https://api.github.com/repos/$1/$2/releases/latest" \
+    | grep "browser_download_url.*" \
+    | cut -d : -f 2,3 \
+    | tr -d \" \
+    | wget -P "$3" -qi -
+
+echo "Downloaded files to $3"

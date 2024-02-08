@@ -1,0 +1,12 @@
+#!/bin/bash
+
+{{- if eq .chezmoi.osRelease.id "arch" }}
+. "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
+
+print_info "Copying scripts...\n"
+
+sudo cp -rf {{ .chezmoi.sourceDir }}/../scripts/* ~/.local/bin
+
+print_success "Done\n"
+
+{{- end }}

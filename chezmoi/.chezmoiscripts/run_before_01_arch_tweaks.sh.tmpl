@@ -12,7 +12,7 @@ xset -dpms
 
 print_success "Done\n"
 
-print_info "Copying misc files apart from dotfiles...\n"
+print_info "Copying misc conf files...\n"
 
 sudo cp -rf {{ .chezmoi.sourceDir }}/../arch-files/etc/pacman.conf /etc/pacman.conf
 
