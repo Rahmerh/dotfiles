@@ -61,14 +61,12 @@ print_success "Done!\n"
 
 print_info "\nUpdating all packages and installing defaults...\n"
 
-sudo pacman -Syu --noconfirm
-
-sudo pacman -Qdtq | sudo pacman -Rs --noconfirm -
-
 if ! command -v yay &> /dev/null
 then
     bash -c 'rm -rf /tmp/yay ; mkdir -p /tmp/yay ; cd /tmp/yay ; wget https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz ; tar zxvf yay.tar.gz ; cd yay ; makepkg --syncdeps --rmdeps --install --noconfirm'
 fi
+
+yay -Syu --noconfirm
 
 yay --needed -S \
     neovim \
@@ -114,6 +112,7 @@ yay --needed -S \
     steam \
     gamemode \
     mcaselector \
+    man \
     --noconfirm
 
 if ! command -v cargo &> /dev/null

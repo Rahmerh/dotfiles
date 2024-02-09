@@ -1,14 +1,16 @@
 configuration {
     display-drun: "Applications:";
+    display-ssh: "SSH:";
     drun-display-format: "{icon} {name}";
     font: "JetbrainsMono Nerd Font Medium 15";
     show-icons: true;
+    terminal: "kitty";
 }
 
 @theme "/dev/null"
 
 * {
-  bg: #140014;
+  bg: #19141c;
 
   fg-selected: #adadad;
 
@@ -20,6 +22,8 @@ configuration {
   margin: 0;
   padding: 0;
   spacing: 0;
+
+  columns: 3;
 }
 
 window {
