@@ -26,7 +26,7 @@ exec jellyfinmediaplayer
 
 assign [class="kitty"] number 1
 assign [class="qutebrowser"] number 1
-assign [class="jellyfinmediaplayer"] number 3
+assign [class="Jellyfin Media Player"] number 3
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id qdbus org.kde.kglobalaccel /component/kmix invokeShortcut "increase_volume"
 bindsym XF86AudioLowerVolume exec --no-startup-id qdbus org.kde.kglobalaccel /component/kmix invokeShortcut "decrease_volume"
