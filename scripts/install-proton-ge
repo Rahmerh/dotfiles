@@ -1,9 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 # Script is modified version of the project's README: https://github.com/GloriousEggroll/proton-ge-custom?tab=readme-ov-file#installation
 
 set -euo pipefail
 
-STEAM_PROTON_FOLDER="$HOME/.steam/root/compatibilitytools.d"
+echo "Installing/updating custom proton GE."
+
+STEAM_PROTON_FOLDER="/home/bas/.steam/root/compatibilitytools.d"
 
 if [ -d /tmp/proton-ge-custom ]; then
     sudo rm -rf /tmp/proton-ge-custom
@@ -12,34 +14,36 @@ fi
 mkdir /tmp/proton-ge-custom
 cd /tmp/proton-ge-custom
 
-echo "Downloading tarball"
-curl -sLOJ "$(curl -s https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest | grep browser_download_url | cut -d\" -f4 | grep .tar.gz)"
-echo "Done"
-
-echo "Downloading checksum"
-curl -sLOJ "$(curl -s https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest | grep browser_download_url | cut -d\" -f4 | grep .sha512sum)"
-echo "Done"
-
-sha512sum -c ./*.sha512sum
-
 if ! [ -d "$STEAM_PROTON_FOLDER" ]; then
     mkdir -p ~/.steam/root/compatibilitytools.d
 fi
 
-CURRENT_VERSION_FULL_PATH=$(find $STEAM_PROTON_FOLDER -maxdepth 1 -type d -name 'GE-Proton*' -print -quit | head -n1)
+CURRENT_VERSION_FULL_PATH=$(find "$STEAM_PROTON_FOLDER" -maxdepth 1 -type d -name 'GE-Proton*' -print | head -n1)
 CURRENT_VERSION=$(basename "$CURRENT_VERSION_FULL_PATH" .tar.gz)
 
-VERSION_TO_INSTALL_FULL_PATH=$(find /tmp/proton-ge-custom -maxdepth 1 -type f -name 'GE-Proton*' -print -quit | head -n1)
-VERSION_TO_INSTALL=$(basename "$VERSION_TO_INSTALL_FULL_PATH" .tar.gz)
+VERSION_TO_INSTALL=$(curl -sI https://github.com/GloriousEggroll/proton-ge-custom/releases/latest | awk -F '/' '/^location/ {print  substr($NF, 1, length($NF)-1)}')
 
 if [ "$VERSION_TO_INSTALL" == "$CURRENT_VERSION" ]; then
-    echo "Nothing to do, latest version of proton ge already installed. Exiting."
+    echo "Nothing to do, latest version of proton GE ($VERSION_TO_INSTALL) already installed. Exiting."
     exit 0
 fi
 
-sudo rm -rf "$CURRENT_VERSION_FULL_PATH"
+read -p "New version available ($VERSION_TO_INSTALL), install now? (y/n)" -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    echo "Downloading tarball"
+    curl -sLOJ "$(curl -s https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest | grep browser_download_url | cut -d\" -f4 | grep .tar.gz)"
+    echo "Done"
 
-echo "Extracting tarball"
-tar -xf GE-Proton*.tar.gz -C ~/.steam/root/compatibilitytools.d/
+    echo "Downloading checksum"
+    curl -sLOJ "$(curl -s https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest | grep browser_download_url | cut -d\" -f4 | grep .sha512sum)"
+    echo "Done"
 
-echo "Latest proton GE installed."
+    sha512sum -c ./*.sha512sum
+
+    echo "Extracting tarball"
+    tar -xf GE-Proton*.tar.gz -C "$STEAM_PROTON_FOLDER"
+
+    echo "Latest proton GE ($VERSION_TO_INSTALL) installed."
+fi

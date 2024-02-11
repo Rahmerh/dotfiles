@@ -5,7 +5,7 @@
 
 print_info "Copying scripts...\n"
 
-sudo cp -rf {{ .chezmoi.sourceDir }}/../scripts/* ~/.local/bin
+sudo cp -rpf {{ .chezmoi.sourceDir }}/../scripts/* ~/.local/bin
 
 print_success "Done\n"
 
