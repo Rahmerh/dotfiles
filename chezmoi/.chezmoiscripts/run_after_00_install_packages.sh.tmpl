@@ -113,10 +113,11 @@ yay --needed -S \
     gamemode \
     mcaselector \
     man \
+    xorg-xwininfo \
     --noconfirm
 
 if ! command -v cargo &> /dev/null
-then
+then 
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 
@@ -137,6 +138,6 @@ then
     sudo bash -c 'curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sh -s -- --git cantino/mcfly'
 fi
 
-install-proton-ge
+sudo sh 'install-proton-ge'
 
 print_success "Done!\n"
