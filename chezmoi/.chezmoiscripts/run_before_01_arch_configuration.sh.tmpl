@@ -3,6 +3,10 @@
 {{- if eq .chezmoi.osRelease.id "arch" }}
 . "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
 
+# Disable screen sleep
+xset -dpms
+xset s off
+
 print_info "Copying configuration files\n"
 
 sudo cp -rf {{ .chezmoi.sourceDir }}/../arch-files/etc/pacman.conf /etc/pacman.conf
