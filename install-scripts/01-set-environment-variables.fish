@@ -7,17 +7,12 @@ set -Ux OBJC_DISABLE_INITIALIZE_FORK_SAFETY YES
 set -Ux SHELL $(which fish)
 set -Ux VISUAL nvim
 set -Ux EDITOR nvim
-
-{{- if eq .chezmoi.osRelease.id "arch" }}
-
-set -gx QT_QPA_PLATFORMTHEME qt5ct
-set -gx QT_STYLE_OVERRIDE qt5ct
-set -gx XDG_CURRENT_DESKTOP KDE
 set -Ux XCURSOR_THEME phinger-cursors
 set -Ux STEAM_FRAME_FORCE_CLOSE 1
 set -Ux DXVK_CONFIG_FILE ~/.config/dxvk.conf
 
-{{- end }}
+set -gx QT_QPA_PLATFORMTHEME qt5ct
+set -gx QT_STYLE_OVERRIDE qt5ct
+set -gx XDG_CURRENT_DESKTOP KDE
 
 echo "Done!"
-

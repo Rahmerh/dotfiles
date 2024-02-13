@@ -26,9 +26,9 @@ $R@i.~~ !     :   ~$$$$$B$$en:``
 
 ## Installation
 
-All my dotfiles are managed with chezmoi. I've included an install script to easily get set up.
+My dotfiles I want to have anywhere I want. I like arch so keep that in mind while using this repo.
 
-Simply execute the following command to get started:
+I've included an install script to easily get set up. If you want to live on the edge and directly install execute the following:
 
 ```shell
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/Rahmerh/dotfiles/main/install.sh)"
@@ -55,9 +55,4 @@ I am constantly pushing to this repository, so **no** guarantees any stability!
 - qutebrowser (Browser)
 - neovim (Text editor)
 
-**For macOS/darwin**
-- Yabai (Window manager)
-- kitty & fish (Terminal)
-- neovim (Text editor)
-
-> All of these tools are configured with files from this repo.
+> These tools are configured with files from this repo.

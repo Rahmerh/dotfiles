@@ -1,65 +1,7 @@
 #!/bin/bash
+# source $(dirname "$0")/library/print-utils.sh
 
-{{- if eq .chezmoi.os "darwin" }}
-. "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
-
-print_info "\nUpdating brew\n"
-brew update
-
-print_info "\nBrew bundle\n"
-brew bundle --file={{ .chezmoi.sourceDir }}/../brew/Brewfile
-
-print_info "\nUpgrading last brew packages\n"
-brew upgrade
-
-fisher install jorgebucaran/hydro
-
-pip3 install ranger-fm pynvim
-
-print_success "Done!\n"
-{{- else if eq .chezmoi.osRelease.id "nobara" }}
-
-. "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
-
-sudo dnf copr enable atim/lazygit -y
-sudo dnf install -y neovim \
-    autojump-fish \
-    kitty \
-    fish \
-    lsd \
-    bat \
-    mc \
-    picard \
-    cargo \
-    code \
-    gotop \
-    lazygit \
-    mpv \
-    pavucontrol \
-    ranger \
-    steam \
-    ulauncher \
-    qutebrowser \
-    i3 \
-    i3status \
-    i3lock \
-    dmenu \
-    rofi \
-    picom
-
-sudo curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sudo sh -s -- --git cantino/mcfly --force
-
-curl -L -o ytdl-sub --output-dir ~/.local/bin https://github.com/jmbannon/ytdl-sub/releases/latest/download/ytdl-sub
-chmod +x ~/.local/bin/ytdl-sub
-
-pip install timer-cli
-
-print_success "Done!\n"
-
-{{- else if eq .chezmoi.osRelease.id "arch" }}
-. "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
-
-print_info "\nUpdating all packages and installing defaults...\n"
+print_info "Updating all packages and installing defaults...\n"
 
 if ! command -v yay &> /dev/null
 then
@@ -125,14 +67,14 @@ then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 
-print_info "\nInstalling and updating cargo packages\n"
+print_info "Installing and updating cargo packages\n"
 
 cargo install erdtree
 cargo install systemctl-tui
 
 print_success "Done!\n"
 
-print_info "\nConfiguring and install misc tools\n"
+print_info "Configuring and install misc tools\n"
 
 if [ ! -L /usr/bin/systemctl-tui ]; then
     sudo ln -s ~/.cargo/bin/systemctl-tui /usr/bin/systemctl-tui
@@ -142,8 +84,6 @@ if ! command -v zoxide &> /dev/null
 then
     curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 fi
-
-{{- end }}
 
 if ! command -v mcfly &> /dev/null
 then
