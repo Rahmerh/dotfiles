@@ -3,6 +3,19 @@
 
 set -euo pipefail
 
+DEBUG=false
+
+while test $# != 0
+do
+    case "$1" in
+    -d) 
+        DEBUG=true
+        ;;
+    *)  usage ;;
+    esac
+    shift
+done
+
 echo "Installing/updating custom proton GE."
 
 STEAM_PROTON_FOLDER="/home/bas/.steam/root/compatibilitytools.d"
@@ -18,10 +31,14 @@ if ! [ -d "$STEAM_PROTON_FOLDER" ]; then
     mkdir -p ~/.steam/root/compatibilitytools.d
 fi
 
-CURRENT_VERSION_FULL_PATH=$(find "$STEAM_PROTON_FOLDER" -maxdepth 1 -type d -name 'GE-Proton*' -print | head -n1)
-CURRENT_VERSION=$(basename "$CURRENT_VERSION_FULL_PATH" .tar.gz)
+CURRENT_VERSION=$(ls -Art "$STEAM_PROTON_FOLDER" | tail -1)
 
 VERSION_TO_INSTALL=$(curl -sI https://github.com/GloriousEggroll/proton-ge-custom/releases/latest | awk -F '/' '/^location/ {print  substr($NF, 1, length($NF)-1)}')
+
+if [ "$DEBUG" = true ]; then
+    echo "DEBUG - Current version: $CURRENT_VERSION" 
+    echo "DEBUG - Version to install: $VERSION_TO_INSTALL" 
+fi
 
 if [ "$VERSION_TO_INSTALL" == "$CURRENT_VERSION" ]; then
     echo "Nothing to do, latest version of proton GE ($VERSION_TO_INSTALL) already installed. Exiting."
@@ -46,4 +63,6 @@ then
     tar -xf GE-Proton*.tar.gz -C "$STEAM_PROTON_FOLDER"
 
     echo "Latest proton GE ($VERSION_TO_INSTALL) installed."
+else
+    echo "Cancelling update"
 fi
