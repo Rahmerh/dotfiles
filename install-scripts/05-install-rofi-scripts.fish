@@ -22,7 +22,7 @@ set NEWEST_TAG (curl -s "https://api.github.com/repos/jluttine/rofi-power-menu/t
 set CURRENTLY_INSTALLED (cat "$ROFI_POWER_MENU_VERSION_FILE")
 
 if [ "$NEWEST_TAG" != "$CURRENTLY_INSTALLED" ]
-    if [ -d /tmp/rofi-power-menu ]
+    if test -d /tmp/rofi-power-menu
         sudo rm -rf /tmp/rofi-power-menu
     end
 
