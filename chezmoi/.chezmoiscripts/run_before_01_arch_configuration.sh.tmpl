@@ -1,0 +1,20 @@
+#!/bin/bash
+
+{{- if eq .chezmoi.osRelease.id "arch" }}
+. "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
+
+print_info "Copying configuration files\n"
+
+sudo cp -rf {{ .chezmoi.sourceDir }}/../arch-files/etc/pacman.conf /etc/pacman.conf
+
+print_success "Done\n"
+print_info "Enabling and starting systemd services\n"
+
+sudo cp -rf {{ .chezmoi.sourceDir }}/../arch-files/etc/systemd/system/* /etc/systemd/system/
+
+sudo systemctl enable --now system-backup.service
+sudo systemctl enable --now system-backup.timer
+
+print_success "Done\n"
+
+{{- end }}
