@@ -125,10 +125,16 @@ then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 
-if ! command -v erd &> /dev/null
-then
-    cargo install erdtree
-fi
+print_info "\nInstalling and updating cargo packages\n"
+
+cargo install erdtree
+cargo install systemctl-tui
+
+print_success "Done!\n"
+
+print_info "\nConfiguring and install misc tools\n"
+
+sudo ln -s ~/.cargo/bin/systemctl-tui /usr/bin/systemctl-tui
 
 if ! command -v zoxide &> /dev/null
 then
