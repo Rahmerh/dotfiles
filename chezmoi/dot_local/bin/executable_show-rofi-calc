@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Copied from: https://github.com/svenstaro/rofi-calc/issues/33
+
+if [[ -z "$1" ]]; then
+    echo "Show calculator"
+else
+    kill `pidof rofi` 
+    rofi -show calc
+fi

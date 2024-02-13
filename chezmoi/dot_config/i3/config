@@ -91,7 +91,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 ## Rofi keybinds
-bindsym $mod+space exec --no-startup-id rofi -show combi -combi-modes "drun#ssh#rofi-power-menu:rofi-power-menu --confirm=''" -modes combi
+bindsym $mod+space exec --no-startup-id rofi -show combi -combi-modes "drun#ssh#rofi-power-menu:rofi-power-menu --confirm=''#calc:show-rofi-calc" -modes combi
 
 # Appearance
 gaps inner 10px
