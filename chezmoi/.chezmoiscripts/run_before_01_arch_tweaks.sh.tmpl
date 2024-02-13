@@ -16,6 +16,8 @@ print_info "Copying misc conf files...\n"
 
 sudo cp -rf {{ .chezmoi.sourceDir }}/../arch-files/etc/pacman.conf /etc/pacman.conf
 
+sudo cp -rf {{ .chezmoi.sourceDir }}/../arch-files/etc/systemd/system/* /etc/systemd/system/
+
 print_success "Done\n"
 
 {{- end }}
