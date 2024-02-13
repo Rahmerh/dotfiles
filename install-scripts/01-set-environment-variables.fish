@@ -1,5 +1,4 @@
 #!/usr/bin/env fish
-
 source install-scripts/library/print-utils.fish
 
 print_info "Setting environment variables"

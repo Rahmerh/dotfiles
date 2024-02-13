@@ -1,12 +1,11 @@
-#!/bin/bash
-# source $(dirname "$0")/library/print-utils.sh
+#!/usr/bin/env fish
+source install-scripts/library/print-utils.fish
 
-print_info "Updating all packages and installing defaults...\n"
+print_info "Updating all packages and installing defaults"
 
-if ! command -v yay &> /dev/null
-then
+if ! type -q yay
     bash -c 'rm -rf /tmp/yay ; mkdir -p /tmp/yay ; cd /tmp/yay ; wget https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz ; tar zxvf yay.tar.gz ; cd yay ; makepkg --syncdeps --rmdeps --install --noconfirm'
-fi
+end
 
 yay -Syu --noconfirm
 
@@ -62,36 +61,33 @@ yay --needed -S \
     jq \
     --noconfirm
 
-if ! command -v cargo &> /dev/null
-then 
+if ! type -q cargo
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-fi
+end
 
-print_info "Installing and updating cargo packages\n"
+print_info "Installing and updating cargo packages"
 
 cargo install erdtree
 cargo install systemctl-tui
 
-print_success "Done!\n"
+print_success "Done"
 
-print_info "Configuring and install misc tools\n"
+print_info "Configuring and install misc tools"
 
 if [ ! -L /usr/bin/systemctl-tui ]; then
     sudo ln -s ~/.cargo/bin/systemctl-tui /usr/bin/systemctl-tui
-fi
+end
 
-if ! command -v zoxide &> /dev/null
-then
+if ! type -q zoxide
     curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
-fi
+end
 
-if ! command -v mcfly &> /dev/null
-then
+if ! type -q mcfly
     sudo bash -c 'curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sh -s -- --git cantino/mcfly'
-fi
+end
 
-print_success "Done!\n"
+print_success "Done"
 
 sudo sh 'install-proton-ge'
 
-print_success "Done!\n"
+print_success "Done"
