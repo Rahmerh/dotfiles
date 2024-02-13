@@ -26,8 +26,7 @@ end
 # fi
 #
 
-ls install-scripts/*.fish | while read script
-do
+for script in install-scripts/*.fish
     print_info "\nExecuting: $script\n"
     fish $script "$SCRIPT_DIR"
-done
+end
