@@ -12,8 +12,18 @@ print_info "Enabling and starting systemd services\n"
 
 sudo cp -rf {{ .chezmoi.sourceDir }}/../arch-files/etc/systemd/system/* /etc/systemd/system/
 
-sudo systemctl enable --now system-backup.service
-sudo systemctl enable --now system-backup.timer
+TIMER_ISACTIVE=$(sudo systemctl is-active system-backup.timer)
+SERVICE_ISACTIVE=$(sudo systemctl is-active system-backup.service)
+
+if [ "$TIMER_ISACTIVE" != "active" ]; then
+    print_info "Starting system backup systemd timer\n"
+    sudo systemctl enable --now system-backup.timer
+fi
+
+if [ "$SERVICE_ISACTIVE" != "active" ]; then
+    print_info "Starting system backup systemd service\n"
+    sudo systemctl enable --now system-backup.service
+fi
 
 print_success "Done\n"
 
