@@ -4,7 +4,7 @@
 
 . "{{ .chezmoi.sourceDir }}/../scripts/utils.sh"
 
-print_info "\nCopy everything into their respective folders"
+print_info "Copy everything into their respective folders\n"
 
 if [ -d /usr/share/sddm/themes ]; then
     sudo rm -rf /usr/share/sddm/themes/catppuccin-frappe
@@ -13,10 +13,12 @@ if [ -d /usr/share/sddm/themes ]; then
 
     sudo cp "{{ .chezmoi.sourceDir }}/../arch-files/sddm/sddm.conf" /etc/sddm.conf
 
-    print_success "\nSDDM theme copied.\n"
+    print_success "SDDM theme copied.\n"
 fi
 
-print_info "\nCopying wallpapers"
+print_success "Done!\n"
+
+print_info "Copying wallpapers\n"
 
 if [ -d $HOME/Pictures/wallpapers ]; then
     rm -rf $HOME/Pictures/wallpapers
@@ -27,5 +29,19 @@ mkdir $HOME/Pictures/wallpapers
 sudo cp {{ .chezmoi.sourceDir }}/../wallpapers/desktop-wallpaper.jpg $HOME/Pictures/wallpapers
 
 sudo convert {{ .chezmoi.sourceDir }}/../wallpapers/desktop-wallpaper.jpg -filter Gaussian -blur 0x8 /usr/share/sddm/themes/catppuccin-frappe/backgrounds/wall.jpg
+
+print_success "Done!\n"
+
+print_info "Clone & install catppuccin kitty theme\n"
+
+if [ -d /tmp/kittycatppuccin ]; then
+    sudo rm -rf /tmp/kittycatppuccin
+fi
+
+git clone git@github.com:catppuccin/kitty.git /tmp/kittycatppuccin &> /dev/null
+
+cp -rf /tmp/kittycatppuccin/themes/mocha.conf ~/.config/kitty/themes
+
+print_success "Done!\n"
 
 {{- end }}
