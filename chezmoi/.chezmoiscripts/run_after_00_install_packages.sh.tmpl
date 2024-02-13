@@ -134,7 +134,9 @@ print_success "Done!\n"
 
 print_info "\nConfiguring and install misc tools\n"
 
-sudo ln -s ~/.cargo/bin/systemctl-tui /usr/bin/systemctl-tui
+if [ ! -L /usr/bin/systemctl-tui ]; then
+    sudo ln -s ~/.cargo/bin/systemctl-tui /usr/bin/systemctl-tui
+fi
 
 if ! command -v zoxide &> /dev/null
 then
@@ -147,6 +149,8 @@ if ! command -v mcfly &> /dev/null
 then
     sudo bash -c 'curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sh -s -- --git cantino/mcfly'
 fi
+
+print_success "Done!\n"
 
 sudo sh 'install-proton-ge'
 
