@@ -15,6 +15,7 @@ sudo cp -rf {{ .chezmoi.sourceDir }}/../arch-files/etc/systemd/system/* /etc/sys
 TIMER_ISACTIVE=$(sudo systemctl is-active system-backup.timer)
 SERVICE_ISACTIVE=$(sudo systemctl is-active system-backup.service)
 
+print_info "Systemctl daemon-reload\n"
 sudo systemctl daemon-reload
 
 if [ "$TIMER_ISACTIVE" != "active" ]; then
