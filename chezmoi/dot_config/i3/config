@@ -7,11 +7,11 @@ set $mod Mod4
 font pango:JetBrainsMono Nerd Font Mono
 
 # Auto start 
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/desktop-wallpaper.jpg
-exec_always --no-startup-id xrandr -s 5120x1440
 exec_always --no-startup-id picom -c
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
+exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/desktop-wallpaper.jpg
+exec --no-startup-id xrandr -s 5120x1440
 exec --no-startup-id dex-autostart --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
@@ -90,9 +90,9 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
-bindsym $mod+space exec --no-startup-id rofi -show drun
-bindsym $mod+s exec --no-startup-id rofi -show ssh 
-bindsym $mod+p exec "sh ~/.config/scripts/rofi-power-menu"
+## Rofi keybinds
+bindsym $mod+space exec --no-startup-id "rofi -show combi -combi-modes 'drun,ssh,calc' -modes combi"
+bindsym $mod+p exec rofi-power-menu
 
 # Appearance
 gaps inner 10px
