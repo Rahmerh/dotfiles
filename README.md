@@ -42,6 +42,14 @@ I am constantly pushing to this repository, so **no** guarantees any stability!
 
 <sub>And yes, I did rewrite the repo to use fish script. I wanted to get more familiar with it</sub>
 
+## How it works
+
+Everything is fairly simple, the apply script basically executes each script in `install-scripts/` in alphabetical order.
+
+If you want to know exactly what is happening just browse through that folder. I want to have an option to only execute 1 script, but I've not done that yet.
+
+The home folder is the only one that isn't as straightforward as the rest. I wanted this to be username independent so everything located in `home/` will be copied to the current user's home directory.
+
 ## Screenshots
 
 **Desktop**
