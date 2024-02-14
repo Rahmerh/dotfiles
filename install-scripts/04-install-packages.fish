@@ -59,6 +59,7 @@ yay --needed -S \
     vkd3d \
     mangohud \
     jq \
+    glances \
     --noconfirm
 
 if ! type -q cargo

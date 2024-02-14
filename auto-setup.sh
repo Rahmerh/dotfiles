@@ -18,7 +18,3 @@ if [ "$SHELL" != "/usr/bin/fish" ]; then
 else 
     printf "Shell already fish.\n"
 fi
-
-printf "\nExecuting apply script\n"
-
-fish apply.fish
