@@ -1,5 +1,7 @@
 #!/bin/bash
 
+testing
+
 if [ -z "$1" ]
 then
     echo "Username is required"
