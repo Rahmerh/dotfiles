@@ -13,57 +13,75 @@ if ! test -e $SDDM_THEME_VERSION_FILE
     sudo touch $SDDM_THEME_VERSION_FILE
 end
 
-print_info "Installing/updating catppuccin sddm theem"
+print_info "Installing/updating catppuccin sddm theme"
 
-set NEWEST_TAG (curl -s "https://api.github.com/repos/catppuccin/sddm/tags" | jq -r '.[0].name')
-set CURRENTLY_INSTALLED (cat "$SDDM_THEME_VERSION_FILE")
+set SDDM_NEWEST_COMMIT (git ls-remote git@github.com:catppuccin/sddm.git HEAD | awk '{ print $1}')
+set SDDM_CURRENTLY_INSTALLED (cat "$SDDM_THEME_VERSION_FILE")
 
-if [ "$NEWEST_TAG" != "$CURRENTLY_INSTALLED" ]
+if [ "$SDDM_NEWEST_COMMIT" != "$SDDM_CURRENTLY_INSTALLED" ]
     if test -d /tmp/sddm-catppuccin-theme
         sudo rm -rf /tmp/sddm-catppuccin-theme
     end
 
-    print_info "Cloning repo and installing theme ($NEWEST_TAG)."
+    print_info "Cloning repo and installing theme ($SDDM_NEWEST_COMMIT)."
 
-    git clone git@github.com:catppuccin/sddm.git /tmp/sddm-catppuccin-theme
+    git clone git@github.com:catppuccin/sddm.git /tmp/sddm-catppuccin-theme &> /dev/null
 
-    sudo rm -rf /usr/share/sddm/themes/catppuccin-mocha
+    sudo rm -rf /usr/share/sddm/themes/catppuccin-*
+    sudo cp -rf /tmp/sddm-catppuccin-theme/src/* /usr/share/sddm/themes
 
-    sudo cp -rf /tmp/sddm-catppuccin-theme/src/catppuccin-mocha /usr/share/sddm/themes
-    sudo bash -c "echo \"$NEWEST_TAG\" > \"$SDDM_THEME_VERSION_FILE\""
+    set SDDM_CURRENT_COMMIT (cd /tmp/sddm-catppuccin-theme && git rev-parse HEAD)
+    sudo bash -c "echo \"$SDDM_CURRENT_COMMIT\" > \"$SDDM_THEME_VERSION_FILE\""
 else 
     print_info "Latest catppuccin sddm theme already installed."
 end
 
 print_success "Done"
 
+print_info "Copying wallpapers"
 
-# print_success "Done!\n"
-#
-# print_info "Copying wallpapers\n"
-#
-# if [ -d $HOME/Pictures/wallpapers ]; then
-#     rm -rf $HOME/Pictures/wallpapers
-# fi
-#
-# mkdir $HOME/Pictures/wallpapers
-#
-# sudo cp {{ .chezmoi.sourceDir }}/../wallpapers/desktop-wallpaper.jpg $HOME/Pictures/wallpapers
-#
-# sudo convert {{ .chezmoi.sourceDir }}/../wallpapers/desktop-wallpaper.jpg -filter Gaussian -blur 0x8 /usr/share/sddm/themes/catppuccin-frappe/backgrounds/wall.jpg
-#
-# print_success "Done!\n"
-#
-# print_info "Clone & install catppuccin kitty theme\n"
-#
-# if [ -d /tmp/kittycatppuccin ]; then
-#     sudo rm -rf /tmp/kittycatppuccin
-# fi
-#
-# git clone git@github.com:catppuccin/kitty.git /tmp/kittycatppuccin &> /dev/null
-#
-# cp -rf /tmp/kittycatppuccin/themes/mocha.conf ~/.config/kitty/themes
-#
-# print_success "Done!\n"
-#
-# {{- end }}
+if test -d $HOME/Pictures/wallpapers
+    rm -rf $HOME/Pictures/wallpapers
+end
+
+mkdir $HOME/Pictures/wallpapers
+
+sudo cp $PWD/wallpapers/desktop-wallpaper.jpg $HOME/Pictures/wallpapers
+
+print_success "Done"
+
+print_info "Blurring wallpaper for login screen"
+
+sudo convert $PWD/wallpapers/desktop-wallpaper.jpg -filter Gaussian -blur 0x8 /usr/share/sddm/themes/catppuccin-frappe/backgrounds/wall.jpg
+
+print_success "Done"
+
+print_info "Installing/updating catppuccin kitty theme"
+
+set KITTY_THEME_VERSION_FILE "$HOME/.config/kitty/themes/catppuccin-mocha-version.txt"
+
+if ! test -e $KITTY_THEME_VERSION_FILE
+    sudo touch $KITTY_THEME_VERSION_FILE
+end
+
+set KITTY_NEWEST_COMMIT (git ls-remote git@github.com:catppuccin/kitty.git HEAD | awk '{ print $1}')
+set KITTY_CURRENTLY_INSTALLED (cat "$KITTY_THEME_VERSION_FILE")
+
+if [ "$KITTY_NEWEST_COMMIT" != "$KITTY_CURRENTLY_INSTALLED" ]
+    if test -d /tmp/kitty-catppuccin-theme
+        sudo rm -rf /tmp/kitty-catppuccin-theme
+    end
+
+    print_info "Cloning repo and installing theme ($KITTY_NEWEST_COMMIT)."
+
+    git clone git@github.com:catppuccin/kitty.git /tmp/kitty-catppuccin-theme &> /dev/null
+
+    cp -rf /tmp/kitty-catppuccin-theme/themes/*.conf ~/.config/kitty/themes
+
+    set KITTY_CURRENT_COMMIT (cd /tmp/kitty-catppuccin-theme && git rev-parse HEAD)
+    sudo bash -c "echo \"$KITTY_CURRENT_COMMIT\" > \"$KITTY_THEME_VERSION_FILE\""
+else 
+    print_info "Latest catppuccin kitty theme already installed."
+end
+
+print_success "Done!"

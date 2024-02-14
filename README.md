@@ -38,6 +38,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/Rahmerh/dotfiles/main/inst
 
 I am constantly pushing to this repository, so **no** guarantees any stability!
 
+<sub>And yes, I did rewrite the repo to use fish script. I wanted to get more familiar with it</sub>
+
 ## Screenshots
 
 **Desktop**
