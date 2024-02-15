@@ -18,3 +18,5 @@ if [ "$SHELL" != "/usr/bin/fish" ]; then
 else 
     printf "Shell already fish.\n"
 fi
+
+git clone https://github.com/Rahmerh/dotfiles.git ~/dotfiles
