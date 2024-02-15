@@ -20,3 +20,5 @@ else
 fi
 
 git clone https://github.com/Rahmerh/dotfiles.git ~/dotfiles
+
+printf "Dotfiles cloned into: \"~/dotfiles\", please run the 'apply.fish' script to apply all changes from this repo."
