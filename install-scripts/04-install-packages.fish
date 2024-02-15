@@ -60,6 +60,7 @@ yay --needed -S \
     mangohud \
     jq \
     glances \
+    stow \
     --noconfirm
 
 if ! type -q cargo
