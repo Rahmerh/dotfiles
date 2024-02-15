@@ -6,3 +6,9 @@ print_info "Copying all configuration files to correct folders"
 sudo rsync -a "$PWD/etc/" "/etc"
 
 print_success "Done"
+
+print_info "Stow dotfiles"
+
+stow home
+
+print_success "Done"
