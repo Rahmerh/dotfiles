@@ -1,9 +1,11 @@
 #!/usr/bin/env fish
 source install-scripts/library/print-utils.fish
 
+set DIR (dirname (cd (dirname (status -f)); and pwd)) 
+
 print_info "Copy sddm config"
 
-sudo cp "$PWD/etc/sddm.conf" /etc/sddm.conf
+sudo cp "$DIR/etc/sddm.conf" /etc/sddm.conf
 
 print_success "Done"
 
@@ -46,13 +48,13 @@ end
 
 mkdir $HOME/Pictures/wallpapers
 
-sudo cp $PWD/wallpapers/desktop-wallpaper.jpg $HOME/Pictures/wallpapers
+sudo cp $DIR/wallpapers/desktop-wallpaper.jpg $HOME/Pictures/wallpapers
 
 print_success "Done"
 
 print_info "Blurring wallpaper for login screen"
 
-sudo convert $PWD/wallpapers/desktop-wallpaper.jpg -filter Gaussian -blur 0x8 /usr/share/sddm/themes/catppuccin-frappe/backgrounds/wall.jpg
+sudo convert $DIR/wallpapers/desktop-wallpaper.jpg -filter Gaussian -blur 0x8 /usr/share/sddm/themes/catppuccin-mocha/backgrounds/wall.jpg
 
 print_success "Done"
 
@@ -84,4 +86,4 @@ else
     print_info "Latest catppuccin kitty theme already installed."
 end
 
-print_success "Done!"
+print_success "Done"
