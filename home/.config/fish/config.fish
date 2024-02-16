@@ -4,8 +4,8 @@ alias cat="bat"
 alias tree="erd"
 alias clip="xclip -selection clipboard"
 alias reload="source ~/.config/fish/config.fish"
-alias st="systemctl-tui"
 alias sst="sudo systemctl-tui"
+alias lg="lazygit"
 
 fish_add_path /home/bas/.local/bin
 

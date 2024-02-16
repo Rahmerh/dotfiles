@@ -1,3 +1,8 @@
 home/.config/kitty/themes
 home/.config/qutebrowser/__pycache__
 home/.config/qutebrowser/theme.py
+home/.config/fish/conf.d/done.fish
+home/.config/fish/conf.d/hydro.fish
+home/.config/fish/completions/fisher.fish
+home/.config/fish/functions/fisher.fish
+home/.config/fish/fish_plugins
