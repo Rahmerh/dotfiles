@@ -20,13 +20,24 @@ exec --no-startup-id steam -silent %U
 exec --no-startup-id flameshot
 exec --no-startup-id xrdb ~/.xresources
 
+set $ws1 "1:  Default" 
+set $ws2 "2: 󰊖 Gaming"
+set $ws3 "3:  Media"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
 exec kitty
 exec qutebrowser
 exec jellyfinmediaplayer
 
-assign [class="kitty"] number 1
-assign [class="qutebrowser"] number 1
-assign [class="Jellyfin Media Player"] number 3
+assign [class="kitty"] $ws1
+assign [class="qutebrowser"] $ws1
+assign [class="Jellyfin Media Player"] $ws3
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id qdbus org.kde.kglobalaccel /component/kmix invokeShortcut "increase_volume"
 bindsym XF86AudioLowerVolume exec --no-startup-id qdbus org.kde.kglobalaccel /component/kmix invokeShortcut "decrease_volume"
@@ -53,17 +64,6 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 bindsym $mod+f fullscreen toggle
-
-set $ws1 "1:  Default" 
-set $ws2 "2: 󰊖 Gaming"
-set $ws3 "3:  Media"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
 
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
