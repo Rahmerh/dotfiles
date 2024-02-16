@@ -1,6 +1,7 @@
 configuration {
     display-drun: "Applications:";
     display-ssh: "SSH:";
+    display-combi: "Type to search:";
     drun-display-format: "{icon} {name}";
     font: "JetbrainsMono Nerd Font Medium 15";
     show-icons: true;

@@ -23,8 +23,6 @@ config.bind('<Ctrl-Shift-p>', 'hint links spawn --detach mpv --force-window yes 
 # Appearance
 config.set("window.hide_decoration", True)
 config.set("colors.webpage.preferred_color_scheme", "dark")
-config.set("colors.webpage.darkmode.enabled", True)
-config.set("colors.webpage.darkmode.policy.images", "never")
 
 if not os.path.exists(config.configdir / "theme.py"):
     theme = "https://raw.githubusercontent.com/catppuccin/qutebrowser/main/setup.py"

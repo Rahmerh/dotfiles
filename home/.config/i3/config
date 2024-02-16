@@ -91,7 +91,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 ## Rofi keybinds
-bindsym $mod+space exec --no-startup-id rofi -show combi -combi-modes "drun#ssh#rofi-power-menu:rofi-power-menu --confirm=''#calc:show-rofi-calc" -modes combi
+bindsym $mod+space exec --no-startup-id rofi -show combi -combi-modes "drun#ssh#rofi-power-menu:rofi-power-menu --confirm=''#calc:show-rofi-calc#window" -modes combi
 
 # Appearance
 gaps inner 10px
@@ -120,4 +120,4 @@ for_window [title="plasma-desktop"] floating enable; border none
 for_window [title="Desktop — Plasma"] kill, floating enable, border none
 
 # Move apps automatically
-for_window [title="Minecraft Launcher"] move container to workspace number $ws2
+for_window [title="Minecraft Launcher"] floating enable; border none; move container to workspace number $ws2
