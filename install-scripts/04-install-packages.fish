@@ -61,6 +61,7 @@ yay --needed -S \
     jq \
     glances \
     stow \
+    dotnet-sdk \
     --noconfirm
 
 if ! type -q cargo
