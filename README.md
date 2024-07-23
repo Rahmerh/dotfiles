@@ -33,6 +33,8 @@ Recently I moved back to windows for work and general compatibility for video ga
 ### Windows setup
 WIP
 
+**I am using [this](https://github.com/JMOrbegoso/Dotfiles-for-Windows-11) repo as inspiration, please check it out since it's much better than mine.**
+
 ### Linux setup
 
 I've included an install script to easily get set up. If you want to live on the edge and directly install execute the following:
