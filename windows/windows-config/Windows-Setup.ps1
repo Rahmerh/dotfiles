@@ -17,14 +17,15 @@ function Set-Power-Configuration
     powercfg -change "standby-timeout-dc" 0;
 
     # Set turn off screen timeout (in minutes / 0: never)
-    powercfg -change "monitor-timeout-ac" 10;
-    powercfg -change "monitor-timeout-dc" 10;
+    powercfg -change "monitor-timeout-ac" 0;
+    powercfg -change "monitor-timeout-dc" 0;
 
     # Set turn off screen timeout on lock screen (in seconds / 0: never)
-    powercfg /SETACVALUEINDEX SCHEME_CURRENT SUB_VIDEO VIDEOCONLOCK 30;
-    powercfg /SETDCVALUEINDEX SCHEME_CURRENT SUB_VIDEO VIDEOCONLOCK 30;
+    powercfg /SETACVALUEINDEX SCHEME_CURRENT SUB_VIDEO VIDEOCONLOCK 0;
+    powercfg /SETDCVALUEINDEX SCHEME_CURRENT SUB_VIDEO VIDEOCONLOCK 0;
     powercfg /SETACTIVE SCHEME_CURRENT;
 
     Write-Host "Power plan successfully updated." -ForegroundColor "Green";
 }
-}
+
+Set-Power-Configuration;

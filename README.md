@@ -31,7 +31,14 @@ My dotfiles I want to have anywhere I want. I like arch so keep that in mind whi
 Recently I moved back to windows for work and general compatibility for video games. I've lazily put my linux files in a linux folder and started a windows folder.
 
 ### Windows setup
-WIP
+Run the following to quickly get set up.
+
+```
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass; `
+Invoke-Expression (Invoke-RestMethod -Uri "https://raw.githubusercontent.com/${GitHubRepositoryAuthor}/${GitHubRepositoryName}/main/Download.ps1");
+```
+
+After downloading once you can simple make your changes in `$HOME/.dotfiles` and run `Apply.ps1`.
 
 **I am using [this](https://github.com/JMOrbegoso/Dotfiles-for-Windows-11) repo as inspiration, please check it out since it's much better than mine.**
 
