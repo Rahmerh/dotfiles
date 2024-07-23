@@ -35,7 +35,7 @@ Run the following to quickly get set up.
 
 ```
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass; `
-Invoke-Expression (Invoke-RestMethod -Uri "https://raw.githubusercontent.com/${GitHubRepositoryAuthor}/${GitHubRepositoryName}/main/Download.ps1");
+Invoke-Expression (Invoke-RestMethod -Uri "https://raw.githubusercontent.com/Rahmerh/dotfiles/main/windows/Download.ps1");
 ```
 
 After downloading once you can simple make your changes in `$HOME/.dotfiles` and run `Apply.ps1`.
