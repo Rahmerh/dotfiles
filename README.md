@@ -28,10 +28,17 @@ $R@i.~~ !     :   ~$$$$$B$$en:``
 
 My dotfiles I want to have anywhere I want. I like arch so keep that in mind while using this repo.
 
+Recently I moved back to windows for work and general compatibility for video games. I've lazily put my linux files in a linux folder and started a windows folder.
+
+### Windows setup
+WIP
+
+### Linux setup
+
 I've included an install script to easily get set up. If you want to live on the edge and directly install execute the following:
 
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Rahmerh/dotfiles/main/auto-setup.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Rahmerh/dotfiles/main/linux/auto-setup.sh)"
 ```
 
 Note that the auto setup only needs to be executed once, after setting up the fish shell you can use the `apply.fish` script to apply the dotfiles.
