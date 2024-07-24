@@ -5,5 +5,9 @@ winget install JesseDuffield.lazygit
 winget install JesseDuffield.lazydocker
 winget install lsd
 winget install Mozilla.Firefox
+winget install fzf
+winget install gokcehan.lf
+winget install sharkdp.fd
+winget install sharkdp.bat
 
 # (winget list) -match ' winget$'

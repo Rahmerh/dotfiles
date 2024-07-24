@@ -1,0 +1,36 @@
+set filesep " "
+
+# quick rename using r
+cmd rename %sh -c 'mv -i %f% $0'
+map r push :rename<space>
+
+# reload config file using f5
+map <f-5> push :source<space>C:\\Users\\basbo\\AppData\\Local\\lf\\lfrc<enter>
+
+# use a and A to create files and directories
+cmd touch $New-Item %echo %f%
+cmd mkdir $mkdir "$(echo $* | tr ' ' '\ ')"
+
+cmd rm push $python<space>C:\\Users\\basbo\\AppData\\Local\\lf\\scripts\\remove_files.py<space>%fx%<enter>
+
+# open explorer in current directory
+map S push &start.<enter>
+
+# copy file path
+map Y %echo %fx% | clip 
+
+# open file in nvim
+map V &nvim-qt %f%
+
+# archive management
+cmd zip $7z a %f%
+cmd extract_here $7z e %f%
+
+# custom file preview
+set previewer "C:\\Users\\basbo\\AppData\\Local\\lf\\scripts\\preview.bat"
+
+cmd fzf_jump push $python<space>C:\\Users\\basbo\\AppData\\Local\\lf\\scripts\\fzfpy.py<space>%id%<enter>
+map <c-f> :fzf_jump
+
+cmd fzf_search $fzf --disabled --bind 'change:reload:rg {q}'
+map gs :fzf_search
