@@ -60,11 +60,13 @@ return packer.startup(function(use)
     -- Color scheme(s)
     use('Mofiqul/vscode.nvim')
 
-    -- Debugger
-    use("mfussenegger/nvim-dap")
-    use("rcarriga/nvim-dap-ui")
-    use("mfussenegger/nvim-jdtls")
-    use("Weissle/persistent-breakpoints.nvim")
+    -- Tree
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons',
+        },
+    }
 
     -- Git
     use { 'lewis6991/gitsigns.nvim' }

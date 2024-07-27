@@ -12,10 +12,10 @@ telescope.setup({
         prompt_prefix = icons.ui.Telescope .. " ",
         selection_caret = icons.ui.ArrowRight .. " ",
         path_display = { "smart" },
-        --history = {
-        -- path = os.getenv("HOME") .. "/.local/share/nvim/databases/telescope_history.sqlite3",
-          --  limit = 100,
-        -- },
+        history = {
+        path = os.getenv("USERPROFILE") .. "\\nvim-data\\databases\\telescope_history.sqlite3",
+           limit = 100,
+        },
         mappings = {
             i = {
                 ["<C-n>"] = actions.cycle_history_next,
@@ -83,6 +83,3 @@ telescope.setup({
         live_grep = { hidden = true },
     },
 })
-
-telescope.load_extension("dap")
-telescope.load_extension("flutter")

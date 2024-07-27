@@ -76,7 +76,9 @@ vim.keymap.set("n", "<C-\\>", "<cmd>FloatermToggle Powershell<cr>", options)
 vim.keymap.set("t", "<C-\\>", "<C-h><C-n><cmd>FloatermHide Powershell<cr>", options)
 
 vim.keymap.set("n", "<C-g>", "<cmd>FloatermNew lazygit<cr>", options)
-vim.keymap.set("n", "<leader>e", "<cmd>FloatermNew lf<cr>", options)
+
+-- Tree
+vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", options)
 
 -- Fuzzy search
 vim.keymap.set("n", "<leader>f", "<cmd>Telescope find_files<cr>", options)
