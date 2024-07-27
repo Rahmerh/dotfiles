@@ -9,5 +9,6 @@ winget install fzf
 winget install gokcehan.lf
 winget install sharkdp.fd
 winget install sharkdp.bat
+winget install Microsoft.WindowsTerminal.Preview
 
 # (winget list) -match ' winget$'
