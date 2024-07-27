@@ -1,0 +1,84 @@
+{
+  "$help": "https://aka.ms/terminal-documentation",
+  "$schema": "https://aka.ms/terminal-profiles-schema-preview",
+  "actions": [
+    {
+      "command": {
+        "action": "newTab"
+      },
+      "keys": "ctrl+t"
+    },
+    {
+      "command": {
+        "action": "newWindow"
+      },
+      "keys": "ctrl+n"
+    },
+    {
+      "command": "unbound",
+      "keys": "ctrl+shift+t"
+    },
+    {
+      "command": "unbound",
+      "keys": "ctrl+shift+n"
+    },
+    {
+      "command": "closePane",
+      "keys": "ctrl+q"
+    }
+  ],
+  "copyFormatting": "none",
+  "copyOnSelect": false,
+  "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+  "disableAnimations": true,
+  "newTabMenu": [
+    {
+      "type": "remainingProfiles"
+    }
+  ],
+  "profiles": {
+    "defaults": {
+      "colorScheme": "Sonokai Shusia",
+      "opacity": 85,
+      "useAcrylic": false
+    },
+    "list": [
+      {
+        "commandline": "\"C:\\Program Files\\PowerShell\\7-preview\\pwsh.exe\" /nologo",
+        "font": {
+          "face": "JetBrainsMono Nerd Font Mono"
+        },
+        "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+        "hidden": false,
+        "name": "PowerShell",
+        "source": "Windows.Terminal.PowershellCore"
+      }
+    ]
+  },
+  "schemes": [
+    {
+      "name": "Sonokai Shusia",
+      "background": "#2D2A2E",
+      "black": "#1A181A",
+      "blue": "#1080D0",
+      "brightBlack": "#707070",
+      "brightBlue": "#22D5FF",
+      "brightCyan": "#7ACCD7",
+      "brightGreen": "#A4CD7C",
+      "brightPurple": "#AB9DF2",
+      "brightRed": "#F882A5",
+      "brightWhite": "#E3E1E4",
+      "brightYellow": "#E5D37E",
+      "cursorColor": "#FFFFFF",
+      "cyan": "#3AA5D0",
+      "foreground": "#E3E1E4",
+      "green": "#7FCD2B",
+      "purple": "#7C63F2",
+      "red": "#F82F66",
+      "selectionBackground": "#FFFFFF",
+      "white": "#E3E1E4",
+      "yellow": "#E5DE2D"
+    }
+  ],
+  "themes": []
+}

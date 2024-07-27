@@ -71,7 +71,7 @@ vim.keymap.set("n", "<C-n>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()
 vim.keymap.set("n", "gs", "<cmd>Gitsigns toggle_current_line_blame<cr>", options)
 
 -- Terminal
-vim.keymap.set("n", "<C-t>", "<cmd>FloatermNew --name=Powershell pwsh<cr>", options)
+vim.keymap.set("n", "<leader>t", "<cmd>FloatermNew --name=Powershell pwsh<cr>", options)
 vim.keymap.set("n", "<C-\\>", "<cmd>FloatermToggle Powershell<cr>", options)
 vim.keymap.set("t", "<C-\\>", "<C-h><C-n><cmd>FloatermHide Powershell<cr>", options)
 
