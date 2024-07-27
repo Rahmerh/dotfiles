@@ -103,32 +103,9 @@ return packer.startup(function(use)
         branch = 'release'
     })
     use ({
-        'Shougo/deoplete.nvim', 
+        'Shougo/deoplete.nvim',
         run = ":UpdateRemotePlugins"
     })
-    -- use ('beeender/Comrade')
-    -- use("neovim/nvim-lspconfig")
-    -- use("williamboman/mason.nvim")
-    -- use("williamboman/mason-lspconfig.nvim")
-    -- use("WhoIsSethDaniel/mason-tool-installer.nvim")
-    -- use({
-    --     "L3MON4D3/LuaSnip",
-    --     run = "make install_jsregexp"
-    -- })
-    -- use "rafamadriz/friendly-snippets"
-    -- use "folke/neodev.nvim"
-    -- use 'rmagatti/goto-preview'
-    -- use {
-    --     "amrbashir/nvim-docs-view",
-    --     opt = true,
-    --     cmd = { "DocsViewToggle" },
-    --     config = function()
-    --         require("docs-view").setup {
-    --             position = "bottom",
-    --             width = 30,
-    --         }
-    --     end
-    -- }
 
     -- Telescope
     use("nvim-telescope/telescope.nvim")

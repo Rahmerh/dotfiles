@@ -6,16 +6,15 @@ vim.g.maplocalleader = " "
 --Remap space as leader key
 vim.keymap.set("n", "<Space>", "<Nop>", options)
 
+-- Reload config
+vim.keymap.set("n", "<leader><leader>", "<cmd>source $MYVIMRC<cr>", options)
+
 -- Better window navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h", options)
 vim.keymap.set("n", "<C-h>", "<C-w>h", options)
 vim.keymap.set("n", "<C-j>", "<C-w>j", options)
 vim.keymap.set("n", "<C-k>", "<C-w>k", options)
 vim.keymap.set("n", "<C-l>", "<C-w>l", options)
-
--- Merging
-vim.keymap.set("n", "mp2", "<cmd>diffput 2<cr>", options)
-vim.keymap.set("n", "mp3", "<cmd>diffput 3<cr>", options)
 
 -- Buffers
 vim.keymap.set("n", "<leader>b", "<cmd>BSOpen<cr>", options)
@@ -72,8 +71,9 @@ vim.keymap.set("n", "<C-n>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()
 vim.keymap.set("n", "gs", "<cmd>Gitsigns toggle_current_line_blame<cr>", options)
 
 -- Terminal
-vim.keymap.set("n", "<C-\\>", "<cmd>FloatermToggle<cr>", options)
-vim.keymap.set("t", "<C-\\>", "<C-\\><C-n><cmd>FloatermToggle<cr>", options)
+vim.keymap.set("n", "<C-t>", "<cmd>FloatermNew --name=Powershell pwsh<cr>", options)
+vim.keymap.set("n", "<C-\\>", "<cmd>FloatermToggle Powershell<cr>", options)
+vim.keymap.set("t", "<C-\\>", "<C-h><C-n><cmd>FloatermHide Powershell<cr>", options)
 
 vim.keymap.set("n", "<C-g>", "<cmd>FloatermNew lazygit<cr>", options)
 vim.keymap.set("n", "<leader>e", "<cmd>FloatermNew lf<cr>", options)
@@ -81,28 +81,3 @@ vim.keymap.set("n", "<leader>e", "<cmd>FloatermNew lf<cr>", options)
 -- Fuzzy search
 vim.keymap.set("n", "<leader>f", "<cmd>Telescope find_files<cr>", options)
 vim.keymap.set("n", "<leader>g", "<cmd>Telescope live_grep<cr>", options)
-
--- LSP
-vim.keymap.set("n", "<C-.>", "<cmd>lua vim.lsp.buf.code_action()<CR>", options)
-vim.keymap.set("n", "<leader>i", "<cmd>lua require('jdtls').organize_imports()<CR>", options)
-vim.keymap.set("n", "K", "<cmd>DocsViewToggle<cr>", options)
-vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", options)
-vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", options)
-vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", options)
-vim.keymap.set("n", "R", "<cmd>lua vim.lsp.buf.rename()<cr>", options)
-
--- Debugging
-vim.keymap.set("n", "<F1>", "<cmd>lua require('jdtls.dap').setup_dap_main_class_configs()<cr>", options)
-vim.keymap.set("n", "<F5>", "<cmd>DapContinue<cr>", options)
-vim.keymap.set("n", "<F10>", "<cmd>DapStepOver<cr>", options)
-vim.keymap.set("n", "<F11>", "<cmd>DapStepInto<cr>", options)
-vim.keymap.set("n", "<F23>", "<cmd>DapStepOut<cr>", options)   -- S-F11
-vim.keymap.set("n", "<F17>", "<cmd>DapTerminate<cr>", options) -- S-F5
-vim.keymap.set("n", "<C-b>", "<cmd>PBToggleBreakpoint<cr>", options)
-vim.keymap.set("n", "td", "<cmd>lua require'jdtls'.test_nearest_method()<cr>", options)
-vim.keymap.set("n", "tc", "<cmd>lua require'jdtls'.test_class()<cr>", options)
-vim.keymap.set("n", "dt", "<cmd>DapToggleRepl<cr>", options)
-
--- Distant keymaps
-vim.keymap.set("n", "dcn", "<cmd>DistantConnect ssh://NAS<cr>", options)
-vim.keymap.set("n", "don", "<cmd>DistantOpen /docker<cr>", options)
