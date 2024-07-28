@@ -19,9 +19,9 @@
           "type": "path"
         },
         {
-          "foreground": "#B80101",
+          "foreground": "#F5F5F5",
           "style": "plain",
-          "template": " <#F5F5F5>git:</>{{ .HEAD }} ",
+          "template": " git:{{ .HEAD }} ",
           "type": "git"
         }
       ],
