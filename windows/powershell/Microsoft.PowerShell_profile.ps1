@@ -24,5 +24,8 @@ function Invoke-Winget-List {
 }
 Set-Alias -Name wglist -Value "Invoke-Winget-List"
 
+# I just want to pipe into grep
+Set-Alias -Name grep -Value findstr
+
 # Oh my posh
 oh-my-posh init pwsh --config $PSScriptRoot\theme.json | Invoke-Expression
