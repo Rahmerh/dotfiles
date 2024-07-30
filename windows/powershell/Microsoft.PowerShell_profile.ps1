@@ -27,5 +27,11 @@ Set-Alias -Name wglist -Value "Invoke-Winget-List"
 # I just want to pipe into grep
 Set-Alias -Name grep -Value findstr
 
+# Better pwd
+function Invoke-Better-Pwd {
+    (Get-Location | Select -ExpandProperty Path)
+}
+Set-Alias -Name pwd -Value "Invoke-Better-Pwd"
+
 # Oh my posh
 oh-my-posh init pwsh --config $PSScriptRoot\theme.json | Invoke-Expression
