@@ -5,6 +5,9 @@
     {
       "Packages": [
         {
+          "PackageIdentifier": "ajeetdsouza.zoxide"
+        },
+        {
           "PackageIdentifier": "7zip.7zip"
         },
         {
@@ -36,9 +39,6 @@
         },
         {
           "PackageIdentifier": "JanDeDobbeleer.OhMyPosh"
-        },
-        {
-          "PackageIdentifier": "gokcehan.lf"
         },
         {
           "PackageIdentifier": "junegunn.fzf"
