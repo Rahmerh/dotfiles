@@ -33,5 +33,19 @@ function Invoke-Better-Pwd {
 }
 Set-Alias -Name pwd -Value "Invoke-Better-Pwd"
 
+# Yazi alias
+function yy {
+    $tmp = [System.IO.Path]::GetTempFileName()
+    yazi $args --cwd-file="$tmp"
+    $cwd = Get-Content -Path $tmp
+    if (-not [String]::IsNullOrEmpty($cwd) -and $cwd -ne $PWD.Path) {
+        Set-Location -LiteralPath $cwd
+    }
+    Remove-Item -Path $tmp
+}
+
 # Oh my posh
 oh-my-posh init pwsh --config $PSScriptRoot\theme.json | Invoke-Expression
+
+# Zoxide
+Invoke-Expression (& { (zoxide init powershell | Out-String) })
