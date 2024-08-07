@@ -89,25 +89,14 @@ return packer.startup(function(use)
         main = "ibl"
     }
     use "RRethy/vim-illuminate"
-
-    -- Autocomplete
-    use("hrsh7th/cmp-nvim-lsp")
-    use("hrsh7th/cmp-buffer")
-    use("hrsh7th/cmp-path")
-    use("hrsh7th/cmp-cmdline")
-    use("hrsh7th/nvim-cmp")
-    use("windwp/nvim-autopairs")
-    use("saadparwaiz1/cmp_luasnip")
+    use("stevearc/conform.nvim")
 
     -- LSP
-    use({
-        "neoclide/coc.nvim",
-        branch = 'release'
-    })
-    use ({
-        'Shougo/deoplete.nvim',
-        run = ":UpdateRemotePlugins"
-    })
+    use("neovim/nvim-lspconfig")
+    use("williamboman/mason.nvim")
+    use("williamboman/mason-lspconfig.nvim")
+    use("WhoIsSethDaniel/mason-tool-installer.nvim")
+    use("hrsh7th/nvim-cmp")
 
     -- Telescope
     use("nvim-telescope/telescope.nvim")

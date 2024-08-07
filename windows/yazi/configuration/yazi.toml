@@ -2,6 +2,6 @@
 show_hidden = true
 
 [opener]
-open = [
+edit = [
 	{ run = 'nvim "%*"', block = true, desc = "nvim" },
 ]
