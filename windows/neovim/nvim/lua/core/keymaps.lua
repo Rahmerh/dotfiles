@@ -52,7 +52,6 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", options)
 vim.keymap.set("n", "<C-u>", "<C-u>zz", options)
 
 -- Copy & pasting
-
 vim.keymap.set("x", "<C-p>", [["_dP]])
 
 vim.keymap.set("v", "<leader>y", [["+y]], options)
@@ -67,18 +66,14 @@ vim.keymap.set("n", "<leader>P", [["+P]], options)
 vim.keymap.set("n", "<leader>h", "<cmd>lua require('harpoon.mark').add_file()<cr>", options)
 vim.keymap.set("n", "<C-n>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", options)
 
--- Gitsigns
-vim.keymap.set("n", "gs", "<cmd>Gitsigns toggle_current_line_blame<cr>", options)
-
 -- Terminal
-vim.keymap.set("n", "<leader>t", "<cmd>FloatermNew --name=Powershell pwsh<cr>", options)
-vim.keymap.set("n", "<C-\\>", "<cmd>FloatermToggle Powershell<cr>", options)
-vim.keymap.set("t", "<C-\\>", "<C-h><C-n><cmd>FloatermHide Powershell<cr>", options)
+vim.keymap.set("n", "<C-\\>", "<cmd>FloatermToggle<cr>", options)
+vim.keymap.set("t", "<C-\\>", "<C-h><C-n><cmd>FloatermHide<cr>", options)
 
-vim.keymap.set("n", "<C-g>", "<cmd>FloatermNew lazygit<cr>", options)
+vim.keymap.set("n", "<C-_>", "<cmd>FloatermNew lazygit<cr>", options)
 
--- Tree
-vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", options)
+vim.keymap.set("n", "<leader>e", "<cmd>Yazi<cr>", options)
+
 
 -- Fuzzy search
 vim.keymap.set("n", "<leader>f", "<cmd>Telescope find_files<cr>", options)

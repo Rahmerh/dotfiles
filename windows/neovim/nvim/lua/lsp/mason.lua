@@ -25,6 +25,11 @@ require("mason-tool-installer").setup({
         "dockerfile-language-server",
         "bash-language-server",
         "lua-language-server",
+        -- Formatters
+        "stylua",
+        -- DAP
+        "java-test",
+        "java-debug-adapter",
     },
     auto_update = true,
     run_on_start = true,

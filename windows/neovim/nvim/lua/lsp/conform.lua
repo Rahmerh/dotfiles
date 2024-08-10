@@ -7,5 +7,11 @@ end
 conform.setup({
     formatters_by_ft = {
         lua = { "stylua" }
+    },
+    formatters = {
+        java = {
+            command = "format.bat",
+            args = { "-allowDefaults", "$FILENAME" }
+        }
     }
 })

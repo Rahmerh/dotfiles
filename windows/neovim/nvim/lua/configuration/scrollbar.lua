@@ -9,7 +9,7 @@ require("scrollbar").setup({
     handlers = {
         diagnostic = true,
         search = false,
-        gitsigns = true
+        gitsigns = false
     },
     handle = {
         color = "#7e7e7e",

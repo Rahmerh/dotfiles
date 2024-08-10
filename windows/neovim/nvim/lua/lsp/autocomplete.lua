@@ -1,5 +1,6 @@
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
+    vim.notify("Cmp not found!")
     return
 end
 
@@ -19,8 +20,6 @@ cmp.setup({
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
-            elseif has_words_before() then
-                cmp.complete()
             else
                 fallback()
             end
