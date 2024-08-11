@@ -59,9 +59,7 @@ return packer.startup(function(use)
         "jim-fx/sudoku.nvim",
         cmd = "Sudoku",
         config = function()
-            require("sudoku").setup({
-                -- configuration ...
-            })
+            require("sudoku").setup({})
         end,
     })
     use({
@@ -70,9 +68,17 @@ return packer.startup(function(use)
             require("hardtime").setup()
         end,
     })
+    use("2kabhishek/nerdy.nvim")
 
     -- Startup
     use("lewis6991/impatient.nvim")
+    use({
+        "goolord/alpha-nvim",
+        requires = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+            require("alpha").setup(require("alpha.themes.startify").config)
+        end,
+    })
 
     -- Terminal
     use("voldikss/vim-floaterm")

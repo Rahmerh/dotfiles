@@ -52,7 +52,7 @@ vim.keymap.set("n", "<leader>P", [["+P]], options)
 
 -- Harpoon
 vim.keymap.set("n", "<leader>h", "<cmd>lua require('harpoon.mark').add_file()<cr>", options)
-vim.keymap.set("n", "<C-n>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", options)
+vim.keymap.set("n", "<C-p>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", options)
 
 -- Terminal
 vim.keymap.set("n", "<C-\\>", "<cmd>FloatermToggle<cr>", options)
@@ -89,3 +89,4 @@ vim.keymap.set("n", "gd", vim.lsp.buf.definition, options)
 
 -- Misc
 vim.keymap.set("n", "vl", "<cmd>VisitLinkUnderCursor<cr>", options)
+vim.keymap.set("n", "<C-y>", require("telescope").extensions.nerdy.nerdy, options)

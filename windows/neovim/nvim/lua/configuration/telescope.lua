@@ -84,3 +84,6 @@ telescope.setup({
         live_grep = { hidden = true },
     },
 })
+
+-- Extensions
+telescope.load_extension("nerdy")
