@@ -32,6 +32,7 @@ conform.setup({
     },
     formatters = {
         intellij = {
+            -- This is assuming the intellij bin folder is added to your $PATH
             command = "format.bat",
             args = { "-s", project_formatter_settings, "$FILENAME" },
             stdin = false,
