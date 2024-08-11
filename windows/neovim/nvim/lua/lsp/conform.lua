@@ -6,12 +6,19 @@ end
 
 local project_formatter_settings = vim.fn.getcwd() .. "\\formatter_settings.xml"
 
-local f = io.open(project_formatter_settings, "r")
-if f == nil then
-    vim.notify("'formatter_settings.xml' not found in " .. vim.fn.getcwd() .. ", not setting up formatter.")
-    return
-else
-    io.close(f)
+local project_pom = vim.fn.getcwd() .. "\\pom.xml"
+local pom_file = io.open(project_pom, "r")
+if pom_file ~= nil then
+    io.close(pom_file)
+
+    -- Directory is maven project, check for formatter settings.
+    local f = io.open(project_formatter_settings, "r")
+    if f == nil then
+        vim.notify("'formatter_settings.xml' not found in " .. vim.fn.getcwd() .. ", not setting up formatter.")
+        return
+    else
+        io.close(f)
+    end
 end
 
 conform.setup({

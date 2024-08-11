@@ -1,5 +1,6 @@
 local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
+    vim.notify("Telescope not found!")
     return
 end
 
@@ -9,12 +10,12 @@ local icons = require("core.icons")
 telescope.setup({
     defaults = {
         file_ignore_patterns = { "node%_modules/.*", ".git" },
-        prompt_prefix = icons.ui.Telescope .. " ",
-        selection_caret = icons.ui.ArrowRight .. " ",
+        prompt_prefix = icons.ui.telescope .. " ",
+        selection_caret = icons.ui.fat_arrow_closed .. " ",
         path_display = { "smart" },
         history = {
-        path = os.getenv("USERPROFILE") .. "\\nvim-data\\databases\\telescope_history.sqlite3",
-           limit = 100,
+            path = os.getenv("USERPROFILE") .. "AppData\\Local\\nvim-data\\databases\\telescope_history.sqlite3",
+            limit = 100,
         },
         mappings = {
             i = {

@@ -51,13 +51,31 @@ return packer.startup(function(use)
     use("ThePrimeagen/vim-be-good")
     use("lambdalisue/suda.vim")
     use("nvim-neotest/nvim-nio")
+    use("antoinemadec/FixCursorHold.nvim")
+    use("RishabhRD/popfix")
+    use("MunifTanjim/nui.nvim")
+    use("xiyaowong/link-visitor.nvim")
+    use({
+        "jim-fx/sudoku.nvim",
+        cmd = "Sudoku",
+        config = function()
+            require("sudoku").setup({
+                -- configuration ...
+            })
+        end,
+    })
+    use({
+        "m4xshen/hardtime.nvim",
+        config = function()
+            require("hardtime").setup()
+        end,
+    })
 
     -- Startup
     use("lewis6991/impatient.nvim")
 
     -- Terminal
     use("voldikss/vim-floaterm")
-    use("mikavilpas/yazi.nvim")
 
     -- Color scheme(s)
     use("Mofiqul/vscode.nvim")
@@ -77,6 +95,12 @@ return packer.startup(function(use)
             require("nvim-autopairs").setup({})
         end,
     })
+    use({
+        "nguyenvukhang/nvim-toggler",
+        config = function()
+            require("nvim-toggler").setup()
+        end,
+    })
 
     -- LSP
     use("neovim/nvim-lspconfig")
@@ -89,35 +113,50 @@ return packer.startup(function(use)
     use("hrsh7th/cmp-cmdline")
     use("hrsh7th/nvim-cmp")
     use("stevearc/conform.nvim")
+    use("aznhe21/actions-preview.nvim")
+    use("rmagatti/goto-preview")
 
     -- DAP
     use("folke/neodev.nvim")
     use("mfussenegger/nvim-dap")
     use("rcarriga/nvim-dap-ui")
     use("mfussenegger/nvim-jdtls")
+    use("Weissle/persistent-breakpoints.nvim")
 
     -- Telescope
     use("nvim-telescope/telescope.nvim")
-    use("nvim-telescope/telescope-dap.nvim")
     use("nvim-telescope/telescope-ui-select.nvim")
 
-    -- Treesitter
+    -- Syntax/highlighting
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-
-    -- All about buffers
-    use("petertriho/nvim-scrollbar")
-    use("johann2357/nvim-smartbufs")
     use({
-        "kdheepak/tabline.nvim",
-        requires = { { "hoob3rt/lualine.nvim", opt = true }, { "kyazdani42/nvim-web-devicons", opt = true } },
-    })
-    use({
-        "Djancyp/outline",
+        "m-demare/hlargs.nvim",
         config = function()
-            require("outline").setup()
+            require("hlargs").setup()
         end,
     })
+    use({
+        "nvimdev/hlsearch.nvim",
+        event = "BufRead",
+        config = function()
+            require("hlsearch").setup()
+        end,
+    })
+
+    -- Buffers
+    use("matbme/JABS.nvim")
     use("ThePrimeagen/harpoon")
+    use("axkirillov/hbac.nvim")
+    use("sindrets/winshift.nvim")
+    use("mrjones2014/smart-splits.nvim")
+
+    -- Registers
+    use({
+        "tversteeg/registers.nvim",
+        config = function()
+            require("registers").setup()
+        end,
+    })
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()

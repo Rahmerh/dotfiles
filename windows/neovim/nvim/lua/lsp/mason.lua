@@ -16,6 +16,8 @@ if not lspconfig_status_ok then
     return
 end
 
+local icons = require("core.icons")
+
 require("mason-tool-installer").setup({
     ensure_installed = {
         -- LSP
@@ -39,9 +41,9 @@ local settings = {
     ui = {
         border = "rounded",
         icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗",
+            package_installed = icons.mason.package_installed,
+            package_pending = icons.mason.package_pending,
+            package_uninstalled = icons.mason.package_uninstalled,
         },
     },
     log_level = vim.log.levels.INFO,

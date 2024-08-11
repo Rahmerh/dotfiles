@@ -14,10 +14,10 @@ M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
 M.setup = function()
     local signs = {
-        { name = "DiagnosticSignError", text = icons.diagnostics.Error },
-        { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
-        { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
-        { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
+        { name = "DiagnosticSignError", text = icons.diagnostics.error },
+        { name = "DiagnosticSignWarn", text = icons.diagnostics.warning },
+        { name = "DiagnosticSignHint", text = icons.diagnostics.hint },
+        { name = "DiagnosticSignInfo", text = icons.diagnostics.information },
     }
 
     for _, sign in ipairs(signs) do
