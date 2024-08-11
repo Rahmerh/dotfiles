@@ -6,7 +6,10 @@ local workspace_dir = os.getenv("USERPROFILE") .. "\\AppData\\Local\\nvim-data\\
 vim.list_extend(
     bundles,
     vim.split(
-        vim.fn.glob(os.getenv("USERPROFILE") .. "\\AppData\\Local\\nvim-data\\mason\\packages\\java-test\\extension\\server\\*.jar"),
+        vim.fn.glob(
+            os.getenv("USERPROFILE")
+                .. "\\AppData\\Local\\nvim-data\\mason\\packages\\java-test\\extension\\server\\*.jar"
+        ),
         "\n"
     )
 )
@@ -16,8 +19,7 @@ vim.list_extend(
     vim.split(
         vim.fn.glob(
             os.getenv("USERPROFILE")
-            ..
-            "\\AppData\\Local\\nvim-data\\mason\\packages\\java-debug-adapter\\extension\\server\\com.microsoft.java.debug.plugin-*.jar"
+                .. "\\AppData\\Local\\nvim-data\\mason\\packages\\java-debug-adapter\\extension\\server\\com.microsoft.java.debug.plugin-*.jar"
         ),
         "\n"
     )
@@ -32,7 +34,7 @@ local config = {
         "-Dlog.protocol=true",
         "-Dlog.level=ALL",
         "-Xms1g",
-        "-javaagent:" .. os.getenv("USERPROFILE") .. "\\AppData\\Local\\nvim\\mason\\packages\\jdtls\\lombok.jar",
+        "-javaagent:" .. os.getenv("USERPROFILE") .. "\\AppData\\Local\\nvim-data\\mason\\packages\\jdtls\\lombok.jar",
         "--add-modules=ALL-SYSTEM",
         "--add-opens",
         "java.base/java.util=ALL-UNNAMED",
@@ -40,13 +42,13 @@ local config = {
         "java.base/java.lang=ALL-UNNAMED",
         "-jar",
         os.getenv("USERPROFILE")
-        .. "\\AppData\\Local\\nvim\\mason\\packages\\jdtls\\plugins\\org.eclipse.equinox.launcher_*.jar",
+            .. "\\AppData\\Local\\nvim-data\\mason\\packages\\jdtls\\plugins\\org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar",
         "-configuration",
-        os.getenv("USERPROFILE") .. "\\AppData\\Local\\nvim\\mason\\packages\\jdtls\\config_win",
+        os.getenv("USERPROFILE") .. "\\AppData\\Local\\nvim-data\\mason\\packages\\jdtls\\config_win",
         "-data",
         workspace_dir,
     },
-    root_dir = require('jdtls.setup').find_root({ '.git' }),
+    root_dir = require("jdtls.setup").find_root({ ".git" }),
     settings = {
         java = {
             eclipse = {
@@ -57,7 +59,7 @@ local config = {
             },
             maven = {
                 downloadSources = true,
-                updateSnapshots = true
+                updateSnapshots = true,
             },
             implementationsCodeLens = {
                 enabled = true,
@@ -69,16 +71,13 @@ local config = {
                 includeDecompiledSources = true,
             },
             format = {
-                enabled = true,
-                settings = {
-                    url = vim.fn.getcwd() .. "\\formatter-settings.xml"
-                }
+                enabled = false,
             },
             saveActions = {
-                organizeImports = false
+                organizeImports = false,
             },
             autobuild = {
-                enabled = true
+                enabled = true,
             },
             sources = {
                 organizeImports = {
@@ -120,41 +119,45 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 })
 require("jdtls").start_or_attach(config)
 
-config['on_attach'] = function(client, bufnr)
-    require('jdtls').setup_dap({ hotcodereplace = 'auto' })
+config["on_attach"] = function(client, bufnr)
+    require("jdtls").setup_dap({ hotcodereplace = "auto" })
 end
 
-require('jdtls.ui').pick_one_async = function(items, prompt, label_fn, cb)
+require("jdtls.ui").pick_one_async = function(items, prompt, label_fn, cb)
     local opts = {}
-    pickers.new(opts, {
-        prompt_title    = prompt,
-        finder          = finders.new_table {
-            results = items,
-            entry_maker = function(entry)
-                return {
-                    value = entry,
-                    display = label_fn(entry),
-                    ordinal = label_fn(entry),
-                }
+    pickers
+        .new(opts, {
+            prompt_title = prompt,
+            finder = finders.new_table({
+                results = items,
+                entry_maker = function(entry)
+                    return {
+                        value = entry,
+                        display = label_fn(entry),
+                        ordinal = label_fn(entry),
+                    }
+                end,
+            }),
+            sorter = sorters.get_generic_fuzzy_sorter(),
+            attach_mappings = function(prompt_bufnr)
+                actions.goto_file_selection_edit:replace(function()
+                    local selection = actions.get_selected_entry(prompt_bufnr)
+                    actions.close(prompt_bufnr)
+
+                    cb(selection.value)
+                end)
+
+                return true
             end,
-        },
-        sorter          = sorters.get_generic_fuzzy_sorter(),
-        attach_mappings = function(prompt_bufnr)
-            actions.goto_file_selection_edit:replace(function()
-                local selection = actions.get_selected_entry(prompt_bufnr)
-                actions.close(prompt_bufnr)
-
-                cb(selection.value)
-            end)
-
-            return true
-        end,
-    }):find()
+        })
+        :find()
 end
 
 vim.cmd(
-    "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)")
+    "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)"
+)
 vim.cmd(
-    "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)")
+    "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)"
+)
 vim.cmd("command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()")
 vim.cmd("command! -buffer JdtBytecode lua require('jdtls').javap()")

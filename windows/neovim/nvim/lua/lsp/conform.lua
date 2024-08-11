@@ -4,14 +4,30 @@ if not status_ok then
     return
 end
 
+local project_formatter_settings = vim.fn.getcwd() .. "\\formatter_settings.xml"
+
+local f = io.open(project_formatter_settings, "r")
+if f == nil then
+    vim.notify("'formatter_settings.xml' not found in " .. vim.fn.getcwd() .. ", not setting up formatter.")
+    return
+else
+    io.close(f)
+end
+
 conform.setup({
+    format_after_save = {
+        lsp_format = "fallback",
+    },
+    notify_no_formatters = true,
     formatters_by_ft = {
-        lua = { "stylua" }
+        lua = { "stylua" },
+        java = { "intellij" },
     },
     formatters = {
-        java = {
+        intellij = {
             command = "format.bat",
-            args = { "-allowDefaults", "$FILENAME" }
-        }
-    }
+            args = { "-s", project_formatter_settings, "$FILENAME" },
+            stdin = false,
+        },
+    },
 })

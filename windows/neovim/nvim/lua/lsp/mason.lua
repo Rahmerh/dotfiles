@@ -41,8 +41,8 @@ local settings = {
         icons = {
             package_installed = "✓",
             package_pending = "➜",
-            package_uninstalled = "✗"
-        }
+            package_uninstalled = "✗",
+        },
     },
     log_level = vim.log.levels.INFO,
     max_concurrent_installers = 4,
@@ -58,8 +58,8 @@ local servers = mason_lspconfig.get_installed_servers()
 
 for _, server in ipairs(servers) do
     local opts = {
-        -- on_attach = require("lsp.handlers").on_attach,
-        -- capabilities = require("lsp.handlers").capabilities,
+        on_attach = require("lsp.handlers").on_attach,
+        capabilities = require("lsp.handlers").capabilities,
     }
 
     -- We don't set up jdtls, leave that to the jdtls plugin

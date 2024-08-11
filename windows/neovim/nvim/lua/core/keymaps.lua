@@ -72,8 +72,7 @@ vim.keymap.set("t", "<C-\\>", "<C-h><C-n><cmd>FloatermHide<cr>", options)
 
 vim.keymap.set("n", "<C-_>", "<cmd>FloatermNew lazygit<cr>", options)
 
-vim.keymap.set("n", "<leader>e", "<cmd>Yazi<cr>", options)
-
+vim.keymap.set("n", "<leader>e", "<cmd>FloatermNew yazi<cr>", options)
 
 -- Fuzzy search
 vim.keymap.set("n", "<leader>f", "<cmd>Telescope find_files<cr>", options)

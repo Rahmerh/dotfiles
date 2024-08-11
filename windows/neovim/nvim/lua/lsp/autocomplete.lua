@@ -30,7 +30,7 @@ cmp.setup({
             else
                 fallback()
             end
-        end, { "i", "s" })
+        end, { "i", "s" }),
     },
     sources = {
         { name = "nvim_lsp" },
@@ -46,26 +46,26 @@ cmp.setup({
     },
 })
 
-cmp.setup.filetype('gitcommit', {
+cmp.setup.filetype("gitcommit", {
     sources = cmp.config.sources({
-        { name = 'cmp_git' },
+        { name = "cmp_git" },
     }, {
-        { name = 'buffer' },
-    })
+        { name = "buffer" },
+    }),
 })
 
-cmp.setup.cmdline('/', {
+cmp.setup.cmdline("/", {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
-        { name = 'buffer' }
-    }
+        { name = "buffer" },
+    },
 })
 
-cmp.setup.cmdline(':', {
+cmp.setup.cmdline(":", {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
-        { name = 'path' }
+        { name = "path" },
     }, {
-        { name = 'cmdline' }
-    })
+        { name = "cmdline" },
+    }),
 })
