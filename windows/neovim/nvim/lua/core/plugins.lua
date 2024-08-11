@@ -72,13 +72,7 @@ return packer.startup(function(use)
 
     -- Startup
     use("lewis6991/impatient.nvim")
-    use({
-        "goolord/alpha-nvim",
-        requires = { "nvim-tree/nvim-web-devicons" },
-        config = function()
-            require("alpha").setup(require("alpha.themes.startify").config)
-        end,
-    })
+    use("mhinz/vim-startify")
 
     -- Terminal
     use("voldikss/vim-floaterm")
