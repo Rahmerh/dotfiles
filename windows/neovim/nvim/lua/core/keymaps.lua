@@ -88,5 +88,4 @@ vim.keymap.set("n", "gr", vim.lsp.buf.references, options)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, options)
 
 -- Misc
-vim.keymap.set("n", "vl", "<cmd>VisitLinkUnderCursor<cr>", options)
 vim.keymap.set("n", "<C-y>", require("telescope").extensions.nerdy.nerdy, options)

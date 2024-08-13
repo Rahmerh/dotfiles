@@ -39,12 +39,12 @@
   "profiles": {
     "defaults": {
       "colorScheme": "Sundried",
-      "opacity": 65,
+      "opacity": 85,
       "useAcrylic": false
     },
     "list": [
       {
-        "commandline": "\"C:\\Program Files\\PowerShell\\7-preview\\pwsh.exe\" /nologo",
+        "commandline": "\"C:\\Users\\bas\\scoop\\apps\\pwsh\\7.4.4\\pwsh.exe\" /nologo",
         "font": {
           "face": "JetBrainsMono Nerd Font Mono"
         },

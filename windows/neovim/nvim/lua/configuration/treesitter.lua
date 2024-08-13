@@ -4,7 +4,6 @@ if not status_ok then
 end
 
 configs.setup({
-    ensure_installed = { "java", "bash", "dockerfile", "lua" },
     highlight = {
         enable = true,
         disable = { "css" },

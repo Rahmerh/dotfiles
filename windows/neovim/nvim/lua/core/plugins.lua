@@ -62,12 +62,6 @@ return packer.startup(function(use)
             require("sudoku").setup({})
         end,
     })
-    use({
-        "m4xshen/hardtime.nvim",
-        config = function()
-            require("hardtime").setup()
-        end,
-    })
     use("2kabhishek/nerdy.nvim")
 
     -- Startup
@@ -115,6 +109,8 @@ return packer.startup(function(use)
     use("stevearc/conform.nvim")
     use("aznhe21/actions-preview.nvim")
     use("rmagatti/goto-preview")
+    use("mfussenegger/nvim-lint")
+    use("rshkarin/mason-nvim-lint")
 
     -- DAP
     use("folke/neodev.nvim")

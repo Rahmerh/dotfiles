@@ -1,7 +1,7 @@
 Write-Host "Starting terminal configuration" -ForegroundColor "Cyan";
 
 $DotfilesTerminalFolder = Join-Path -Path $HOME -ChildPath ".dotfiles" | Join-Path -ChildPath "windows" | Join-Path -ChildPath "terminal";
-$TerminalLocalStateFolder = Join-Path -Path $env:LOCALAPPDATA -ChildPath "Packages" | Join-Path -ChildPath "Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe" | Join-Path -ChildPath "LocalState"
+$TerminalLocalStateFolder = "$HOME\scoop\apps\windows-terminal-preview\1.21.1772.0\settings"
 
 Copy-Item -Path "$DotfilesTerminalFolder\\settings.json" -Destination $TerminalLocalStateFolder -Force
 

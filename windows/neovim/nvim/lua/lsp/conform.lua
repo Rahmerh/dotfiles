@@ -4,7 +4,7 @@ if not status_ok then
     return
 end
 
-local project_formatter_settings = vim.fn.getcwd() .. "\\formatter_settings.xml"
+local project_formatter_settings = vim.fn.getcwd() .. "\\local-development\\formatter_settings.xml"
 
 local project_pom = vim.fn.getcwd() .. "\\pom.xml"
 local pom_file = io.open(project_pom, "r")

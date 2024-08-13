@@ -1,3 +1,6 @@
+# Used to clone repo, if this isn't installed... Install it first.
+winget install Git.Git
+
 $GitHubRepositoryUri = "https://github.com/Rahmerh/dotfiles";
 
 $DotfilesFolder = Join-Path -Path $HOME -ChildPath ".dotfiles";
