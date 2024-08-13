@@ -81,13 +81,18 @@ return packer.startup(function(use)
         main = "ibl",
     })
     use("RRethy/vim-illuminate")
-    use("kylechui/nvim-surround")
     use({
         "windwp/nvim-autopairs",
         event = "InsertEnter",
         config = function()
-            require("nvim-autopairs").setup({})
+            require("nvim-autopairs").setup({
+                check_ts = true,
+            })
         end,
+    })
+    use({
+        "kylechui/nvim-surround",
+        tag = "*",
     })
     use({
         "nguyenvukhang/nvim-toggler",
