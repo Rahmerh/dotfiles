@@ -100,6 +100,7 @@ return packer.startup(function(use)
             require("nvim-toggler").setup()
         end,
     })
+    use("jghauser/mkdir.nvim")
 
     -- LSP
     use("neovim/nvim-lspconfig")
@@ -116,6 +117,7 @@ return packer.startup(function(use)
     use("rmagatti/goto-preview")
     use("mfussenegger/nvim-lint")
     use("rshkarin/mason-nvim-lint")
+    use("folke/trouble.nvim")
 
     -- DAP
     use("folke/neodev.nvim")

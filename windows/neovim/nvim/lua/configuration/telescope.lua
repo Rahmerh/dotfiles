@@ -14,7 +14,7 @@ telescope.setup({
         selection_caret = icons.ui.fat_arrow_closed .. " ",
         path_display = { "smart" },
         history = {
-            path = os.getenv("USERPROFILE") .. "AppData\\Local\\nvim-data\\databases\\telescope_history.sqlite3",
+            path = os.getenv("USERPROFILE") .. "\\AppData\\Local\\nvim-data\\databases\\telescope_history.sqlite3",
             limit = 100,
         },
         mappings = {
