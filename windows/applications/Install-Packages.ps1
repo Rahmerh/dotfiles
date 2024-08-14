@@ -1,3 +1,24 @@
+function Configure-Autostart-For-App {
+    [CmdletBinding()]
+    param (
+        [Parameter( Position = 0, Mandatory = $TRUE)]
+        [String]
+        $AppName,
+        [Parameter( Position = 1, Mandatory = $TRUE)]
+        [String]
+        $ExecutableName
+    )
+
+    $TargetFile =  "$HOME\scoop\apps\$AppName\current\$ExecutableName.exe"
+    $ShortcutFile = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\$AppName.lnk"
+    $WScriptShell = New-Object -ComObject WScript.Shell
+    $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+    $Shortcut.TargetPath = $TargetFile
+    $Shortcut.Save()
+
+    Write-Host "Configured autostart for $AppName" -ForegroundColor "Green";
+}
+
 Write-Host "Installing all applications." -ForegroundColor "Cyan";
 
 # Buckets
@@ -48,5 +69,12 @@ scoop install steam
 scoop install discord
 scoop install slack
 
-# Don't need this, we're using the preview
+# Don't need this
 winget uninstall Microsoft.WindowsTerminal
+winget uninstall Microsoft.Edge
+winget uninstall Microsoft.OneDrive
+
+# Set autostart for apps
+Configure-Autostart-For-App -AppName slack -ExecutableName slack
+Configure-Autostart-For-App -AppName discord -ExecutableName discord-portable
+Configure-Autostart-For-App -AppName steam -ExecutableName steam
