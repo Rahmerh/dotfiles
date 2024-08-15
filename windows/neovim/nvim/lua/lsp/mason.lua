@@ -21,23 +21,24 @@ local icons = require("core.icons")
 require("mason-tool-installer").setup({
     ensure_installed = {
         -- LSP
-        "jdtls",
         "lua-language-server",
         "typescript-language-server",
         "dockerfile-language-server",
-        "bash-language-server",
         "lua-language-server",
         -- Formatters
         "stylua",
-        -- DAP
-        "java-test",
-        "java-debug-adapter",
     },
     auto_update = true,
     run_on_start = true,
 })
 
+local registries = {
+    "github:nvim-java/mason-registry",
+    "github:mason-org/mason-registry",
+}
+
 local settings = {
+    registries = registries,
     ui = {
         border = "rounded",
         icons = {
@@ -58,17 +59,30 @@ mason_lspconfig.setup({
 
 local servers = mason_lspconfig.get_installed_servers()
 
+require("java").setup()
+require("neoconf").setup()
+
 for _, server in ipairs(servers) do
     local opts = {
         on_attach = require("lsp.handlers").on_attach,
         capabilities = require("lsp.handlers").capabilities,
     }
 
-    -- We don't set up jdtls, leave that to the jdtls plugin
     if server == "jdtls" then
-        goto continue
+        opts.settings = {
+            java = {
+                configuration = {
+                    runtimes = {
+                        {
+                            name = "JavaSE-21",
+                            path = "C:\\Users\\bas\\AppData\\Local\\nvim-data\\mason\\bin\\java.cmd",
+                            default = true,
+                        },
+                    },
+                },
+            },
+        }
     end
 
     lspconfig[server].setup(opts)
-    ::continue::
 end

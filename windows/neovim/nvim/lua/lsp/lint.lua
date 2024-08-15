@@ -4,6 +4,12 @@ if not status_ok then
     return
 end
 
+local nullls_status_ok, null_ls = pcall(require, "null-ls")
+if not nullls_status_ok then
+    vim.notify("Null-ls not found!")
+    return
+end
+
 lint.linters.checkstyle.ignore_exitcode = false
 lint.linters.checkstyle.args = {
     "-c",
@@ -21,3 +27,27 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 })
 
 require("mason-nvim-lint").setup()
+
+null_ls.setup({
+    debug = true,
+    sources = {
+        null_ls.builtins.completion.spell,
+        null_ls.builtins.diagnostics.pmd.with({
+            command = { "pmd" },
+            args = {
+                "check",
+            },
+            extra_args = {
+                "--rulesets",
+                "local-development\\maven-pmd-plugin-rules.xml",
+                "--dir",
+                ".",
+                "--format",
+                "json",
+                "--cache",
+                "local-development\\pmd-cache\\",
+                "--no-progress",
+            },
+        }),
+    },
+})

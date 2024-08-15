@@ -46,13 +46,4 @@ M.setup = function()
     vim.diagnostic.config(config)
 end
 
-M.on_attach = function(client)
-    if client.name == "jdt.ls" then
-        vim.lsp.codelens.refresh()
-        require("jdtls.setup").add_commands()
-        require("jdtls").setup_dap({ hotcodereplace = "auto" })
-        require("jdtls.dap").setup_dap_main_class_configs()
-    end
-end
-
 return M
