@@ -29,7 +29,7 @@ Set-Alias -Name grep -Value findstr
 
 # Better pwd
 function Invoke-Better-Pwd {
-    (Get-Location | Select -ExpandProperty Path)
+    (Get-Location | Select-Object -ExpandProperty Path)
 }
 Set-Alias -Name pwd -Value "Invoke-Better-Pwd"
 

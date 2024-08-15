@@ -87,5 +87,7 @@ vim.keymap.set("n", "gi", vim.lsp.buf.implementation, options)
 vim.keymap.set("n", "gr", vim.lsp.buf.references, options)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, options)
 
+vim.keymap.set("n", "<leader>dt", "<cmd>Trouble diagnostics win = { type = 'split', position='right'}<cr>", options)
+
 -- Misc
 vim.keymap.set("n", "<C-y>", require("telescope").extensions.nerdy.nerdy, options)
