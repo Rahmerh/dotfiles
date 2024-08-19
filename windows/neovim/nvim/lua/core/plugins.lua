@@ -122,17 +122,10 @@ return packer.startup(function(use)
 
     -- DAP
     use("folke/neodev.nvim")
-    use("folke/neoconf.nvim")
     use("mfussenegger/nvim-dap")
     use("rcarriga/nvim-dap-ui")
+    use("mfussenegger/nvim-jdtls")
     use("Weissle/persistent-breakpoints.nvim")
-    use("nvim-java/nvim-java")
-    use("JavaHello/spring-boot.nvim")
-    use("nvim-java/lua-async-await")
-    use("nvim-java/nvim-java-refactor")
-    use("nvim-java/nvim-java-core")
-    use("nvim-java/nvim-java-test")
-    use("nvim-java/nvim-java-dap")
 
     -- Telescope
     use("nvim-telescope/telescope.nvim")
