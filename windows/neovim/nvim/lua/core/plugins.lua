@@ -63,10 +63,26 @@ return packer.startup(function(use)
         end,
     })
     use("2kabhishek/nerdy.nvim")
+    use({
+        "KadoBOT/nvim-spotify",
+        requires = "nvim-telescope/telescope.nvim",
+        config = function()
+            local spotify = require("nvim-spotify")
+
+            spotify.setup({
+                -- default opts
+                status = {
+                    update_interval = 10000, -- the interval (ms) to check for what's currently playing
+                    format = "%s %t by %a", -- spotify-tui --format argument
+                },
+            })
+        end,
+        run = "make",
+    })
 
     -- Startup
     use("lewis6991/impatient.nvim")
-    use("mhinz/vim-startify")
+    -- use("mhinz/vim-startify")
 
     -- Terminal
     use("voldikss/vim-floaterm")
