@@ -29,6 +29,8 @@ conform.setup({
     formatters_by_ft = {
         lua = { "stylua" },
         java = { "intellij" },
+        json = { "fixjson" },
+        typescript = { "prettierd" },
     },
     formatters = {
         intellij = {
