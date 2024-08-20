@@ -86,6 +86,7 @@ scoop bucket add nerd-fonts
 scoop bucket add games
 scoop bucket add versions
 scoop bucket add nonportable
+scoop bucket add scoop-bucket https://github.com/Rigellute/scoop-bucket
 
 # Cli tools
 scoop install yazi
@@ -99,6 +100,7 @@ scoop install lsd
 scoop install bat
 scoop install fd
 scoop install ripgrep
+scoop install spotify-tui
 
 # Misc
 scoop install firefox
@@ -106,6 +108,7 @@ scoop install zig
 scoop install 7zip
 scoop install wireguard-np
 scoop install jq
+scoop install paint.net
 
 # Code development
 scoop install docker-compose
@@ -115,6 +118,9 @@ scoop install git
 scoop install aws
 scoop install granted 
 scoop install maven
+scoop install make
+scoop install go
+scoop install postman
 
 # Terminal
 scoop install pwsh
@@ -129,10 +135,10 @@ scoop install discord
 scoop install slack
 scoop install spotify
 
-# Docker desktop isn't on scoop :(
-# The docker package is only capable of running windows containers. That's why I'll have to get it via winget.
+# Install packages that aren't available on scoop
 winget install Docker.DockerDesktop
 winget install Microsoft.Teams
+go install github.com/jorgerojas26/lazysql@latest
 
 # Don't need this
 winget uninstall Microsoft.WindowsTerminal
