@@ -54,7 +54,6 @@ return packer.startup(function(use)
     use("antoinemadec/FixCursorHold.nvim")
     use("RishabhRD/popfix")
     use("MunifTanjim/nui.nvim")
-    use("xiyaowong/link-visitor.nvim")
     use({
         "jim-fx/sudoku.nvim",
         cmd = "Sudoku",
@@ -82,7 +81,9 @@ return packer.startup(function(use)
 
     -- Startup
     use("lewis6991/impatient.nvim")
-    -- use("mhinz/vim-startify")
+
+    -- Git
+    use("lewis6991/gitsigns.nvim")
 
     -- Terminal
     use("voldikss/vim-floaterm")
@@ -110,12 +111,7 @@ return packer.startup(function(use)
         "kylechui/nvim-surround",
         tag = "*",
     })
-    use({
-        "nguyenvukhang/nvim-toggler",
-        config = function()
-            require("nvim-toggler").setup()
-        end,
-    })
+    use("lewis6991/satellite.nvim")
     use("jghauser/mkdir.nvim")
 
     -- LSP
