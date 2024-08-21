@@ -165,6 +165,7 @@ return packer.startup(function(use)
     use("axkirillov/hbac.nvim")
     use("sindrets/winshift.nvim")
     use("mrjones2014/smart-splits.nvim")
+    use("2kabhishek/termim.nvim")
 
     -- Registers
     use({

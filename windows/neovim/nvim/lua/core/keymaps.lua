@@ -58,7 +58,7 @@ vim.keymap.set("n", "<C-p>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()
 vim.keymap.set("n", "<C-\\>", "<cmd>FloatermToggle<cr>", options)
 vim.keymap.set("t", "<C-\\>", "<C-h><C-n><cmd>FloatermHide<cr>", options)
 
-vim.keymap.set("n", "<C-_>", "<cmd>FloatermNew lazygit<cr>", options)
+vim.keymap.set("n", "<C-_>", "<cmd>Fterm lazygit<cr>", options)
 
 vim.keymap.set("n", "<leader>e", "<cmd>FloatermNew yazi<cr>", options)
 
