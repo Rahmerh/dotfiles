@@ -97,6 +97,3 @@ require("persistent-breakpoints").setup({
     save_dir = os.getenv("USERPROFILE") .. "\\AppData\\Local\\nvim-data\\nvim_checkpoints",
     perf_record = false,
 })
-
--- Setup all DAP adapters.
-require("lsp.dap.java").setup()

@@ -29,6 +29,7 @@ require("mason-tool-installer").setup({
         "lua-language-server",
         -- Formatters
         "stylua",
+        "prettierd",
         -- DAP
         "java-test",
         "java-debug-adapter",

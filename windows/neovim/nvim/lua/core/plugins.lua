@@ -54,7 +54,6 @@ return packer.startup(function(use)
     use("antoinemadec/FixCursorHold.nvim")
     use("RishabhRD/popfix")
     use("MunifTanjim/nui.nvim")
-    use("xiyaowong/link-visitor.nvim")
     use({
         "jim-fx/sudoku.nvim",
         cmd = "Sudoku",
@@ -63,10 +62,28 @@ return packer.startup(function(use)
         end,
     })
     use("2kabhishek/nerdy.nvim")
+    use({
+        "KadoBOT/nvim-spotify",
+        requires = "nvim-telescope/telescope.nvim",
+        config = function()
+            local spotify = require("nvim-spotify")
+
+            spotify.setup({
+                -- default opts
+                status = {
+                    update_interval = 10000, -- the interval (ms) to check for what's currently playing
+                    format = "%s %t by %a", -- spotify-tui --format argument
+                },
+            })
+        end,
+        run = "make",
+    })
 
     -- Startup
     use("lewis6991/impatient.nvim")
-    use("mhinz/vim-startify")
+
+    -- Git
+    use("lewis6991/gitsigns.nvim")
 
     -- Terminal
     use("voldikss/vim-floaterm")
@@ -94,12 +111,7 @@ return packer.startup(function(use)
         "kylechui/nvim-surround",
         tag = "*",
     })
-    use({
-        "nguyenvukhang/nvim-toggler",
-        config = function()
-            require("nvim-toggler").setup()
-        end,
-    })
+    use("lewis6991/satellite.nvim")
     use("jghauser/mkdir.nvim")
 
     -- LSP
@@ -115,9 +127,10 @@ return packer.startup(function(use)
     use("stevearc/conform.nvim")
     use("aznhe21/actions-preview.nvim")
     use("rmagatti/goto-preview")
+    use("folke/trouble.nvim")
     use("mfussenegger/nvim-lint")
     use("rshkarin/mason-nvim-lint")
-    use("folke/trouble.nvim")
+    use("nvimtools/none-ls.nvim")
 
     -- DAP
     use("folke/neodev.nvim")
@@ -152,6 +165,7 @@ return packer.startup(function(use)
     use("axkirillov/hbac.nvim")
     use("sindrets/winshift.nvim")
     use("mrjones2014/smart-splits.nvim")
+    use("2kabhishek/termim.nvim")
 
     -- Registers
     use({

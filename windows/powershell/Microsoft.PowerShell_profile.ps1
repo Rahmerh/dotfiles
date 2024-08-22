@@ -44,6 +44,10 @@ function yy {
     Remove-Item -Path $tmp
 }
 
+Set-Alias -Name which -Value Get-Command
+
+Set-Alias -Name e -Value explorer.exe
+
 # Oh my posh
 oh-my-posh init pwsh --config $PSScriptRoot\theme.json | Invoke-Expression
 
