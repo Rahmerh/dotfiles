@@ -12,9 +12,9 @@ function Configure-Autostart-For-App {
         $Arguments
     )
 
-    if ($ExecutableName -eq $NULL){
-        $ExecutableName = $AppName;
-    }
+    if ($ExecutableName -eq ""){
+        $ExecutableName = "$AppName";
+    } 
 
     $TargetFile =  "$HOME\scoop\apps\$AppName\current\$ExecutableName.exe"
     $ShortcutFile = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\$AppName.lnk"

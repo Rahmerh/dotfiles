@@ -123,7 +123,7 @@ Write-Host "Power plan successfully updated." -ForegroundColor "Green";
 
 Write-Host "Setting environment variables" -ForegroundColor "Cyan";
 
-setx YAZI_FILE_ONE "C:\Users\bas\scoop\apps\git\current\usr\bin\file.exe"
+setx YAZI_FILE_ONE "$HOME\scoop\apps\git\current\usr\bin\file.exe"
 
 Write-Host "Environment variables set." -ForegroundColor "Green";
 
