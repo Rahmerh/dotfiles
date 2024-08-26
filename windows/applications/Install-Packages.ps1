@@ -153,4 +153,3 @@ Configure-Autostart-For-App -AppName spotify -Arguments "--minimized"
 
 # Download binaries directly from github
 Download-Latest-Github-Release -RepositoryName pmd/pmd -TargetDir C:\tools -AssetName "pmd-dist-*-bin.zip"
-Search-And-Add-Bin-Folder-To-Path -SourceFolder C:\tools\pmd
