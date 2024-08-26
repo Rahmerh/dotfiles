@@ -1,4 +1,5 @@
-function Configure-Autostart-For-App {
+function Configure-Autostart-For-App
+{
     [CmdletBinding()]
     param (
         [Parameter( Position = 0, Mandatory = $TRUE)]
@@ -12,7 +13,8 @@ function Configure-Autostart-For-App {
         $Arguments
     )
 
-    if ($ExecutableName -eq ""){
+    if ($ExecutableName -eq "")
+    {
         $ExecutableName = "$AppName";
     } 
 
@@ -27,7 +29,8 @@ function Configure-Autostart-For-App {
     Write-Host "Configured autostart for $AppName" -ForegroundColor "Green";
 }
 
-function Download-Latest-Github-Release {
+function Download-Latest-Github-Release
+{
     [CmdletBinding()]
     param (
         [Parameter( Position = 0, Mandatory = $TRUE)]
@@ -38,9 +41,18 @@ function Download-Latest-Github-Release {
         $TargetDir,
         [Parameter( Position = 2, Mandatory = $TRUE)]
         [String]
-        $AssetName
+        $AssetName,
+        [Parameter( Position = 3, Mandatory = $FALSE)]
+        [String]
+        $Version
     )
-    $json = Invoke-Webrequest -Uri "https://api.github.com/repos/$RepositoryName/releases/latest"
+    $versionToGet = "latest"
+    if($Version -ne "")
+    {
+        $versionToGet = $Version
+    }
+
+    $json = Invoke-Webrequest -Uri "https://api.github.com/repos/$RepositoryName/releases/$versionToGet"
 
     $release = $json.Content | ConvertFrom-Json
 
@@ -51,30 +63,41 @@ function Download-Latest-Github-Release {
 
         Invoke-Webrequest -Uri $($asset.url) -OutFile "$TargetDir\$($asset.name)" -Headers @{'Accept'='application/octet-stream'}
 
-        $DestinationPath = "$TargetDir\\$($RepositoryName.Split('/')[1])"
+        $DestinationPath = "$TargetDir\$($RepositoryName.Split('/')[1])"
 
-        if(Test-Path -Path $DestinationPath){
+        if(Test-Path -Path $DestinationPath)
+        {
             Remove-Item -Recurse $DestinationPath -Force
         }
 
-        Expand-Archive -Path "$TargetDir\\$ArchiveName" -DestinationPath $DestinationPath
+        if([IO.Path]::GetExtension($ArchiveName) -eq ".zip")
+        {
+            Expand-Archive -Path "$TargetDir\\$ArchiveName" -DestinationPath $DestinationPath
+            Remove-Item "$TargetDir\\$ArchiveName" -Force
 
-        Remove-Item "$TargetDir\\$ArchiveName" -Force
+            Write-Host "Expanded zip to $DestinationPath"
+
+            $binFolder = Get-ChildItem -Path $DestinationPath -Filter "bin" -Directory -Recurse
+
+            $binFolderInPath = $env:PATH -split ";" | Where-Object { $_ -like $binFolder }
+
+            Write-Host $binFolderInPath
+
+            if($binFolderInPath -eq "")
+            {
+                # $CurrentPATH = ([Environment]::GetEnvironmentVariable("PATH")).Split(";")
+                # $NewPATH = ($CurrentPATH + $BinFolder) -Join ";"
+                # [Environment]::SetEnvironmentVariable("PATH", $NewPath, [EnvironmentVariableTarget]::Machine) 
+                Write-Host "Appending bin folder to PATH"
+            } else
+            {
+                Write-Host "Not appending bin folder to PATH"
+            }
+        } else
+        {
+            Write-Host "It's not a zip!"
+        }
     }
-}
-
-function Search-And-Add-Bin-Folder-To-Path {
-    [CmdletBinding()]
-    param (
-        [Parameter( Position = 0, Mandatory = $TRUE)]
-        [String]
-        $SourceFolder
-    )
-    $BinFolder = Get-ChildItem $SourceFolder "bin" -Recurse -Directory
-
-    $CurrentPATH = ([Environment]::GetEnvironmentVariable("PATH")).Split(";")
-    $NewPATH = ($CurrentPATH + $BinFolder) -Join ";"
-    [Environment]::SetEnvironmentVariable("PATH", $NewPath, [EnvironmentVariableTarget]::Machine) 
 }
 
 Write-Host "Installing all applications." -ForegroundColor "Cyan";
@@ -152,4 +175,5 @@ Configure-Autostart-For-App -AppName steam -Arguments "-nochatui -nofriendsui -s
 Configure-Autostart-For-App -AppName spotify -Arguments "--minimized"
 
 # Download binaries directly from github
-Download-Latest-Github-Release -RepositoryName pmd/pmd -TargetDir C:\tools -AssetName "pmd-dist-*-bin.zip"
+Download-Latest-Github-Release -RepositoryName pmd/pmd -TargetDir C:\tools -AssetName "pmd-dist-*-bin.zip" -Version "6.55.0"
+Download-Latest-Github-Release -RepositoryName checkstyle/checkstyle -TargetDir C:\tools -AssetName "checkstyle-*-all.jar"

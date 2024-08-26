@@ -19,4 +19,7 @@ require("jabs").setup({
         v_split = "v",
         preview = "p",
     },
+    width = 100,
+    height = 20,
+    border = "single",
 })

@@ -22,9 +22,6 @@ if pom_file ~= nil then
 end
 
 conform.setup({
-    format_after_save = {
-        lsp_format = "fallback",
-    },
     notify_no_formatters = true,
     formatters_by_ft = {
         lua = { "stylua" },

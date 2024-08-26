@@ -31,22 +31,15 @@ require("mason-nvim-lint").setup()
 null_ls.setup({
     debug = true,
     sources = {
-        null_ls.builtins.completion.spell,
         null_ls.builtins.diagnostics.pmd.with({
             command = { "pmd" },
-            args = {
-                "check",
-            },
             extra_args = {
                 "--rulesets",
                 "local-development\\maven-pmd-plugin-rules.xml",
                 "--dir",
-                ".",
-                "--format",
-                "json",
+                vim.fn.expand("%:p:h"),
                 "--cache",
                 "local-development\\pmd-cache\\",
-                "--no-progress",
             },
         }),
     },
