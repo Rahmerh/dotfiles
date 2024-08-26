@@ -58,7 +58,7 @@ vim.keymap.set("n", "<C-p>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()
 vim.keymap.set("n", "<C-\\>", "<cmd>FloatermToggle<cr>", options)
 vim.keymap.set("t", "<C-\\>", "<C-h><C-n><cmd>FloatermHide<cr>", options)
 
-vim.keymap.set("n", "<C-_>", "<cmd>Fterm lazygit<cr>", options)
+vim.keymap.set("n", "<C-_>", "<cmd>FloatermNew lazygit<cr>", options)
 
 vim.keymap.set("n", "<leader>e", "<cmd>FloatermNew yazi<cr>", options)
 
@@ -73,7 +73,7 @@ vim.keymap.set("n", "<F10>", "<cmd>DapStepOver<cr>", options)
 vim.keymap.set("n", "<F11>", "<cmd>DapStepInto<cr>", options)
 vim.keymap.set("n", "<F23>", "<cmd>DapStepOut<cr>", options) -- S-F11
 vim.keymap.set("n", "<F17>", "<cmd>DapTerminate<cr>", options) -- S-F5
-vim.keymap.set("n", "<C-S-b>", "<cmd>PBToggleBreakpoint<cr>", options)
+vim.keymap.set("n", "<leader>b", "<cmd>PBToggleBreakpoint<cr>", options)
 vim.keymap.set("n", "td", "<cmd>lua require'jdtls'.test_nearest_method()<cr>", options)
 vim.keymap.set("n", "tc", "<cmd>lua require'jdtls'.test_class()<cr>", options)
 vim.keymap.set("n", "dt", "<cmd>DapToggleRepl<cr>", options)
