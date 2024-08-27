@@ -159,7 +159,6 @@ scoop install slack
 scoop install spotify
 
 # Install packages that aren't available on scoop
-winget install Docker.DockerDesktop
 winget install Microsoft.Teams
 go install github.com/jorgerojas26/lazysql@latest
 

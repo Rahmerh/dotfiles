@@ -33,6 +33,8 @@ require("mason-tool-installer").setup({
         -- DAP
         "java-test",
         "java-debug-adapter",
+        -- Linters
+        "checkstyle",
     },
     auto_update = true,
     run_on_start = true,

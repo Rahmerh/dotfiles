@@ -33,6 +33,7 @@ packer.init({
     },
 })
 
+
 return packer.startup(function(use)
     -- Packer & misc
     use("wbthomason/packer.nvim")
@@ -129,7 +130,6 @@ return packer.startup(function(use)
     use("rmagatti/goto-preview")
     use("folke/trouble.nvim")
     use("mfussenegger/nvim-lint")
-    use("rshkarin/mason-nvim-lint")
     use("nvimtools/none-ls.nvim")
 
     -- DAP
