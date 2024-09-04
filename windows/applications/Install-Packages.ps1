@@ -41,18 +41,10 @@ function Download-Latest-Github-Release
         $TargetDir,
         [Parameter( Position = 2, Mandatory = $TRUE)]
         [String]
-        $AssetName,
-        [Parameter( Position = 3, Mandatory = $FALSE)]
-        [String]
-        $Version
+        $AssetName
     )
-    $versionToGet = "latest"
-    if($Version -ne "")
-    {
-        $versionToGet = $Version
-    }
 
-    $json = Invoke-Webrequest -Uri "https://api.github.com/repos/$RepositoryName/releases/$versionToGet"
+    $json = Invoke-Webrequest -Uri "https://api.github.com/repos/$RepositoryName/releases/latest"
 
     $release = $json.Content | ConvertFrom-Json
 
@@ -77,22 +69,6 @@ function Download-Latest-Github-Release
 
             Write-Host "Expanded zip to $DestinationPath"
 
-            $binFolder = Get-ChildItem -Path $DestinationPath -Filter "bin" -Directory -Recurse
-
-            $binFolderInPath = $env:PATH -split ";" | Where-Object { $_ -like $binFolder }
-
-            Write-Host $binFolderInPath
-
-            if($binFolderInPath -eq "")
-            {
-                # $CurrentPATH = ([Environment]::GetEnvironmentVariable("PATH")).Split(";")
-                # $NewPATH = ($CurrentPATH + $BinFolder) -Join ";"
-                # [Environment]::SetEnvironmentVariable("PATH", $NewPath, [EnvironmentVariableTarget]::Machine) 
-                Write-Host "Appending bin folder to PATH"
-            } else
-            {
-                Write-Host "Not appending bin folder to PATH"
-            }
         } else
         {
             Write-Host "It's not a zip!"
@@ -123,7 +99,6 @@ scoop install lsd
 scoop install bat
 scoop install fd
 scoop install ripgrep
-scoop install spotify-tui
 
 # Misc
 scoop install firefox
@@ -156,10 +131,10 @@ scoop install nerd-fonts/JetBrainsMono-NF-Mono
 scoop install steam
 scoop install discord
 scoop install slack
-scoop install spotify
 
 # Install packages that aren't available on scoop
 winget install Microsoft.Teams
+winget install Spotify.Spotify # I have trouble using spotify from scoop.
 go install github.com/jorgerojas26/lazysql@latest
 
 # Don't need this
@@ -174,5 +149,4 @@ Configure-Autostart-For-App -AppName steam -Arguments "-nochatui -nofriendsui -s
 Configure-Autostart-For-App -AppName spotify -Arguments "--minimized"
 
 # Download binaries directly from github
-Download-Latest-Github-Release -RepositoryName pmd/pmd -TargetDir C:\tools -AssetName "pmd-dist-*-bin.zip" -Version "6.55.0"
 Download-Latest-Github-Release -RepositoryName checkstyle/checkstyle -TargetDir C:\tools -AssetName "checkstyle-*-all.jar"
