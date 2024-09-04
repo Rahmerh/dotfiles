@@ -69,12 +69,15 @@ function Download-Latest-Github-Release
 
             Write-Host "Expanded zip to $DestinationPath"
 
-        } else
-        {
-            Write-Host "It's not a zip!"
-        }
+        } 
     }
 }
+
+# Making sure chocolately is installed.
+if(-not (Get-Command choco)){
+    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+}
+choco feature enable -n=allowGlobalConfirmation
 
 Write-Host "Installing all applications." -ForegroundColor "Cyan";
 
@@ -136,6 +139,7 @@ scoop install slack
 winget install Microsoft.Teams
 winget install Spotify.Spotify # I have trouble using spotify from scoop.
 go install github.com/jorgerojas26/lazysql@latest
+choco install pmd --version=6.55.0
 
 # Don't need this
 winget uninstall Microsoft.WindowsTerminal
@@ -150,3 +154,6 @@ Configure-Autostart-For-App -AppName spotify -Arguments "--minimized"
 
 # Download binaries directly from github
 Download-Latest-Github-Release -RepositoryName checkstyle/checkstyle -TargetDir C:\tools -AssetName "checkstyle-*-all.jar"
+
+# Resetting some values
+choco feature disable -n=allowGlobalConfirmation
