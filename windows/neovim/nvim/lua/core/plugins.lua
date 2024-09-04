@@ -33,7 +33,6 @@ packer.init({
     },
 })
 
-
 return packer.startup(function(use)
     -- Packer & misc
     use("wbthomason/packer.nvim")
@@ -70,7 +69,6 @@ return packer.startup(function(use)
             local spotify = require("nvim-spotify")
 
             spotify.setup({
-                -- default opts
                 status = {
                     update_interval = 10000, -- the interval (ms) to check for what's currently playing
                     format = "%s %t by %a", -- spotify-tui --format argument
@@ -114,6 +112,36 @@ return packer.startup(function(use)
     })
     use("lewis6991/satellite.nvim")
     use("jghauser/mkdir.nvim")
+    use({
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        event = "InsertEnter",
+        config = function()
+            require("copilot").setup({
+                suggestion = {
+                    enabled = true,
+                    auto_trigger = false,
+                },
+            })
+        end,
+    })
+    use({
+        "CopilotC-Nvim/CopilotChat.nvim",
+        config = function()
+            local copilot_chat = require("CopilotChat")
+            copilot_chat.setup({
+                debug = true,
+                show_help = "yes",
+                prompts = {
+                    Explain = "Explain how it works by English language.",
+                    Review = "Review the following code and provide concise suggestions.",
+                    Tests = "Briefly explain how the selected code works, then generate unit tests.",
+                    Refactor = "Refactor the code to improve clarity and readability.",
+                },
+                event = "VeryLazy",
+            })
+        end,
+    })
 
     -- LSP
     use("neovim/nvim-lspconfig")
@@ -165,6 +193,7 @@ return packer.startup(function(use)
     use("axkirillov/hbac.nvim")
     use("sindrets/winshift.nvim")
     use("mrjones2014/smart-splits.nvim")
+    use("nvim-lualine/lualine.nvim")
 
     -- Registers
     use({

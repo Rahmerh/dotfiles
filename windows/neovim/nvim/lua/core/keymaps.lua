@@ -96,3 +96,6 @@ vim.keymap.set("n", "<C-y>", require("telescope").extensions.nerdy.nerdy, option
 
 -- Java
 vim.keymap.set("n", "<C-b>", "<cmd>JdtCompile<cr>", options)
+
+-- Copilot
+vim.keymap.set("n", "<leader>cc", "<cmd>CopilotChat<CR>", options)

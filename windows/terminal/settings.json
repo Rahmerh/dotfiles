@@ -48,7 +48,7 @@
     },
     "list": [
       {
-        "commandline": "\"C:\\Users\\bas\\scoop\\apps\\pwsh\\7.4.4\\pwsh.exe\" /nologo",
+        "commandline": "pwsh.exe /nologo",
         "font": {
           "face": "JetBrainsMono Nerd Font Mono"
         },
