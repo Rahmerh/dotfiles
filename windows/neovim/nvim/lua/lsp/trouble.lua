@@ -5,8 +5,12 @@ if not cmp_status_ok then
 end
 
 trouble.setup({
+    auto_preview = false,
     win = {
-        type = split,
-        position = right,
+        type = "float",
+        relative = "editor",
+        position = { 0, -2 },
+        size = { width = 0.3, height = 0.3 },
+        zindex = 200,
     },
 })

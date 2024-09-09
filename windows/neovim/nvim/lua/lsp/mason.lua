@@ -25,6 +25,7 @@ require("mason-tool-installer").setup({
         "lua-language-server",
         "typescript-language-server",
         "dockerfile-language-server",
+        "docker-compose-language-service",
         "bash-language-server",
         "lua-language-server",
         -- Formatters
