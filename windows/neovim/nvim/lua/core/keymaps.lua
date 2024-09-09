@@ -39,6 +39,10 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", options)
 vim.keymap.set("n", "<C-d>", "<C-d>zz", options)
 vim.keymap.set("n", "<C-u>", "<C-u>zz", options)
 
+vim.keymap.set("n", "<S-r>", function()
+    return ":IncRename " .. vim.fn.expand("<cword>")
+end, { expr = true, noremap = true, silent = true })
+
 -- Yanking & pasting
 vim.keymap.set("x", "<C-p>", [["_dP]])
 

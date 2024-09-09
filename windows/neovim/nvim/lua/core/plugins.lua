@@ -159,6 +159,12 @@ return packer.startup(function(use)
     use("folke/trouble.nvim")
     use("mfussenegger/nvim-lint")
     use("nvimtools/none-ls.nvim")
+    use({
+        "smjonas/inc-rename.nvim",
+        config = function()
+            require("inc_rename").setup()
+        end,
+    })
 
     -- DAP
     use("folke/neodev.nvim")
