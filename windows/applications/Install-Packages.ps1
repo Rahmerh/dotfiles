@@ -100,7 +100,10 @@ scoop install fzf
 scoop install lsd
 scoop install bat
 scoop install fd
+scoop install sed
+scoop install gawk
 scoop install ripgrep
+scoop install base64
 
 # Misc
 scoop install firefox
@@ -121,6 +124,7 @@ scoop install maven
 scoop install make
 scoop install go
 scoop install postman
+scoop install act
 
 # Terminal
 scoop install pwsh
