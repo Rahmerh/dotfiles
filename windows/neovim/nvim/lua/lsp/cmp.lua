@@ -4,6 +4,13 @@ if not cmp_status_ok then
     return
 end
 
+require("CopilotChat.integrations.cmp").setup()
+
+require("copilot").setup({
+    suggestion = { enabled = false },
+    panel = { enabled = false },
+})
+
 cmp.setup({
     mapping = {
         ["<C-k>"] = cmp.mapping.select_prev_item(),
@@ -33,6 +40,7 @@ cmp.setup({
         end, { "i", "s" }),
     },
     sources = {
+        { name = "copilot" },
         { name = "nvim_lsp" },
         { name = "nvim_lsp_signature_help" },
         { name = "buffer" },

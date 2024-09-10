@@ -112,17 +112,12 @@ return packer.startup(function(use)
     })
     use("lewis6991/satellite.nvim")
     use("jghauser/mkdir.nvim")
+    use("zbirenbaum/copilot.lua")
     use({
-        "zbirenbaum/copilot.lua",
-        cmd = "Copilot",
-        event = "InsertEnter",
+        "zbirenbaum/copilot-cmp",
+        after = { "copilot.lua" },
         config = function()
-            require("copilot").setup({
-                suggestion = {
-                    enabled = true,
-                    auto_trigger = false,
-                },
-            })
+            require("copilot_cmp").setup()
         end,
     })
     use({
@@ -130,7 +125,7 @@ return packer.startup(function(use)
         config = function()
             local copilot_chat = require("CopilotChat")
             copilot_chat.setup({
-                debug = true,
+                debug = false,
                 show_help = "yes",
                 prompts = {
                     Explain = "Explain how it works by English language.",
@@ -139,6 +134,15 @@ return packer.startup(function(use)
                     Refactor = "Refactor the code to improve clarity and readability.",
                 },
                 event = "VeryLazy",
+                mappings = {
+                    complete = {
+                        insert = "",
+                    },
+                    reset = {
+                        normal = "",
+                        insert = "",
+                    },
+                },
             })
         end,
     })
