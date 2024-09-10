@@ -1,4 +1,4 @@
-function Configure-Autostart-For-App
+function Configure-Autostart-For-Scoop-App
 {
     [CmdletBinding()]
     param (
@@ -29,53 +29,16 @@ function Configure-Autostart-For-App
     Write-Host "Configured autostart for $AppName" -ForegroundColor "Green";
 }
 
-function Download-Latest-Github-Release
+# Make sure chocolately is installed.
+if(-not (Get-Command choco -ErrorAction SilentlyContinue))
 {
-    [CmdletBinding()]
-    param (
-        [Parameter( Position = 0, Mandatory = $TRUE)]
-        [String]
-        $RepositoryName,
-        [Parameter( Position = 1, Mandatory = $TRUE)]
-        [String]
-        $TargetDir,
-        [Parameter( Position = 2, Mandatory = $TRUE)]
-        [String]
-        $AssetName
-    )
-
-    $json = Invoke-Webrequest -Uri "https://api.github.com/repos/$RepositoryName/releases/latest"
-
-    $release = $json.Content | ConvertFrom-Json
-
-    $release.assets | Where-Object{$_.name -like $AssetName } | ForEach-Object{
-        $asset = $_;
-
-        $ArchiveName = $asset.name
-
-        Invoke-Webrequest -Uri $($asset.url) -OutFile "$TargetDir\$($asset.name)" -Headers @{'Accept'='application/octet-stream'}
-
-        $DestinationPath = "$TargetDir\$($RepositoryName.Split('/')[1])"
-
-        if(Test-Path -Path $DestinationPath)
-        {
-            Remove-Item -Recurse $DestinationPath -Force
-        }
-
-        if([IO.Path]::GetExtension($ArchiveName) -eq ".zip")
-        {
-            Expand-Archive -Path "$TargetDir\\$ArchiveName" -DestinationPath $DestinationPath
-            Remove-Item "$TargetDir\\$ArchiveName" -Force
-
-            Write-Host "Expanded zip to $DestinationPath"
-
-        } 
-    }
+    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 }
 
-# Making sure chocolately is installed.
-if(-not (Get-Command choco)){
-    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+# Make sure scoop is installed.
+if(-not (Get-Command scoop -ErrorAction SilentlyContinue))
+{
+    irm get.scoop.sh | iex
 }
 
 Write-Host "Installing all applications." -ForegroundColor "Cyan";
@@ -140,7 +103,6 @@ scoop install slack
 
 # Install packages that aren't available on scoop
 winget install Microsoft.Teams
-winget install Spotify.Spotify # I have trouble using spotify from scoop.
 go install github.com/jorgerojas26/lazysql@latest
 choco install pmd --version=6.55.0 -y
 
@@ -150,10 +112,6 @@ winget uninstall Microsoft.Edge
 winget uninstall Microsoft.OneDrive
 
 # Set autostart for apps
-Configure-Autostart-For-App -AppName slack -Arguments "-u"
-Configure-Autostart-For-App -AppName discord -ExecutableName discord-portable -Arguments "--start-minimized"
-Configure-Autostart-For-App -AppName steam -Arguments "-nochatui -nofriendsui -silent"
-Configure-Autostart-For-App -AppName spotify -Arguments "--minimized"
-
-# Download binaries directly from github
-Download-Latest-Github-Release -RepositoryName checkstyle/checkstyle -TargetDir C:\tools -AssetName "checkstyle-*-all.jar"
+Configure-Autostart-For-Scoop-App -AppName slack -Arguments "-u"
+Configure-Autostart-For-Scoop-App -AppName discord -ExecutableName discord-portable -Arguments "--start-minimized"
+Configure-Autostart-For-Scoop-App -AppName steam -Arguments "-nochatui -nofriendsui -silent"
