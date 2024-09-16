@@ -11,3 +11,5 @@ home/.config/fish/fish_plugins
 home/.config/nvim/plugin/packer_compiled.lua
 home/.config/qutebrowser/autoconfig.yml
 windows/neovim/nvim/plugin/packer_compiled.lua
+
+log.file
