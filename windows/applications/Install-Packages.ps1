@@ -38,6 +38,7 @@ if(-not (Get-Command choco -ErrorAction SilentlyContinue))
 # Make sure scoop is installed.
 if(-not (Get-Command scoop -ErrorAction SilentlyContinue))
 {
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
     irm get.scoop.sh | iex
 }
 
@@ -110,6 +111,9 @@ choco install pmd --version=6.55.0 -y
 winget uninstall Microsoft.WindowsTerminal
 winget uninstall Microsoft.Edge
 winget uninstall Microsoft.OneDrive
+
+# Update everything
+scoop update *
 
 # Set autostart for apps
 Configure-Autostart-For-Scoop-App -AppName slack -Arguments "-u"
