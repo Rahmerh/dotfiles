@@ -54,6 +54,9 @@ vim.keymap.set("v", "<leader>p", [["+p]], options)
 vim.keymap.set("n", "<leader>p", [["+p]], options)
 vim.keymap.set("n", "<leader>P", [["+P]], options)
 
+vim.keymap.set({ "n", "v" }, "<S-d>", "dd", options)
+vim.keymap.set({ "n", "v" }, "<S-y>", "yy", options)
+
 -- Harpoon
 vim.keymap.set("n", "<leader>h", "<cmd>lua require('harpoon.mark').add_file()<cr>", options)
 vim.keymap.set("n", "<C-p>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", options)
@@ -100,12 +103,3 @@ vim.keymap.set("n", "<C-y>", require("telescope").extensions.nerdy.nerdy, option
 
 -- Java
 vim.keymap.set("n", "<C-b>", "<cmd>JdtCompile<cr>", options)
-
--- Copilot
-vim.keymap.set({ "n", "v" }, "<leader>cc", "<cmd>CopilotChat<CR>", options)
-vim.keymap.set({ "n", "v" }, "<leader>qq", function()
-    local input = vim.fn.input("Quick Chat: ")
-    if input ~= "" then
-        require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
-    end
-end, options)
