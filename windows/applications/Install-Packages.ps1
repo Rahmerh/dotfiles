@@ -75,6 +75,7 @@ scoop install 7zip
 scoop install wireguard-np
 scoop install jq
 scoop install paint.net
+scoop install eartrumpet
 
 # Code development
 scoop install docker-compose
