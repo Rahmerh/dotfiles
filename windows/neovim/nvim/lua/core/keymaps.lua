@@ -8,7 +8,7 @@ vim.keymap.set("n", "<Space>", "<Nop>", options)
 -- Buffers
 vim.keymap.set("n", "<S-h>", "<cmd>JABSOpen<cr>", options)
 
-vim.keymap.set("n", "<S-q>", "<cmd>bd<cr>", options)
+vim.keymap.set("n", "<S-q>", "<cmd>bp|bd #<cr>", options)
 vim.keymap.set("n", "<S-l>", "<cmd>e#<cr>", options)
 
 vim.keymap.set("n", "<leader>s", "<cmd>WinShift<cr>", options)
@@ -54,8 +54,8 @@ vim.keymap.set("v", "<leader>p", [["+p]], options)
 vim.keymap.set("n", "<leader>p", [["+p]], options)
 vim.keymap.set("n", "<leader>P", [["+P]], options)
 
-vim.keymap.set({ "n", "v" }, "<S-d>", "dd", options)
-vim.keymap.set({ "n", "v" }, "<S-y>", "yy", options)
+vim.keymap.set("n", "<S-d>", "dd", options)
+vim.keymap.set("n", "<S-y>", "yy", options)
 
 -- Harpoon
 vim.keymap.set("n", "<leader>h", "<cmd>lua require('harpoon.mark').add_file()<cr>", options)
