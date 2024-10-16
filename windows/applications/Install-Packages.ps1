@@ -70,6 +70,7 @@ scoop install sed
 scoop install gawk
 scoop install ripgrep
 scoop install base64
+scoop install winfetch
 
 # Misc
 scoop install firefox
