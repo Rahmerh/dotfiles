@@ -51,4 +51,11 @@ vim.api.nvim_create_user_command("Format", function(args)
     require("conform").format({ async = true, lsp_format = "fallback", range = range })
 end, { range = true })
 
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*",
+    callback = function(args)
+        require("conform").format({ bufnr = args.buf })
+    end,
+})
+
 vim.opt.laststatus = 3

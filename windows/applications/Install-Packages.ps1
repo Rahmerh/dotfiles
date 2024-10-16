@@ -38,8 +38,11 @@ if(-not (Get-Command choco -ErrorAction SilentlyContinue))
 # Make sure scoop is installed.
 if(-not (Get-Command scoop -ErrorAction SilentlyContinue))
 {
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
     irm get.scoop.sh | iex
 }
+
+scoop alias add update5 'powershell.exe -NoProfile -Command { scoop update $args[0]; } -args $args[0]'
 
 Write-Host "Installing all applications." -ForegroundColor "Cyan";
 
@@ -67,6 +70,7 @@ scoop install sed
 scoop install gawk
 scoop install ripgrep
 scoop install base64
+scoop install winfetch
 
 # Misc
 scoop install firefox
@@ -100,17 +104,20 @@ scoop install nerd-fonts/JetBrainsMono-NF-Mono
 # Socials
 scoop install steam
 scoop install discord
-scoop install slack
 
 # Install packages that aren't available on scoop
 winget install Microsoft.Teams
 go install github.com/jorgerojas26/lazysql@latest
 choco install pmd --version=6.55.0 -y
+winget install SlackTechnologies.Slack
 
 # Don't need this
 winget uninstall Microsoft.WindowsTerminal
 winget uninstall Microsoft.Edge
 winget uninstall Microsoft.OneDrive
+
+# Update everything
+scoop update *
 
 # Set autostart for apps
 Configure-Autostart-For-Scoop-App -AppName slack -Arguments "-u"

@@ -1,6 +1,6 @@
 local options = {
     backup = false,
-    cmdheight = 3,
+    cmdheight = 1,
     completeopt = { "menuone", "noselect" },
     conceallevel = 0,
     fileencoding = "utf-8",
@@ -45,7 +45,6 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.floaterm_opener = "edit"
 vim.g.floaterm_height = 0.9
 vim.g.floaterm_width = 0.9
--- vim.g.floaterm_shell = "pwsh"
 
 vim.cmd([[
     let &shell = 'pwsh'

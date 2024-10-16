@@ -4,11 +4,6 @@ if not status_ok then
     return
 end
 
-lint.linters.checkstyle.args = {
-    "-c",
-    vim.fn.getcwd() .. "\\local-development\\checkstyle_configuration.xml",
-}
-
 lint.linters.pmd = {
     cmd = "pmd",
     args = {
@@ -52,7 +47,7 @@ lint.linters.pmd = {
 }
 
 lint.linters_by_ft = {
-    java = { "checkstyle", "pmd" },
+    java = { "pmd" },
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
