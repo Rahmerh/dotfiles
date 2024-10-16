@@ -120,9 +120,9 @@
 }
 
 /* Hides the Extensions Menu Icon */
-#unified-extensions-button {
-  display: none !important;
-}
+/* #unified-extensions-button { */
+/*   display: none !important; */
+/* } */
 
 /*---+---+---+---+---+---+---+
  | T | A | B | — | B | A | R |
