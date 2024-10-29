@@ -80,6 +80,7 @@ scoop install wireguard-np
 scoop install jq
 scoop install paint.net
 scoop install eartrumpet
+scoop install altsnap
 
 # Code development
 scoop install docker-compose
