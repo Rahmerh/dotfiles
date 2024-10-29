@@ -128,7 +128,6 @@ return packer.startup(function(use)
     use("rmagatti/goto-preview")
     use("folke/trouble.nvim")
     use("mfussenegger/nvim-lint")
-    use("nvimtools/none-ls.nvim")
     use({
         "smjonas/inc-rename.nvim",
         config = function()
@@ -169,7 +168,6 @@ return packer.startup(function(use)
     use("axkirillov/hbac.nvim")
     use("sindrets/winshift.nvim")
     use("mrjones2014/smart-splits.nvim")
-    use("nvim-lualine/lualine.nvim")
 
     -- Registers
     use({

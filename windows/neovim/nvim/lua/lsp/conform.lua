@@ -17,5 +17,6 @@ conform.setup({
         java = { "google_java_format" },
         json = { "fixjson" },
         typescript = { "prettierd" },
+        typescriptreact = { "prettierd" },
     },
 })
