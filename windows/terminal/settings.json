@@ -49,7 +49,7 @@
         },
         "list": [
             {
-                "commandline": "pwsh.exe /nologo",
+                "commandline": "C:\\Program Files\\PowerShell\\7-preview\\pwsh.exe /nologo",
                 "font": {
                     "face": "JetBrainsMono Nerd Font Mono"
                 },
