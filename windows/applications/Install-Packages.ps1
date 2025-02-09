@@ -80,7 +80,6 @@ scoop install wireguard-np
 scoop install jq
 scoop install paint.net
 scoop install eartrumpet
-scoop install altsnap
 
 # Code development
 scoop install docker-compose
@@ -119,6 +118,9 @@ winget uninstall Microsoft.OneDrive
 
 # Update everything
 scoop update *
+
+# Auto update some stuff
+oh-my-posh enable autoupgrade
 
 # Set autostart for apps
 Configure-Autostart-For-Scoop-App -AppName slack -Arguments "-u"
