@@ -41,7 +41,6 @@ yay --needed -S \
     zsa-keymapp-bin \
     notify-osd \
     ttf-jetbrains-mono \
-    lightly-qt \
     qt5ct \
     kdialog \
     mpv \
