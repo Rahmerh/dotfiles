@@ -89,7 +89,3 @@ if ! type -q mcfly
 end
 
 print_success "Done"
-
-sudo sh 'install-proton-ge'
-
-print_success "Done"
