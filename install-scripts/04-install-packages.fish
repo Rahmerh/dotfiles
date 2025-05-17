@@ -33,6 +33,7 @@ yay --needed -S \
     gamemode \
     jq \
     stow \
+    neofetch \
     --noconfirm
 
 print_info "Configuring and install misc tools"
