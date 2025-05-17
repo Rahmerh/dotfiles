@@ -1,0 +1,31 @@
+[General]
+hotkey=Meta+Space
+showTray=false
+telemetry=false
+
+[applications]
+enabled=true
+
+[system]
+command_logout=qdbus org.kde.Shutdown /Shutdown logout
+command_poweroff=shutdown now
+command_reboot=shutdown -r now
+enabled=true
+hibernate_enabled=false
+lock_enabled=false
+suspend_enabled=false
+title_poweroff=Shut down
+title_reboot=Restart
+
+[widgetsboxmodel]
+alwaysOnTop=true
+clearOnHide=false
+clientShadow=true
+displayScrollbar=false
+followCursor=true
+hideOnFocusLoss=true
+historySearch=true
+itemCount=5
+quitOnClose=false
+showCentered=true
+systemShadow=true
