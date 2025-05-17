@@ -13,3 +13,16 @@ end
 cp ~/dotfiles/home/.config/kitty/themes/kitty-themes/themes/Chalk.conf ~/dotfiles/home/.config/kitty/themes/theme.conf
 
 print_success "Done"
+
+print_info "Setting sddm theme"
+
+if ! test -d /tmp/sddm-theme 
+    git clone git@github.com:stepanzubkov/where-is-my-sddm-theme.git /tmp/sddm-theme &> /dev/null
+else
+    cd /tmp/sddm-theme 
+    git pull &> /dev/null
+end
+
+sudo /tmp/sddm-theme/install.sh current &> /dev/null
+
+print_success "Done"

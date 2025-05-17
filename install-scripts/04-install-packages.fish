@@ -34,6 +34,7 @@ yay --needed -S \
     jq \
     stow \
     neofetch \
+    qt5-tools \
     --noconfirm
 
 print_info "Configuring and install misc tools"
