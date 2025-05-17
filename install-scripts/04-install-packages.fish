@@ -21,64 +21,21 @@ yay --needed -S \
     solaar \
     lazygit \
     pulsemixer \
-    bitwarden \
-    npm \
     steam \
-    speedtest-cli \
-    pacman-contrib \
-    python-pip \
     ranger \
-    python-pillow \
-    python-pynvim \
     ueberzug \
-    qutebrowser \
-    i3 \
+    firefox \
     dmenu \
-    rofi \
-    picom \
+    albert \
     ripgrep \
-    polybar \
     zsa-keymapp-bin \
-    notify-osd \
     ttf-jetbrains-mono \
-    qt5ct \
-    kdialog \
-    mpv \
-    phinger-cursors \
-    python-adblock \
-    qt5-graphicaleffects \
-    qt5-svg \
-    qt5-quickcontrols2 \
-    steam \
     gamemode \
-    mcaselector \
-    man \
-    xorg-xwininfo \
-    dxvk \
-    vkd3d \
-    mangohud \
     jq \
-    glances \
     stow \
-    dotnet-sdk \
     --noconfirm
 
-if ! type -q cargo
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-end
-
-print_info "Installing and updating cargo packages"
-
-cargo install erdtree
-cargo install systemctl-tui
-
-print_success "Done"
-
 print_info "Configuring and install misc tools"
-
-if [ ! -L /usr/bin/systemctl-tui ]; then
-    sudo ln -s ~/.cargo/bin/systemctl-tui /usr/bin/systemctl-tui
-end
 
 if ! type -q zoxide
     curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
