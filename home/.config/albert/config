@@ -6,6 +6,15 @@ telemetry=false
 [applications]
 enabled=true
 
+[caffeine]
+enabled=false
+
+[clipboard]
+enabled=false
+
+[files]
+enabled=true
+
 [system]
 command_logout=qdbus org.kde.Shutdown /Shutdown logout
 command_poweroff=shutdown now
@@ -16,6 +25,9 @@ lock_enabled=false
 suspend_enabled=false
 title_poweroff=Shut down
 title_reboot=Restart
+
+[websearch]
+enabled=true
 
 [widgetsboxmodel]
 alwaysOnTop=true
