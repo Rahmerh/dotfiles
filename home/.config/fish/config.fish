@@ -41,30 +41,78 @@ function dot-add
 
     for arg in $argv
         if not string match -q -- "--*" $arg
-            set full_path (realpath $arg)
+            set full_path "$(pwd -P)/$arg"
             break
         end
     end
 
-    if not test -e $full_path
-        echo "Error: '$full_path' does not exist."
+    if not test -d "$full_path"
+        echo "Error: $full_path is not a valid directory."
         return 1
     end
 
     set rel_path (string replace -- "$HOME/" "" $full_path)
     set target_path "$HOME/dotfiles/home/$rel_path"
 
-    echo ""
     echo "Source: $full_path"
     echo "Target: $target_path"
-    echo ""
 
     if test $dry_run -eq 1
-        echo "[DRY RUN] Would move: $full_path → $target_path"
+        echo "[DRY RUN] mv $full_path $target_path"
+        echo "[DRY RUN] stow -d ~/dotfiles -t ~ home"
     else
         mkdir -p (dirname $target_path)
         mv $full_path $target_path
         stow -d ~/dotfiles -t ~ home
+    end
+end
+
+function dot-remove
+    if test (count $argv) -lt 1
+        echo "Usage: dot-remove <path> [--dry-run]"
+        return 1
+    end
+
+    set dry_run 0
+    for arg in $argv
+        if test $arg = "--dry-run"
+            set dry_run 1
+        end
+    end
+
+    for arg in $argv
+        if not string match -q -- "--*" $arg
+            set full_path "$(pwd -P)/$arg"
+            break
+        end
+    end
+
+    if not test -d "$full_path"
+        echo "Error: $full_path is not a valid directory."
+        return 1
+    end
+
+    set rel_path (string replace -- "$HOME/" "" $full_path)
+    set dotfile_path "$HOME/dotfiles/home/$rel_path"
+
+    if not test -d "$dotfile_path"
+        echo "Error: $dotfile_path is not a valid directory."
+        return 1
+    end
+
+    echo "Unlinking: $full_path"
+    echo "Restoring: $dotfile_path → $full_path"
+    echo "Deleting from dotfiles: $dotfile_path"
+
+    if test $dry_run -eq 1
+        echo "[DRY RUN] stow -D -d ~/dotfiles -t ~ home"
+        echo "[DRY RUN] cp -r $dotfile_path $full_path"
+        echo "[DRY RUN] rm -rf $dotfile_path"
+    else
+        stow -D -d ~/dotfiles -t ~ home
+        mkdir -p (dirname $full_path)
+        cp -r $dotfile_path $full_path
+        rm -rf $dotfile_path
     end
 end
 
