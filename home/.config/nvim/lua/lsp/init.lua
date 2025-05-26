@@ -1,5 +1,5 @@
 require("lsp.autopairs")
-require("lsp.mason")
+require("lsp.servers")
 require("lsp.cmp")
 require("lsp.dap")
 require("lsp.snippets")
