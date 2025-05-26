@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Exec=caffeine
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=Caffeine
+Comment=Prevents the system from sleeping
