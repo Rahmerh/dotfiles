@@ -25,4 +25,6 @@ end
 
 sudo /tmp/sddm-theme/install.sh current &> /dev/null
 
+sudo cp /usr/share/sddm/themes/where_is_my_sddm_theme/example_configs/grey.conf /usr/share/sddm/themes/where_is_my_sddm_theme/theme.conf
+
 print_success "Done"
