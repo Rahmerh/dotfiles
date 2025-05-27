@@ -29,7 +29,7 @@ yay --needed -S \
     albert \
     ripgrep \
     zsa-keymapp-bin \
-    ttf-jetbrains-mono \
+    ttf-jetbrains-mono-nerd \
     gamemode \
     jq \
     stow \
