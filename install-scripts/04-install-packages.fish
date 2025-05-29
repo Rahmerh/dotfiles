@@ -35,6 +35,7 @@ yay --needed -S \
     stow \
     neofetch \
     qt5-tools \
+    fish-lsp \
     --noconfirm
 
 print_info "Configuring and install misc tools"

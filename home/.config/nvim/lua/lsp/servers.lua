@@ -18,9 +18,7 @@ require("mason-tool-installer").setup({
     ensure_installed = {
         -- LSPs
         "lua-language-server",
-        "bash-language-server",
         "omnisharp",
-        "dockerfile-language-server",
         "jdtls",
         "lemminx",
         -- DAP

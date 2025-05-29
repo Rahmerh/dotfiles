@@ -1,6 +1,6 @@
 [General]
 hotkey=Meta+Space
-showTray=false
+showTray=true
 telemetry=false
 
 [applications]
