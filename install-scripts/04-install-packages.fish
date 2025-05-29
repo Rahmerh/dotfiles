@@ -36,6 +36,8 @@ yay --needed -S \
     neofetch \
     qt5-tools \
     fish-lsp \
+    discord \
+    polybar \
     --noconfirm
 
 print_info "Configuring and install misc tools"
