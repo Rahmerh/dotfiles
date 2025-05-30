@@ -37,7 +37,7 @@ yay --needed -S \
     qt5-tools \
     fish-lsp \
     discord \
-    polybar \
+    waybar \
     --noconfirm
 
 print_info "Configuring and install misc tools"
