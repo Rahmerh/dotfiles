@@ -48,34 +48,11 @@ cp -r /tmp/firefox-theme/chrome .
 
 print_success "Done"
 
-print_info "Setting wallpaper"
+print_info "Creating wallpaper"
 
-set expected "file://$HOME/Pictures/solid_wallpaper.png"
-set statefile "$HOME/.cache/current_wallpaper.txt"
-
-if test -e $statefile
-    set current (cat $statefile)
-else
-    set current ""
-end
-
-if test "$current" != "$expected"
-    magick -size 1x1 canvas:"#2c2c2c" "$HOME/Pictures/solid_wallpaper.png"
-
-    qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "
-    var allDesktops = desktops();
-    for (var i = 0; i < allDesktops.length; i++) {
-        var d = allDesktops[i];
-        d.wallpaperPlugin = 'org.kde.image';
-        d.currentConfigGroup = ['Wallpaper', 'org.kde.image', 'General'];
-        d.writeConfig('Image', 'file://$HOME/Pictures/solid_wallpaper.png');
-    }" &> /dev/null
-
-    kquitapp5 plasmashell
-    sleep 1
-    kstart5 plasmashell
-
-    echo $expected > $statefile
+set expected "$HOME/Pictures/solid_wallpaper.png"
+if ! test -e $expected
+    magick -size 5120x1440 canvas:"#2c2c2c" "$expected"
 end
 
 print_success "Done"
