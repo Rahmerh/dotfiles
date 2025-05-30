@@ -17,7 +17,7 @@ enabled=true
 paths=@Invalid()
 
 [system]
-command_logout=loginctl terminate-user $(whoami)
+command_logout=hyprctl dispatch exit
 command_poweroff=shutdown now
 command_reboot=shutdown -r now
 enabled=true
