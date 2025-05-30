@@ -40,6 +40,8 @@ yay --needed -S \
     hyprpaper \
     xdg-desktop-portal-hyprland \
     wl-clipboard \
+    grim \
+    slurp \
     --noconfirm
 
 print_info "Configuring and install misc tools"
