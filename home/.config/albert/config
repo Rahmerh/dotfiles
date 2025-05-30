@@ -17,7 +17,7 @@ enabled=true
 paths=@Invalid()
 
 [system]
-command_logout=qdbus org.kde.Shutdown /Shutdown logout
+command_logout=loginctl terminate-user $(whoami)
 command_poweroff=shutdown now
 command_reboot=shutdown -r now
 enabled=true
@@ -33,12 +33,14 @@ enabled=true
 [widgetsboxmodel]
 alwaysOnTop=true
 clearOnHide=false
-clientShadow=true
+clientShadow=false
+darkTheme=Default Dark
 displayScrollbar=false
 followCursor=true
 hideOnFocusLoss=true
 historySearch=true
 itemCount=5
+lightTheme=Default Dark
 quitOnClose=false
 showCentered=true
-systemShadow=true
+systemShadow=false

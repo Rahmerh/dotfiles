@@ -14,20 +14,20 @@
 #memory{
   background-color: rgba(68, 68, 68, 0.53);
   border-radius: 4px 0px 0px 4px;
-  margin: 6px 0px 6px 6px;
+  margin: 6px 0px 0px 6px;
   padding: 7px;
 }
 
 #cpu{
   background-color: rgba(68, 68, 68, 0.53);
   border-radius: 0px;
-  margin: 6px 0px 6px 0px;
+  margin: 6px 0px 0px 0px;
   padding: 7px;
 }
 
 #pulseaudio{
   background-color: rgba(68, 68, 68, 0.53);
-  margin: 6px 6px 6px 0px;
+  margin: 6px 6px 0px 0px;
   padding: 7px 20px 7px 7px;
   border-radius: 0px 4px 4px 0px;
 }
@@ -36,13 +36,13 @@
 #tray{
   background-color: rgba(68, 68, 68, 0.53);
   padding: 7px;
-  margin: 6px 0px 6px 6px;
+  margin: 6px 0px 0px 6px;
   border-radius: 4px 0px 0px 4px;
 }
 
 #clock{
   background-color: rgba(68, 68, 68, 0.53);
-  margin: 6px 6px 6px 0px;
+  margin: 6px 6px 0px 0px;
   padding: 7px;
   border-radius: 0px 4px 4px 0px;
 }

@@ -7,8 +7,6 @@ if ! type -q yay
     bash -c 'rm -rf /tmp/yay ; mkdir -p /tmp/yay ; cd /tmp/yay ; wget https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz ; tar zxvf yay.tar.gz ; cd yay ; makepkg --syncdeps --rmdeps --install --noconfirm'
 end
 
-yay -Syu --noconfirm
-
 yay --needed -S \
     neovim \
     fish \
@@ -41,6 +39,7 @@ yay --needed -S \
     hyprland \
     hyprpaper \
     xdg-desktop-portal-hyprland \
+    wl-clipboard \
     --noconfirm
 
 print_info "Configuring and install misc tools"

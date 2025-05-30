@@ -2,9 +2,7 @@
 source install-scripts/library/print-utils.fish
 
 print_info "Copying all configuration files to correct folders"
-
-sudo rsync -a "$PWD/etc/" "/etc"
-
+# Copy other configuration files manually
 print_success "Done"
 
 print_info "Stow dotfiles"

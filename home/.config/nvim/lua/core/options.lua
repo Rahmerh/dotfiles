@@ -45,3 +45,16 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.floaterm_opener = "edit"
 vim.g.floaterm_height = 0.9
 vim.g.floaterm_width = 0.9
+
+vim.g.clipboard = {
+    name = 'wl-clipboard',
+    copy = {
+        ['+'] = 'wl-copy',
+        ['*'] = 'wl-copy',
+    },
+    paste = {
+        ['+'] = 'wl-paste',
+        ['*'] = 'wl-paste',
+    },
+    cache_enabled = 0,
+}
