@@ -8,12 +8,10 @@
     "cpu",
     "pulseaudio"
   ],
-  // "modules-middle": [
-  // ],
+  "modules-center": ["wlr/taskbar"],
   "modules-right": [
     "tray",
-    "clock",
-    "wlr/taskbar"
+    "clock"
   ],
   "pulseaudio": {
     "format": "  {icon}",
@@ -44,6 +42,10 @@
     "spacing": 6
   },
   "wlr/taskbar": {
-    "format": "{icon}"
+    "format": "{icon}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "tooltip": true,
+    "max-length": 30
   }
 }

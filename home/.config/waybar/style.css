@@ -32,6 +32,14 @@
   border-radius: 0px 4px 4px 0px;
 }
 
+/* Center modules, in order */
+#taskbar{
+  background-color: rgba(68, 68, 68, 0.53);
+  padding: 7px;
+  margin: 6px;
+  border-radius: 4px;
+}
+
 /* Right modules, in order */
 #tray{
   background-color: rgba(68, 68, 68, 0.53);
