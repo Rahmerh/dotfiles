@@ -38,6 +38,9 @@ yay --needed -S \
     fish-lsp \
     discord \
     waybar \
+    hyprland \
+    hyprpaper \
+    xdg-desktop-portal-hyprland \
     --noconfirm
 
 print_info "Configuring and install misc tools"
