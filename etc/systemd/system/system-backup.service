@@ -1,9 +1,0 @@
-[Unit]
-Description=System backup service
-
-[Service]
-Type=simple
-ExecStart=/home/bas/.local/bin/system-backup
-
-[Install]
-WantedBy=multi-user.target
