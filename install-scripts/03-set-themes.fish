@@ -27,24 +27,18 @@ sudo /tmp/sddm-theme/install.sh current &> /dev/null
 
 print_success "Done"
 
-print_info "Setting firefox theme"
+print_info "Setting qutebrowser theme"
 
-if ! test -d /tmp/firefox-theme 
-    git clone git@github.com:cascadefox/cascade.git /tmp/firefox-theme &> /dev/null
+if ! test -d ~/dotfiles/home/.config/qutebrowser/themes 
+    mkdir ~/dotfiles/home/.config/qutebrowser/themes
+end
+
+if ! test -d ~/dotfiles/home/.config/qutebrowser/themes/qute-city-lights 
+    git clone https://github.com/gicrisf/qute-city-lights.git ~/dotfiles/home/.config/qutebrowser/themes/qute-city-lights &> /dev/null
 else
-    cd /tmp/firefox-theme
+    cd ~/dotfiles/home/.config/qutebrowser/themes/qute-city-lights
     git pull &> /dev/null
 end
-
-cd ~/.mozilla/firefox/*.default-release
-
-set legacyStyleSheets $(cat prefs.js | grep legacy)
-
-if ! test -n "$legacyStyleSheets"
-    echo "user_pref(\"toolkit.legacyUserProfileCustomizations.stylesheets\", true);" >> prefs.js
-end
-
-cp -r /tmp/firefox-theme/chrome .
 
 print_success "Done"
 
