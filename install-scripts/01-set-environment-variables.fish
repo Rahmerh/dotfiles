@@ -9,7 +9,7 @@ set -Ux VISUAL nvim
 set -Ux EDITOR nvim
 set -Ux XCURSOR_THEME phinger-cursors
 set -Ux STEAM_FRAME_FORCE_CLOSE 1
-set -Ux DXVK_CONFIG_FILE ~/.config/dxvk.conf
+set -Ux BORG_REMOTE_PATH /usr/local/bin/borg
 
 set -gx QT_QPA_PLATFORMTHEME qt5ct
 set -gx QT_STYLE_OVERRIDE qt5ct
