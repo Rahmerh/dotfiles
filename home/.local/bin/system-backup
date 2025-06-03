@@ -1,3 +1,17 @@
 #!/bin/bash
 
-sudo rsync -a --delete --progress --info=progress2 -e "ssh -i /home/bas/.ssh/id_ed25519" --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found","/swapfile","/home/*/.thumbnails/*","/home/*/.cache/*"} / bas@192.168.178.81:/volume1/backups/bas/home-pc
+sudo borg create \
+  --verbose \
+  --stats \
+  --compression zstd,5 \
+  'ssh://bas@192.168.178.81/volume1/backups/bas/home-pc/borgrepo::backup-$(hostname)-$(date +%Y-%m-%d_%H-%M)' \
+  --exclude-caches \
+  --exclude '/dev/*' \
+  --exclude '/proc/*' \
+  --exclude '/sys/*' \
+  --exclude '/tmp/*' \
+  --exclude '/run/*' \
+  --exclude '/mnt/*' \
+  --exclude '/media/*' \
+  --exclude '/lost+found' \
+  /
