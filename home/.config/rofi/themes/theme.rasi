@@ -1,0 +1,33 @@
+* {
+  background: #1e1e2e;
+  foreground: #cdd6f4;
+}
+
+window {
+  padding: 15px;
+  border-radius: 6px;
+  background-color: @background;
+}
+
+mainbox {
+  spacing: 10px;
+}
+
+inputbar {
+  padding: 6px 10px;
+  border-radius: 10px;
+  color: @foreground;
+  margin: 8px 0px;
+}
+
+element {
+  padding: 6px;
+  border-radius: 8px;
+  background-color: transparent;
+}
+
+element selected {
+  // background-color: @sel;
+  // color: @sel_fg;
+}
+
