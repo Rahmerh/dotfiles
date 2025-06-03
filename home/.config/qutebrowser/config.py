@@ -1,3 +1,9 @@
+config.load_autoconfig(False)
+
+# Keybinds
+config.bind('<Ctrl-y>', 'spawn --userscript qute-pass')
+
+# Theme settings
 config.set("colors.webpage.darkmode.enabled", True)
 config.set("colors.webpage.darkmode.policy.images", "smart")
 config.set("colors.webpage.darkmode.policy.page", "smart")
