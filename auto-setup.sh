@@ -21,4 +21,5 @@ fi
 
 git clone https://github.com/Rahmerh/dotfiles.git ~/dotfiles
 
+printf "Run the following commands once to finish setup: \n git config user.name \"Your name\" \n git config user.email \"Your email\""
 printf "Dotfiles cloned into: \"~/dotfiles\", please run the 'apply.fish' script to apply all changes from this repo."
