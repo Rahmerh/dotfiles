@@ -20,7 +20,7 @@ yay --needed -S \
     pulsemixer \
     steam \
     ranger \
-    qutebrowser \
+    librewolf \
     albert \
     ripgrep \
     zsa-keymapp-bin \
@@ -43,6 +43,7 @@ yay --needed -S \
     systemctl-tui \
     pass \
     gnupg \
+    passff-host \
     --noconfirm
 
 print_info "Configuring and install misc tools"

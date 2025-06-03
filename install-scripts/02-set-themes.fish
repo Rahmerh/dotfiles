@@ -27,18 +27,18 @@ sudo /tmp/sddm-theme/install.sh current &> /dev/null
 
 print_success "Done"
 
-print_info "Setting qutebrowser theme"
+print_info "Setting librewolf theme"
 
-if ! test -d ~/dotfiles/home/.config/qutebrowser/themes 
-    mkdir ~/dotfiles/home/.config/qutebrowser/themes
-end
-
-if ! test -d ~/dotfiles/home/.config/qutebrowser/themes/qute-city-lights 
-    git clone https://github.com/gicrisf/qute-city-lights.git ~/dotfiles/home/.config/qutebrowser/themes/qute-city-lights &> /dev/null
+if ! test -d /tmp/librewolf-theme 
+    git clone git@github.com:cascadefox/cascade.git /tmp/librewolf-theme &> /dev/null
 else
-    cd ~/dotfiles/home/.config/qutebrowser/themes/qute-city-lights
+    cd /tmp/librewolf-theme/
     git pull &> /dev/null
 end
+
+cd ~/.librewolf/*.default-default
+
+cp -r /tmp/librewolf-theme/chrome .
 
 print_success "Done"
 
