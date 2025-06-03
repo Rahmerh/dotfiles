@@ -10,3 +10,7 @@ home/.config/fish/fish_plugins
 home/.config/nvim/plugin/packer_compiled.lua
 
 config-backups/
+
+home/.config/qutebrowser/quickmarks
+home/.config/qutebrowser/bookmarks/urls
+home/.config/qutebrowser/themes
