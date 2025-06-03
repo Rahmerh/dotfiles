@@ -35,7 +35,7 @@
   "clock": {
     "interval": 1,
     "timezone": "Europe/Amsterdam",
-    "format": "  {:%H:%M} "
+    "format": " \uf073 {:%d-%m-%Y    %H:%M} "
   },
   "tray": {
     "icon-size": 20,
