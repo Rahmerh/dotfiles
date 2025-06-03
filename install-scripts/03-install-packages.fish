@@ -45,6 +45,7 @@ yay --needed -S \
     gnupg \
     passff-host \
     audiorelay \
+    rofi \
     --noconfirm
 
 # Needed for surf
