@@ -6,6 +6,7 @@ alias clip="xclip -selection clipboard"
 alias reload="source ~/.config/fish/config.fish"
 alias sst="sudo systemctl-tui"
 alias lg="lazygit"
+alias surf='env GDK_BACKEND=x11 WEBKIT_DISABLE_COMPOSITING_MODE=1 surf'
 
 fish_add_path /home/bas/.local/bin
 

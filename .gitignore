@@ -15,3 +15,5 @@ home/.config/qutebrowser/quickmarks
 home/.config/qutebrowser/bookmarks/urls
 home/.config/qutebrowser/themes
 home/.config/qutebrowser/autoconfig.yml
+
+install-scripts/00-*.fish
