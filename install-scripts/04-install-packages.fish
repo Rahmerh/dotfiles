@@ -7,23 +7,20 @@ if ! type -q yay
     bash -c 'rm -rf /tmp/yay ; mkdir -p /tmp/yay ; cd /tmp/yay ; wget https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz ; tar zxvf yay.tar.gz ; cd yay ; makepkg --syncdeps --rmdeps --install --noconfirm'
 end
 
+yay -S --repo=extra python-markupsafe --noconfirm
+
 yay --needed -S \
     neovim \
     fish \
     kitty \
     lsd \
     bat \
-    xclip \
-    mc \
     firewalld \
-    solaar \
     lazygit \
     pulsemixer \
     steam \
     ranger \
-    ueberzug \
-    firefox \
-    dmenu \
+    qutebrowser \
     albert \
     ripgrep \
     zsa-keymapp-bin \
@@ -42,6 +39,10 @@ yay --needed -S \
     wl-clipboard \
     grim \
     slurp \
+    borg \
+    systemctl-tui \
+    pass \
+    gnupg \
     --noconfirm
 
 print_info "Configuring and install misc tools"
