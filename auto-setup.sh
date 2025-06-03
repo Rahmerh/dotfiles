@@ -8,7 +8,7 @@ printf "Installing fish.\n"
 
 if ! command -v fish &> /dev/null
 then
-    pacman -S fish
+    pacman -S fish gum
 else 
     printf "Fish already installed.\n"
 fi
