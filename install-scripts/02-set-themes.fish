@@ -44,10 +44,11 @@ print_success "Done"
 
 print_info "Creating wallpaper"
 
-set expected "$HOME/Pictures/solid_wallpaper.png"
-if ! test -e $expected
-    magick -size 5120x1440 canvas:"#2c2c2c" "$expected"
-end
+convert -size 5120x1440 xc:'#2C2C2C' -fill '#E85A98' -draw "
+    polygon 0,0 300,0 700,1440 400,1440
+    polygon 400,0 550,0 950,1440 800,1440
+    polygon 650,0 800,0 1200,1440 1050,1440
+    " wallpaper.png
 
 print_success "Done"
 
