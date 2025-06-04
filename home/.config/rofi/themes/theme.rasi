@@ -1,33 +1,38 @@
 * {
-  background: #1e1e2e;
-  foreground: #cdd6f4;
+	base00: #263238;
+	base01: #2E3C43;
+	base02: #314549;
+	base03: #546E7A;
+	base04: #B2CCD6;
+	base05: #EEFFFF;
+	base06: #EEFFFF;
+	base07: #FFFFFF;
+	base08: #F07178;
+	base09: #F78C6C;
+	base0A: #FFCB6B;
+	base0B: #C3E88D;
+	base0C: #89DDFF;
+	base0D: #82AAFF;
+	base0E: #C792EA;
+	base0F: #FF5370;
+
+	spacing: 0;
+	background-color: transparent;
 }
 
+
+
+
+
 window {
-  padding: 15px;
-  border-radius: 6px;
-  background-color: @background;
+    transparency: "real";
+    background-color: #2C2C2C;
+    border-radius: 10px;
 }
 
 mainbox {
-  spacing: 10px;
+    spacing: 30px;
+    padding: 30px 0;
+    border: 1px;
+    border-radius: 10px;
 }
-
-inputbar {
-  padding: 6px 10px;
-  border-radius: 10px;
-  color: @foreground;
-  margin: 8px 0px;
-}
-
-element {
-  padding: 6px;
-  border-radius: 8px;
-  background-color: transparent;
-}
-
-element selected {
-  // background-color: @sel;
-  // color: @sel_fg;
-}
-

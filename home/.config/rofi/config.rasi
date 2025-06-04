@@ -1,6 +1,7 @@
 configuration {
-    font: "JetBrainsMono Nerd Font 12";
-    show-icons: false;
-    display-run: ">";
-    modi: "run";
+    font: "Inter 12";
 }
+@import "themes/theme.rasi"
+@theme "theme"
+
+// @theme "/usr/share/rofi/themes/material.rasi"
