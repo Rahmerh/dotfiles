@@ -25,6 +25,7 @@ yay --needed -S \
     ripgrep \
     zsa-keymapp-bin \
     ttf-jetbrains-mono-nerd \
+    ttf-inter \
     gamemode \
     jq \
     stow \
@@ -35,6 +36,7 @@ yay --needed -S \
     waybar \
     hyprland \
     hyprpaper \
+    hyprpicker \
     xdg-desktop-portal-hyprland \
     wl-clipboard \
     grim \
@@ -48,15 +50,6 @@ yay --needed -S \
     rofi \
     --noconfirm
 
-# Needed for surf
-yay --needed -S \
-    gst-plugins-base \
-    gst-plugins-good \
-    gst-plugins-bad \
-    gst-plugins-ugly \
-    gst-libav \
-    --noconfirm
-
 print_info "Configuring and install misc tools"
 
 if ! type -q zoxide
@@ -65,31 +58,6 @@ end
 
 if ! type -q mcfly
     sudo bash -c 'curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sh -s -- --git cantino/mcfly'
-end
-
-if ! type -q surf
-    set build_dir ~/builds/surf
-
-    git clone https://git.suckless.org/surf $build_dir
-    cd "$build_dir"
-
-    print_info "What's the git remote of your fork?"
-    set git_fork (gum input --placeholder "git@github.com:replace/this.git")
-
-    git remote rename origin upstream
-    git remote add origin $git_fork
-    git push --mirror origin
-
-    # Lock to the known-good commit for patch compatibility
-    git checkout 5f940292
-
-    sudo make clean install > /tmp/surf_build.log 2>&1
-
-    if test $status -ne 0
-        print_error "Build failed. See /tmp/surf_build.log for details."
-        less /tmp/surf_build.log
-        exit 1
-    end
 end
 
 print_success "Done"

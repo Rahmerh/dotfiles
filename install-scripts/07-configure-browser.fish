@@ -22,17 +22,3 @@ set_pref "browser.sessionstore.resume_from_crash" false
 set_pref "toolkit.legacyUserProfileCustomizations.stylesheets" true
 
 print_success "Done"
-
-print_info "Configuring surf"
-
-set blocklist_url "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt"
-set target_file ~/.config/surf/adblock
-
-mkdir -p ~/.config/surf
-
-# curl -s $blocklist_url | \
-#     grep -Eo "^\|\|[^\/^\*]*" | \
-#     sed 's/||//' | \
-#     sort -u > $target_file
-
-print_success "Done"
