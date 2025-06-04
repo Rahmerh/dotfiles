@@ -117,3 +117,12 @@ function dot-remove
     end
 end
 
+function list-manpages
+    if test (count $argv) -eq 0
+        echo "Usage: manpages <package_name>"
+        return 1
+    end
+    pacman -Ql $argv[1] | awk '{ print $2 }' | grep '/man[1-9]/.*\.[0-9]\(\.gz\)\?$' | while read -l file
+        echo (basename $file | sed -E 's/\.[0-9](\.gz)?$//')
+    end | sort
+end
