@@ -76,7 +76,7 @@ vim.keymap.set("n", "<C-\\>", "<cmd>FloatermToggle<cr>", options)
 vim.keymap.set("t", "<C-\\>", "<C-\\><C-n><cmd>FloatermToggle<cr>", options)
 
 vim.keymap.set("n", "<C-/>", "<cmd>FloatermNew lazygit<cr>", options)
-vim.keymap.set("n", "<leader>e", "<cmd>FloatermNew ranger<cr>", options)
+vim.keymap.set("n", "<leader>e", "<cmd>FloatermNew yazi<cr>", options)
 
 -- Fuzzy search
 vim.keymap.set("n", "<leader>f", "<cmd>Telescope find_files<cr>", options)
@@ -104,7 +104,3 @@ vim.keymap.set("n", "<C-b>", "<cmd>PBToggleBreakpoint<cr>", options)
 vim.keymap.set("n", "td", "<cmd>lua require'jdtls'.test_nearest_method()<cr>", options)
 vim.keymap.set("n", "tc", "<cmd>lua require'jdtls'.test_class()<cr>", options)
 vim.keymap.set("n", "dt", "<cmd>DapToggleRepl<cr>", options)
-
--- Distant keymaps
-vim.keymap.set("n", "dcn", "<cmd>DistantConnect ssh://NAS<cr>", options)
-vim.keymap.set("n", "don", "<cmd>DistantOpen /docker<cr>", options)

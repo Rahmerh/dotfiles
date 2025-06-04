@@ -18,4 +18,6 @@ home/.config/qutebrowser/autoconfig.yml
 
 home/.config/rofi/config-dump
 
+home/.config/yazi/flavors
+
 install-scripts/00-*.fish

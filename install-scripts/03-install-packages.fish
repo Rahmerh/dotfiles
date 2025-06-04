@@ -19,7 +19,7 @@ yay --needed -S \
     lazygit \
     pulsemixer \
     steam \
-    lf \
+    yazi \
     librewolf \
     ripgrep \
     zsa-keymapp-bin \
