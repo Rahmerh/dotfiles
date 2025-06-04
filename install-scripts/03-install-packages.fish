@@ -21,7 +21,6 @@ yay --needed -S \
     steam \
     ranger \
     librewolf \
-    albert \
     ripgrep \
     zsa-keymapp-bin \
     ttf-jetbrains-mono-nerd \

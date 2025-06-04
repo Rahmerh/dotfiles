@@ -16,4 +16,6 @@ home/.config/qutebrowser/bookmarks/urls
 home/.config/qutebrowser/themes
 home/.config/qutebrowser/autoconfig.yml
 
+home/.config/rofi/config-dump
+
 install-scripts/00-*.fish
