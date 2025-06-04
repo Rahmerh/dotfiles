@@ -23,18 +23,12 @@ if test -z "$rules"
     sudo ufw reload 2>/dev/null
 end
 
-set sink_exists (pactl list short sinks | grep -c audiorelay-out)
-
-if test $sink_exists -eq 0
-    print_info "Creating audio sink"
-    pactl load-module module-null-sink sink_name=audiorelay-out sink_properties=device.description=AudioRelay-Virtual-Speaker
-end
-
 set prefs_path ~/.java/.userPrefs/com/azefsw/audioconnect/prefs.xml
 
 print_info "Apply default settings"
 
 sed -i 's|<entry key="device_capture_id" value="[^"]*"|<entry key="device_capture_id" value="AudioRelay-Virtual-Speaker"|' $prefs_path
+sed -i 's|<entry key="device_render_id" value="[^"]*"|<entry key="device_render_id" value="AudioRelay-Virtual-Mic"|' $prefs_path
 sed -i 's|<entry key="dark_mode" value="[^"]*"|<entry key="dark_mode" value="true"|' $prefs_path
 
 print_success "Done"
