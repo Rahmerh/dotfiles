@@ -11,14 +11,14 @@
 }
 
 /* Left modules, in order */
-#memory{
+#cpu{
   background-color: rgba(68, 68, 68, 0.53);
-  border-radius: 4px 0px 0px 4px;
+  border-radius: 4px 0px 0px 0px;
   margin: 6px 0px 0px 6px;
   padding: 7px;
 }
 
-#cpu{
+#memory{
   background-color: rgba(68, 68, 68, 0.53);
   border-radius: 0px;
   margin: 6px 0px 0px 0px;
@@ -31,6 +31,7 @@
   padding: 7px 20px 7px 7px;
   border-radius: 0px 4px 4px 0px;
 }
+
 
 /* Center modules, in order */
 #taskbar{
