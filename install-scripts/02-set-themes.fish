@@ -44,11 +44,14 @@ print_success "Done"
 
 print_info "Creating wallpaper"
 
-convert -size 5120x1440 xc:'#2C2C2C' -fill '#E85A98' -draw "
-    polygon 0,0 300,0 700,1440 400,1440
-    polygon 400,0 550,0 950,1440 800,1440
-    polygon 650,0 800,0 1200,1440 1050,1440
-    " wallpaper.png
+magick -size 5120x1440 xc:'#2C2C2C' -fill '#E85A98' -draw "
+    polygon 0,0 200,0 500,1440 300,1440
+    polygon 300,0 400,0 700,1440 600,1440
+    polygon 500,0 600,0 900,1440 800,1440
+    " ~/Pictures/wallpaper.png
+
+pkill hyprpaper
+hyprctl dispatch exec hyprpaper
 
 print_success "Done"
 
