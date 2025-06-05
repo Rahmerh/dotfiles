@@ -11,9 +11,40 @@ fish_add_path /home/bas/.local/bin
 # Disable greeting message
 set fish_greeting
 
-# Configure hydro prompt
-set --global fish_prompt_pwd_dir_length 4
-set --global hydro_fetch true
+function fish_prompt
+    set -l last_status $status
+    set -l branch (command git rev-parse --abbrev-ref HEAD 2>/dev/null)
+
+    echo -n (string replace $HOME '~' (pwd))
+
+    if test -n "$branch"
+        set -l dirty (command git status --porcelain | wc -l)
+        set -l unpushed (command git rev-list --count @{u}..HEAD)
+        
+        echo -n ' ❘ '
+
+        if test $dirty -gt 0
+            set_color red
+        end
+
+        echo -n $branch
+        set_color normal
+
+        if test $unpushed -gt 0
+            echo -n " $unpushed↑"
+        end
+    end
+
+    if test $last_status -ne 0
+        set_color red
+        echo -n " [$last_status]"
+        set_color normal
+    end
+
+    set_color --bold '#E85A98'
+    echo -n ' ❱ '
+    set_color normal
+end
 
 # Source mcfly
 mcfly init fish | source
