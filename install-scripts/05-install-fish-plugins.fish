@@ -10,21 +10,3 @@ else
 end
 
 print_success "Done"
-
-print_info "Installing fisher plugins"
-
-print_info "Hydro prompt"
-if ! test -e ~/.config/fish/conf.d/hydro.fish
-    fisher install jorgebucaran/hydro &> /dev/null
-else
-    fisher update jorgebucaran/hydro &> /dev/null
-end
-
-print_info "Done notification"
-if ! test -e ~/.config/fish/conf.d/done.fish
-    fisher install franciscolourenco/done &> /dev/null
-else
-    fisher update franciscolourenco/done &> /dev/null
-end
-
-print_success "Done"
