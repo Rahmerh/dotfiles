@@ -14,13 +14,9 @@ set fish_greeting
 function fish_prompt
     set -l last_status $status
     set -l branch (command git rev-parse --abbrev-ref HEAD 2>/dev/null)
-
-
-    # Path: just ~ (home) or full pwd if outside home
     set -l path (string replace $HOME '~' (pwd))
 
     echo -n "$path"
-
     if test -n "$branch"
         set -l dirty (command git status --porcelain | wc -l)
         set -l unpushed (command git rev-list --count @{u}..HEAD)
@@ -59,6 +55,7 @@ set -gx PATH "$HOME/.cargo/bin" $PATH;
 # Source zoxide
 zoxide init fish | source
 
+# Custom functions
 function dot-add
     if test (count $argv) -lt 1
         echo "Usage: dot-add <path> [--dry-run]"
@@ -157,4 +154,58 @@ function list-manpages
     pacman -Ql $argv[1] | awk '{ print $2 }' | grep '/man[1-9]/.*\.[0-9]\(\.gz\)\?$' | while read -l file
         echo (basename $file | sed -E 's/\.[0-9](\.gz)?$//')
     end | sort
+end
+
+function why
+    set -l code $status
+
+    if test $code -eq 0 
+        echo "Why what? Nothing went wrong."
+        return 0
+    end
+
+    set_color red
+    echo -n "$code"
+    set_color normal
+
+    switch $code
+        case 1
+            echo " – general error (e.g. test failed)"
+        case 2
+            echo " – misuse of shell builtins"
+        case 126
+            echo " – permission denied or not executable"
+        case 127
+            echo " – command not found"
+        case 128
+            echo " – invalid exit value or repo error"
+        case 130
+            echo " – terminated by Ctrl-C (SIGINT)"
+        case 139
+            echo " – segmentation fault"
+        case '*'
+            if test $code -gt 128
+                set -l signal (math $code - 128)
+                switch $signal
+                    case 9
+                        echo " – killed (SIGKILL)"
+                    case 15
+                        echo " – terminated (SIGTERM)"
+                    case '*'
+                        echo " – exited via signal $signal"
+                end
+            else
+                echo " – unknown or uncommon error"
+            end
+    end
+
+    set -l last_cmd (history --max=1 | string trim | string replace -ra '^"|"$' '')
+    set -l max_len 50
+    if test (string length -- $last_cmd) -gt $max_len
+        set shown_cmd (string sub -l $max_len $last_cmd)'... [truncated]'
+    else
+        set shown_cmd $last_cmd
+    end
+
+    echo "↳ \"$shown_cmd\""
 end
