@@ -15,33 +15,36 @@ function fish_prompt
     set -l last_status $status
     set -l branch (command git rev-parse --abbrev-ref HEAD 2>/dev/null)
 
-    echo -n (string replace $HOME '~' (pwd))
+
+    # Path: just ~ (home) or full pwd if outside home
+    set -l path (string replace $HOME '~' (pwd))
+
+    echo -n "$path"
 
     if test -n "$branch"
         set -l dirty (command git status --porcelain | wc -l)
         set -l unpushed (command git rev-list --count @{u}..HEAD)
-        
-        echo -n ' ❘ '
 
         if test $dirty -gt 0
             set_color red
         end
 
-        echo -n $branch
+        echo -n " $branch"
         set_color normal
 
-        if test $unpushed -gt 0
-            echo -n " $unpushed↑"
+        if test $unpushed -gt 1
+            echo -n "↑$unpushed"
+        else if test $unpushed -eq 1
+            echo -n '↑'
         end
     end
 
     if test $last_status -ne 0
         set_color red
-        echo -n " [$last_status]"
-        set_color normal
+    else
+        set_color --bold '#E85A98'
     end
 
-    set_color --bold '#E85A98'
     echo -n ' ❱ '
     set_color normal
 end
