@@ -1,0 +1,18 @@
+# Optiosn
+set hidden
+set shell /usr/bin/fish
+
+# Commands
+cmd open ${{
+    if [ -d "$f" ]; then
+        cd "$f"
+    else
+        $EDITOR "$f"
+    fi
+}}
+
+map d delete
+
+# Keymaps
+map l open
+map <enter> open
