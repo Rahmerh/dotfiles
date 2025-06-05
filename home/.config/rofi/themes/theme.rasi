@@ -3,7 +3,7 @@
     foreground: #2D2E3066;
 	spacing: 0;
 	background-color: transparent;
-    text-color: white;
+    text-color: #FFFFFF;
 }
 
 window {
@@ -20,18 +20,13 @@ mainbox {
 }
 
 entry {
-  text-color: #FFFFFF;
   padding: 0 0 10px 0;
-}
-
-element {
-  text-color: #FFFFFF;
 }
 
 element selected {
   text-color: #1A1A40;  // Dark text for contrast on selection
   background-color: #FF61A6;
-  border-radius: 6px;
+  border-radius: 3px;
 }
 
 prompt {
