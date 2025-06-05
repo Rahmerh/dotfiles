@@ -63,5 +63,6 @@ install_extension "ghostery"
 install_extension "sponsorblock"
 install_extension "darkreader"
 install_extension "passff"
+install_extension "adaptive-tab-bar-colour"
 
 print_success "Done"
