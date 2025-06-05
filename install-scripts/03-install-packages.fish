@@ -36,7 +36,7 @@ yay --needed -S \
     hyprland \
     hyprpaper \
     hyprpicker \
-    dunst \
+    mako \
     xdg-desktop-portal-hyprland \
     wl-clipboard \
     grim \
@@ -48,6 +48,7 @@ yay --needed -S \
     passff-host \
     audiorelay \
     rofi \
+    tealdeer \
     --noconfirm
 
 print_info "Configuring and install misc tools"

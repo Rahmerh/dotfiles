@@ -7,3 +7,6 @@ hyprctl dispatch exec hyprpaper
 
 pkill waybar
 hyprctl dispatch exec waybar
+
+pkill mako
+hyprctl dispatch exec mako
