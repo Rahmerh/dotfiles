@@ -1,14 +1,21 @@
 # Optiosn
 set hidden
 set shell /usr/bin/fish
+set previewer ~/.config/lf/preview.sh
+set cleaner ~/.config/lf/clean.sh
 
 # Commands
 cmd open ${{
-    if [ -d "$f" ]; then
+    if test -d "$f"
         cd "$f"
     else
         $EDITOR "$f"
-    fi
+    end
+}}
+
+cmd image ${{
+    echo "$f"
+    chafa $f
 }}
 
 map d delete
