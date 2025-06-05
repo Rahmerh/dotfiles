@@ -62,5 +62,6 @@ set_pref "toolkit.legacyUserProfileCustomizations.stylesheets" true
 install_extension "ghostery"
 install_extension "sponsorblock"
 install_extension "darkreader"
+install_extension "passff"
 
 print_success "Done"
