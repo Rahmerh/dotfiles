@@ -1,9 +1,0 @@
-[[plugin.deps]]
-use = "yazi-rs/plugins:smart-enter"
-rev = "63f9650"
-hash = "a7ab702e1ef0c097defbc976ed34c186"
-
-[[flavor.deps]]
-use = "BennyOe/tokyo-night"
-rev = "b3950bf"
-hash = "319ce574cdb2865baf4323db90456504"
