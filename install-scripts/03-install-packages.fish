@@ -36,6 +36,7 @@ yay --needed -S \
     hyprland \
     hyprpaper \
     hyprpicker \
+    dunst \
     xdg-desktop-portal-hyprland \
     wl-clipboard \
     grim \
