@@ -13,13 +13,7 @@ cmd open ${{
     end
 }}
 
-cmd image ${{
-    echo "$f"
-    chafa $f
-}}
-
-map d delete
-
 # Keymaps
+map d delete
 map l open
 map <enter> open
