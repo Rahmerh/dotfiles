@@ -29,6 +29,7 @@ if ! test -d ~/.password-store/.git
     set options
     for fpr in $existing_keys
         set email (gpg --list-keys --with-colons $fpr | awk -F: -v fpr=$fpr 'BEGIN {found=0} /^fpr:/ {found=($10==fpr)} /^uid:/ && found { print $10; exit }' | grep -oE '<.*>' | tr -d '<>')
+
         set -a options "$fpr ($email)"
     end
 
@@ -39,6 +40,14 @@ if ! test -d ~/.password-store/.git
     pass init $GPG_KEY_FINGERPRINT
 else
     print_info "Password store already setup, skipping."
+end
+
+if ! test -e ~/.mozilla/native-messaging-hosts/passff.json
+    curl -sSL https://codeberg.org/PassFF/passff-host/releases/download/latest/install_host_app.sh | bash -s -- firefox
+end
+
+if ! test -L ~/.librewolf/native-messaging-hosts
+    ln -s ~/.mozilla/native-messaging-hosts/ ~/.librewolf/native-messaging-hosts
 end
 
 print_success "Done"
