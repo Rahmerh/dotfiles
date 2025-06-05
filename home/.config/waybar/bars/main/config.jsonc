@@ -8,11 +8,16 @@
     "memory",
     "pulseaudio"
   ],
-  "modules-center": ["wlr/taskbar"],
+  "modules-center": ["wlr/taskbar", "custom/test"],
   "modules-right": [
     "tray",
     "clock"
   ],
+  // "custom/test": {
+  //   "format": "{}",
+  //   "exec": "~/.config/waybar/scripts/display-calendar.sh",
+  //   "return-type": "json"
+  // },
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-muted": " \udb81\udd81",
