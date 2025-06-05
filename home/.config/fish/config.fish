@@ -221,38 +221,46 @@ function smart-tar
 
     set -l ext (string split . "$archive")[-1]
     set -l size (du -cm $argv | string split \n | tail -n1 | awk '{print $1}')
-    set -l suffix $archive
     set -l compressor ''
 
+    if string match -q '*.*' "$archive"
+        set -l valid_exts ".tar.gz" ".tar.bz2" ".tar.xz"
+        set -l match false
 
-    switch $ext
-        case gz tgz
-            set compressor gzip
-        case bz2
-            set compressor bzip2
-        case xz
-            set compressor xz
-        case '*'
-            if test $size -lt 50
-                set compressor gzip
-                set suffix "$archive.tar.gz"
-            else if test $size -lt 200
-                set compressor bzip2
-                set suffix "$archive.tar.bz2"
-            else
-                set compressor xz
-                set suffix "$archive.tar.xz"
+        for ext in $valid_exts
+            if string match -q "*$ext" "$archive"
+                set match true
+                break
             end
+        end
+
+        if not $match
+            echo "Invalid archive extension: '$archive'"
+            echo "Use one of: .tar.gz, .tar.bz2, .tar.xz, or .tgz"
+            return 1
+        end
+    else
+        set -l size (du -cm $argv | string split \n | tail -n1 | awk '{print $1}')
+
+        if test $size -lt 50
+            set ext gz
+        else if test $size -lt 200
+            set ext bz2
+        else
+            set ext xz
+        end
+
+        set archive "$archive.tar.$ext"
     end
 
     switch $compressor
         case gzip
-            tar -czvf $suffix $argv
+            tar -czvf $archive $argv
         case bzip2
-            tar -cjvf $suffix $argv
+            tar -cjvf $archive $argv
         case xz
-            tar -cJvf $suffix $argv
+            tar -cJvf $archive $argv
         case ''
-            tar -cvf $suffix $argv
+            tar -cvf $archive $argv
     end
 end
