@@ -209,3 +209,50 @@ function why
 
     echo "↳ \"$shown_cmd\""
 end
+
+function smart-tar
+    if test (count $argv) -lt 2
+        echo "Usage: smart-tar <archive-name> <files...>"
+        return 1
+    end
+
+    set -l archive $argv[1]
+    set -e argv[1]
+
+    set -l ext (string split . "$archive")[-1]
+    set -l size (du -cm $argv | string split \n | tail -n1 | awk '{print $1}')
+    set -l suffix $archive
+    set -l compressor ''
+
+
+    switch $ext
+        case gz tgz
+            set compressor gzip
+        case bz2
+            set compressor bzip2
+        case xz
+            set compressor xz
+        case '*'
+            if test $size -lt 50
+                set compressor gzip
+                set suffix "$archive.tar.gz"
+            else if test $size -lt 200
+                set compressor bzip2
+                set suffix "$archive.tar.bz2"
+            else
+                set compressor xz
+                set suffix "$archive.tar.xz"
+            end
+    end
+
+    switch $compressor
+        case gzip
+            tar -czvf $suffix $argv
+        case bzip2
+            tar -cjvf $suffix $argv
+        case xz
+            tar -cJvf $suffix $argv
+        case ''
+            tar -cvf $suffix $argv
+    end
+end
