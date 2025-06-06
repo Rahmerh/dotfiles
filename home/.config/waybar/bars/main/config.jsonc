@@ -8,16 +8,13 @@
     "memory",
     "pulseaudio"
   ],
-  "modules-center": ["wlr/taskbar", "custom/test"],
+  "modules-center": [
+      "wlr/taskbar"
+  ],
   "modules-right": [
     "tray",
     "clock"
   ],
-  // "custom/test": {
-  //   "format": "{}",
-  //   "exec": "~/.config/waybar/scripts/display-calendar.sh",
-  //   "return-type": "json"
-  // },
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-muted": " \udb81\udd81",
@@ -41,7 +38,8 @@
   "clock": {
     "interval": 1,
     "timezone": "Europe/Amsterdam",
-    "format": " \uf073  {:%d-%m-%Y   \uf017  %H:%M} "
+    "format": " \uf073  {:%d-%m-%Y   \uf017  %H:%M} ",
+    "on-click": "~/.config/waybar/scripts/display-calendar.sh"
   },
   "tray": {
     "icon-size": 20,
