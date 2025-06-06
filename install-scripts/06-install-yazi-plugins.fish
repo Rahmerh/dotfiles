@@ -6,5 +6,6 @@ print_info "Installing yazi plugins"
 ya pkg add yazi-rs/plugins:no-status
 ya pkg add yazi-rs/plugins:smart-enter
 ya pkg add yazi-rs/plugins:git
+ya pkg add yazi-rs/plugins:jump-to-char
 
 print_success "Done"
