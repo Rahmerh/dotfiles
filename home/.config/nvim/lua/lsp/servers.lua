@@ -11,7 +11,8 @@ local servers = {
     "dockerls",
     "jdtls",
     "lemminx",
-    "fish"
+    "fish",
+    "gopls"
 }
 
 require("mason-tool-installer").setup({
@@ -21,6 +22,7 @@ require("mason-tool-installer").setup({
         "omnisharp",
         "jdtls",
         "lemminx",
+        "gopls",
         -- DAP
         "netcoredbg",
         "java-debug-adapter",
