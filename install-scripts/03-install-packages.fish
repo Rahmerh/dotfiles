@@ -19,7 +19,7 @@ yay --needed -S \
     lazygit \
     pulsemixer \
     steam \
-    lf \
+    yazi \
     librewolf \
     ripgrep \
     zsa-keymapp-bin \
@@ -48,7 +48,9 @@ yay --needed -S \
     passff-host \
     audiorelay \
     rofi \
+    wofi \
     tealdeer \
+    bsdmainutils \
     --noconfirm
 
 print_info "Configuring and install misc tools"
