@@ -51,6 +51,8 @@ yay --needed -S \
     wofi \
     tealdeer \
     bsdmainutils \
+    openrazer-meta \
+    razer-cli \
     --noconfirm
 
 print_info "Configuring and install misc tools"
