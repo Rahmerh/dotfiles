@@ -53,6 +53,7 @@ yay --needed -S \
     bsdmainutils \
     openrazer-meta \
     razer-cli \
+    pv \
     --noconfirm
 
 print_info "Configuring and install misc tools"
