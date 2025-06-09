@@ -1,5 +1,5 @@
 [Desktop Entry]
 Name=Pass
-Exec=~/.config/rofi/scripts/launch-rofi-pass.sh
+Exec=TEMP
 Type=Application
 Categories=Utility;
