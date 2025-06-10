@@ -54,6 +54,11 @@ yay --needed -S \
     openrazer-meta \
     razer-cli \
     pv \
+    wine \
+    winetricks \
+    wine-mono \
+    wine-gecko \
+    npm \
     --noconfirm
 
 print_info "Configuring and install misc tools"
