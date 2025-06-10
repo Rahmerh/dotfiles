@@ -17,22 +17,21 @@ function fish_prompt
     set -l path (string replace $HOME '~' (pwd))
 
     echo -n "$path"
+
     if test -n "$branch"
         set -l dirty (command git status --porcelain | wc -l)
-        set -l unpushed (command git rev-list --count @{u}..HEAD)
+        set -l unpushed (command git rev-list --count @{u}..HEAD 2>/dev/null)
 
         if test $dirty -gt 0
-            set_color red
+            set_color '#EBCB8B'
+        else if test $unpushed -gt 0
+            set_color '#B48EAD'
+        else
+            set_color normal
         end
 
         echo -n " $branch"
         set_color normal
-
-        if test $unpushed -gt 1
-            echo -n "↑$unpushed"
-        else if test $unpushed -eq 1
-            echo -n '↑'
-        end
     end
 
     if test $last_status -ne 0
@@ -50,7 +49,7 @@ mcfly init fish | source
 set -gx MCFLY_KEY_SCHEME vim
 
 # Source rust
-set -gx PATH "$HOME/.cargo/bin" $PATH;
+set -gx PATH "$HOME/.cargo/bin" $PATH
 
 # Source zoxide
 zoxide init fish | source
@@ -64,7 +63,7 @@ function dot-add
 
     set dry_run 0
     for arg in $argv
-        if test $arg = "--dry-run"
+        if test $arg = --dry-run
             set dry_run 1
         end
     end
@@ -105,7 +104,7 @@ function dot-remove
 
     set dry_run 0
     for arg in $argv
-        if test $arg = "--dry-run"
+        if test $arg = --dry-run
             set dry_run 1
         end
     end
@@ -159,7 +158,7 @@ end
 function why
     set -l code $status
 
-    if test $code -eq 0 
+    if test $code -eq 0
         echo "Why what? Nothing went wrong."
         return 0
     end
