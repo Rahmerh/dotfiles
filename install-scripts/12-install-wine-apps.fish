@@ -5,7 +5,6 @@ function install_wine_app \
     --description "Install a Wine app in an isolated prefix" \
     --argument-names app_name github_repo winetricks_packages exe_relative_path
 
-
     set prefix_path ~/.local/wineprefixes/$app_name
     set exe_path "$prefix_path/$app_name-installer.exe"
 
@@ -22,7 +21,8 @@ function install_wine_app \
     if test (count $exe_urls) -eq 1
         set selected_entry $exe_urls[1]
     else
-        print_error "Multiple exes found, implement logic for this."
+        print_error "Multiple exes found, implement logic for this. Exiting"
+        return 1
     end
 
     set selected_name (string split "|" $selected_entry)[1]
@@ -30,9 +30,6 @@ function install_wine_app \
 
     if not test -d $prefix_path
         mkdir -p $prefix_path
-
-        WINEPREFIX=$prefix_path wine reg add "HKCU\\Software\\Wine\\Mono" /v "InstallMono" /t REG_DWORD /d 0 /f > /dev/null 2>&1
-        WINEPREFIX=$prefix_path wine reg add "HKCU\\Software\\Wine\\MSHTML" /v "InstallGecko" /t REG_DWORD /d 0 /f > /dev/null 2>&1
 
         gum spin --spinner dot --title "Booting Wine prefix..." -- \
             bash -c "WINEPREFIX='$prefix_path' wineboot -u > /dev/null 2>&1"

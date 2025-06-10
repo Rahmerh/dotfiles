@@ -59,6 +59,7 @@ yay --needed -S \
     wine-mono \
     wine-gecko \
     npm \
+    dotnet-sdk \
     --noconfirm
 
 print_info "Configuring and install misc tools"

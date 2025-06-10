@@ -49,7 +49,3 @@ mason_tool_installer.setup({
     auto_update = true,
     run_on_start = true,
 })
-
-return {
-    servers = server_map,
-}
