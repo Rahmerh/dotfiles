@@ -38,10 +38,4 @@ vim.cmd([[
   command E execute "SudaRead"
 ]])
 
-vim.cmd([[
-let g:rnvimr_hide_gitignore = 0
-let g:rnvimr_enable_picker = 1
-let g:rnvimr_enable_bw = 1
-]])
-
 vim.opt.laststatus = 3
