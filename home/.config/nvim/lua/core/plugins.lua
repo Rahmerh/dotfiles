@@ -62,7 +62,7 @@ return packer.startup(function(use)
 
     -- Debugger
     use("mfussenegger/nvim-dap")
-    use("rcarriga/nvim-dap-ui")
+    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } }
     use("mfussenegger/nvim-jdtls")
     use("Weissle/persistent-breakpoints.nvim")
 

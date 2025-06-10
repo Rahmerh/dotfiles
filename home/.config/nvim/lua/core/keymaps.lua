@@ -84,7 +84,6 @@ vim.keymap.set("n", "<leader>g", "<cmd>Telescope live_grep<cr>", options)
 
 -- LSP
 vim.keymap.set("n", "<C-.>", "<cmd>lua vim.lsp.buf.code_action()<CR>", options)
-vim.keymap.set("n", "<leader>i", "<cmd>lua require('jdtls').organize_imports()<CR>", options)
 vim.keymap.set("n", "K", "<cmd>DocsViewToggle<cr>", options)
 vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", options)
 vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", options)
@@ -94,13 +93,10 @@ vim.keymap.set("n", "R", "<cmd>lua vim.lsp.buf.rename()<cr>", options)
 vim.keymap.set("n", "gpd", "<cmd>lua require('goto-preview').goto_preview_definition()<cr>", options)
 
 -- Debugging
-vim.keymap.set("n", "<F1>", "<cmd>lua require('jdtls.dap').setup_dap_main_class_configs()<cr>", options)
 vim.keymap.set("n", "<F5>", "<cmd>DapContinue<cr>", options)
 vim.keymap.set("n", "<F10>", "<cmd>DapStepOver<cr>", options)
 vim.keymap.set("n", "<F11>", "<cmd>DapStepInto<cr>", options)
 vim.keymap.set("n", "<F23>", "<cmd>DapStepOut<cr>", options)   -- S-F11
 vim.keymap.set("n", "<F17>", "<cmd>DapTerminate<cr>", options) -- S-F5
 vim.keymap.set("n", "<C-b>", "<cmd>PBToggleBreakpoint<cr>", options)
-vim.keymap.set("n", "td", "<cmd>lua require'jdtls'.test_nearest_method()<cr>", options)
-vim.keymap.set("n", "tc", "<cmd>lua require'jdtls'.test_class()<cr>", options)
 vim.keymap.set("n", "dt", "<cmd>DapToggleRepl<cr>", options)

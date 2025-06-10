@@ -10,25 +10,13 @@ if not ok_masontoolinstaller then
     return
 end
 
--- LSP name → Mason package name
-local server_map = {
-    lua_ls = "lua-language-server",
-    bashls = "bash-language-server",
-    omnisharp = "omnisharp",
-    fish = "fish-lsp",
-    gopls = "gopls",
-}
+local registry = require("lsp.registry")
+local mason_registry = require("mason-registry")
 
-local extra_tools = {
-    "netcoredbg",
-}
-
--- Filter out fish-lsp for Mason install
-local installable_servers = {}
-for name, pkg in pairs(server_map) do
-    if name ~= "fish" then
-        table.insert(installable_servers, pkg)
-    end
+local function filter_installed(tbl)
+    return vim.tbl_filter(function(pkg)
+        return mason_registry.has_package(pkg)
+    end, vim.tbl_values(tbl))
 end
 
 mason.setup({
@@ -45,7 +33,11 @@ mason.setup({
 })
 
 mason_tool_installer.setup({
-    ensure_installed = vim.tbl_extend("force", installable_servers, extra_tools),
+    ensure_installed = vim.tbl_extend(
+        "force",
+        filter_installed(registry.servers),
+        filter_installed(registry.tools)
+    ),
     auto_update = true,
     run_on_start = true,
 })
