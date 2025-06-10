@@ -10,7 +10,7 @@ telescope.setup({
     defaults = {
         file_ignore_patterns = { "node%_modules/.*", ".git" },
         prompt_prefix = icons.ui.Telescope .. " ",
-        selection_caret = icons.ui.ArrowRight .. " ",
+        selection_caret = icons.ui.FatArrowClosed .. " ",
         path_display = { "smart" },
         history = {
             path = os.getenv("HOME") .. "/.local/share/nvim/databases/telescope_history.sqlite3",
