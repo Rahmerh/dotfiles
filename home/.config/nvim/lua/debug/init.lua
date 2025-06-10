@@ -4,13 +4,13 @@ if not has_dap then
     return
 end
 
-require("dap_config.breakpoints")
-require("dap_config.ui")
+require("debug.breakpoints")
+require("debug.ui")
 
 local registry = require("lsp.registry")
 
 for _, tool in ipairs(registry.tools) do
-    local ok, err = pcall(require, "dap_config.adapters." .. tool)
+    local ok, err = pcall(require, "debug.adapters." .. tool)
     if not ok then
         vim.notify("Failed to load dap." .. tool .. ": " .. err, vim.log.levels.ERROR)
     end
