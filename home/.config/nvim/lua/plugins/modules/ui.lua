@@ -197,12 +197,13 @@ return {
     },
     {
         "Mofiqul/vscode.nvim",
-        lazy = false,    -- load immediately so it's available at boot
-        priority = 1000, -- high priority so it overrides others
+        lazy = false,
+        priority = 1000,
         config = function()
             require("vscode").setup({
                 italic_comments = true,
                 disable_nvimtree_bg = true,
+                transparent = true
             })
             vim.cmd("colorscheme vscode")
         end,
