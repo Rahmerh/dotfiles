@@ -3,7 +3,6 @@ return {
         "nvim-telescope/telescope.nvim",
         dependencies = {
             "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope-dap.nvim",
         },
         cmd = "Telescope",
         config = function()
@@ -74,10 +73,7 @@ return {
                     live_grep = { hidden = true },
                 },
             })
-
-            require("telescope").load_extension("dap")
         end,
     },
-    "nvim-telescope/telescope-dap.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
 }

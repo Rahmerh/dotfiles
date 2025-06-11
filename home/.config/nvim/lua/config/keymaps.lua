@@ -93,7 +93,13 @@ vim.keymap.set("n", "R", "<cmd>lua vim.lsp.buf.rename()<cr>", options)
 vim.keymap.set("n", "gpd", "<cmd>lua require('goto-preview').goto_preview_definition()<cr>", options)
 
 -- Debugging
-vim.keymap.set("n", "<F5>", "<cmd>DapContinue<cr>", options)
+vim.keymap.set("n", "<F5>", function()
+    require("lazy").load({ plugins = { "nvim-dap", "nvim-dap-ui", "persistent-breakpoints.nvim" } })
+    vim.schedule(function()
+        require("debug.dotnet")
+        require("dap").continue()
+    end)
+end, { desc = "Start debugger" })
 vim.keymap.set("n", "<F10>", "<cmd>DapStepOver<cr>", options)
 vim.keymap.set("n", "<F11>", "<cmd>DapStepInto<cr>", options)
 vim.keymap.set("n", "<F23>", "<cmd>DapStepOut<cr>", options)   -- S-F11
