@@ -1,4 +1,3 @@
-require("core")
-require("configuration")
-require("lsp")
+require("config")
+require("plugins")
 require("debug")
