@@ -7,4 +7,4 @@ if not groups $USER | grep -qw plugdev
     sudo gpasswd -a $USER plugdev
 end
 
-print_success "Done"
+print_success Done

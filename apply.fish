@@ -12,27 +12,33 @@ for invalid in (find install-scripts -maxdepth 1 -name '*.fish' | grep -vE '/[0-
     exit 1
 end
 
-set scripts (find install-scripts -maxdepth 1 -name '*.fish' | sort)
+set full_scripts (find install-scripts -type f -name '*.fish' | sort -V)
+
+set scripts
+for script in $full_scripts
+    set stripped (string replace 'install-scripts/' '' $script)
+    set -a scripts $stripped
+end
 
 set choices "Run all scripts (default)"
 set -a choices $scripts
 
-set choice (gum choose $choices)
+set choice (gum choose --height 100 $choices)
 
-if test -e "$choice"
-    print_info "\nExecuting: $choice\n"
-    fish $choice
+function run_script
+    set full_path install-scripts/$argv[1]
+    print_info "\nExecuting: $argv[1]\n"
+    fish $full_path
     or begin
-        print_error "Script $choice failed. Aborting."
+        print_error "Script $argv[1] failed. Aborting."
         exit 1
     end
+end
+
+if test -n "$choice" -a "$choice" != "Run all scripts (default)"
+    run_script "$choice"
 else
     for script in $scripts
-        print_info "\nExecuting: $script\n"
-        fish $script
-        or begin
-            print_error "Script $script failed. Aborting."
-            exit 1
-        end
+        run_script "$script"
     end
 end
