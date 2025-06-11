@@ -7,4 +7,8 @@ if not groups $USER | grep -qw plugdev
     sudo gpasswd -a $USER plugdev
 end
 
+if not groups $USER | grep -qw vboxusers
+    sudo gpasswd -a $USER vboxusers
+end
+
 print_success Done
