@@ -4,11 +4,13 @@ local servers = {
     omnisharp = "omnisharp",
     fish = "fish-lsp",
     gopls = "gopls",
+    rust = "rust-analyzer"
 }
 
 local extra_tools = {
     "netcoredbg",
-    "bash-debug-adapter"
+    "bash-debug-adapter",
+    "codelldb"
 }
 
 return {
