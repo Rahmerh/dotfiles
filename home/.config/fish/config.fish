@@ -220,7 +220,6 @@ function smart-tar
 
     set -l ext (string split . "$archive")[-1]
     set -l size (du -cm $argv | string split \n | tail -n1 | awk '{print $1}')
-    set -l compressor ''
 
     if string match -q '*.*' "$archive"
         set -l valid_exts ".tar.gz" ".tar.bz2" ".tar.xz"
@@ -252,14 +251,12 @@ function smart-tar
         set archive "$archive.tar.$ext"
     end
 
-    switch $compressor
-        case gzip
+    switch $ext
+        case gz
             tar -czvf $archive $argv
-        case bzip2
+        case bz2
             tar -cjvf $archive $argv
         case xz
             tar -cJvf $archive $argv
-        case ''
-            tar -cvf $archive $argv
     end
 end
