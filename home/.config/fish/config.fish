@@ -211,35 +211,47 @@ end
 
 function smart-tar
     if test (count $argv) -lt 2
-        echo "Usage: smart-tar <archive-name> <files...>"
+        echo "Usage: smart-tar [--dereference] <archive-name> <files...>"
         return 1
     end
 
-    set -l archive $argv[1]
-    set -e argv[1]
+    set -l dereference false
+    set -l args
 
-    set -l ext (string split . "$archive")[-1]
-    set -l size (du -cm $argv | string split \n | tail -n1 | awk '{print $1}')
+    for arg in $argv
+        switch $arg
+            case --dereference
+                set dereference true
+            case '*'
+                set -a args $arg
+        end
+    end
 
+    if test (count $args) -lt 2
+        echo "Missing archive name or file arguments"
+        return 1
+    end
+
+    set -l archive $args[1]
+    set -e args[1]
+
+    set -l ext ''
     if string match -q '*.*' "$archive"
         set -l valid_exts ".tar.gz" ".tar.bz2" ".tar.xz"
-        set -l match false
-
-        for ext in $valid_exts
-            if string match -q "*$ext" "$archive"
-                set match true
+        for known in $valid_exts
+            if string match -q "*$known" "$archive"
+                set ext (string replace ".tar." '' $known)
                 break
             end
         end
 
-        if not $match
+        if test -z "$ext"
             echo "Invalid archive extension: '$archive'"
-            echo "Use one of: .tar.gz, .tar.bz2, .tar.xz, or .tgz"
+            echo "Use one of: .tar.gz, .tar.bz2, .tar.xz"
             return 1
         end
     else
-        set -l size (du -cm $argv | string split \n | tail -n1 | awk '{print $1}')
-
+        set -l size (du -cm $args | string split \n | tail -n1 | awk '{print $1}')
         if test $size -lt 50
             set ext gz
         else if test $size -lt 200
@@ -247,16 +259,22 @@ function smart-tar
         else
             set ext xz
         end
-
         set archive "$archive.tar.$ext"
     end
 
+    set -l tar_flags -cvf
     switch $ext
         case gz
-            tar -czvf $archive $argv
+            set tar_flags -czvf
         case bz2
-            tar -cjvf $archive $argv
+            set tar_flags -cjvf
         case xz
-            tar -cJvf $archive $argv
+            set tar_flags -cJvf
+    end
+
+    if $dereference
+        tar $tar_flags $archive --dereference $args
+    else
+        tar $tar_flags $archive $args
     end
 end
