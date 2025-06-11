@@ -29,7 +29,8 @@ set core_packages \
     gnupg \
     passff-host \
     tealdeer \
-    neofetch
+    neofetch \
+    7zip
 
 # GUI/system tools
 set gui_packages \
