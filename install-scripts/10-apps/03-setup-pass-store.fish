@@ -45,12 +45,4 @@ if ! test -e ~/.librewolf/native-messaging-hosts/passff.json
     curl -sSL https://codeberg.org/PassFF/passff-host/releases/download/latest/install_host_app.sh | bash -s -- librewolf &>/dev/null
 end
 
-set desktop_file "$HOME/.local/share/applications/rofi-pass.desktop"
-if test -f $desktop_file
-    sed -i "s;^Exec=.*;Exec=$HOME/.config/rofi/scripts/launch-rofi-pass.sh;" $desktop_file
-    print_success "Patched rofi-pass.desktop"
-else
-    print_warn "rofi-pass.desktop not found, skipping patch"
-end
-
 print_success Done
