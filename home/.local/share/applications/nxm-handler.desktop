@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=NXM Handler
+Exec=nxm-handler %u
+Type=Application
+NoDisplay=true
+MimeType=x-scheme-handler/nxm;
+
