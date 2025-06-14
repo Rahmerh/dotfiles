@@ -33,7 +33,7 @@
   "custom/pulseaudio-description": {
     "format": "{}",
     "exec": "~/.config/waybar/scripts/print-active-audio-out.sh",
-    "interval": 5
+    "interval": 0
   },
   "memory": {
     "format": "\uefc5   {used:0.1f}G/{total:0.1f}G"
