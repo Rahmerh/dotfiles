@@ -12,7 +12,7 @@ for invalid in (find install-scripts -maxdepth 1 -name '*.fish' | grep -vE '/[0-
     exit 1
 end
 
-set full_scripts (find install-scripts -type f -name '*.fish' | grep -v "/library/" | sort -V)
+set full_scripts (find install-scripts -type f -name '*.fish' | grep -v "library/" | sort -V)
 
 set scripts
 for script in $full_scripts
@@ -23,7 +23,7 @@ end
 set choices "Run all scripts (default)"
 set -a choices $scripts
 
-set selected (gum choose --no-limit --height 100 $choices)
+set choice (gum choose --height 100 $choices)
 
 function run_script
     set full_path install-scripts/$argv[1]
@@ -35,12 +35,10 @@ function run_script
     end
 end
 
-if test -z "$selected" || contains -- "Run all scripts (default)" $selected
-    for script in $scripts
-        run_script "$script"
-    end
+if test -n "$choice" -a "$choice" != "Run all scripts (default)"
+    run_script "$choice"
 else
-    for script in $selected
+    for script in $scripts
         run_script "$script"
     end
 end
