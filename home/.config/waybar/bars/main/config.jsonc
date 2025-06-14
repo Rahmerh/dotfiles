@@ -6,7 +6,8 @@
   "modules-left": [
     "cpu",
     "memory",
-    "pulseaudio"
+    "pulseaudio",
+    "custom/pulseaudio-description"
   ],
   "modules-center": [
       "wlr/taskbar"
@@ -29,11 +30,16 @@
     "on-click-middle": "pavucontrol -t 3",
     "on-click-right": "pactl -- set-sink-mute 0 toggle"
   },
+  "custom/pulseaudio-description": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/print-active-audio-out.sh",
+    "interval": 5
+  },
   "memory": {
-    "format": " \uefc5   {used:0.1f}G/{total:0.1f}G "
+    "format": "\uefc5   {used:0.1f}G/{total:0.1f}G"
   },
   "cpu": {
-    "format": " \ue266   {usage}% "
+    "format": "\ue266   {usage}%"
   },
   "clock": {
     "interval": 1,
