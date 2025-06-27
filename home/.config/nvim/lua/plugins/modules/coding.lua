@@ -162,4 +162,24 @@ return {
             cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
         end,
     },
+
+    {
+        "nvim-neotest/neotest",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "antoinemadec/FixCursorHold.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "rouge8/neotest-rust"
+        },
+        config = function()
+            require("neotest").setup({
+                adapters = {
+                    require("neotest-rust")({
+                        args = { "--no-capture" },
+                        dap_adapter = "lldb",
+                    })
+                }
+            })
+        end
+    }
 }

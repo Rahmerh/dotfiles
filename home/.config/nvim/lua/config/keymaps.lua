@@ -93,6 +93,11 @@ vim.keymap.set("n", "R", "<cmd>lua vim.lsp.buf.rename()<cr>", options)
 vim.keymap.set("n", "gpd", "<cmd>lua require('goto-preview').goto_preview_definition()<cr>", options)
 
 -- Debugging
+vim.keymap.set("n", "<leader>tn", function() require("neotest").run.run() end)
+vim.keymap.set("n", "<leader>tf", function() require("neotest").run.run(vim.fn.expand("%")) end)
+vim.keymap.set("n", "<leader>to", function() require("neotest").output.open({ enter = true }) end)
+vim.keymap.set("n", "<leader>ts", function() require("neotest").summary.toggle() end)
+
 vim.keymap.set("n", "<F5>", function()
     require("lazy").load({ plugins = { "nvim-dap", "nvim-dap-ui", "persistent-breakpoints.nvim" } })
     vim.schedule(function()
