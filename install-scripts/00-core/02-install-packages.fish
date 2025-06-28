@@ -93,4 +93,7 @@ if ! type -q rustc
     curl https://sh.rustup.rs -sSf | sh -s -- -y
 end
 
+cargo install cargo-nextest
+cargo install cargo-llvm-cov
+
 print_success Done
