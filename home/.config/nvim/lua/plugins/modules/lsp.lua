@@ -84,13 +84,18 @@ return {
         end,
     },
     {
-        "amrbashir/nvim-docs-view",
-        cmd = "DocsViewToggle",
+        "lewis6991/hover.nvim",
         config = function()
-            require("docs-view").setup {
-                position = "bottom",
-                width = 30,
+            require("hover").setup {
+                init = function()
+                    require("hover.providers.lsp")
+                end,
+                preview_opts = { border = "single" },
+                title = true,
             }
+
+            vim.keymap.set("n", "K", require("hover").hover, { desc = "Hover docs" })
+            vim.keymap.set("n", "gK", require("hover").hover_select, { desc = "Hover select" })
         end,
-    },
+    }
 }

@@ -162,7 +162,6 @@ return {
             cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
         end,
     },
-
     {
         "nvim-neotest/neotest",
         dependencies = {
@@ -180,6 +179,88 @@ return {
                     })
                 }
             })
+
+            vim.keymap.set("n", "<leader>tn", function() require("neotest").run.run() end)
+            vim.keymap.set("n", "<leader>tf", function() require("neotest").run.run(vim.fn.expand("%")) end)
+            vim.keymap.set("n", "<leader>to", function() require("neotest").output.open({ enter = true }) end)
+            vim.keymap.set("n", "<leader>ts", function() require("neotest").summary.toggle() end)
         end
+    },
+    {
+        "andythigpen/nvim-coverage",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = function()
+            local cov = require("coverage")
+
+            cov.setup({
+                auto_reload = true,
+            })
+
+            local function find_lcov_file()
+                local candidates = {
+                    "target/llvm-cov/lcov.info",
+                    "coverage/lcov.info",
+                    "coverage.info",
+                    "lcov.info",
+                }
+
+                for _, path in ipairs(candidates) do
+                    if vim.fn.filereadable(path) == 1 then
+                        return path
+                    end
+                end
+
+                return nil
+            end
+
+            local loaded = false
+
+            local function toggle_coverage()
+                if loaded then
+                    cov.clear()
+                    loaded = false
+                else
+                    local path = find_lcov_file()
+                    if path then
+                        cov.load_lcov(path, true)
+                        loaded = true
+                    else
+                        vim.notify("No lcov file found", vim.log.levels.WARN)
+                    end
+                end
+            end
+
+            vim.keymap.set("n", "<leader>cv", toggle_coverage, { desc = "Toggle code coverage" })
+            vim.keymap.set("n", "<leader>cs", cov.summary, { desc = "Show coverage summary" })
+
+            vim.keymap.set("n", "<leader>cc", function()
+                local ft = vim.bo.filetype
+                local cmd, output
+
+                vim.notify("Coverage generating...", vim.log.levels.INFO)
+
+                if ft == "rust" then
+                    vim.fn.mkdir("target/llvm-cov", "p")
+                    cmd = {
+                        "cargo", "llvm-cov", "nextest",
+                        "--lcov", "--output-path", "target/llvm-cov/lcov.info"
+                    }
+                    output = "target/llvm-cov/lcov.info"
+                else
+                    vim.notify("No coverage generator for filetype: " .. ft, vim.log.levels.WARN)
+                    return
+                end
+
+                vim.system(cmd, { text = true }, function(res)
+                    vim.schedule(function()
+                        if res.code == 0 then
+                            vim.notify("Coverage generated: " .. output, vim.log.levels.INFO)
+                        else
+                            vim.notify("Coverage failed:\n" .. res.stderr, vim.log.levels.ERROR)
+                        end
+                    end)
+                end)
+            end, { desc = "Generate LCOV coverage" })
+        end,
     }
 }
