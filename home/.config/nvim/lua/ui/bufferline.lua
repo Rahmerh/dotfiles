@@ -6,6 +6,9 @@ function _G.MyBufferTabline()
         if vim.api.nvim_buf_is_loaded(bufnr) and vim.fn.buflisted(bufnr) == 1 then
             local name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
             name = name ~= "" and name or "[No Name]"
+            if vim.bo[bufnr].modified then
+                name = name .. " [+]"
+            end
             local hl = bufnr == vim.api.nvim_get_current_buf() and "%#TabLineSel#" or "%#TabLine#"
             s = s .. "%" .. bufnr .. "@v:lua.SwitchBuffer@" .. hl .. " " .. name .. " " .. "%*"
         end
