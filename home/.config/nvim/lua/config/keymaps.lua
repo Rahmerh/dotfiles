@@ -28,8 +28,10 @@ vim.keymap.set("n", "<C-k>", "<C-w>k", options)
 vim.keymap.set("n", "<C-l>", "<C-w>l", options)
 
 -- Buffers
-vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", options)
-vim.keymap.set("n", "<S-h>", "<cmd>bprev<cr>", options)
+vim.keymap.set("n", "L", "<cmd>bnext<cr>", options)
+vim.keymap.set("n", "H", "<cmd>bprev<cr>", options)
+vim.keymap.set("n", "Q", "<cmd>bd<CR>", options)
+
 
 vim.keymap.set("n", "<leader>l", "<cmd>noh<cr>", options)
 
