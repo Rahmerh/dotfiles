@@ -175,13 +175,14 @@ return {
                 adapters = {
                     require("neotest-rust")({
                         args = { "--no-capture" },
-                        dap_adapter = "lldb",
+                        dap_adapter = "codelldb",
                     })
                 }
             })
 
             vim.keymap.set("n", "<leader>tn", function() require("neotest").run.run() end)
             vim.keymap.set("n", "<leader>tf", function() require("neotest").run.run(vim.fn.expand("%")) end)
+            vim.keymap.set("n", "<leader>td", function() require("neotest").run.run({ strategy = "dap" }) end)
             vim.keymap.set("n", "<leader>to", function() require("neotest").output.open({ enter = true }) end)
             vim.keymap.set("n", "<leader>ts", function() require("neotest").summary.toggle() end)
         end
