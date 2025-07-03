@@ -1,10 +1,17 @@
 return {
     {
         "mfussenegger/nvim-dap",
-        lazy = true,
+        keys = {
+            { "<F5>",    "<cmd>DapContinue<cr>",        desc = "Start Debugger" },
+            { "<F10>",   "<cmd>DapStepOver<cr>",        desc = "Step Over" },
+            { "<F11>",   "<cmd>DapStepInto<cr>",        desc = "Step Into" },
+            { "<S-F11>", "<cmd>DapStepOut<cr>",         desc = "Step Out" },  -- S-F11
+            { "<S-F5>",  "<cmd>DapTerminate<cr>",       desc = "Terminate" }, -- S-F5
+            { "<C-b>",   "<cmd>PBToggleBreakpoint<cr>", desc = "Toggle Breakpoint" },
+            { "dt",      "<cmd>DapToggleRepl<cr>",      desc = "Toggle REPL" },
+        },
         config = function()
             require("debug.bash")
-            require("debug.dotnet")
             require("debug.rust")
         end,
     },
@@ -18,7 +25,7 @@ return {
         config = function()
             local dapui = require("dapui")
             local dap = require("dap")
-            local icons = require("config.icons")
+            local icons = require("ui.icons")
 
             dapui.setup({
                 layouts = {
@@ -58,9 +65,11 @@ return {
     },
     {
         "Weissle/persistent-breakpoints.nvim",
-        lazy = false,
+        keys = {
+            { "<C-b>", "<cmd>PBToggleBreakpoint<cr>", desc = "Toggle Persistent Breakpoint" },
+        },
         config = function()
-            local icons = require("config.icons")
+            local icons = require("ui.icons")
 
             require("persistent-breakpoints").setup({
                 save_dir = vim.fn.stdpath("data") .. "/nvim_checkpoints",

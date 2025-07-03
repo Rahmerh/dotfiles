@@ -31,9 +31,15 @@ local options = {
     scrolloff = 8,
     sidescrolloff = 8,
     guifont = "monospace:h17",
-    nu = true,
     relativenumber = true,
     guicursor = "n-v-c-i:block",
+    fillchars = {
+        eob = " ",
+        vert = "│",
+        fold = " ",
+        diff = " ",
+        msgsep = " ",
+    },
 }
 
 for k, v in pairs(options) do
@@ -42,9 +48,6 @@ end
 
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
-vim.g.floaterm_opener = "edit"
-vim.g.floaterm_height = 0.9
-vim.g.floaterm_width = 0.9
 
 vim.g.clipboard = {
     name = 'wl-clipboard',

@@ -1,79 +1,64 @@
 return {
     {
         "nvim-telescope/telescope.nvim",
+        cmd = "Telescope",
+        keys = {
+            { "<leader>f", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+            { "<leader>g", "<cmd>Telescope live_grep<cr>",  desc = "Live Grep" },
+            { "<leader>b", "<cmd>Telescope buffers<cr>",    desc = "Buffers" },
+        },
         dependencies = {
             "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope-ui-select.nvim",
         },
-        cmd = "Telescope",
         config = function()
-            local icons = require("config.icons")
             local actions = require("telescope.actions")
 
             require("telescope").setup({
                 defaults = {
-                    file_ignore_patterns = { "node%_modules/.*", ".git" },
-                    prompt_prefix = icons.ui.Telescope .. " ",
-                    selection_caret = icons.ui.FatArrowClosed .. " ",
-                    path_display = { "smart" },
-                    history = {
-                        path = vim.fn.stdpath("data") .. "/databases/telescope_history.sqlite3",
-                        limit = 100,
+                    prompt_prefix = " ",
+                    selection_caret = " ",
+                    entry_prefix = " ",
+                    layout_strategy = "horizontal",
+                    layout_config = {
+                        horizontal = {
+                            prompt_position = "top",
+                            preview_width = 0.5,
+                            results_width = 0.5,
+                        },
+                        width = 0.85,
+                        height = 0.60,
+                        preview_cutoff = 120,
                     },
+                    sorting_strategy = "ascending",
+                    winblend = 20,
+                    border = true,
+                    borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
+                    path_display = { "truncate" },
+                    color_devicons = false,
+
                     mappings = {
                         i = {
-                            ["<C-n>"] = actions.cycle_history_next,
-                            ["<C-p>"] = actions.cycle_history_prev,
-                            ["<C-j>"] = actions.move_selection_next,
-                            ["<C-k>"] = actions.move_selection_previous,
                             ["<C-c>"] = actions.close,
-                            ["<Down>"] = actions.move_selection_next,
-                            ["<Up>"] = actions.move_selection_previous,
-                            ["<CR>"] = actions.select_default,
-                            ["<C-x>"] = actions.select_horizontal,
-                            ["<C-v>"] = actions.select_vertical,
-                            ["<C-t>"] = actions.select_tab,
-                            ["<C-u>"] = actions.preview_scrolling_up,
-                            ["<C-d>"] = actions.preview_scrolling_down,
-                            ["<PageUp>"] = actions.results_scrolling_up,
-                            ["<PageDown>"] = actions.results_scrolling_down,
-                            ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-                            ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-                            ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-                            ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-                            ["<C-l>"] = actions.complete_tag,
+                            ["<Esc>"] = actions.close,
                         },
                         n = {
-                            ["<esc>"] = actions.close,
-                            ["<CR>"] = actions.select_default,
-                            ["<C-x>"] = actions.select_horizontal,
-                            ["<C-v>"] = actions.select_vertical,
-                            ["<C-t>"] = actions.select_tab,
-                            ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-                            ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-                            ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-                            ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-                            ["j"] = actions.move_selection_next,
-                            ["k"] = actions.move_selection_previous,
-                            ["H"] = actions.move_to_top,
-                            ["M"] = actions.move_to_middle,
-                            ["L"] = actions.move_to_bottom,
-                            ["<Down>"] = actions.move_selection_next,
-                            ["<Up>"] = actions.move_selection_previous,
-                            ["gg"] = actions.move_to_top,
-                            ["G"] = actions.move_to_bottom,
-                            ["<C-u>"] = actions.preview_scrolling_up,
-                            ["<C-d>"] = actions.preview_scrolling_down,
-                            ["<PageUp>"] = actions.results_scrolling_up,
-                            ["<PageDown>"] = actions.results_scrolling_down,
+                            ["<Esc>"] = actions.close,
                         },
                     },
                 },
                 pickers = {
-                    find_files = { hidden = true },
-                    live_grep = { hidden = true },
+                    find_files = {
+                        hidden = true,
+                    },
+                    live_grep = {
+                        hidden = true,
+                    },
                 },
             })
+
+            require("telescope").load_extension("ui-select")
         end,
-    },
-    "nvim-telescope/telescope-ui-select.nvim",
+    }
+
 }

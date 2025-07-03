@@ -1,8 +1,11 @@
 return {
     {
         "neovim/nvim-lspconfig",
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = {
+            "williamboman/mason-lspconfig.nvim",
+        },
         config = function()
-            require("lsp.servers.dotnet")
             require("lsp.servers.bash")
             require("lsp.servers.fish")
             require("lsp.servers.lua")
@@ -11,6 +14,7 @@ return {
     },
     {
         "williamboman/mason.nvim",
+        cmd = { "Mason", "MasonInstall", "MasonUpdate", "MasonLog" },
         opts = {
             ui = {
                 icons = {
@@ -23,9 +27,9 @@ return {
             max_concurrent_installers = 4,
         }
     },
-    "williamboman/mason-lspconfig.nvim",
     {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
+        event = { "BufReadPre", "BufNewFile" },
         config = function()
             local mason_tool_installer = require("mason-tool-installer")
             local registry = require("lsp.registry")
@@ -48,43 +52,12 @@ return {
             })
         end
     },
-    { "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
-    "rafamadriz/friendly-snippets",
-    "folke/neodev.nvim",
-    {
-        "rmagatti/goto-preview",
-        cmd = {
-            "GotoPreviewDefinition",
-            "GotoPreviewTypeDefinition",
-            "GotoPreviewImplementation",
-            "GotoPreviewReferences",
-            "GotoPreviewClose",
-        },
-        dependencies = { "nvim-telescope/telescope.nvim" },
-        config = function()
-            require("goto-preview").setup({
-                width = 120,
-                height = 15,
-                border = { "↖", "─", "┐", "│", "┘", "─", "└", "│" },
-                default_mappings = false,
-                debug = false,
-                opacity = nil,
-                resizing_mappings = false,
-                post_open_hook = nil,
-                references = {
-                    telescope = require("telescope.themes").get_dropdown({ hide_preview = false }),
-                },
-                focus_on_open = true,
-                dismiss_on_move = false,
-                force_close = true,
-                bufhidden = "wipe",
-                stack_floating_preview_windows = true,
-                preview_window_title = { enable = true, position = "left" },
-            })
-        end,
-    },
     {
         "lewis6991/hover.nvim",
+        keys = {
+            { "K",  function() require("hover").hover() end,        desc = "Hover docs" },
+            { "gK", function() require("hover").hover_select() end, desc = "Hover select" },
+        },
         config = function()
             require("hover").setup {
                 init = function()
@@ -93,9 +66,6 @@ return {
                 preview_opts = { border = "single" },
                 title = true,
             }
-
-            vim.keymap.set("n", "K", require("hover").hover, { desc = "Hover docs" })
-            vim.keymap.set("n", "gK", require("hover").hover_select, { desc = "Hover select" })
         end,
     }
 }

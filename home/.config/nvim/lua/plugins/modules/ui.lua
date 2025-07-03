@@ -1,54 +1,5 @@
 return {
     {
-        "lewis6991/gitsigns.nvim",
-        event = { "BufReadPre", "BufNewFile" },
-        dependencies = {
-            "petertriho/nvim-scrollbar",
-        },
-        config = function()
-            require("gitsigns").setup({
-                signs = {
-                    add          = { text = '│' },
-                    change       = { text = '│' },
-                    delete       = { text = '_' },
-                    topdelete    = { text = '‾' },
-                    changedelete = { text = '~' },
-                    untracked    = { text = '┆' },
-                },
-                signcolumn = true,
-                numhl = false,
-                linehl = false,
-                word_diff = false,
-                watch_gitdir = {
-                    interval = 1000,
-                    follow_files = true,
-                },
-                attach_to_untracked = true,
-                current_line_blame = false,
-                current_line_blame_opts = {
-                    virt_text = true,
-                    virt_text_pos = 'eol',
-                    delay = 0,
-                    ignore_whitespace = false,
-                },
-                current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
-                sign_priority = 6,
-                update_debounce = 100,
-                status_formatter = nil,
-                max_file_length = 40000,
-                preview_config = {
-                    border = 'single',
-                    style = 'minimal',
-                    relative = 'cursor',
-                    row = 0,
-                    col = 1,
-                },
-            })
-
-            require("scrollbar.handlers.gitsigns").setup()
-        end,
-    },
-    {
         "petertriho/nvim-scrollbar",
         event = { "BufReadPre", "BufNewFile" },
         config = function()
@@ -63,7 +14,7 @@ return {
                 handlers = {
                     diagnostic = true,
                     search = false,
-                    gitsigns = true,
+                    gitsigns = false,
                 },
                 handle = {
                     color = "#7e7e7e",
@@ -105,24 +56,6 @@ return {
                         color = green,
                         highlight = "Normal",
                     },
-                    GitAdd = {
-                        text = "┆",
-                        priority = 7,
-                        color = green,
-                        highlight = "GitSignsAdd",
-                    },
-                    GitChange = {
-                        text = "┆",
-                        priority = 7,
-                        color = yellow,
-                        highlight = "GitSignsChange",
-                    },
-                    GitDelete = {
-                        text = "▁",
-                        priority = 7,
-                        color = red,
-                        highlight = "GitSignsDelete",
-                    },
                 },
                 autocmd = {
                     render = {
@@ -146,24 +79,7 @@ return {
         end,
     },
     {
-        "ThePrimeagen/harpoon",
-        event = "VeryLazy",
-        config = function()
-            require("harpoon").setup({
-                save_on_toggle = true,
-                save_on_change = true,
-                enter_on_sendcmd = false,
-                tmux_autoclose_windows = false,
-                excluded_filetypes = { "harpoon" },
-                mark_branch = true,
-                menu = {
-                    width = 200,
-                },
-            })
-        end,
-    },
-    {
-        "Mofiqul/vscode.nvim",
+        "mofiqul/vscode.nvim",
         lazy = false,
         priority = 1000,
         config = function()
