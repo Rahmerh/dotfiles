@@ -18,3 +18,7 @@ zoxide init fish | source
 
 set -gx MCFLY_KEY_SCHEME vim
 set -gx PATH "$HOME/.cargo/bin" $PATH
+
+if test "$TERM" = xterm-kitty
+    set -x TERM xterm-256color
+end
