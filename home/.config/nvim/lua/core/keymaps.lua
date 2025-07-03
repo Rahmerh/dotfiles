@@ -3,8 +3,13 @@ local options = { noremap = true, silent = true }
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
---Remap space as leader key
+-- General
 vim.keymap.set("n", "<Space>", "<Nop>", options)
+vim.keymap.set("n", "<leader>R", function()
+    local file = vim.fn.expand("%")
+    vim.cmd("luafile " .. file)
+    vim.notify("Reloaded '" .. file .. "'")
+end, { desc = "Source current file" })
 
 -- Better window navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h", options)
@@ -54,8 +59,21 @@ vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", options)
 vim.keymap.set("n", "R", "<cmd>lua vim.lsp.buf.rename()<cr>", options)
 
 -- Terminal
-vim.keymap.set("n", "<C-\\>", "<cmd>FloatTerm<cr>", options)
-vim.keymap.set("t", "<C-\\>", "<cmd>FloatTerm<cr>", options)
+local floatterm = require("ui.floatterm")
 
-vim.keymap.set("n", "<leader>e", "<cmd>FloatTerm yazi<cr>", options)
-vim.keymap.set("n", "<C-/>", "<cmd>FloatTerm lazygit<cr>", options)
+vim.keymap.set({ "n", "t" }, "<leader>tt", function()
+    floatterm.toggle()
+end, options)
+
+vim.keymap.set({ "n", "t" }, "<leader>te", function()
+    floatterm.toggle("yazi")
+end, options)
+
+vim.keymap.set({ "n", "t" }, "<leader>tg", function()
+    floatterm.toggle("lazygit")
+end, options)
+
+-- Dev
+vim.keymap.set("n", "<leader>b", function()
+    require("workflow.builder").build()
+end, options)
