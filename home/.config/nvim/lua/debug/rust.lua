@@ -1,9 +1,9 @@
-local dap = require("dap")
+local dap = safe_require("dap")
+if not dap then return end
 
 local extension_path = vim.fn.stdpath("data") .. "/mason/packages/codelldb/extension/"
 local adapter_path = extension_path .. "adapter/codelldb"
 local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
-
 
 local function is_cli_project()
     local handle = io.popen("cargo metadata --no-deps --format-version 1 2>/dev/null")

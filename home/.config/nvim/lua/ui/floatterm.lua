@@ -1,6 +1,5 @@
 local M = {}
 
-local active_win = nil
 local active_terminals = {}
 
 local function close_terminal(cmd)
@@ -20,13 +19,29 @@ local function close_terminal(cmd)
     active_terminals[cmd] = nil
 end
 
-function M.toggle(cmd)
-    if active_win and vim.api.nvim_win_is_valid(active_win) then
-        vim.api.nvim_win_hide(active_win)
-        active_win = nil
-        return
-    end
+local command_overwrites = {
+    yazi = {
+        get_command = function()
+            local tempfile = vim.fn.tempname()
+            return { "yazi", "--chooser-file", tempfile }, tempfile
+        end,
+        on_exit = function(tempfile)
+            return function()
+                if vim.fn.filereadable(tempfile) == 1 then
+                    local files = vim.fn.readfile(tempfile)
+                    if #files > 0 then
+                        vim.schedule(function()
+                            vim.cmd("edit " .. vim.fn.fnameescape(files[1]))
+                        end)
+                    end
+                end
+                close_terminal("yazi")
+            end
+        end,
+    },
+}
 
+local function get_term_opts()
     local width = math.floor(vim.o.columns * 0.8)
     local height = math.floor(vim.o.lines * 0.8)
     local row = math.floor((vim.o.lines - height) / 2)
@@ -42,42 +57,85 @@ function M.toggle(cmd)
         border = "none",
     }
 
-    local command = cmd or vim.o.shell
-    local active_terminal = active_terminals[command]
-    if active_terminal then
-        active_win = vim.api.nvim_open_win(active_terminal.float_buf, true, term_opts)
+    return term_opts
+end
 
-        vim.cmd("startinsert")
-        return
-    end
-
+local function spawn_terminal_float(command, term_opts, on_exit)
     local float_buf = vim.api.nvim_create_buf(false, true)
     local float_win = vim.api.nvim_open_win(float_buf, true, term_opts)
 
     vim.wo[float_win].winblend = 20
     vim.wo[float_win].winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder";
 
-    local float_job_id = vim.fn.jobstart(command, {
+    vim.fn.jobstart(command, {
         term = true,
         pty = true,
-        on_exit = function()
-            close_terminal(command)
-        end,
+        on_exit = on_exit
     })
 
-    active_terminals[command] = {
-        float_buf = float_buf,
-        float_win = float_win,
-        float_job_id = float_job_id
-    }
-
-    vim.keymap.set("t", "<C-q>", function()
-        close_terminal(command)
-    end, { buffer = float_buf, nowait = true })
+    vim.keymap.set("t", "<C-q>", on_exit, { buffer = float_buf, nowait = true })
 
     vim.cmd("startinsert")
 
-    active_win = float_win
+    return {
+        float_buf = float_buf,
+        float_win = float_win,
+    }
+end
+
+local function get_active_terminal()
+    for cmd, terminal in pairs(active_terminals) do
+        if terminal.float_win and vim.api.nvim_win_is_valid(terminal.float_win) then
+            return cmd, terminal
+        end
+    end
+    return nil, nil
+end
+
+function M.toggle(cmd)
+    local term_opts = get_term_opts()
+    local command = cmd or vim.o.shell
+    local terminal = active_terminals[command]
+
+    local active_cmd, active_terminal = get_active_terminal()
+
+    -- This means another terminal with a different cmd is active
+    if active_terminal and active_cmd ~= command then
+        vim.api.nvim_win_hide(active_terminal.float_win)
+        active_terminal.float_win = nil
+    end
+
+    -- This meaans a terminal with the same cmd is active
+    if terminal and terminal.float_win and vim.api.nvim_win_is_valid(terminal.float_win) then
+        vim.api.nvim_win_hide(terminal.float_win)
+        terminal.float_win = nil
+
+        return
+    end
+
+    -- If exists, re open hidden float
+    if terminal then
+        terminal.float_win = vim.api.nvim_open_win(terminal.float_buf, true, term_opts)
+        vim.cmd("startinsert")
+
+        return
+    end
+
+    -- If we're here, create a new float
+    local command_to_use = command
+    local on_exit = function()
+        close_terminal(command)
+    end
+
+    local config = command_overwrites[command]
+    if config then
+        local result, tempfile = config.get_command()
+        command_to_use = result
+        on_exit = config.on_exit(tempfile)
+    end
+
+    terminal = spawn_terminal_float(command_to_use, term_opts, on_exit)
+    active_terminals[command] = terminal
 end
 
 function M.print_active_terminals()

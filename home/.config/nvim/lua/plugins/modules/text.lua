@@ -3,7 +3,7 @@ return {
         "numToStr/Comment.nvim",
         keys = {
             { "<leader>k", desc = "Toggle line comment" },
-            { "<leader>u", desc = "Toggle comment (op)" },
+            { "<leader>u", desc = "Toggle comment (op)",  mode = { "n", "v" } },
         },
         config = function()
             require("Comment").setup({
@@ -65,13 +65,6 @@ return {
                     highlight_grey = "LineNr",
                 },
             })
-
-            -- CMP integration
-            local cmp_status, cmp = pcall(require, "cmp")
-            if cmp_status then
-                local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-                cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
-            end
         end,
     },
 }
