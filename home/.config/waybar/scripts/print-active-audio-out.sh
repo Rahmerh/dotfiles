@@ -14,9 +14,8 @@ get_sink_name() {
     fi
 }
 
-get_sink_name
-
 pactl subscribe | grep --line-buffered "Event 'change' on sink" | while read -r _; do
     get_sink_name
 done
 
+get_sink_name
