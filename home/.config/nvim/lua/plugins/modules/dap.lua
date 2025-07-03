@@ -5,14 +5,25 @@ return {
             { "<F5>",    "<cmd>DapContinue<cr>",        desc = "Start Debugger" },
             { "<F10>",   "<cmd>DapStepOver<cr>",        desc = "Step Over" },
             { "<F11>",   "<cmd>DapStepInto<cr>",        desc = "Step Into" },
-            { "<S-F11>", "<cmd>DapStepOut<cr>",         desc = "Step Out" },  -- S-F11
-            { "<S-F5>",  "<cmd>DapTerminate<cr>",       desc = "Terminate" }, -- S-F5
+            { "<S-F11>", "<cmd>DapStepOut<cr>",         desc = "Step Out" },
+            { "<S-F5>",  "<cmd>DapTerminate<cr>",       desc = "Terminate" },
             { "<C-b>",   "<cmd>PBToggleBreakpoint<cr>", desc = "Toggle Breakpoint" },
             { "dt",      "<cmd>DapToggleRepl<cr>",      desc = "Toggle REPL" },
         },
         config = function()
-            require("debug.bash")
-            require("debug.rust")
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = "sh",
+                callback = function()
+                    require("debug.bash")
+                end,
+            })
+
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = "rust",
+                callback = function()
+                    require("debug.rust")
+                end,
+            })
         end,
     },
     {

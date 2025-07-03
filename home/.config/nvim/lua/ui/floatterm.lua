@@ -23,7 +23,13 @@ local command_overwrites = {
     yazi = {
         get_command = function()
             local tempfile = vim.fn.tempname()
-            return { "yazi", "--chooser-file", tempfile }, tempfile
+
+            local buf_path = vim.fn.expand("%:p:h")
+            if buf_path == "" then
+                buf_path = vim.loop.cwd()
+            end
+
+            return { "yazi", "--chooser-file", tempfile, buf_path }, tempfile
         end,
         on_exit = function(tempfile)
             return function()

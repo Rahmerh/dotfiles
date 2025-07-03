@@ -55,15 +55,14 @@ return {
     {
         "lewis6991/hover.nvim",
         keys = {
-            { "K",  function() require("hover").hover() end,        desc = "Hover docs" },
-            { "gK", function() require("hover").hover_select() end, desc = "Hover select" },
+            { "K", function() require("hover").hover() end, desc = "Hover docs" },
         },
         config = function()
             require("hover").setup {
                 init = function()
                     require("hover.providers.lsp")
                 end,
-                preview_opts = { border = "single" },
+                preview_opts = { border = "none" },
                 title = true,
             }
         end,
