@@ -73,7 +73,11 @@ vim.keymap.set({ "n", "t" }, "<leader>tg", function()
     floatterm.toggle("lazygit")
 end, options)
 
--- Dev
+-- Workflow
 vim.keymap.set("n", "<leader>b", function()
     require("workflow.builder").build()
+end, options)
+
+vim.keymap.set("n", "<leader>bc", function()
+    require("workflow.builder").close_build_log()
 end, options)

@@ -1,27 +1,41 @@
 local M = {}
 
-local builders = {
-    rust_analyzer = "cargo build"
+local project_types = {
+    rust = {
+        markers = { "Cargo.toml" },
+        build = "cargo build"
+    },
 }
 
 local active_build_win = nil
 
-local function get_builder_for_current_lsp()
-    local clients = vim.lsp.get_clients()
-    if #clients == 0 then
-        vim.notify("No active LSP client", vim.log.levels.WARN)
-        return nil
-    end
+local function get_build_cmd_for_current_project()
+    local cwd = vim.fn.getcwd()
 
-    for _, client in ipairs(clients) do
-        local match = builders[client.name]
-        if match then
-            return match
+    for _, meta in pairs(project_types) do
+        local has_marker = false
+
+        for _, marker in ipairs(meta.markers) do
+            if #vim.fn.glob(cwd .. "/" .. marker, false, true) > 0 then
+                has_marker = true
+                break
+            end
         end
-    end
 
-    return nil
+        if not has_marker then
+            goto continue
+        end
+
+        if type(meta.build) == "function" then
+            return meta.build(cwd)
+        else
+            return meta.build
+        end
+
+        ::continue::
+    end
 end
+
 
 local function run_command(cmd)
     local buf = vim.api.nvim_create_buf(false, true)
@@ -82,37 +96,69 @@ local function run_command(cmd)
         on_stderr = function(_, data) append(data) end,
         on_exit = function(_, code)
             local color = code == 0 and '\x1b[32m' or '\x1b[31m'
-            local code_lines = { '\t[' .. color .. code .. '\x1b[37m]' }
+            local code_lines = { '\tProcess exited with code ' .. color .. code .. '\x1b[37m' }
 
             local lastline = vim.api.nvim_buf_line_count(buf)
             baleia.buf_set_lines(buf, lastline, lastline, true, code_lines)
 
-            vim.bo[buf].modifiable = false
-            vim.defer_fn(function()
-                if vim.api.nvim_win_is_valid(win) then
-                    vim.api.nvim_win_close(win, true)
-                end
-            end, 10000)
-        end,
-    })
+            local total_time = 10
+            local namespace = vim.api.nvim_create_namespace("builder_timer")
+            local current_win_height = vim.api.nvim_win_get_height(win)
+            local buf_line_count = vim.api.nvim_buf_line_count(buf)
 
-    vim.keymap.set("n", "<leader>bc", function()
-        if active_build_win and vim.api.nvim_win_is_valid(active_build_win) then
-            vim.api.nvim_win_close(active_build_win, true)
-            active_build_win = nil
+            if buf_line_count < current_win_height then
+                local padding = {}
+                for _ = 1, current_win_height - buf_line_count do
+                    table.insert(padding, "")
+                end
+                vim.api.nvim_buf_set_lines(buf, -1, -1, false, padding)
+            end
+
+            local timer = vim.loop.new_timer()
+            timer:start(0, 1000, vim.schedule_wrap(function()
+                if not vim.api.nvim_buf_is_valid(buf) or not vim.api.nvim_win_is_valid(win) then
+                    timer:stop()
+                    return
+                end
+
+                if total_time < 0 then
+                    timer:stop()
+                    vim.api.nvim_win_close(win, true)
+                    return
+                end
+
+                local msg = total_time .. "s"
+                local line = current_win_height - 1
+
+                vim.api.nvim_buf_clear_namespace(buf, namespace, line, line + 1)
+                vim.api.nvim_buf_set_extmark(buf, namespace, line, 0, {
+                    virt_text = { { msg, "Comment" } },
+                    virt_text_pos = "right_align",
+                })
+
+                total_time = total_time - 1
+            end))
         end
-    end)
+
+    })
 end
 
 M.build = function()
-    local builder = get_builder_for_current_lsp()
+    local build_cmd = get_build_cmd_for_current_project()
 
-    if not builder then
+    if not build_cmd then
         vim.notify("No build command found", vim.log.levels.WARN)
         return
     end
 
-    run_command(builder)
+    run_command(build_cmd)
+end
+
+M.close_build_log = function()
+    if active_build_win and vim.api.nvim_win_is_valid(active_build_win) then
+        vim.api.nvim_win_close(active_build_win, true)
+        active_build_win = nil
+    end
 end
 
 return M
