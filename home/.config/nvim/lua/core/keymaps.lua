@@ -81,3 +81,11 @@ end, options)
 vim.keymap.set("n", "<leader>bc", function()
     require("workflow.builder").close_build_log()
 end, options)
+
+vim.keymap.set("n", "<leader>l", function()
+    require("workflow.launcher").launch()
+end, options)
+
+vim.keymap.set("n", "<leader>ml", function()
+    require("workflow.launcher").manage_commands()
+end, options)
